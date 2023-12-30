@@ -487,7 +487,7 @@ function write_rewards()
     rewards_offset = 0xC6A8
     reward_array = {}
     local i = 1
-    while i <= 169 do
+    while i <= 169 * 2 do
         reward_array[i] = 0x00
         i = i + 1
     end
@@ -794,6 +794,7 @@ function main()
     write_rewards()
     write_evidence_chests()
     write_slides()
+    write_world_lines()
 end
 
 function test()
