@@ -827,5 +827,4 @@ function _OnFrame()
         main()
     end
     frame_count = frame_count + 1
-    worlds_unlocked_array = get_world
 end
