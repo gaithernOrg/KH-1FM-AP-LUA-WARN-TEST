@@ -486,7 +486,7 @@ function write_rewards()
     battle_table_address = 0x2D1F3C0 - offset
     rewards_offset = 0xC6A8
     reward_array = {}
-    i = 1
+    local i = 1
     while i <= 169 do
         reward_array[i] = 0x00
         i = i + 1
@@ -498,7 +498,7 @@ function write_chests()
     --Removes all obtained items from chests
     chest_table_address = 0x5259E0 - offset
     chest_array = {}
-    i = 1
+    local i = 1
     while i <= 511 * 2 do
         chest_array[i] = 0x00
         i = i + 1
@@ -523,7 +523,7 @@ function write_synth_requirements()
     --an unobtainable material, preventing the player from synthing.
     synth_requirements_address = 0x544320 - offset
     synth_array = {}
-    i = 0
+    local i = 0
     while i < 20 do --First 20 items should be enough to prevent player from unlocking more recipes
         synth_array[(i*4) + 1] = 0xE8 --Requirement (unobtainable)
         synth_array[(i*4) + 2] = 0x00 --Blank
@@ -540,7 +540,7 @@ function write_soras_level_up_rewards()
     battle_table_address = 0x2D1F3C0 - offset
     soras_stat_level_up_rewards_address = battle_table_address + 0x3AC0
     overwrite_array = {}
-    i = 1
+    local i = 1
     while i <= 99 do
         overwrite_array[i] = 0
         i = i + 1
@@ -613,7 +613,7 @@ end
 
 function write_sora_ability(ability_value)
     abilities_address = 0x2DE5A13 - offset
-    i = 1
+    local i = 1
     while ReadByte(abilities_address + i) ~= 0 do
         i = i + 1
     end
@@ -663,7 +663,7 @@ function add_to_soras_stats(value)
 end
 
 function add_to_shared_abilities_array(shared_abilities_array, value)
-    i = 1
+    local i = 1
     while shared_abilities_array[i] ~= 0 do
         i = i + 1
     end
@@ -708,7 +708,7 @@ function calculate_full()
     shared_abilities_array = {0, 0, 0, 0}
     summons_array = {255, 255, 255, 255, 255, 255}
     trinity_bits = {0, 0, 0, 0, 0}
-    i = 1
+    local i = 1
     while file_exists(client_communication_path .. "AP_" .. tostring(i) .. ".item") do
         file = io.open(client_communication_path .. "AP_" .. tostring(i) .. ".item", "r")
         io.input(file)
