@@ -621,7 +621,7 @@ function write_sora_ability(ability_value)
 end
 
 function write_shared_abilities_array(shared_abilities_array)
-    shared_abilities_address = 0x2DE5F68 - offset
+    shared_abilities_address = 0x2DE5F69 - offset
     WriteArray(shared_abilities_address, shared_abilities_array)
 end
 
