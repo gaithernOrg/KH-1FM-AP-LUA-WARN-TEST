@@ -1,0 +1,13 @@
+title: KH1FM Archipelago Companion
+originalAuthor: Gicu
+description: Necessary files for the KH1FM Archipelago
+assets:
+#Lua Script
+- name: scripts/connector_kh1fm.lua
+  method: copy
+  source:
+  - name: connector_kh1fm.lua
+- name: scripts/1fmInstantGummi_ap.lua
+  method: copy
+  source:
+  - name: 1fmInstantGummi_ap.lua
