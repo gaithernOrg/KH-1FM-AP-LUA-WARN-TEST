@@ -479,6 +479,11 @@ function read_ansems_secret_reports()
     return ansems_secret_reports_array
 end
 
+function read_olympus_cups_array()
+    olympus_cups_address = 0x2DE77D0 - offset
+    return ReadArray(olympus_cups_address, 4)
+end
+
 function write_world_lines()
     --Opens all world connections on the world map
     world_map_lines_address = 0x2DE78E2 - offset
@@ -650,7 +655,7 @@ end
 
 function write_olympus_cups(olympus_cups_array)
     olympus_cups_address = 0x2DE77D0 - offset
-    current_olympus_cups_array = ReadArray(olympus_cups_address, 4)
+    current_olympus_cups_array = read_olympus_cups_array()
     for k,v in pairs(current_olympus_cups_array) do
         if v == 1 then
             olympus_cups_array[k] = v
@@ -758,6 +763,8 @@ function send_locations()
     chest_array = read_chests_opened_array()
     chronicles_array = read_chronicles()
     ansems_secret_reports_array = read_ansems_secret_reports()
+    soras_level = read_soras_level()
+    olympus_cups_array = read_olympus_cups_array()
     for k,v in pairs(chest_array) do
         bits = toBits(v)
         for ik,iv in pairs(bits) do
@@ -797,6 +804,26 @@ function send_locations()
                     io.write("")
                     io.close(file)
                 end
+            end
+        end
+    end
+    for j=1,soras_level do
+        location_id = 2658000 + j
+        if not file_exists(client_communication_path .. "send" .. tostring(location_id)) then
+            file = io.open(client_communication_path .. "send" .. tostring(location_id), "w")
+            io.output(file)
+            io.write("")
+            io.close(file)
+        end
+    end
+    for j=1,#olympus_cups_array do
+        if olympus_cups_array[j] == 1 then
+            location_id = 2659000 + j
+            if not file_exists(client_communication_path .. "send" .. tostring(location_id)) then
+                file = io.open(client_communication_path .. "send" .. tostring(location_id), "w")
+                io.output(file)
+                io.write("")
+                io.close(file)
             end
         end
     end
