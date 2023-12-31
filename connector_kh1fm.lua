@@ -397,6 +397,10 @@ function define_item_ids()
     item_ids["Green Trinity"]           = 2648003
     item_ids["Yellow Trinity"]          = 2648004
     item_ids["White Trinity"]           = 2648005
+    item_ids["Phil Cup"]                = 2649001
+    item_ids["Pegasus Cup"]             = 2649002
+    item_ids["Hercules Cup"]            = 2649003
+    item_ids["Hades Cup"]               = 2649004
     return item_ids
 end
 
@@ -644,6 +648,17 @@ function write_trinities(trinity_bits)
     WriteByte(trinities_unlocked_address, (1 * trinity_bits[1]) + (2 * trinity_bits[2]) + (4 * trinity_bits[3]) + (8 * trinity_bits[4]) + (16 * trinity_bits[5]))
 end
 
+function write_olympus_cups(olympus_cups_array)
+    olympus_cups_address = 0x2DE77D0 - offset
+    current_olympus_cups_array = ReadArray(olympus_cups_address, 4)
+    for k,v in pairs(current_olympus_cups_array) do
+        if v == 1 then
+            olympus_cups_array[k] = v
+        end
+    end
+    WriteArray(olympus_cups_address, olympus_cups_array)
+end
+
 function increment_check_array(check_array)
     if check_array[1] == 255 and check_array[2] == 255 then
         check_array[3] = check_array[3] + 1
@@ -708,6 +723,7 @@ function calculate_full()
     shared_abilities_array = {0, 0, 0, 0}
     summons_array = {255, 255, 255, 255, 255, 255}
     trinity_bits = {0, 0, 0, 0, 0}
+    olympus_cups_array = {0, 0, 0, 0}
     local i = 1
     while file_exists(client_communication_path .. "AP_" .. tostring(i) .. ".item") do
         file = io.open(client_communication_path .. "AP_" .. tostring(i) .. ".item", "r")
@@ -723,8 +739,10 @@ function calculate_full()
             magic_levels_array[received_item_id % 2646000] = magic_levels_array[received_item_id % 2646000] + 1
         elseif received_item_id >= 2647000 and received_item_id < 2648000 then
             worlds_unlocked_array[received_item_id % 2647000] = 3
-        elseif received_item_id >= 2648000 then
+        elseif received_item_id >= 2648000 and received_item_id < 2649000 then
             trinity_bits[received_item_id % 2648000] = 1
+        elseif received_item_id >= 2649000 then
+            olympus_cups_array[received_item_id % 2649000] = 10
         end
         i = i + 1
     end
@@ -733,6 +751,7 @@ function calculate_full()
     write_shared_abilities_array(shared_abilities_array)
     write_summons_array(summons_array)
     write_trinities(trinity_bits)
+    write_olympus_cups(olympus_cups_array)
 end
 
 function send_locations()
@@ -826,6 +845,7 @@ end
 function _OnFrame()
     if frame_count % 120 == 0 then
         main()
+        --test()
     end
     frame_count = frame_count + 1
 end
