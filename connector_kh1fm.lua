@@ -589,15 +589,36 @@ end
 function write_evidence_chests()
     lotus_forest_evidence_address = 0x2D39B90 - offset
     bizarre_rooom_evidence_address = 0x2D39230 - offset
+    --if read_world() == 4 then
+    --    if read_room() == 4 then
+    --        WriteLong(lotus_forest_evidence_address, 0)
+    --        WriteLong(lotus_forest_evidence_address + 0x4B0, 0)
+    --    elseif read_room() == 1 then
+    --        WriteLong(bizarre_rooom_evidence_address, 0)
+    --        WriteLong(bizarre_rooom_evidence_address + 0x4B0, 0)
+    --    end
+    --end
     if read_world() == 4 then
         if read_room() == 4 then
-            WriteLong(lotus_forest_evidence_address, 0)
-            WriteLong(lotus_forest_evidence_address + 0x4B0, 0)
+            local o = 0
+            while ReadInt(lotus_forest_evidence_address+4+o*0x4B0) ~= 0x40013 and ReadInt(lotus_forest_evidence_address+4+o*0x4B0) ~= 0 and o > -5 do
+                o = o-1
+            end
+            if ReadLong(lotus_forest_evidence_address+o*0x4B0) == 0x0004001300008203 then
+                WriteLong(lotus_forest_evidence_address+o*0x4B0, 0)
+                WriteLong(lotus_forest_evidence_address+(o+1)*0x4B0, 0)
+            end
         elseif read_room() == 1 then
-            WriteLong(bizarre_rooom_evidence_address, 0)
-            WriteLong(bizarre_rooom_evidence_address + 0x4B0, 0)
+            local o = 0
+            while ReadInt(bizarre_rooom_evidence_address+4+o*0x4B0) ~= 0x40013 and ReadInt(bizarre_rooom_evidence_address+4+o*0x4B0) ~= 0 and o > -5 do
+                o = o-1
+            end
+            if ReadLong(bizarre_rooom_evidence_address+o*0x4B0) == 0x0004001300008003 then
+                    WriteLong(bizarre_rooom_evidence_address+o*0x4B0, 0)
+                    WriteLong(bizarre_rooom_evidence_address+(o+1)*0x4B0, 0)
+                end
+            end
         end
-    end
 end
 
 function write_slides()
