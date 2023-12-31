@@ -434,17 +434,21 @@ end
 
 function read_soras_stats_array()
     --Reads an array of Sora's stats
-    soras_stats_address  = 0x2DE59D6 - offset
-    sora_hp_offset       = 0x0
-    sora_mp_offset       = 0x2
-    sora_ap_offset       = 0x3
-    sora_strength_offset = 0x4
-    sora_defense_offset  = 0x5
+    soras_stats_address         = 0x2DE59D6 - offset
+    sora_hp_offset              = 0x0
+    sora_mp_offset              = 0x2
+    sora_ap_offset              = 0x3
+    sora_strength_offset        = 0x4
+    sora_defense_offset         = 0x5
+    sora_accessory_slots_offset = 0x16
+    sora_item_slots_offset      = 0x1F
     return {ReadByte(soras_stats_address + sora_hp_offset)
           , ReadByte(soras_stats_address + sora_mp_offset)
           , ReadByte(soras_stats_address + sora_ap_offset)
           , ReadByte(soras_stats_address + sora_strength_offset)
-          , ReadByte(soras_stats_address + sora_defense_offset)}
+          , ReadByte(soras_stats_address + sora_defense_offset)
+          , ReadByte(soras_stats_address + sora_accessory_slots_offset)
+          , ReadByte(soras_stats_address + sora_item_slots_offset)}
 end
 
 function read_check_array()
@@ -565,15 +569,15 @@ function write_soras_stats(soras_stats_array)
     sora_ap_offset              = 0x03
     sora_strength_offset        = 0x04
     sora_defense_offset         = 0x05
-    sora_item_slots_offset      = 0x1C
-    sora_accessory_slots_offset = 0x25
+    sora_accessory_slots_offset = 0x16
+    sora_item_slots_offset      = 0x1F
     WriteByte(soras_stats_address + sora_hp_offset              , soras_stats_array[1])
     WriteByte(soras_stats_address + sora_mp_offset              , soras_stats_array[2])
     WriteByte(soras_stats_address + sora_ap_offset              , soras_stats_array[3])
     WriteByte(soras_stats_address + sora_strength_offset        , soras_stats_array[4])
     WriteByte(soras_stats_address + sora_defense_offset         , soras_stats_array[5])
-    WriteByte(soras_stats_address + sora_item_slots_offset      , soras_stats_array[6])
-    WriteByte(soras_stats_address + sora_accessory_slots_offset , soras_stats_array[7])
+    WriteByte(soras_stats_address + sora_accessory_slots_offset , soras_stats_array[6])
+    WriteByte(soras_stats_address + sora_item_slots_offset      , soras_stats_array[7])
 end
 
 function write_check_array(check_array)
@@ -664,6 +668,18 @@ function write_olympus_cups(olympus_cups_array)
     WriteArray(olympus_cups_address, olympus_cups_array)
 end
 
+function write_level_up_rewards()
+    battle_table_address = 0x2D1F3C0 - offset
+    level_up_rewards_offset = 0x3AC0
+    level_up_array = {}
+    local i = 1
+    while i <= 442 do
+        level_up_array[i] = 0
+        i = i + 1
+    end
+    WriteArray(battle_table_address + level_up_rewards_offset, level_up_array)
+end
+    
 function increment_check_array(check_array)
     if check_array[1] == 255 and check_array[2] == 255 then
         check_array[3] = check_array[3] + 1
@@ -841,6 +857,7 @@ function main()
     write_evidence_chests()
     write_slides()
     write_world_lines()
+    write_level_up_rewards()
 end
 
 function test()
