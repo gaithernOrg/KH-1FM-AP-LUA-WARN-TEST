@@ -591,8 +591,8 @@ function write_evidence_chests()
     bizarre_rooom_evidence_address = 0x2D39230 - offset
     if read_world() == 4 then
         if read_room() == 4 then
-            WriteLong(lotus_forest_chest_address, 0)
-            WriteLong(lotus_forest_chest_address + 0x4B0, 0)
+            WriteLong(lotus_forest_evidence_address, 0)
+            WriteLong(lotus_forest_evidence_address + 0x4B0, 0)
         elseif read_room() == 1 then
             WriteLong(bizarre_rooom_evidence_address, 0)
             WriteLong(bizarre_rooom_evidence_address + 0x4B0, 0)
