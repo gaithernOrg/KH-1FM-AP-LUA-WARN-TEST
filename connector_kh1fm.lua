@@ -692,15 +692,22 @@ end
 function write_level_up_rewards()
     battle_table_address = 0x2D1F3C0 - offset
     level_up_rewards_offset = 0x3AC0
+    abilities_1_table_offset = 0x3BF8
+    abilities_2_table_offset = 0x3BF8 - 0xD0
+    abilities_3_table_offset = 0x3BF8 - 0x68
     level_up_array = {}
+    ability_array = {}
     local i = 1
-    while i <= 442 do
+    while i <= 100 do
         level_up_array[i] = 0
         i = i + 1
     end
     WriteArray(battle_table_address + level_up_rewards_offset, level_up_array)
+    WriteArray(battle_table_address + abilities_1_table_offset, level_up_array)
+    WriteArray(battle_table_address + abilities_2_table_offset, level_up_array)
+    WriteArray(battle_table_address + abilities_3_table_offset, level_up_array)
 end
-    
+
 function increment_check_array(check_array)
     if check_array[1] == 255 and check_array[2] == 255 then
         check_array[3] = check_array[3] + 1
