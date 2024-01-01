@@ -497,7 +497,7 @@ function FlagFixes()
                 WriteByte(evidence+i, 0)
             end
         end
-        if ReadByte(room) == 4 and evidenceCount < 1 then
+        if ReadByte(room) == 4 then
             local o = 0
             while ReadInt(evidenceActiveForest+4+o*0x4B0) ~= 0x40013 and ReadInt(evidenceActiveForest+4+o*0x4B0) ~= 0 and o > -5 do
                 o = o-1
@@ -512,12 +512,10 @@ function FlagFixes()
                 o = o-1
             end
             if ReadLong(evidenceActiveBizarre+o*0x4B0) == 0x0004001300008003 then
-                if ReadByte(inventory+0xDF) > 0 or evidenceCount < sets["RequiredEvidence"] then
+                if ReadByte(inventory+0xDF) > 0 then
                     WriteLong(evidenceActiveBizarre+o*0x4B0, 0)
                 end
-                if evidenceCount < sets["RequiredEvidence"] then
-                    WriteLong(evidenceActiveBizarre+(o+1)*0x4B0, 0)
-                end
+                WriteLong(evidenceActiveBizarre+(o+1)*0x4B0, 0)
             end
         end
     end
@@ -598,7 +596,7 @@ function FlagFixes()
             WriteInt(terminusTeleUsable, 0xFFFFD8F0)
             WriteInt(terminusTeleVisible, 0xC61C4000)
         end
-    elseif ReadByte(cutsceneFlags+0xB0E) >= 0xC3 and ReadInt(inGummi) > 0 and ReadByte(unlockedWarps+2) < 3 and sets["EotWSkip"] ~= 0 then
+    elseif ReadByte(cutsceneFlags+0xB0E) >= 0xC3 and ReadInt(inGummi) > 0 and ReadByte(unlockedWarps+2) < 3 and true then
         WriteByte(unlockedWarps+2, 3)
         WriteByte(cutsceneFlags+0xB0F, math.max(ReadByte(cutsceneFlags+0xB0F), 8))
         WriteByte(worldFlagBase+0xDC, 0xD)
