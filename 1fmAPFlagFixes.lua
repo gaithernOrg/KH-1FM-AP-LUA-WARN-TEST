@@ -628,14 +628,14 @@ function FlagFixes()
             WriteByte(emblemDoor+3, doorClose and 1 or 5)
         end
         
-        if ReadByte(libraryFlag) == 0 then
-            WriteByte(libraryFlag, 2)
-        end
-        
-        if ReadByte(room) == 5 and ReadLong(khamaActive) == 0x0004000000008003 then
-            WriteLong(khamaActive, 0)
-            WriteLong(theonActive, 0)
-        end
+        --if ReadByte(libraryFlag) == 0 then
+        --    WriteByte(libraryFlag, 2)
+        --end
+        --
+        --if ReadByte(room) == 5 and ReadLong(khamaActive) == 0x0004000000008003 then
+        --    WriteLong(khamaActive, 0)
+        --    WriteLong(theonActive, 0)
+        --end
     end
 
     if ReadByte(cutsceneFlags+0xB00) == 0xDC then
