@@ -35,6 +35,7 @@ end
 
 --- Global Variables ---
 frame_count = 1
+canExecute = false
 
 --- Addresses ---
 offset = 0x3A0606
@@ -519,7 +520,7 @@ function write_chests()
     WriteArray(chest_table_address, chest_array)
 end
 
-function write_unlocked_worlds(unlocked_worlds_array)
+function write_unlocked_worlds(unlocked_worlds_array, monstro_unlocked)
     --Writes unlocked worlds.  Array of 11 values, one for each world
     --TT, WL, OC, DJ, AG, AT, HT, NL, HB, EW, MS
     --00 is invisible
@@ -528,7 +529,9 @@ function write_unlocked_worlds(unlocked_worlds_array)
     --03 is incomplete
     --04 is complete
     world_status_address = 0x2DE78C0 - offset
+    monstro_status_addresss = world_status_address + 0xA
     WriteArray(world_status_address, unlocked_worlds_array)
+    WriteByte(monstro_status_addresss, monstro_unlocked)
 end
 
 function write_synth_requirements()
@@ -768,18 +771,22 @@ end
 function calculate_full()
     magic_unlocked_bits = {0, 0, 0, 0, 0, 0, 0}
     magic_levels_array  = {0, 0, 0, 0, 0, 0, 0}
-    worlds_unlocked_array = {3, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0}
+    worlds_unlocked_array = {3, 0, 0, 0, 0, 0, 0, 0, 0}
+    monstro_unlocked = 0
     shared_abilities_array = {0, 0, 0, 0}
     summons_array = {255, 255, 255, 255, 255, 255}
     trinity_bits = {0, 0, 0, 0, 0}
     olympus_cups_array = {0, 0, 0, 0}
+    victory = false
     local i = 1
     while file_exists(client_communication_path .. "AP_" .. tostring(i) .. ".item") do
         file = io.open(client_communication_path .. "AP_" .. tostring(i) .. ".item", "r")
         io.input(file)
         received_item_id = tonumber(io.read())
         io.close(file)
-        if received_item_id >= 2642000 and received_item_id < 2643000 then
+        if received_item_id == 2640000 then
+            victory = true
+        elseif received_item_id >= 2642000 and received_item_id < 2643000 then
             shared_abilities_array = add_to_shared_abilities_array(shared_abilities_array, received_item_id % 2642000)
         elseif received_item_id >= 2645000 and received_item_id < 2646000 then
             summons_array = add_to_summons_array(summons_array, received_item_id % 2645000)
@@ -787,7 +794,11 @@ function calculate_full()
             magic_unlocked_bits[received_item_id % 2646000] = 1
             magic_levels_array[received_item_id % 2646000] = magic_levels_array[received_item_id % 2646000] + 1
         elseif received_item_id >= 2647000 and received_item_id < 2648000 then
-            worlds_unlocked_array[received_item_id % 2647000] = 3
+            if received_item_id % 2647000 < 10 then
+                worlds_unlocked_array[received_item_id % 2647000] = 3
+            elseif received_item_id % 2647000 == 11 then
+                monstro_unlocked = 3
+            end
         elseif received_item_id >= 2648000 and received_item_id < 2649000 then
             trinity_bits[received_item_id % 2648000] = 1
         elseif received_item_id >= 2649000 then
@@ -796,11 +807,12 @@ function calculate_full()
         i = i + 1
     end
     write_magic(magic_unlocked_bits, magic_levels_array)
-    write_unlocked_worlds(worlds_unlocked_array)
+    write_unlocked_worlds(worlds_unlocked_array, monstro_unlocked)
     write_shared_abilities_array(shared_abilities_array)
     write_summons_array(summons_array)
     write_trinities(trinity_bits)
     write_olympus_cups(olympus_cups_array)
+    return victory
 end
 
 function send_locations()
@@ -871,19 +883,27 @@ function send_locations()
             end
         end
     end
+    if victory then
+        if not file_exists(client_communication_path .. "victory") then
+            file = io.open(client_communication_path .. "victory", "w")
+            io.output(file)
+            io.write("")
+            io.close(file)
+        end
+    end
 end
 
 function main()
     receive_items()
-    calculate_full()
-    send_locations()
+    victory = calculate_full()
+    send_locations(victory)
     
     --Cleaning up static things
     write_synth_requirements()
     write_chests()
     write_rewards()
-    write_evidence_chests()
-    write_slides()
+    --write_evidence_chests()
+    --write_slides()
     write_world_lines()
     write_level_up_rewards()
 end
@@ -911,11 +931,16 @@ function test()
 end
 
 function _OnInit()
-    ConsolePrint("KH1FM AP Running...")
+	if GAME_ID == 0xAF71841E and ENGINE_TYPE == "BACKEND" then
+		canExecute = true
+		ConsolePrint("KH1 detected, running script")
+	else
+		ConsolePrint("KH1 not detected, not running script")
+	end
 end
 
 function _OnFrame()
-    if frame_count % 120 == 0 then
+    if frame_count % 120 == 0 and canExecute then
         main()
         --test()
     end

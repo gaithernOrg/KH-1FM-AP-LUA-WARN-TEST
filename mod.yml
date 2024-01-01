@@ -3,11 +3,15 @@ originalAuthor: Gicu
 description: Necessary files for the KH1FM Archipelago
 assets:
 #Lua Script
-- name: scripts/connector_kh1fm.lua
+- name: scripts/1fmAPConnector.lua
   method: copy
   source:
-  - name: connector_kh1fm.lua
-- name: scripts/1fmInstantGummi_ap.lua
+  - name: 1fmAPConnector.lua
+- name: scripts/1fmAPInstantGummi.lua
   method: copy
   source:
-  - name: 1fmInstantGummi_ap.lua
+  - name: 1fmAPInstantGummi.lua
+- name: scripts/1fmAPFlagFixes.lua
+  method: copy
+  source:
+  - name: 1fmAPFlagFixes.lua

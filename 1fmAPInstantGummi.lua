@@ -44,10 +44,10 @@ function _OnFrame()
 	end
 	
 	-- Replace HT and Atlantica with Monstro at first
-	if not monstroOpen and (selection == 10 or selection == 9) then
-		selection = selection == 9 and 18 or 17
-		--WriteInt(0x503CEC-offset, selection)
-	end
+	--if not monstroOpen and (selection == 10 or selection == 9) then
+	--	selection = selection == 9 and 18 or 17
+	--	--WriteInt(0x503CEC-offset, selection)
+	--end
 	-- Change warp to Hollow Bastion
 	if selection == 25 then 
 		selection = 1
