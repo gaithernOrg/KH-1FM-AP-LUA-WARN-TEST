@@ -711,6 +711,11 @@ function write_level_up_rewards()
     WriteArray(battle_table_address + abilities_3_table_offset, level_up_array)
 end
 
+function write_e()
+    inventory_address = 0x2DE5E69 - offset
+    WriteByte(inventory_address, 0)
+end
+
 function increment_check_array(check_array)
     if check_array[1] == 255 and check_array[2] == 255 then
         check_array[3] = check_array[3] + 1
@@ -906,6 +911,7 @@ function main()
     --write_slides()
     write_world_lines()
     write_level_up_rewards()
+    write_e()
 end
 
 function test()
