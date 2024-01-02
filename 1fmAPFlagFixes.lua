@@ -631,7 +631,7 @@ function FlagFixes()
         end
         
         if ReadByte(room) == 5 then --and ReadLong(khamaActive) == 0x0004000000008003 then
-            WriteLong(khamaActive, 0)
+            --WriteLong(khamaActive, 0)
             WriteLong(theonActive, 0)
         end
     end
