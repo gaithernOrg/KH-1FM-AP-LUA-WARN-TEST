@@ -484,19 +484,19 @@ function FlagFixes()
     -- end
     
     if ReadByte(cutsceneFlags+0xB07) < 0x11 and ReadByte(world) == 4 then
-        local evidenceCount = 0
-        for i=0xDE, 0xE1 do
-            evidenceCount = evidenceCount + math.min(ReadByte(inventory+i), 1)
-        end
-        if evidenceCount >= 1 then
-            for i=0,3 do
-                WriteByte(evidence+i, math.min(ReadByte(inventory+0xDE+i), 1))
-            end
-        else
-            for i=0,3 do
-                WriteByte(evidence+i, 0)
-            end
-        end
+        ---local evidenceCount = 0
+        --for i=0xDE, 0xE1 do
+        --    evidenceCount = evidenceCount + math.min(ReadByte(inventory+i), 1)
+        --end
+        --if evidenceCount >= 1 then
+        --    for i=0,3 do
+        --        WriteByte(evidence+i, math.min(ReadByte(inventory+0xDE+i), 1))
+        --    end
+        --else
+        --    for i=0,3 do
+        --        WriteByte(evidence+i, 0)
+        --    end
+        --end
         if ReadByte(room) == 4 then
             local o = 0
             while ReadInt(evidenceActiveForest+4+o*0x4B0) ~= 0x40013 and ReadInt(evidenceActiveForest+4+o*0x4B0) ~= 0 and o > -5 do
@@ -512,9 +512,7 @@ function FlagFixes()
                 o = o-1
             end
             if ReadLong(evidenceActiveBizarre+o*0x4B0) == 0x0004001300008003 then
-                if ReadByte(inventory+0xDF) > 0 then
-                    WriteLong(evidenceActiveBizarre+o*0x4B0, 0)
-                end
+                WriteLong(evidenceActiveBizarre+o*0x4B0, 0)
                 WriteLong(evidenceActiveBizarre+(o+1)*0x4B0, 0)
             end
         end
