@@ -656,6 +656,14 @@ function OpenGummi()
     end
 end
 
+function RoomWarp(w, r)
+	WriteByte(warpType1, 5)
+	WriteByte(warpType2, 10)
+	WriteByte(worldWarp, w)
+	WriteByte(roomWarp, r)
+	WriteByte(warpTrigger, 2)
+end
+
 function _OnInit()
     if GAME_ID == 0xAF71841E and ENGINE_TYPE == "BACKEND" then
         canExecute = true
