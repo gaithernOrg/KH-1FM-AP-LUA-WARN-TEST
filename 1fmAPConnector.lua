@@ -36,6 +36,8 @@ end
 --- Global Variables ---
 frame_count = 1
 canExecute = false
+worlds_unlocked_array = {3, 0, 0, 0, 0, 0, 0, 0, 0}
+monstro_unlocked = 0
 
 --- Addresses ---
 offset = 0x3A0606
@@ -812,7 +814,6 @@ function calculate_full()
         i = i + 1
     end
     write_magic(magic_unlocked_bits, magic_levels_array)
-    write_unlocked_worlds(worlds_unlocked_array, monstro_unlocked)
     write_shared_abilities_array(shared_abilities_array)
     write_summons_array(summons_array)
     write_trinities(trinity_bits)
@@ -949,6 +950,7 @@ function _OnFrame()
     if frame_count % 120 == 0 and canExecute then
         main()
         --test()
+        write_unlocked_worlds(worlds_unlocked_array, monstro_unlocked)
     end
     frame_count = frame_count + 1
 end
