@@ -330,14 +330,14 @@ function FlagFixes()
         --    end
         --end
         
-        --if ReadInt(OCCupDialog) == 0xF9 and ReadByte(room) == 1 then
-        --    WriteInt(OCCupDialog, 0x290)
-        --    OCTextFix = 60
-        --elseif OCTextFix > 0 and ReadInt(OCCupDialog) > 0x290 then
-        --    WriteFloat(textBox, ReadFloat(textBox) > 0 and 155 or -110)
-        --    WriteFloat(textBox+0x50, 160)
-        --    OCTextFix = 0
-        --end
+        if ReadInt(OCCupDialog) == 0xF9 and ReadByte(room) == 1 then
+            WriteInt(OCCupDialog, 0x290)
+            OCTextFix = 60
+        elseif OCTextFix > 0 and ReadInt(OCCupDialog) > 0x290 then
+            WriteFloat(textBox, ReadFloat(textBox) > 0 and 155 or -110)
+            WriteFloat(textBox+0x50, 160)
+            OCTextFix = 0
+        end
         
         -- Require Entry Pass
         if ReadByte(cutsceneFlags+0xB06) == 0x10 then
