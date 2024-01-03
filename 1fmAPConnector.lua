@@ -813,6 +813,9 @@ function calculate_full()
         end
         i = i + 1
     end
+    if olympus_cups_array[1] == 10 and olympus_cups_array[2] == 10 and olympus_cups_array[3] == 10 then
+        olympus_cups_array[4] = 10
+    end
     write_magic(magic_unlocked_bits, magic_levels_array)
     write_shared_abilities_array(shared_abilities_array)
     write_summons_array(summons_array)
