@@ -337,7 +337,7 @@ function FlagFixes()
         --    WriteFloat(textBox, ReadFloat(textBox) > 0 and 155 or -110)
         --    WriteFloat(textBox+0x50, 160)
         --    OCTextFix = 0
-        end
+        --end
         
         -- Require Entry Pass
         if ReadByte(cutsceneFlags+0xB06) == 0x10 then
