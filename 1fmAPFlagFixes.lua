@@ -554,7 +554,7 @@ function FlagFixes()
                 for i=0,5 do
                     slideCount = slideCount + math.min(ReadByte(inventory+0xD8+i), 1)
                 end
-                if slideCount < 6 then
+                if slideCount < 1 then
                     local o = 0
                     while ReadInt(slideActive+o*0x4B0+4) ~= 0x40018 and ReadInt(slideActive+o*0x4B0+4) ~= 0 and o > -5 do
                         o = o-1
