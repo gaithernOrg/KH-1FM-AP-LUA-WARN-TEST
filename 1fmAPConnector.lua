@@ -772,7 +772,7 @@ function receive_items()
         io.close(file)
 
         --sending the prompt
-        local text_1 = "RECIEVED ITEM"
+        local text_1 = "RECEIVED ITEM"
         local text_2 = get_item_name(received_item_id) or "UNKNOWN ITEM"
         show_prompt({text_1}, {{text_2}})
 
