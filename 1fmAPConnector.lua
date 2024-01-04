@@ -146,7 +146,7 @@ function define_item_ids()
     item_ids["Wishing Star"]            = 2641099
     item_ids["Ultima Weapon"]           = 2641100
     item_ids["Diamond Dust"]            = 2641101
-    item_ids["One-Winged Angel; -"]     = 2641102
+    item_ids["One-Winged Angel"]     = 2641102
     item_ids["Mage's Staff"]            = 2641103
     item_ids["Morning Star"]            = 2641104
     item_ids["Shooting Star"]           = 2641105
@@ -368,10 +368,10 @@ function define_item_ids()
     item_ids["Max HP Up"]               = 2644001
     item_ids["Max MP Up"]               = 2644002
     item_ids["Max AP Up"]               = 2644003
-    item_ids["Strength Up"]             = 2644004
-    item_ids["Defense Up"]              = 2644005
-    item_ids["Item Slot Up"]            = 2644006
-    item_ids["Accessory Slot Up"]       = 2644007
+    item_ids["Strength Increase"]       = 2644004
+    item_ids["Defense Increase"]        = 2644005
+    item_ids["Item Slot Increase"]      = 2644006
+    item_ids["Accessory Slot Increase"] = 2644007
     item_ids["Dumbo"]                   = 2645000
     item_ids["Bambi"]                   = 2645001
     item_ids["Genie"]                   = 2645002
