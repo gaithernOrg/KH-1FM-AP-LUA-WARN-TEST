@@ -45,6 +45,7 @@ offset = 0x3A0606
 --- Definitions ---
 function define_item_ids()
     item_ids = {}
+    item_ids["Victory"]                 = 2640000
     item_ids["Potion"]                  = 2641001
     item_ids["Hi-Potion"]               = 2641002
     item_ids["Ether"]                   = 2641003
