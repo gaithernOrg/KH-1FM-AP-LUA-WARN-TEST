@@ -365,9 +365,9 @@ function define_item_ids()
     item_ids["Evolution"]               = 2643063
     item_ids["EXP Zero"]                = 2643064
     item_ids["Combo Master"]            = 2643065
-    item_ids["Max HP Up"]               = 2644001
-    item_ids["Max MP Up"]               = 2644002
-    item_ids["Max AP Up"]               = 2644003
+    item_ids["Max HP Increase"]         = 2644001
+    item_ids["Max MP Increase"]         = 2644002
+    item_ids["Max AP Increase"]         = 2644003
     item_ids["Strength Increase"]       = 2644004
     item_ids["Defense Increase"]        = 2644005
     item_ids["Item Slot Increase"]      = 2644006
