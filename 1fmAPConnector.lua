@@ -45,6 +45,9 @@ item_categories = {
   abilities = 3,
   magic_trinities_summons = 4,
 }
+message_cache = {
+  items = {}
+}
 
 --- Addresses ---
 offset = 0x3A0606
@@ -805,7 +808,9 @@ function receive_items()
 
        local item = get_item_by_id(received_item_id) or { Name = "UNKNOWN ITEM", ID = -1}
 
-        show_prompt_for_item(item)
+        table.insert(message_cache.items, item)
+
+        -- show_prompt_for_item(item)
 
         if received_item_id >= 2641000 and received_item_id < 2642000 then
             write_item(received_item_id % 2641000)
@@ -1082,7 +1087,7 @@ function get_colour_offset(colour_name)
 end
 
 function show_prompt_for_item(item)
-  local text_1 = "New Item"
+  local text_1 = ""
   local text_2 = { { item.Name } }
 
   local category = item_categories.consumables;
@@ -1182,6 +1187,16 @@ function show_prompt(input_title, input_party, duration, colour)
     end
 end
 
+function handle_messages()
+  local item = message_cache.items[1]
+
+  if item ~= nil then
+    show_prompt_for_item(item)
+    table.remove(message_cache.items, 1)
+  end
+
+end
+
 function main()
     receive_items()
     victory = calculate_full()
@@ -1196,6 +1211,7 @@ function main()
     write_world_lines()
     write_level_up_rewards()
     write_e()
+    handle_messages()
 end
 
 function test()
