@@ -38,12 +38,12 @@ frame_count = 1
 canExecute = false
 worlds_unlocked_array = {3, 0, 0, 0, 0, 0, 0, 0, 0}
 monstro_unlocked = 0
-itemCategories = {
-  Equipment = 0,
-  Consumables = 1,
-  Unlocks = 2,
-  Abilities = 3,
-  MagicTrinitySummon = 4,
+item_categories = {
+  equipment = 0,
+  consumables = 1,
+  unlocks = 2,
+  abilities = 3,
+  magic_trinities_summons = 4,
 }
 
 --- Addresses ---
@@ -196,6 +196,7 @@ function define_items()
   { ID = 2641133, Name = "Seven Elements" },
   { ID = 2641134, Name = "Unused (Goofy)" },
   { ID = 2641135, Name = "Spear" },
+
   { ID = 2641136, Name = "No Weapon" },
   { ID = 2641137, Name = "Genie" },
   { ID = 2641138, Name = "No Weapon" },
@@ -804,7 +805,6 @@ function receive_items()
 
        local item = get_item_by_id(received_item_id) or { Name = "UNKNOWN ITEM", ID = -1}
 
-
         show_prompt_for_item(item)
 
         if received_item_id >= 2641000 and received_item_id < 2642000 then
@@ -1082,19 +1082,45 @@ function get_colour_offset(colour_name)
 end
 
 function show_prompt_for_item(item)
+  local text_1 = "New Item"
   local text_2 = { { item.Name } }
-  local text_1 = { "New Item" }
 
-  local category = item.Category or "Default"
+  local category = item_categories.consumables;
+  local smallId = item.ID - 2640000
 
-  if received_item_id >= 2643000 and received_item_id < 2644000 then
-    category = "Ability"
-  elseif received_item_id >= 2644000 and received_item_id < 2645000 then
-    category = "Stats"
+  if smallId > 1000 and smallId < 1009 then
+    category = item_categories.consumables
+  elseif smallId > 1016 and smallId < 1136 then
+    category = item_categories.equipment
+  elseif smallId > 2000 and smallId < 4001 then
+    category = item_categories.abilities
+  elseif smallId > 4000 and smallId < 5000 then
+    category = item_categories.consumables
+  elseif smallId > 4999 and smallId < 7000 then
+    category = item_categories.magic_trinities_summons
+  elseif smallId > 8000 and smallId < 9000 then
+    category = item_categories.magic_trinities_summons
+  elseif smallId > 7000  and smallId < 10000 then
+    category = item_categories.unlocks
   end
 
+  local colour = "red";
+  if category == item_categories.equipment then
+    colour = "red"
+    text_1 = "New Equipment"
+  elseif category == item_categories.consumables then
+    colour = "green"
+  elseif category == item_categories.unlocks then
+    colour = "black"
+    text_1 = "Now Accessible"
+  elseif category == item_categories.abilities then
+    colour = "orange"
+    text_1 = "Learned Ability"
+  elseif category == item_categories.magic_trinities_summons then
+    colour = "blue"
+  end
 
-  show_prompt(text_1, text_2, null, "red")
+  show_prompt({ text_1 }, text_2, null, colour)
 end
 
 function show_prompt(input_title, input_party, duration, colour)
