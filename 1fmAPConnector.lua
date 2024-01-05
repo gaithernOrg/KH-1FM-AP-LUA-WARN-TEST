@@ -38,14 +38,24 @@ frame_count = 1
 canExecute = false
 worlds_unlocked_array = {3, 0, 0, 0, 0, 0, 0, 0, 0}
 monstro_unlocked = 0
+itemCategories = {
+  Equipment = 0,
+  Consumables = 1,
+  Unlocks = 2,
+  Abilities = 3,
+  MagicTrinitySummon = 4,
+}
 
 --- Addresses ---
 offset = 0x3A0606
 
 
 --- Definitions ---
+
 function define_items()
   items = {
+
+    --Consumables
   { ID = 2640000, Name = "Victory" },
   { ID = 2641001, Name = "Potion" },
   { ID = 2641002, Name = "Hi-Potion" },
@@ -55,6 +65,8 @@ function define_items()
   { ID = 2641006, Name = "Mega-Potion" },
   { ID = 2641007, Name = "Mega-Ether" },
   { ID = 2641008, Name = "Megalixir" },
+
+  --Synthesis
   { ID = 2641009, Name = "Fury Stone" },
   { ID = 2641010, Name = "Power Stone" },
   { ID = 2641011, Name = "Energy Stone" },
@@ -63,6 +75,8 @@ function define_items()
   { ID = 2641014, Name = "Lightning Stone" },
   { ID = 2641015, Name = "Dazzling Stone" },
   { ID = 2641016, Name = "Stormy Stone" },
+
+    --Equipment
   { ID = 2641017, Name = "Protect Chain" },
   { ID = 2641018, Name = "Protera Chain" },
   { ID = 2641019, Name = "Protega Chain" },
@@ -302,6 +316,8 @@ function define_items()
   { ID = 2641253, Name = "Mythril Shard" },
   { ID = 2641254, Name = "Mythril" },
   { ID = 2641255, Name = "Orichalcum" },
+
+  -- Abilities
   { ID = 2642001, Name = "High Jump" },
   { ID = 2642002, Name = "Mermaid Kick" },
   { ID = 2642003, Name = "Glide" },
@@ -367,6 +383,8 @@ function define_items()
   { ID = 2643063, Name = "Evolution" },
   { ID = 2643064, Name = "EXP Zero" },
   { ID = 2643065, Name = "Combo Master" },
+
+  --Stats Up
   { ID = 2644001, Name = "Max HP Increase" },
   { ID = 2644002, Name = "Max MP Increase" },
   { ID = 2644003, Name = "Max AP Increase" },
@@ -374,12 +392,16 @@ function define_items()
   { ID = 2644005, Name = "Defense Increase" },
   { ID = 2644006, Name = "Item Slot Increase" },
   { ID = 2644007, Name = "Accessory Slot Increase" },
+
+  --Summons
   { ID = 2645000, Name = "Dumbo" },
   { ID = 2645001, Name = "Bambi" },
   { ID = 2645002, Name = "Genie" },
   { ID = 2645003, Name = "Tinker Bell" },
   { ID = 2645004, Name = "Mushu" },
   { ID = 2645005, Name = "Simba" },
+
+  --Magic
   { ID = 2646001, Name = "Progressive Fire" },
   { ID = 2646002, Name = "Progressive Blizzard" },
   { ID = 2646003, Name = "Progressive Thunder" },
@@ -387,6 +409,8 @@ function define_items()
   { ID = 2646005, Name = "Progressive Gravity" },
   { ID = 2646006, Name = "Progressive Stop" },
   { ID = 2646007, Name = "Progressive Aero" },
+
+  --Worlds
   { ID = 2647002, Name = "Wonderland" },
   { ID = 2647003, Name = "Olympus Coliseum" },
   { ID = 2647004, Name = "Deep Jungle" },
@@ -397,11 +421,15 @@ function define_items()
   { ID = 2647009, Name = "Hollow Bastion" },
   { ID = 2647010, Name = "End of the World" },
   { ID = 2647011, Name = "Monstro" },
+
+  --Trinities
   { ID = 2648001, Name = "Blue Trinity" },
   { ID = 2648002, Name = "Red Trinity" },
   { ID = 2648003, Name = "Green Trinity" },
   { ID = 2648004, Name = "Yellow Trinity" },
   { ID = 2648005, Name = "White Trinity" },
+
+  --Cups
   { ID = 2649001, Name = "Phil Cup" },
   { ID = 2649002, Name = "Pegasus Cup" },
   { ID = 2649003, Name = "Hercules Cup" },
@@ -774,15 +802,10 @@ function receive_items()
         received_item_id = tonumber(io.read())
         io.close(file)
 
-       local item = get_item_by_id(received_item_id)
+       local item = get_item_by_id(received_item_id) or { Name = "UNKNOWN ITEM", ID = -1}
 
-        --sending the prompt
-        local text_1 = { "New Item" }
-        local text_2 = {
-          { item.Name or "UNKNOWN ITEM" },
-        }
 
-        show_prompt(text_1, text_2, null, "red")
+        show_prompt_for_item(item)
 
         if received_item_id >= 2641000 and received_item_id < 2642000 then
             write_item(received_item_id % 2641000)
@@ -791,6 +814,7 @@ function receive_items()
         elseif received_item_id >= 2644000 and received_item_id < 2645000 then
             add_to_soras_stats(received_item_id % 2644000)
         end
+
         check_array = increment_check_array(check_array)
         i = i + 1
     end
@@ -1055,6 +1079,22 @@ function get_colour_offset(colour_name)
     elseif colour_name == "black"       then return 9
     else return 0
   end
+end
+
+function show_prompt_for_item(item)
+  local text_2 = { { item.Name } }
+  local text_1 = { "New Item" }
+
+  local category = item.Category or "Default"
+
+  if received_item_id >= 2643000 and received_item_id < 2644000 then
+    category = "Ability"
+  elseif received_item_id >= 2644000 and received_item_id < 2645000 then
+    category = "Stats"
+  end
+
+
+  show_prompt(text_1, text_2, null, "red")
 end
 
 function show_prompt(input_title, input_party, duration, colour)
