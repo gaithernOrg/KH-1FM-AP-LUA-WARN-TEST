@@ -59,7 +59,7 @@ function define_items()
   items = {
 
     --Consumables
-  { ID = 2640000, Name = "Victory" },
+  { ID = 2640000, Name = "Victory", Progression = true },
   { ID = 2641001, Name = "Potion" },
   { ID = 2641002, Name = "Hi-Potion" },
   { ID = 2641003, Name = "Ether" },
@@ -252,10 +252,10 @@ function define_items()
   { ID = 2641185, Name = "Hafet Vol. 4" },
   { ID = 2641186, Name = "Empty Bottle" },
   { ID = 2641187, Name = "Old Book" },
-  { ID = 2641188, Name = "Emblem Piece (Flame)" },
-  { ID = 2641189, Name = "Emblem Piece (Chest)" },
-  { ID = 2641190, Name = "Emblem Piece (Statue)" },
-  { ID = 2641191, Name = "Emblem Piece (Fountain)" },
+  { ID = 2641188, Name = "Emblem Piece (Flame)",    Progression = true },
+  { ID = 2641189, Name = "Emblem Piece (Chest)",    Progression = true },
+  { ID = 2641190, Name = "Emblem Piece (Statue)",   Progression = true },
+  { ID = 2641191, Name = "Emblem Piece (Fountain)", Progression = true },
   { ID = 2641192, Name = "Log" },
   { ID = 2641193, Name = "Cloth" },
   { ID = 2641194, Name = "Rope" },
@@ -281,18 +281,18 @@ function define_items()
   { ID = 2641214, Name = "Torn Page 3" },
   { ID = 2641215, Name = "Torn Page 4" },
   { ID = 2641216, Name = "Torn Page 5" },
-  { ID = 2641217, Name = "Slide 1" },
+  { ID = 2641217, Name = "Slide 1", Progression = true },
   { ID = 2641218, Name = "Slide 2" },
   { ID = 2641219, Name = "Slide 3" },
   { ID = 2641220, Name = "Slide 4" },
   { ID = 2641221, Name = "Slide 5" },
   { ID = 2641222, Name = "Slide 6" },
-  { ID = 2641223, Name = "Footprints" },
+  { ID = 2641223, Name = "Footprints", Progression = true },
   { ID = 2641224, Name = "Claw Marks" },
   { ID = 2641225, Name = "Stench" },
   { ID = 2641226, Name = "Antenna" },
   { ID = 2641227, Name = "Forget-Me-Not" },
-  { ID = 2641228, Name = "Jack-In-The-Box" },
+  { ID = 2641228, Name = "Jack-In-The-Box", Progression = true },
   { ID = 2641229, Name = "Entry Pass" },
   { ID = 2641230, Name = "Hero License" },
   { ID = 2641231, Name = "Pretty Stone" },
@@ -322,10 +322,10 @@ function define_items()
   { ID = 2641255, Name = "Orichalcum" },
 
   -- Abilities
-  { ID = 2642001, Name = "High Jump" },
-  { ID = 2642002, Name = "Mermaid Kick" },
-  { ID = 2642003, Name = "Glide" },
-  { ID = 2642004, Name = "Superglide" },
+  { ID = 2642001, Name = "High Jump",    Progression = true },
+  { ID = 2642002, Name = "Mermaid Kick", Progression = true },
+  { ID = 2642003, Name = "Glide",        Progression = true },
+  { ID = 2642004, Name = "Superglide",   Progression = true },
   { ID = 2643005, Name = "Treasure Magnet" },
   { ID = 2643006, Name = "Combo Plus" },
   { ID = 2643007, Name = "Air Combo Plus" },
@@ -406,38 +406,38 @@ function define_items()
   { ID = 2645005, Name = "Simba" },
 
   --Magic
-  { ID = 2646001, Name = "Progressive Fire" },
-  { ID = 2646002, Name = "Progressive Blizzard" },
-  { ID = 2646003, Name = "Progressive Thunder" },
-  { ID = 2646004, Name = "Progressive Cure" },
-  { ID = 2646005, Name = "Progressive Gravity" },
-  { ID = 2646006, Name = "Progressive Stop" },
-  { ID = 2646007, Name = "Progressive Aero" },
+  { ID = 2646001, Name = "Progressive Fire",     Progression = true },
+  { ID = 2646002, Name = "Progressive Blizzard", Progression = true },
+  { ID = 2646003, Name = "Progressive Thunder",  Progression = true },
+  { ID = 2646004, Name = "Progressive Cure",     Progression = true },
+  { ID = 2646005, Name = "Progressive Gravity",  Progression = true },
+  { ID = 2646006, Name = "Progressive Stop",     Progression = true },
+  { ID = 2646007, Name = "Progressive Aero",     Progression = true },
 
-  --Worlds
-  { ID = 2647002, Name = "Wonderland" },
-  { ID = 2647003, Name = "Olympus Coliseum" },
-  { ID = 2647004, Name = "Deep Jungle" },
-  { ID = 2647005, Name = "Agrabah" },
-  { ID = 2647006, Name = "Halloween Town" },
-  { ID = 2647007, Name = "Atlantica" },
-  { ID = 2647008, Name = "Neverland" },
-  { ID = 2647009, Name = "Hollow Bastion" },
-  { ID = 2647010, Name = "End of the World" },
-  { ID = 2647011, Name = "Monstro" },
+  --World unlocks
+  { ID = 2647002, Name = "Wonderland",       Progression = true },
+  { ID = 2647003, Name = "Olympus Coliseum", Progression = true },
+  { ID = 2647004, Name = "Deep Jungle",      Progression = true },
+  { ID = 2647005, Name = "Agrabah",          Progression = true },
+  { ID = 2647006, Name = "Halloween Town",   Progression = true },
+  { ID = 2647007, Name = "Atlantica",        Progression = true },
+  { ID = 2647008, Name = "Neverland",        Progression = true },
+  { ID = 2647009, Name = "Hollow Bastion",   Progression = true },
+  { ID = 2647010, Name = "End of the World", Progression = true },
+  { ID = 2647011, Name = "Monstro",          Progression = true },
 
   --Trinities
-  { ID = 2648001, Name = "Blue Trinity" },
-  { ID = 2648002, Name = "Red Trinity" },
-  { ID = 2648003, Name = "Green Trinity" },
-  { ID = 2648004, Name = "Yellow Trinity" },
-  { ID = 2648005, Name = "White Trinity" },
+  { ID = 2648001, Name = "Blue Trinity",   Progression = true },
+  { ID = 2648002, Name = "Red Trinity",    Progression = true },
+  { ID = 2648003, Name = "Green Trinity",  Progression = true },
+  { ID = 2648004, Name = "Yellow Trinity", Progression = true },
+  { ID = 2648005, Name = "White Trinity",  Progression = true },
 
   --Cups
-  { ID = 2649001, Name = "Phil Cup" },
-  { ID = 2649002, Name = "Pegasus Cup" },
-  { ID = 2649003, Name = "Hercules Cup" },
-  { ID = 2649004, Name = "Hades Cup" },
+  { ID = 2649001, Name = "Phil Cup",     Progression = true },
+  { ID = 2649002, Name = "Pegasus Cup",  Progression = true },
+  { ID = 2649003, Name = "Hercules Cup", Progression = true },
+  { ID = 2649004, Name = "Hades Cup",    Progression = true },
 }
     return items
 end
@@ -810,8 +810,6 @@ function receive_items()
 
         table.insert(message_cache.items, item)
 
-        -- show_prompt_for_item(item)
-
         if received_item_id >= 2641000 and received_item_id < 2642000 then
             write_item(received_item_id % 2641000)
         elseif received_item_id >= 2643000 and received_item_id < 2644000 then
@@ -1110,19 +1108,24 @@ function show_prompt_for_item(item)
   end
 
   local colour = "red";
+  if item.Progression then
+    colour = "black"
+  end
+
+  --maybe colours when colours are beautiful
   if category == item_categories.equipment then
-    colour = "red"
+    -- colour = "red"
     text_1 = "New Equipment"
   elseif category == item_categories.consumables then
-    colour = "green"
+    -- colour = "green"
   elseif category == item_categories.unlocks then
-    colour = "black"
+    -- colour = "black"
     text_1 = "Now Accessible"
   elseif category == item_categories.abilities then
-    colour = "orange"
+    -- colour = "orange"
     text_1 = "Learned Ability"
   elseif category == item_categories.magic_trinities_summons then
-    colour = "blue"
+    -- colour = "blue"
   end
 
   show_prompt({ text_1 }, text_2, null, colour)
