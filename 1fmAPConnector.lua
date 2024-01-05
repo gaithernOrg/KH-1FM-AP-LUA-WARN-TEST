@@ -42,381 +42,383 @@ monstro_unlocked = 0
 --- Addresses ---
 offset = 0x3A0606
 
+
 --- Definitions ---
-function define_item_ids()
-    item_ids = {}
-    item_ids["Victory"]                 = 2640000
-    item_ids["Potion"]                  = 2641001
-    item_ids["Hi-Potion"]               = 2641002
-    item_ids["Ether"]                   = 2641003
-    item_ids["Elixir"]                  = 2641004
-    item_ids["BO5"]                     = 2641005
-    item_ids["Mega-Potion"]             = 2641006
-    item_ids["Mega-Ether"]              = 2641007
-    item_ids["Megalixir"]               = 2641008
-    item_ids["Fury Stone"]              = 2641009
-    item_ids["Power Stone"]             = 2641010
-    item_ids["Energy Stone"]            = 2641011
-    item_ids["Blazing Stone"]           = 2641012
-    item_ids["Frost Stone"]             = 2641013
-    item_ids["Lightning Stone"]         = 2641014
-    item_ids["Dazzling Stone"]          = 2641015
-    item_ids["Stormy Stone"]            = 2641016
-    item_ids["Protect Chain"]           = 2641017
-    item_ids["Protera Chain"]           = 2641018
-    item_ids["Protega Chain"]           = 2641019
-    item_ids["Fire Ring"]               = 2641020
-    item_ids["Fira Ring"]               = 2641021
-    item_ids["Firaga Ring"]             = 2641022
-    item_ids["Blizzard Ring"]           = 2641023
-    item_ids["Blizzara Ring"]           = 2641024
-    item_ids["Blizzaga Ring"]           = 2641025
-    item_ids["Thunder Ring"]            = 2641026
-    item_ids["Thundara Ring"]           = 2641027
-    item_ids["Thundaga Ring"]           = 2641028
-    item_ids["Ability Stud"]            = 2641029
-    item_ids["Guard Earring"]           = 2641030
-    item_ids["Master Earring"]          = 2641031
-    item_ids["Chaos Ring"]              = 2641032
-    item_ids["Dark Ring"]               = 2641033
-    item_ids["Element Ring"]            = 2641034
-    item_ids["Three Stars"]             = 2641035
-    item_ids["Power Chain"]             = 2641036
-    item_ids["Golem Chain"]             = 2641037
-    item_ids["Titan Chain"]             = 2641038
-    item_ids["Energy Bangle"]           = 2641039
-    item_ids["Angel Bangle"]            = 2641040
-    item_ids["Gaia Bangle"]             = 2641041
-    item_ids["Magic Armlet"]            = 2641042
-    item_ids["Rune Armlet"]             = 2641043
-    item_ids["Atlas Armlet"]            = 2641044
-    item_ids["Heartguard"]              = 2641045
-    item_ids["Ribbon"]                  = 2641046
-    item_ids["Crystal Crown"]           = 2641047
-    item_ids["Brave Warrior"]           = 2641048
-    item_ids["Ifrit's Horn"]            = 2641049
-    item_ids["Inferno Band"]            = 2641050
-    item_ids["White Fang"]              = 2641051
-    item_ids["Ray of Light"]            = 2641052
-    item_ids["Holy Circlet"]            = 2641053
-    item_ids["Raven's Claw"]            = 2641054
-    item_ids["Omega Arts"]              = 2641055
-    item_ids["EXP Earring"]             = 2641056
-    item_ids["A41"]                     = 2641057
-    item_ids["EXP Ring"]                = 2641058
-    item_ids["EXP Bracelet"]            = 2641059
-    item_ids["EXP Necklace"]            = 2641060
-    item_ids["Firagun Band"]            = 2641061
-    item_ids["Blizzagun Band"]          = 2641062
-    item_ids["Thundagun Band"]          = 2641063
-    item_ids["Ifrit Belt"]              = 2641064
-    item_ids["Shiva Belt"]              = 2641065
-    item_ids["Ramuh Belt"]              = 2641066
-    item_ids["Moogle Badge"]            = 2641067
-    item_ids["Cosmic Arts"]             = 2641068
-    item_ids["Royal Crown"]             = 2641069
-    item_ids["Prime Cap"]               = 2641070
-    item_ids["Obsidian Ring"]           = 2641071
-    item_ids["A56"]                     = 2641072
-    item_ids["A57"]                     = 2641073
-    item_ids["A58"]                     = 2641074
-    item_ids["A59"]                     = 2641075
-    item_ids["A60"]                     = 2641076
-    item_ids["A61"]                     = 2641077
-    item_ids["A62"]                     = 2641078
-    item_ids["A63"]                     = 2641079
-    item_ids["A64"]                     = 2641080
-    item_ids["Kingdom Key"]             = 2641081
-    item_ids["Dream Sword"]             = 2641082
-    item_ids["Dream Shield"]            = 2641083
-    item_ids["Dream Rod"]               = 2641084
-    item_ids["Wooden Sword"]            = 2641085
-    item_ids["Jungle King"]             = 2641086
-    item_ids["Three Wishes"]            = 2641087
-    item_ids["Fairy Harp"]              = 2641088
-    item_ids["Pumpkinhead"]             = 2641089
-    item_ids["Crabclaw"]                = 2641090
-    item_ids["Divine Rose"]             = 2641091
-    item_ids["Spellbinder"]             = 2641092
-    item_ids["Olympia"]                 = 2641093
-    item_ids["Lionheart"]               = 2641094
-    item_ids["Metal Chocobo"]           = 2641095
-    item_ids["Oathkeeper"]              = 2641096
-    item_ids["Oblivion"]                = 2641097
-    item_ids["Lady Luck"]               = 2641098
-    item_ids["Wishing Star"]            = 2641099
-    item_ids["Ultima Weapon"]           = 2641100
-    item_ids["Diamond Dust"]            = 2641101
-    item_ids["One-Winged Angel"]     = 2641102
-    item_ids["Mage's Staff"]            = 2641103
-    item_ids["Morning Star"]            = 2641104
-    item_ids["Shooting Star"]           = 2641105
-    item_ids["Magus Staff"]             = 2641106
-    item_ids["Wisdom Staff"]            = 2641107
-    item_ids["Warhammer"]               = 2641108
-    item_ids["Silver Mallet"]           = 2641109
-    item_ids["Grand Mallet"]            = 2641110
-    item_ids["Lord Fortune"]            = 2641111
-    item_ids["Violetta"]                = 2641112
-    item_ids["Dream Rod (Donald)"]      = 2641113
-    item_ids["Save the Queen"]          = 2641114
-    item_ids["Wizard's Relic"]          = 2641115
-    item_ids["Meteor Strike"]           = 2641116
-    item_ids["Fantasista"]              = 2641117
-    item_ids["Unused (Donald)"]         = 2641118
-    item_ids["Knight's Shield"]         = 2641119
-    item_ids["Mythril Shield"]          = 2641120
-    item_ids["Onyx Shield"]             = 2641121
-    item_ids["Stout Shield"]            = 2641122
-    item_ids["Golem Shield"]            = 2641123
-    item_ids["Adamant Shield"]          = 2641124
-    item_ids["Smasher"]                 = 2641125
-    item_ids["Gigas Fist"]              = 2641126
-    item_ids["Genji Shield"]            = 2641127
-    item_ids["Herc's Shield"]           = 2641128
-    item_ids["Dream Shield"]            = 2641129
-    item_ids["Save the King"]           = 2641130
-    item_ids["Defender"]                = 2641131
-    item_ids["Mighty Shield"]           = 2641132
-    item_ids["Seven Elements"]          = 2641133
-    item_ids["Unused (Goofy)"]          = 2641134
-    item_ids["Spear"]                   = 2641135
-    item_ids["No Weapon"]               = 2641136
-    item_ids["Genie"]                   = 2641137
-    item_ids["No Weapon"]               = 2641138
-    item_ids["No Weapon"]               = 2641139
-    item_ids["Tinker Bell"]             = 2641140
-    item_ids["Claws"]                   = 2641141
-    item_ids["Tent"]                    = 2641142
-    item_ids["Camping Set"]             = 2641143
-    item_ids["Cottage"]                 = 2641144
-    item_ids["C04"]                     = 2641145
-    item_ids["C05"]                     = 2641146
-    item_ids["C06"]                     = 2641147
-    item_ids["C07"]                     = 2641148
-    item_ids["Ansem's Report 11"]       = 2641149
-    item_ids["Ansem's Report 12"]       = 2641150
-    item_ids["Ansem's Report 13"]       = 2641151
-    item_ids["Power Up"]                = 2641152
-    item_ids["Defense Up"]              = 2641153
-    item_ids["AP Up"]                   = 2641154
-    item_ids["Serenity Power"]          = 2641155
-    item_ids["Dark Matter"]             = 2641156
-    item_ids["Mythril Stone"]           = 2641157
-    item_ids["Fire Arts"]               = 2641158
-    item_ids["Blizzard Arts"]           = 2641159
-    item_ids["Thunder Arts"]            = 2641160
-    item_ids["Cure Arts"]               = 2641161
-    item_ids["Gravity Arts"]            = 2641162
-    item_ids["Stop Arts"]               = 2641163
-    item_ids["Aero Arts"]               = 2641164
-    item_ids["Shiitank Rank"]           = 2641165
-    item_ids["Matsutake Rank"]          = 2641166
-    item_ids["Mystery Mold"]            = 2641167
-    item_ids["Ansem's Report 1"]        = 2641168
-    item_ids["Ansem's Report 2"]        = 2641169
-    item_ids["Ansem's Report 3"]        = 2641170
-    item_ids["Ansem's Report 4"]        = 2641171
-    item_ids["Ansem's Report 5"]        = 2641172
-    item_ids["Ansem's Report 6"]        = 2641173
-    item_ids["Ansem's Report 7"]        = 2641174
-    item_ids["Ansem's Report 8"]        = 2641175
-    item_ids["Ansem's Report 9"]        = 2641176
-    item_ids["Ansem's Report 10"]       = 2641177
-    item_ids["Khama Vol. 8"]            = 2641178
-    item_ids["Salegg Vol. 6"]           = 2641179
-    item_ids["Azal Vol. 3"]             = 2641180
-    item_ids["Mava Vol. 3"]             = 2641181
-    item_ids["Mava Vol. 6"]             = 2641182
-    item_ids["Theon Vol. 6"]            = 2641183
-    item_ids["Nahara Vol. 5"]           = 2641184
-    item_ids["Hafet Vol. 4"]            = 2641185
-    item_ids["Empty Bottle"]            = 2641186
-    item_ids["Old Book"]                = 2641187
-    item_ids["Emblem Piece (Flame)"]    = 2641188
-    item_ids["Emblem Piece (Chest)"]    = 2641189
-    item_ids["Emblem Piece (Statue)"]   = 2641190
-    item_ids["Emblem Piece (Fountain)"] = 2641191
-    item_ids["Log"]                     = 2641192
-    item_ids["Cloth"]                   = 2641193
-    item_ids["Rope"]                    = 2641194
-    item_ids["Seagull Egg"]             = 2641195
-    item_ids["Fish"]                    = 2641196
-    item_ids["Mushroom"]                = 2641197
-    item_ids["Coconut"]                 = 2641198
-    item_ids["Drinking Water"]          = 2641199
-    item_ids["Navi-G Piece 1"]          = 2641200
-    item_ids["Navi-G Piece 2"]          = 2641201
-    item_ids["Navi-Gummi Unused"]       = 2641202
-    item_ids["Navi-G Piece 3"]          = 2641203
-    item_ids["Navi-G Piece 4"]          = 2641204
-    item_ids["Navi-Gummi"]              = 2641205
-    item_ids["Watergleam"]              = 2641206
-    item_ids["Naturespark"]             = 2641207
-    item_ids["Fireglow"]                = 2641208
-    item_ids["Earthshine"]              = 2641209
-    item_ids["Crystal Trident"]         = 2641210
-    item_ids["Postcard"]                = 2641211
-    item_ids["Torn Page 1"]             = 2641212
-    item_ids["Torn Page 2"]             = 2641213
-    item_ids["Torn Page 3"]             = 2641214
-    item_ids["Torn Page 4"]             = 2641215
-    item_ids["Torn Page 5"]             = 2641216
-    item_ids["Slide 1"]                 = 2641217
-    item_ids["Slide 2"]                 = 2641218
-    item_ids["Slide 3"]                 = 2641219
-    item_ids["Slide 4"]                 = 2641220
-    item_ids["Slide 5"]                 = 2641221
-    item_ids["Slide 6"]                 = 2641222
-    item_ids["Footprints"]              = 2641223
-    item_ids["Claw Marks"]              = 2641224
-    item_ids["Stench"]                  = 2641225
-    item_ids["Antenna"]                 = 2641226
-    item_ids["Forget-Me-Not"]           = 2641227
-    item_ids["Jack-In-The-Box"]         = 2641228
-    item_ids["Entry Pass"]              = 2641229
-    item_ids["Hero License"]            = 2641230
-    item_ids["Pretty Stone"]            = 2641231
-    item_ids["N41"]                     = 2641232
-    item_ids["Lucid Shard"]             = 2641233
-    item_ids["Lucid Gem"]               = 2641234
-    item_ids["Lucid Crystal"]           = 2641235
-    item_ids["Spirit Shard"]            = 2641236
-    item_ids["Spirit Gem"]              = 2641237
-    item_ids["Power Shard"]             = 2641238
-    item_ids["Power Gem"]               = 2641239
-    item_ids["Power Crystal"]           = 2641240
-    item_ids["Blaze Shard"]             = 2641241
-    item_ids["Blaze Gem"]               = 2641242
-    item_ids["Frost Shard"]             = 2641243
-    item_ids["Frost Gem"]               = 2641244
-    item_ids["Thunder Shard"]           = 2641245
-    item_ids["Thunder Gem"]             = 2641246
-    item_ids["Shiny Crystal"]           = 2641247
-    item_ids["Bright Shard"]            = 2641248
-    item_ids["Bright Gem"]              = 2641249
-    item_ids["Bright Crystal"]          = 2641250
-    item_ids["Mystery Goo"]             = 2641251
-    item_ids["Gale"]                    = 2641252
-    item_ids["Mythril Shard"]           = 2641253
-    item_ids["Mythril"]                 = 2641254
-    item_ids["Orichalcum"]              = 2641255
-    item_ids["High Jump"]               = 2642001
-    item_ids["Mermaid Kick"]            = 2642002
-    item_ids["Glide"]                   = 2642003
-    item_ids["Superglide"]              = 2642004
-    item_ids["Treasure Magnet"]         = 2643005
-    item_ids["Combo Plus"]              = 2643006
-    item_ids["Air Combo Plus"]          = 2643007
-    item_ids["Critical Plus"]           = 2643008
-    item_ids["Second Wind"]             = 2643009
-    item_ids["Scan"]                    = 2643010
-    item_ids["Sonic Blade"]             = 2643011
-    item_ids["Ars Arcanum"]             = 2643012
-    item_ids["Strike Raid"]             = 2643013
-    item_ids["Ragnarok"]                = 2643014
-    item_ids["Trinity Limit"]           = 2643015
-    item_ids["Cheer"]                   = 2643016
-    item_ids["Vortex"]                  = 2643017
-    item_ids["Aerial Sweep"]            = 2643018
-    item_ids["Counterattack"]           = 2643019
-    item_ids["Blitz"]                   = 2643020
-    item_ids["Guard"]                   = 2643021
-    item_ids["Dodge Roll"]              = 2643022
-    item_ids["MP Haste"]                = 2643023
-    item_ids["MP Rage"]                 = 2643024
-    item_ids["Second Chance"]           = 2643025
-    item_ids["Berserk"]                 = 2643026
-    item_ids["Jackpot"]                 = 2643027
-    item_ids["Lucky Strike"]            = 2643028
-    item_ids["Charge"]                  = 2643029
-    item_ids["Rocket"]                  = 2643030
-    item_ids["Tornado"]                 = 2643031
-    item_ids["MP Gift"]                 = 2643032
-    item_ids["Raging Boar"]             = 2643033
-    item_ids["Asp's Bite"]              = 2643034
-    item_ids["Healing Herb"]            = 2643035
-    item_ids["Wind Armor"]              = 2643036
-    item_ids["Crescent"]                = 2643037
-    item_ids["Sandstorm"]               = 2643038
-    item_ids["Applause!"]               = 2643039
-    item_ids["Blazing Fury"]            = 2643040
-    item_ids["Icy Terror"]              = 2643041
-    item_ids["Bolts of Sorrow"]         = 2643042
-    item_ids["Ghostly Scream"]          = 2643043
-    item_ids["Humming Bird"]            = 2643044
-    item_ids["Time-Out"]                = 2643045
-    item_ids["Storm's Eye"]             = 2643046
-    item_ids["Ferocious Lunge"]         = 2643047
-    item_ids["Furious Bellow"]          = 2643048
-    item_ids["Spiral Wave"]             = 2643049
-    item_ids["Thunder Potion"]          = 2643050
-    item_ids["Cure Potion"]             = 2643051
-    item_ids["Aero Potion"]             = 2643052
-    item_ids["Slapshot"]                = 2643053
-    item_ids["Sliding Dash"]            = 2643054
-    item_ids["Hurricane Blast"]         = 2643055
-    item_ids["Ripple Drive"]            = 2643056
-    item_ids["Stun Impact"]             = 2643057
-    item_ids["Gravity Break"]           = 2643058
-    item_ids["Zantetsuken"]             = 2643059
-    item_ids["Tech Boost"]              = 2643060
-    item_ids["Encounter Plus"]          = 2643061
-    item_ids["Leaf Bracer"]             = 2643062
-    item_ids["Evolution"]               = 2643063
-    item_ids["EXP Zero"]                = 2643064
-    item_ids["Combo Master"]            = 2643065
-    item_ids["Max HP Increase"]         = 2644001
-    item_ids["Max MP Increase"]         = 2644002
-    item_ids["Max AP Increase"]         = 2644003
-    item_ids["Strength Increase"]       = 2644004
-    item_ids["Defense Increase"]        = 2644005
-    item_ids["Item Slot Increase"]      = 2644006
-    item_ids["Accessory Slot Increase"] = 2644007
-    item_ids["Dumbo"]                   = 2645000
-    item_ids["Bambi"]                   = 2645001
-    item_ids["Genie"]                   = 2645002
-    item_ids["Tinker Bell"]             = 2645003
-    item_ids["Mushu"]                   = 2645004
-    item_ids["Simba"]                   = 2645005
-    item_ids["Progressive Fire"]        = 2646001
-    item_ids["Progressive Blizzard"]    = 2646002
-    item_ids["Progressive Thunder"]     = 2646003
-    item_ids["Progressive Cure"]        = 2646004
-    item_ids["Progressive Gravity"]     = 2646005
-    item_ids["Progressive Stop"]        = 2646006
-    item_ids["Progressive Aero"]        = 2646007
-    item_ids["Wonderland"]              = 2647002
-    item_ids["Olympus Coliseum"]        = 2647003
-    item_ids["Deep Jungle"]             = 2647004
-    item_ids["Agrabah"]                 = 2647005
-    item_ids["Halloween Town"]          = 2647006
-    item_ids["Atlantica"]               = 2647007
-    item_ids["Neverland"]               = 2647008
-    item_ids["Hollow Bastion"]          = 2647009
-    item_ids["End of the World"]        = 2647010
-    item_ids["Monstro"]                 = 2647011
-    item_ids["Blue Trinity"]            = 2648001
-    item_ids["Red Trinity"]             = 2648002
-    item_ids["Green Trinity"]           = 2648003
-    item_ids["Yellow Trinity"]          = 2648004
-    item_ids["White Trinity"]           = 2648005
-    item_ids["Phil Cup"]                = 2649001
-    item_ids["Pegasus Cup"]             = 2649002
-    item_ids["Hercules Cup"]            = 2649003
-    item_ids["Hades Cup"]               = 2649004
-    return item_ids
+function define_items()
+  items = {
+  { ID = 2640000, Name = "Victory" },
+  { ID = 2641001, Name = "Potion" },
+  { ID = 2641002, Name = "Hi-Potion" },
+  { ID = 2641003, Name = "Ether" },
+  { ID = 2641004, Name = "Elixir" },
+  { ID = 2641005, Name = "BO5" },
+  { ID = 2641006, Name = "Mega-Potion" },
+  { ID = 2641007, Name = "Mega-Ether" },
+  { ID = 2641008, Name = "Megalixir" },
+  { ID = 2641009, Name = "Fury Stone" },
+  { ID = 2641010, Name = "Power Stone" },
+  { ID = 2641011, Name = "Energy Stone" },
+  { ID = 2641012, Name = "Blazing Stone" },
+  { ID = 2641013, Name = "Frost Stone" },
+  { ID = 2641014, Name = "Lightning Stone" },
+  { ID = 2641015, Name = "Dazzling Stone" },
+  { ID = 2641016, Name = "Stormy Stone" },
+  { ID = 2641017, Name = "Protect Chain" },
+  { ID = 2641018, Name = "Protera Chain" },
+  { ID = 2641019, Name = "Protega Chain" },
+  { ID = 2641020, Name = "Fire Ring" },
+  { ID = 2641021, Name = "Fira Ring" },
+  { ID = 2641022, Name = "Firaga Ring" },
+  { ID = 2641023, Name = "Blizzard Ring" },
+  { ID = 2641024, Name = "Blizzara Ring" },
+  { ID = 2641025, Name = "Blizzaga Ring" },
+  { ID = 2641026, Name = "Thunder Ring" },
+  { ID = 2641027, Name = "Thundara Ring" },
+  { ID = 2641028, Name = "Thundaga Ring" },
+  { ID = 2641029, Name = "Ability Stud" },
+  { ID = 2641030, Name = "Guard Earring" },
+  { ID = 2641031, Name = "Master Earring" },
+  { ID = 2641032, Name = "Chaos Ring" },
+  { ID = 2641033, Name = "Dark Ring" },
+  { ID = 2641034, Name = "Element Ring" },
+  { ID = 2641035, Name = "Three Stars" },
+  { ID = 2641036, Name = "Power Chain" },
+  { ID = 2641037, Name = "Golem Chain" },
+  { ID = 2641038, Name = "Titan Chain" },
+  { ID = 2641039, Name = "Energy Bangle" },
+  { ID = 2641040, Name = "Angel Bangle" },
+  { ID = 2641041, Name = "Gaia Bangle" },
+  { ID = 2641042, Name = "Magic Armlet" },
+  { ID = 2641043, Name = "Rune Armlet" },
+  { ID = 2641044, Name = "Atlas Armlet" },
+  { ID = 2641045, Name = "Heartguard" },
+  { ID = 2641046, Name = "Ribbon" },
+  { ID = 2641047, Name = "Crystal Crown" },
+  { ID = 2641048, Name = "Brave Warrior" },
+  { ID = 2641049, Name = "Ifrit's Horn" },
+  { ID = 2641050, Name = "Inferno Band" },
+  { ID = 2641051, Name = "White Fang" },
+  { ID = 2641052, Name = "Ray of Light" },
+  { ID = 2641053, Name = "Holy Circlet" },
+  { ID = 2641054, Name = "Raven's Claw" },
+  { ID = 2641055, Name = "Omega Arts" },
+  { ID = 2641056, Name = "EXP Earring" },
+  { ID = 2641057, Name = "A41" },
+  { ID = 2641058, Name = "EXP Ring" },
+  { ID = 2641059, Name = "EXP Bracelet" },
+  { ID = 2641060, Name = "EXP Necklace" },
+  { ID = 2641061, Name = "Firagun Band" },
+  { ID = 2641062, Name = "Blizzagun Band" },
+  { ID = 2641063, Name = "Thundagun Band" },
+  { ID = 2641064, Name = "Ifrit Belt" },
+  { ID = 2641065, Name = "Shiva Belt" },
+  { ID = 2641066, Name = "Ramuh Belt" },
+  { ID = 2641067, Name = "Moogle Badge" },
+  { ID = 2641068, Name = "Cosmic Arts" },
+  { ID = 2641069, Name = "Royal Crown" },
+  { ID = 2641070, Name = "Prime Cap" },
+  { ID = 2641071, Name = "Obsidian Ring" },
+  { ID = 2641072, Name = "A56" },
+  { ID = 2641073, Name = "A57" },
+  { ID = 2641074, Name = "A58" },
+  { ID = 2641075, Name = "A59" },
+  { ID = 2641076, Name = "A60" },
+  { ID = 2641077, Name = "A61" },
+  { ID = 2641078, Name = "A62" },
+  { ID = 2641079, Name = "A63" },
+  { ID = 2641080, Name = "A64" },
+  { ID = 2641081, Name = "Kingdom Key" },
+  { ID = 2641082, Name = "Dream Sword" },
+  { ID = 2641083, Name = "Dream Shield" },
+  { ID = 2641084, Name = "Dream Rod" },
+  { ID = 2641085, Name = "Wooden Sword" },
+  { ID = 2641086, Name = "Jungle King" },
+  { ID = 2641087, Name = "Three Wishes" },
+  { ID = 2641088, Name = "Fairy Harp" },
+  { ID = 2641089, Name = "Pumpkinhead" },
+  { ID = 2641090, Name = "Crabclaw" },
+  { ID = 2641091, Name = "Divine Rose" },
+  { ID = 2641092, Name = "Spellbinder" },
+  { ID = 2641093, Name = "Olympia" },
+  { ID = 2641094, Name = "Lionheart" },
+  { ID = 2641095, Name = "Metal Chocobo" },
+  { ID = 2641096, Name = "Oathkeeper" },
+  { ID = 2641097, Name = "Oblivion" },
+  { ID = 2641098, Name = "Lady Luck" },
+  { ID = 2641099, Name = "Wishing Star" },
+  { ID = 2641100, Name = "Ultima Weapon" },
+  { ID = 2641101, Name = "Diamond Dust" },
+  { ID = 2641102, Name = "One-Winged Angel" },
+  { ID = 2641103, Name = "Mage's Staff" },
+  { ID = 2641104, Name = "Morning Star" },
+  { ID = 2641105, Name = "Shooting Star" },
+  { ID = 2641106, Name = "Magus Staff" },
+  { ID = 2641107, Name = "Wisdom Staff" },
+  { ID = 2641108, Name = "Warhammer" },
+  { ID = 2641109, Name = "Silver Mallet" },
+  { ID = 2641110, Name = "Grand Mallet" },
+  { ID = 2641111, Name = "Lord Fortune" },
+  { ID = 2641112, Name = "Violetta" },
+  { ID = 2641113, Name = "Dream Rod (Donald)" },
+  { ID = 2641114, Name = "Save the Queen" },
+  { ID = 2641115, Name = "Wizard's Relic" },
+  { ID = 2641116, Name = "Meteor Strike" },
+  { ID = 2641117, Name = "Fantasista" },
+  { ID = 2641118, Name = "Unused (Donald)" },
+  { ID = 2641119, Name = "Knight's Shield" },
+  { ID = 2641120, Name = "Mythril Shield" },
+  { ID = 2641121, Name = "Onyx Shield" },
+  { ID = 2641122, Name = "Stout Shield" },
+  { ID = 2641123, Name = "Golem Shield" },
+  { ID = 2641124, Name = "Adamant Shield" },
+  { ID = 2641125, Name = "Smasher" },
+  { ID = 2641126, Name = "Gigas Fist" },
+  { ID = 2641127, Name = "Genji Shield" },
+  { ID = 2641128, Name = "Herc's Shield" },
+  { ID = 2641129, Name = "Dream Shield" },
+  { ID = 2641130, Name = "Save the King" },
+  { ID = 2641131, Name = "Defender" },
+  { ID = 2641132, Name = "Mighty Shield" },
+  { ID = 2641133, Name = "Seven Elements" },
+  { ID = 2641134, Name = "Unused (Goofy)" },
+  { ID = 2641135, Name = "Spear" },
+  { ID = 2641136, Name = "No Weapon" },
+  { ID = 2641137, Name = "Genie" },
+  { ID = 2641138, Name = "No Weapon" },
+  { ID = 2641139, Name = "No Weapon" },
+  { ID = 2641140, Name = "Tinker Bell" },
+  { ID = 2641141, Name = "Claws" },
+  { ID = 2641142, Name = "Tent" },
+  { ID = 2641143, Name = "Camping Set" },
+  { ID = 2641144, Name = "Cottage" },
+  { ID = 2641145, Name = "C04" },
+  { ID = 2641146, Name = "C05" },
+  { ID = 2641147, Name = "C06" },
+  { ID = 2641148, Name = "C07" },
+  { ID = 2641149, Name = "Ansem's Report 11" },
+  { ID = 2641150, Name = "Ansem's Report 12" },
+  { ID = 2641151, Name = "Ansem's Report 13" },
+  { ID = 2641152, Name = "Power Up" },
+  { ID = 2641153, Name = "Defense Up" },
+  { ID = 2641154, Name = "AP Up" },
+  { ID = 2641155, Name = "Serenity Power" },
+  { ID = 2641156, Name = "Dark Matter" },
+  { ID = 2641157, Name = "Mythril Stone" },
+  { ID = 2641158, Name = "Fire Arts" },
+  { ID = 2641159, Name = "Blizzard Arts" },
+  { ID = 2641160, Name = "Thunder Arts" },
+  { ID = 2641161, Name = "Cure Arts" },
+  { ID = 2641162, Name = "Gravity Arts" },
+  { ID = 2641163, Name = "Stop Arts" },
+  { ID = 2641164, Name = "Aero Arts" },
+  { ID = 2641165, Name = "Shiitank Rank" },
+  { ID = 2641166, Name = "Matsutake Rank" },
+  { ID = 2641167, Name = "Mystery Mold" },
+  { ID = 2641168, Name = "Ansem's Report 1" },
+  { ID = 2641169, Name = "Ansem's Report 2" },
+  { ID = 2641170, Name = "Ansem's Report 3" },
+  { ID = 2641171, Name = "Ansem's Report 4" },
+  { ID = 2641172, Name = "Ansem's Report 5" },
+  { ID = 2641173, Name = "Ansem's Report 6" },
+  { ID = 2641174, Name = "Ansem's Report 7" },
+  { ID = 2641175, Name = "Ansem's Report 8" },
+  { ID = 2641176, Name = "Ansem's Report 9" },
+  { ID = 2641177, Name = "Ansem's Report 10" },
+  { ID = 2641178, Name = "Khama Vol. 8" },
+  { ID = 2641179, Name = "Salegg Vol. 6" },
+  { ID = 2641180, Name = "Azal Vol. 3" },
+  { ID = 2641181, Name = "Mava Vol. 3" },
+  { ID = 2641182, Name = "Mava Vol. 6" },
+  { ID = 2641183, Name = "Theon Vol. 6" },
+  { ID = 2641184, Name = "Nahara Vol. 5" },
+  { ID = 2641185, Name = "Hafet Vol. 4" },
+  { ID = 2641186, Name = "Empty Bottle" },
+  { ID = 2641187, Name = "Old Book" },
+  { ID = 2641188, Name = "Emblem Piece (Flame)" },
+  { ID = 2641189, Name = "Emblem Piece (Chest)" },
+  { ID = 2641190, Name = "Emblem Piece (Statue)" },
+  { ID = 2641191, Name = "Emblem Piece (Fountain)" },
+  { ID = 2641192, Name = "Log" },
+  { ID = 2641193, Name = "Cloth" },
+  { ID = 2641194, Name = "Rope" },
+  { ID = 2641195, Name = "Seagull Egg" },
+  { ID = 2641196, Name = "Fish" },
+  { ID = 2641197, Name = "Mushroom" },
+  { ID = 2641198, Name = "Coconut" },
+  { ID = 2641199, Name = "Drinking Water" },
+  { ID = 2641200, Name = "Navi-G Piece 1" },
+  { ID = 2641201, Name = "Navi-G Piece 2" },
+  { ID = 2641202, Name = "Navi-Gummi Unused" },
+  { ID = 2641203, Name = "Navi-G Piece 3" },
+  { ID = 2641204, Name = "Navi-G Piece 4" },
+  { ID = 2641205, Name = "Navi-Gummi" },
+  { ID = 2641206, Name = "Watergleam" },
+  { ID = 2641207, Name = "Naturespark" },
+  { ID = 2641208, Name = "Fireglow" },
+  { ID = 2641209, Name = "Earthshine" },
+  { ID = 2641210, Name = "Crystal Trident" },
+  { ID = 2641211, Name = "Postcard" },
+  { ID = 2641212, Name = "Torn Page 1" },
+  { ID = 2641213, Name = "Torn Page 2" },
+  { ID = 2641214, Name = "Torn Page 3" },
+  { ID = 2641215, Name = "Torn Page 4" },
+  { ID = 2641216, Name = "Torn Page 5" },
+  { ID = 2641217, Name = "Slide 1" },
+  { ID = 2641218, Name = "Slide 2" },
+  { ID = 2641219, Name = "Slide 3" },
+  { ID = 2641220, Name = "Slide 4" },
+  { ID = 2641221, Name = "Slide 5" },
+  { ID = 2641222, Name = "Slide 6" },
+  { ID = 2641223, Name = "Footprints" },
+  { ID = 2641224, Name = "Claw Marks" },
+  { ID = 2641225, Name = "Stench" },
+  { ID = 2641226, Name = "Antenna" },
+  { ID = 2641227, Name = "Forget-Me-Not" },
+  { ID = 2641228, Name = "Jack-In-The-Box" },
+  { ID = 2641229, Name = "Entry Pass" },
+  { ID = 2641230, Name = "Hero License" },
+  { ID = 2641231, Name = "Pretty Stone" },
+  { ID = 2641232, Name = "N41" },
+  { ID = 2641233, Name = "Lucid Shard" },
+  { ID = 2641234, Name = "Lucid Gem" },
+  { ID = 2641235, Name = "Lucid Crystal" },
+  { ID = 2641236, Name = "Spirit Shard" },
+  { ID = 2641237, Name = "Spirit Gem" },
+  { ID = 2641238, Name = "Power Shard" },
+  { ID = 2641239, Name = "Power Gem" },
+  { ID = 2641240, Name = "Power Crystal" },
+  { ID = 2641241, Name = "Blaze Shard" },
+  { ID = 2641242, Name = "Blaze Gem" },
+  { ID = 2641243, Name = "Frost Shard" },
+  { ID = 2641244, Name = "Frost Gem" },
+  { ID = 2641245, Name = "Thunder Shard" },
+  { ID = 2641246, Name = "Thunder Gem" },
+  { ID = 2641247, Name = "Shiny Crystal" },
+  { ID = 2641248, Name = "Bright Shard" },
+  { ID = 2641249, Name = "Bright Gem" },
+  { ID = 2641250, Name = "Bright Crystal" },
+  { ID = 2641251, Name = "Mystery Goo" },
+  { ID = 2641252, Name = "Gale" },
+  { ID = 2641253, Name = "Mythril Shard" },
+  { ID = 2641254, Name = "Mythril" },
+  { ID = 2641255, Name = "Orichalcum" },
+  { ID = 2642001, Name = "High Jump" },
+  { ID = 2642002, Name = "Mermaid Kick" },
+  { ID = 2642003, Name = "Glide" },
+  { ID = 2642004, Name = "Superglide" },
+  { ID = 2643005, Name = "Treasure Magnet" },
+  { ID = 2643006, Name = "Combo Plus" },
+  { ID = 2643007, Name = "Air Combo Plus" },
+  { ID = 2643008, Name = "Critical Plus" },
+  { ID = 2643009, Name = "Second Wind" },
+  { ID = 2643010, Name = "Scan" },
+  { ID = 2643011, Name = "Sonic Blade" },
+  { ID = 2643012, Name = "Ars Arcanum" },
+  { ID = 2643013, Name = "Strike Raid" },
+  { ID = 2643014, Name = "Ragnarok" },
+  { ID = 2643015, Name = "Trinity Limit" },
+  { ID = 2643016, Name = "Cheer" },
+  { ID = 2643017, Name = "Vortex" },
+  { ID = 2643018, Name = "Aerial Sweep" },
+  { ID = 2643019, Name = "Counterattack" },
+  { ID = 2643020, Name = "Blitz" },
+  { ID = 2643021, Name = "Guard" },
+  { ID = 2643022, Name = "Dodge Roll" },
+  { ID = 2643023, Name = "MP Haste" },
+  { ID = 2643024, Name = "MP Rage" },
+  { ID = 2643025, Name = "Second Chance" },
+  { ID = 2643026, Name = "Berserk" },
+  { ID = 2643027, Name = "Jackpot" },
+  { ID = 2643028, Name = "Lucky Strike" },
+  { ID = 2643029, Name = "Charge" },
+  { ID = 2643030, Name = "Rocket" },
+  { ID = 2643031, Name = "Tornado" },
+  { ID = 2643032, Name = "MP Gift" },
+  { ID = 2643033, Name = "Raging Boar" },
+  { ID = 2643034, Name = "Asp's Bite" },
+  { ID = 2643035, Name = "Healing Herb" },
+  { ID = 2643036, Name = "Wind Armor" },
+  { ID = 2643037, Name = "Crescent" },
+  { ID = 2643038, Name = "Sandstorm" },
+  { ID = 2643039, Name = "Applause!" },
+  { ID = 2643040, Name = "Blazing Fury" },
+  { ID = 2643041, Name = "Icy Terror" },
+  { ID = 2643042, Name = "Bolts of Sorrow" },
+  { ID = 2643043, Name = "Ghostly Scream" },
+  { ID = 2643044, Name = "Humming Bird" },
+  { ID = 2643045, Name = "Time-Out" },
+  { ID = 2643046, Name = "Storm's Eye" },
+  { ID = 2643047, Name = "Ferocious Lunge" },
+  { ID = 2643048, Name = "Furious Bellow" },
+  { ID = 2643049, Name = "Spiral Wave" },
+  { ID = 2643050, Name = "Thunder Potion" },
+  { ID = 2643051, Name = "Cure Potion" },
+  { ID = 2643052, Name = "Aero Potion" },
+  { ID = 2643053, Name = "Slapshot" },
+  { ID = 2643054, Name = "Sliding Dash" },
+  { ID = 2643055, Name = "Hurricane Blast" },
+  { ID = 2643056, Name = "Ripple Drive" },
+  { ID = 2643057, Name = "Stun Impact" },
+  { ID = 2643058, Name = "Gravity Break" },
+  { ID = 2643059, Name = "Zantetsuken" },
+  { ID = 2643060, Name = "Tech Boost" },
+  { ID = 2643061, Name = "Encounter Plus" },
+  { ID = 2643062, Name = "Leaf Bracer" },
+  { ID = 2643063, Name = "Evolution" },
+  { ID = 2643064, Name = "EXP Zero" },
+  { ID = 2643065, Name = "Combo Master" },
+  { ID = 2644001, Name = "Max HP Increase" },
+  { ID = 2644002, Name = "Max MP Increase" },
+  { ID = 2644003, Name = "Max AP Increase" },
+  { ID = 2644004, Name = "Strength Increase" },
+  { ID = 2644005, Name = "Defense Increase" },
+  { ID = 2644006, Name = "Item Slot Increase" },
+  { ID = 2644007, Name = "Accessory Slot Increase" },
+  { ID = 2645000, Name = "Dumbo" },
+  { ID = 2645001, Name = "Bambi" },
+  { ID = 2645002, Name = "Genie" },
+  { ID = 2645003, Name = "Tinker Bell" },
+  { ID = 2645004, Name = "Mushu" },
+  { ID = 2645005, Name = "Simba" },
+  { ID = 2646001, Name = "Progressive Fire" },
+  { ID = 2646002, Name = "Progressive Blizzard" },
+  { ID = 2646003, Name = "Progressive Thunder" },
+  { ID = 2646004, Name = "Progressive Cure" },
+  { ID = 2646005, Name = "Progressive Gravity" },
+  { ID = 2646006, Name = "Progressive Stop" },
+  { ID = 2646007, Name = "Progressive Aero" },
+  { ID = 2647002, Name = "Wonderland" },
+  { ID = 2647003, Name = "Olympus Coliseum" },
+  { ID = 2647004, Name = "Deep Jungle" },
+  { ID = 2647005, Name = "Agrabah" },
+  { ID = 2647006, Name = "Halloween Town" },
+  { ID = 2647007, Name = "Atlantica" },
+  { ID = 2647008, Name = "Neverland" },
+  { ID = 2647009, Name = "Hollow Bastion" },
+  { ID = 2647010, Name = "End of the World" },
+  { ID = 2647011, Name = "Monstro" },
+  { ID = 2648001, Name = "Blue Trinity" },
+  { ID = 2648002, Name = "Red Trinity" },
+  { ID = 2648003, Name = "Green Trinity" },
+  { ID = 2648004, Name = "Yellow Trinity" },
+  { ID = 2648005, Name = "White Trinity" },
+  { ID = 2649001, Name = "Phil Cup" },
+  { ID = 2649002, Name = "Pegasus Cup" },
+  { ID = 2649003, Name = "Hercules Cup" },
+  { ID = 2649004, Name = "Hades Cup" },
+}
+    return items
 end
 
-item_ids = define_item_ids()
-
-function get_item_name(item_id)
-  for name, id in pairs(item_ids) do
-    if id == item_id then
-      return name
+local items = define_items()
+function get_item_by_id(item_id)
+  for i = 1, #items do
+    if items[i].ID == item_id then
+      return items[i]
     end
   end
 end
+
 
 function read_chests_opened_array()
     --Reads an array of bits which represent which chests have been opened by the player
@@ -546,7 +548,7 @@ function write_unlocked_worlds(unlocked_worlds_array, monstro_unlocked)
 end
 
 function write_synth_requirements()
-    --Writes to the synth requirements array, making the first 20 items require 
+    --Writes to the synth requirements array, making the first 20 items require
     --an unobtainable material, preventing the player from synthing.
     synth_requirements_address = 0x544320 - offset
     synth_array = {}
@@ -681,8 +683,8 @@ end
 function write_magic(magic_unlocked_bits, magic_levels_array)
     magic_unlocked_address = 0x2DE5A44 - offset
     magic_levels_offset = 0x41E
-    WriteByte(magic_unlocked_address, 
-        (1 * magic_unlocked_bits[1]) + (2 * magic_unlocked_bits[2]) + (4 * magic_unlocked_bits[3]) + (8 * magic_unlocked_bits[4]) 
+    WriteByte(magic_unlocked_address,
+        (1 * magic_unlocked_bits[1]) + (2 * magic_unlocked_bits[2]) + (4 * magic_unlocked_bits[3]) + (8 * magic_unlocked_bits[4])
         + (16 * magic_unlocked_bits[5]) + (32 * magic_unlocked_bits[6]) + (64 * magic_unlocked_bits[7]))
     WriteArray(magic_unlocked_address + magic_levels_offset, magic_levels_array)
 end
@@ -772,10 +774,15 @@ function receive_items()
         received_item_id = tonumber(io.read())
         io.close(file)
 
+       local item = get_item_by_id(received_item_id)
+
         --sending the prompt
-        local text_1 = "RECEIVED ITEM"
-        local text_2 = get_item_name(received_item_id) or "UNKNOWN ITEM"
-        show_prompt({text_1}, {{text_2}})
+        local text_1 = { "New Item" }
+        local text_2 = {
+          { item.Name or "UNKNOWN ITEM" },
+        }
+
+        show_prompt(text_1, text_2, null, "red")
 
         if received_item_id >= 2641000 and received_item_id < 2642000 then
             write_item(received_item_id % 2641000)
@@ -1035,7 +1042,22 @@ function GetKHSCII(INPUT)
     return _returnArray
 end
 
-function show_prompt(input_title, input_party, duration)
+function get_colour_offset(colour_name)
+  if       colour_name == "red"         then return 0
+    elseif colour_name == "blue"        then return 1
+    elseif colour_name == "green"       then return 2
+    elseif colour_name == "orange"      then return 3
+    elseif colour_name == "lightred"    then return 4
+    elseif colour_name == "lightblue"   then return 5
+    elseif colour_name == "lightgreen"  then return 6
+    elseif colour_name == "lightorange" then return 7
+    elseif colour_name == "white"       then return 8
+    elseif colour_name == "black"       then return 9
+    else return 0
+  end
+end
+
+function show_prompt(input_title, input_party, duration, colour)
     local _boxMemory = 0x249740A
     local _textMemory = 0x2A1379A;
 
@@ -1050,8 +1072,9 @@ function show_prompt(input_title, input_party, duration)
     for z = 1, 3 do
         local _boxArray = input_party[z];
 
-        local _colorBox = 0x018408A + 0x10 * (z - 1)
-        local _colorText = 0x01840CA + 0x10 * (z - 1)
+        local colourOffset = get_colour_offset(colour or "red")
+        local _colorBox  = 0x018408A + 0x10 * colourOffset
+        local _colorText = 0x01840CA + 0x10 * colourOffset
 
         if _boxArray then
             local _textAddress = (_textMemory + 0x70) + (0x140 * (z - 1)) + (0x40 * 0)
@@ -1097,7 +1120,7 @@ function main()
     receive_items()
     victory = calculate_full()
     send_locations(victory)
-    
+
     --Cleaning up static things
     write_synth_requirements()
     write_chests()
