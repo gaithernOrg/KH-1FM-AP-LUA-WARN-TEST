@@ -38,6 +38,7 @@ frame_count = 1
 canExecute = false
 worlds_unlocked_array = {3, 0, 0, 0, 0, 0, 0, 0, 0}
 monstro_unlocked = 0
+magic_unlocked_bits = {0, 0, 0, 0, 0, 0, 0}
 item_categories = {
   equipment = 0,
   consumables = 1,
@@ -394,8 +395,8 @@ function define_items()
   { ID = 2644003, Name = "Max AP Increase" },
   { ID = 2644004, Name = "Strength Increase" },
   { ID = 2644005, Name = "Defense Increase" },
-  { ID = 2644006, Name = "Item Slot Increase" },
-  { ID = 2644007, Name = "Accessory Slot Increase" },
+  { ID = 2644006, Name = "Accessory Slot Increase" },
+  { ID = 2644007, Name = "Item Slot Increase" },
 
   --Summons
   { ID = 2645000, Name = "Dumbo" },
@@ -795,6 +796,23 @@ function add_to_summons_array(summons_array, value)
     end
     summons_array[i] = value
     return summons_array
+end
+
+function fix_shortcuts()
+    shortcuts_address = 0x2DE6214 - offset
+    shortcuts = ReadArray(shortcuts_address, 3)
+    shortcuts_changed = false
+    local i = 1
+    while i <= 3 do
+        if magic_unlocked_bits[shortcuts[i]+1] ~= 1 then
+            shortcuts[i] = 255
+            shortcuts_changed = true
+        end
+        i = i + 1
+    end
+    if shortcuts_changed then
+        WriteArray(shortcuts_address, shortcuts)
+    end
 end
 
 function receive_items()
@@ -1255,4 +1273,5 @@ function _OnFrame()
     end
     frame_count = frame_count + 1
     write_unlocked_worlds(worlds_unlocked_array, monstro_unlocked)
+    fix_shortcuts()
 end
