@@ -39,6 +39,7 @@ canExecute = false
 worlds_unlocked_array = {3, 0, 0, 0, 0, 0, 0, 0, 0}
 monstro_unlocked = 0
 magic_unlocked_bits = {0, 0, 0, 0, 0, 0, 0}
+initializing = true
 item_categories = {
   equipment = 0,
   consumables = 1,
@@ -635,60 +636,6 @@ function write_check_array(check_array)
     WriteArray(check_number_item_address, check_array)
 end
 
-function write_evidence_chests()
-    lotus_forest_evidence_address = 0x2D39B90 - offset
-    bizarre_rooom_evidence_address = 0x2D39230 - offset
-    --if read_world() == 4 then
-    --    if read_room() == 4 then
-    --        WriteLong(lotus_forest_evidence_address, 0)
-    --        WriteLong(lotus_forest_evidence_address + 0x4B0, 0)
-    --    elseif read_room() == 1 then
-    --        WriteLong(bizarre_rooom_evidence_address, 0)
-    --        WriteLong(bizarre_rooom_evidence_address + 0x4B0, 0)
-    --    end
-    --end
-    if read_world() == 4 then
-        if read_room() == 4 then
-            local o = 0
-            while ReadInt(lotus_forest_evidence_address+4+o*0x4B0) ~= 0x40013 and ReadInt(lotus_forest_evidence_address+4+o*0x4B0) ~= 0 and o > -5 do
-                o = o-1
-            end
-            if ReadLong(lotus_forest_evidence_address+o*0x4B0) == 0x0004001300008203 then
-                WriteLong(lotus_forest_evidence_address+o*0x4B0, 0)
-                WriteLong(lotus_forest_evidence_address+(o+1)*0x4B0, 0)
-            end
-        elseif read_room() == 1 then
-            local o = 0
-            while ReadInt(bizarre_rooom_evidence_address+4+o*0x4B0) ~= 0x40013 and ReadInt(bizarre_rooom_evidence_address+4+o*0x4B0) ~= 0 and o > -5 do
-                o = o-1
-            end
-            if ReadLong(bizarre_rooom_evidence_address+o*0x4B0) == 0x0004001300008003 then
-                    WriteLong(bizarre_rooom_evidence_address+o*0x4B0, 0)
-                    WriteLong(bizarre_rooom_evidence_address+(o+1)*0x4B0, 0)
-                end
-            end
-        end
-end
-
-function write_slides()
-    slide_address = 0x2D3CA70 - offset
-    if read_world() == 5 and read_room() == 12 then
-        for i=0,5 do
-            local o = 0
-            while ReadInt(slide_address+o*0x4B0+4) ~= 0x40018 and ReadInt(slide_address+o*0x4B0+4) ~= 0 and o > -5 do
-                o = o-1
-            end
-            if ReadInt(slide_address+o*0x4B0+4) == 0x40018 then
-                for i=0,5 do
-                    if ReadInt(slide_address+(i+o)*0x4B0+4) == 0x40018+(i>1 and i+4 or i) then
-                        WriteLong(slide_address+(i+o)*0x4B0, 0)
-                    end
-                end
-            end
-        end
-    end
-end
-
 function write_item(item_offset)
     inventory_address = 0x2DE5E69 - offset
     WriteByte(inventory_address + item_offset, ReadByte(inventory_address + item_offset) + 1)
@@ -823,11 +770,10 @@ function receive_items()
         io.input(file)
         received_item_id = tonumber(io.read())
         io.close(file)
-
-       local item = get_item_by_id(received_item_id) or { Name = "UNKNOWN ITEM", ID = -1}
-
-        table.insert(message_cache.items, item)
-
+        if not initializing then
+            local item = get_item_by_id(received_item_id) or { Name = "UNKNOWN ITEM", ID = -1}
+            table.insert(message_cache.items, item)
+        end
         if received_item_id >= 2641000 and received_item_id < 2642000 then
             write_item(received_item_id % 2641000)
         elseif received_item_id >= 2643000 and received_item_id < 2644000 then
@@ -839,6 +785,7 @@ function receive_items()
         check_array = increment_check_array(check_array)
         i = i + 1
     end
+    initializing = false
     write_check_array(check_array)
 end
 
@@ -1227,8 +1174,6 @@ function main()
     write_synth_requirements()
     write_chests()
     write_rewards()
-    --write_evidence_chests()
-    --write_slides()
     write_world_lines()
     write_level_up_rewards()
     write_e()
