@@ -770,7 +770,7 @@ function receive_items()
         io.input(file)
         received_item_id = tonumber(io.read())
         io.close(file)
-        if not initializing then
+        if not initializing and read_world() ~= 0 then
             local item = get_item_by_id(received_item_id) or { Name = "UNKNOWN ITEM", ID = -1}
             table.insert(message_cache.items, item)
         end
