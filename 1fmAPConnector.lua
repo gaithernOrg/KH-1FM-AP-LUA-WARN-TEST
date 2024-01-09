@@ -1261,7 +1261,7 @@ function handle_messages()
             usefulness = item_usefulness.progression
         elseif info.usefulness == 2 then
             usefulness = item_usefulness.normal
-        elseif info.usefulness == 3 then
+        elseif info.usefulness == 4 then
             usefulness = item_usefulness.trap
         end
         ConsolePrint('use multiwork ' .. info.usefulness)
