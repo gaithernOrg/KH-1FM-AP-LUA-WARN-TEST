@@ -1172,7 +1172,7 @@ end
 
 function show_prompt(input_title, input_party, duration, colour)
     if colour == nil then
-        prompt_colours.red_sora
+        colour = prompt_colours.red_sora
     end
     local _boxMemory = 0x249740A
     local _textMemory = 0x2A1379A;
