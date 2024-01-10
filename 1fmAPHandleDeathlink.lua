@@ -1,4 +1,4 @@
-LUAGUI_NAME = "1fmHandleDeathlinkAP"
+LUAGUI_NAME = "1fmAPHandleDeathlink"
 LUAGUI_AUTH = "Gicu"
 LUAGUI_DESC = "Handles sending and receiving Death Links. Credits to Denho."
 

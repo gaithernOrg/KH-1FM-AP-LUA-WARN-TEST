@@ -1,4 +1,4 @@
-LUAGUI_NAME = "1fmInstantGummi"
+LUAGUI_NAME = "1fmAPInstantGummi"
 LUAGUI_AUTH = "denhonator"
 LUAGUI_DESC = "Instantly arrive at gummi destination"
 
