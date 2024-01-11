@@ -880,7 +880,7 @@ function calculate_full()
     if olympus_cups_array[1] == 10 and olympus_cups_array[2] == 10 and olympus_cups_array[3] == 10 then
         olympus_cups_array[4] = 10
     end
-    for k,v in pairs(magic_levels_array)
+    for k,v in pairs(magic_levels_array) do
         if v == 0 then
             magic_levels_array[k] = 1
         end
