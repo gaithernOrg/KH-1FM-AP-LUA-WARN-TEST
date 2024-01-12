@@ -1260,7 +1260,6 @@ function handle_messages()
         elseif info.usefulness == 4 then
             usefulness = item_usefulness.trap
         end
-        ConsolePrint('use multiwork ' .. info.usefulness)
         local colour = usefulness_to_colour(usefulness)
         show_prompt({ "Multiworld" }, { { item_msg } }, null, colour)
     end
