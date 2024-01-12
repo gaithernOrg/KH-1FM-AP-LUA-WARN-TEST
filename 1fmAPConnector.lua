@@ -495,26 +495,26 @@ function read_chests_opened_array()
 end
 
 function read_soras_abilities_array()
-    --Reads an array of Sora's abilties.  The first 7 bits define the ability,
-    --while the last bit defines whether its equiped.
+    --[[Reads an array of Sora's abilties.  The first 7 bits define the ability,
+    while the last bit defines whether its equiped.]]
     soras_abilities_address   = 0x2DE5A14 - offset
     return ReadArray(soras_abilities_address, 40)
 end
 
 function read_soras_level()
-    --Reads Sora's Current Level
+    --[[Reads Sora's Current Level]]
     soras_level_address = 0x2DE5A08 - offset
     return ReadShort(soras_level_address)
 end
 
 function read_shared_abilities_array()
-    --Reads an array of the player's current shared abilities.
+    --[[Reads an array of the player's current shared abilities.]]
     shared_abilties_addresss = 0x2DE5F68 - offset
     return ReadArray(shared_abilties_addresss, 4)
 end
 
 function read_soras_stats_array()
-    --Reads an array of Sora's stats
+    --[[Reads an array of Sora's stats]]
     soras_stats_address         = 0x2DE59D6 - offset
     sora_hp_offset              = 0x0
     sora_mp_offset              = 0x2
@@ -533,50 +533,56 @@ function read_soras_stats_array()
 end
 
 function read_check_array()
-    --Reads the current check number by getting the sum total of the 3 AP items
+    --[[Reads the current check number by getting the sum total of the 3 AP items]]
     inventory_address = 0x2DE5E69 - offset
     check_number_item_address = inventory_address + 0x48
     return ReadArray(check_number_item_address, 3)
 end
 
 function read_room()
-    --Gets the numeric value of the currently occupied room
+    --[[Gets the numeric value of the currently occupied room]]
     world_address = 0x233CADC - offset
     room_address = world_address + 0x68
     return ReadByte(room_address)
 end
 
 function read_world()
-    --Gets the numeric value of the currently occupied world
+    --[[Gets the numeric value of the currently occupied world]]
     world_address = 0x233CADC - offset
     return ReadByte(world_address)
 end
 
 function read_chronicles()
+    --[[Reads an array of the bytes who's bits correspond to which Chronicles have 
+    been unlocked in Jiminy's Journal]]
     chronicles_address = 0x2DE7367 - offset
     chronicles_array = ReadArray(chronicles_address, 36)
     return chronicles_array
 end
 
 function read_ansems_secret_reports()
+    --[[Reads an array of the bytes who's bits correspond to which Secret Reports have 
+    been unlocked in Jiminy's Journal]]
     ansems_secret_reports = 0x2DE7390 - offset
     ansems_secret_reports_array = ReadArray(ansems_secret_reports, 2)
     return ansems_secret_reports_array
 end
 
 function read_olympus_cups_array()
+    --[[Reads an array of the bytes which correspond to which Olympus Coliseum
+    cups have been unlocked.]]
     olympus_cups_address = 0x2DE77D0 - offset
     return ReadArray(olympus_cups_address, 4)
 end
 
 function write_world_lines()
-    --Opens all world connections on the world map
+    --[[Opens all world connections on the world map]]
     world_map_lines_address = 0x2DE78E2 - offset
     WriteArray(world_map_lines_address, {0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF})
 end
 
 function write_rewards()
-    --Removes all obtained items from rewards
+    --[[Removes all obtained items from rewards]]
     battle_table_address = 0x2D1F3C0 - offset
     rewards_offset = 0xC6A8
     reward_array = {}
@@ -589,7 +595,7 @@ function write_rewards()
 end
 
 function write_chests()
-    --Removes all obtained items from chests
+    --[[Removes all obtained items from chests]]
     chest_table_address = 0x5259E0 - offset
     chest_array = {}
     local i = 1
@@ -601,13 +607,13 @@ function write_chests()
 end
 
 function write_unlocked_worlds(unlocked_worlds_array, monstro_unlocked)
-    --Writes unlocked worlds.  Array of 11 values, one for each world
-    --TT, WL, OC, DJ, AG, AT, HT, NL, HB, EW, MS
-    --00 is invisible
-    --01 is visible/unvisited
-    --02 is selectable/unvisited
-    --03 is incomplete
-    --04 is complete
+    --[[Writes unlocked worlds.  Array of 11 values, one for each world
+    TT, WL, OC, DJ, AG, AT, HT, NL, HB, EW, MS
+    00 is invisible
+    01 is visible/unvisited
+    02 is selectable/unvisited
+    03 is incomplete
+    04 is complete]]
     world_status_address = 0x2DE78C0 - offset
     monstro_status_addresss = world_status_address + 0xA
     WriteArray(world_status_address, unlocked_worlds_array)
@@ -615,8 +621,8 @@ function write_unlocked_worlds(unlocked_worlds_array, monstro_unlocked)
 end
 
 function write_synth_requirements()
-    --Writes to the synth requirements array, making the first 20 items require
-    --an unobtainable material, preventing the player from synthing.
+    --[[Writes to the synth requirements array, making the first 20 items require
+    an unobtainable material, preventing the player from synthing.]]
     synth_requirements_address = 0x544320 - offset
     synth_array = {}
     local i = 0
@@ -631,8 +637,8 @@ function write_synth_requirements()
 end
 
 function write_soras_level_up_rewards()
-    --Writes Sora's level up rewards to make them empty.
-    --Level up rewards will be handled by the client/server.
+    --[[Writes Sora's level up rewards to make them empty.
+    Level up rewards will be handled by the client/server.]]
     battle_table_address = 0x2D1F3C0 - offset
     soras_stat_level_up_rewards_address = battle_table_address + 0x3AC0
     overwrite_array = {}
@@ -645,7 +651,7 @@ function write_soras_level_up_rewards()
 end
 
 function write_soras_stats(soras_stats_array)
-    --Writes Sora's calculated stats back to memory
+    --[[Writes Sora's calculated stats back to memory]]
     soras_stats_address         = 0x2DE59D6 - offset
     sora_hp_offset              = 0x00
     sora_mp_offset              = 0x02
@@ -664,17 +670,20 @@ function write_soras_stats(soras_stats_array)
 end
 
 function write_check_array(check_array)
+    --[[Writes the correct number of "check" unused accessory items. Used for syncing game with server]]
     inventory_address = 0x2DE5E69 - offset
     check_number_item_address = inventory_address + 0x48
     WriteArray(check_number_item_address, check_array)
 end
 
 function write_item(item_offset)
+    --[[Grants the players a specific item defined by the offset]]
     inventory_address = 0x2DE5E69 - offset
     WriteByte(inventory_address + item_offset, ReadByte(inventory_address + item_offset) + 1)
 end
 
 function write_sora_ability(ability_value)
+    --[[Grants the player a specific ability defined by the ability value]]
     abilities_address = 0x2DE5A13 - offset
     local i = 1
     while ReadByte(abilities_address + i) ~= 0 do
@@ -684,16 +693,19 @@ function write_sora_ability(ability_value)
 end
 
 function write_shared_abilities_array(shared_abilities_array)
+    --[[Writes the player's unlocked shared abilities]]
     shared_abilities_address = 0x2DE5F69 - offset
     WriteArray(shared_abilities_address, shared_abilities_array)
 end
 
 function write_summons_array(summons_array)
+    --[[Writes the player's unlocked summons]]
     summons_address = 0x2DE61A0 - offset
     WriteArray(summons_address, summons_array)
 end
 
 function write_magic(magic_unlocked_bits, magic_levels_array)
+    --[[Writes the players unlocked magic]]
     magic_unlocked_address = 0x2DE5A44 - offset
     magic_levels_offset = 0x41E
     WriteByte(magic_unlocked_address,
@@ -703,11 +715,13 @@ function write_magic(magic_unlocked_bits, magic_levels_array)
 end
 
 function write_trinities(trinity_bits)
+    --[[Writes the players unlocked trinities]]
     trinities_unlocked_address = 0x2DE75EB - offset
     WriteByte(trinities_unlocked_address, (1 * trinity_bits[1]) + (2 * trinity_bits[2]) + (4 * trinity_bits[3]) + (8 * trinity_bits[4]) + (16 * trinity_bits[5]))
 end
 
 function write_olympus_cups(olympus_cups_array)
+    --[[Writes the player's unlocked Olympus Coliseum cups]]
     olympus_cups_address = 0x2DE77D0 - offset
     current_olympus_cups_array = read_olympus_cups_array()
     for k,v in pairs(current_olympus_cups_array) do
@@ -719,6 +733,7 @@ function write_olympus_cups(olympus_cups_array)
 end
 
 function write_level_up_rewards()
+    --[[Removes level up rewards from the game, as they will be handled by the server]]
     battle_table_address = 0x2D1F3C0 - offset
     level_up_rewards_offset = 0x3AC0
     abilities_1_table_offset = 0x3BF8
@@ -738,11 +753,15 @@ function write_level_up_rewards()
 end
 
 function write_e()
+    --[[Chests in the game grant the player "e", which is item value 0.
+    We clear this out, as the player can't hold more than 99]]
     inventory_address = 0x2DE5E69 - offset
     WriteByte(inventory_address, 0)
 end
 
 function increment_check_array(check_array)
+    --[[Correctly increments the check items, as the player can't hold more than 
+    255 of one check item]]
     if check_array[1] == 255 and check_array[2] == 255 then
         check_array[3] = check_array[3] + 1
     elseif check_array[1] == 255 then
@@ -754,6 +773,7 @@ function increment_check_array(check_array)
 end
 
 function add_to_soras_stats(value)
+    --[[Calculates sora's stats by incrementing the stat based on the stat_increases array]]
     stat_increases = {3, 1, 2, 2, 2, 1, 1}
     soras_stats_array = read_soras_stats_array()
     soras_stats_array[value] = soras_stats_array[value] + stat_increases[value]
@@ -761,6 +781,7 @@ function add_to_soras_stats(value)
 end
 
 function add_to_shared_abilities_array(shared_abilities_array, value)
+    --[[Adds a shared ability to the calculated shared_abilities_array]]
     local i = 1
     while shared_abilities_array[i] ~= 0 do
         i = i + 1
@@ -770,6 +791,7 @@ function add_to_shared_abilities_array(shared_abilities_array, value)
 end
 
 function add_to_summons_array(summons_array, value)
+    --[[Adds a summon to the calculated summons_array]]
     local i = 1
     while summons_array[i] < 10 do
         i = i + 1
@@ -779,6 +801,7 @@ function add_to_summons_array(summons_array, value)
 end
 
 function fix_shortcuts()
+    --[[Ensures that the player never has a shortcut set for a spell they don't posses]]
     shortcuts_address = 0x2DE6214 - offset
     shortcuts = ReadArray(shortcuts_address, 3)
     shortcuts_changed = false
@@ -796,6 +819,8 @@ function fix_shortcuts()
 end
 
 function receive_items()
+    --[[Main function for receiving incremental items, like non-shared abilities, weapons
+    consumables, and accessories]]
     check_array = read_check_array()
     i = check_array[1] + check_array[2] + check_array[3] + 1
     while file_exists(client_communication_path .. "AP_" .. tostring(i) .. ".item") do
@@ -821,25 +846,9 @@ function receive_items()
     write_check_array(check_array)
 end
 
-function receive_sent_msgs()
-    local filename = client_communication_path .. "sent"
-    if file_exists(filename) then
-        local lines = {}
-        local file = io.open(filename, "r")
-        local line = file:read("*line")
-        while line do
-            table.insert(lines, line)
-            line = file:read("*line")
-        end
-        file:close()
-        if message_cache.locationID ~= lines[4] then --If the last sent prompt we parsed does not share a location id with this prompt we're reading
-            table.insert(message_cache.sent, lines)
-            message_cache.locationID = lines[4]
-        end
-    end
-end
-
 function calculate_full()
+    --[[Main function for calculating values which need to be overwritten consistently, in
+    order to remove things the game might give the player.  These include magic, trinities, etc]]
     magic_unlocked_bits = {0, 0, 0, 0, 0, 0, 0}
     magic_levels_array  = {0, 0, 0, 0, 0, 0, 0}
     worlds_unlocked_array = {3, 0, 0, 0, 0, 0, 0, 0, 0}
@@ -894,6 +903,7 @@ function calculate_full()
 end
 
 function send_locations()
+    --[[Communicates with the client which locations have been checked]]
     chest_array = read_chests_opened_array()
     chronicles_array = read_chronicles()
     ansems_secret_reports_array = read_ansems_secret_reports()
@@ -967,6 +977,28 @@ function send_locations()
             io.output(file)
             io.write("")
             io.close(file)
+        end
+    end
+end
+
+--MESSAGE HANDLING BLOCK BY KRUJO--
+
+function receive_sent_msgs()
+    --[[Written by Krujo.  Handles the messages coming directly from the server for 
+    messages involving sending items to other players]]
+    local filename = client_communication_path .. "sent"
+    if file_exists(filename) then
+        local lines = {}
+        local file = io.open(filename, "r")
+        local line = file:read("*line")
+        while line do
+            table.insert(lines, line)
+            line = file:read("*line")
+        end
+        file:close()
+        if message_cache.locationID ~= lines[4] then --If the last sent prompt we parsed does not share a location id with this prompt we're reading
+            table.insert(message_cache.sent, lines)
+            message_cache.locationID = lines[4]
         end
     end
 end
@@ -1090,6 +1122,8 @@ function GetKHSCII(INPUT)
 end
 
 function usefulness_to_colour(usefulness)
+    --Written by Krujo.  Gets color values for a particular
+    --defined usefulness
     if usefulness == item_usefulness.useless then
         return prompt_colours.green_mint
     elseif usefulness == item_usefulness.normal then
@@ -1104,6 +1138,8 @@ function usefulness_to_colour(usefulness)
 end
 
 function show_prompt_for_item(item)
+    --[[Written by Krujo.  Wrapper for show_prompt.  Pulls output
+    color information and formats text accordingly.]]
     local text_1 = ""
     local text_2 = { { item.Name } }
     local category = item_categories.consumables;
@@ -1167,6 +1203,7 @@ function show_prompt_for_item(item)
 end
 
 function show_prompt(input_title, input_party, duration, colour)
+    --[[Writes to memory the message to be displayed in a Level Up prompt.]]
     if colour == nil then
         colour = prompt_colours.red_sora
     end
@@ -1228,6 +1265,9 @@ function show_prompt(input_title, input_party, duration, colour)
 end
 
 function handle_messages()
+    --[[Written by Krujo.  Handles received messages in a queue system,
+    sending 1 message in the message_cache every main() iteration and removing
+    it from the cache.]]
     local msg = message_cache.items[1]
     if msg ~= nil then
         show_prompt_for_item(msg)
@@ -1265,7 +1305,10 @@ function handle_messages()
     end
 end
 
+--END MESSAGE HANDLING BLOCK BY KRUJO--
+
 function main()
+    --Main functions
     receive_sent_msgs()
     receive_items()
     victory = calculate_full()
@@ -1278,29 +1321,9 @@ function main()
     write_world_lines()
     write_level_up_rewards()
     write_e()
+    
+    --Written by Krujo for handling messages
     handle_messages()
-end
-
-function test()
-    chests_opened_array = read_chests_opened_array()
-    ConsolePrint(toBits(chests_opened_array[21])[1])
-    write_world_lines()
-    write_unlocked_worlds({0x3, 0x0, 0x3, 0x0, 0x0, 0x0, 0x0, 0x3, 0x0, 0x0, 0x0})
-    write_synth_requirements()
-    soras_abilities = read_soras_abilities_array()
-    ConsolePrint(soras_abilities[1])
-    ConsolePrint("Sora's Current Level: " .. tostring(read_soras_level()))
-    check_array = read_check_array()
-    check_number = check_array[1] + check_array[2] + check_array[3]
-    ConsolePrint("Current check number: " .. tostring(check_number))
-    sora_stats_array = read_soras_stats_array()
-    ConsolePrint("Sora's Max HP = " .. tostring(sora_stats_array[1]))
-    write_rewards()
-    write_chests()
-    ConsolePrint("Current World: " .. tostring(read_world()))
-    ConsolePrint("Current Room: " .. tostring(read_room()))
-    write_evidence_chests()
-    write_slides()
 end
 
 function _OnInit()
@@ -1315,9 +1338,10 @@ end
 function _OnFrame()
     if frame_count % 120 == 0 and canExecute then
         main()
-        --test()
     end
     frame_count = frame_count + 1
+    
+    --Few things that need to happen every frame rather than every 2 seconds.
     write_unlocked_worlds(worlds_unlocked_array, monstro_unlocked)
     fix_shortcuts()
 end
