@@ -41,46 +41,46 @@ monstro_unlocked = 0
 magic_unlocked_bits = {0, 0, 0, 0, 0, 0, 0}
 initializing = true
 item_categories = {
-  equipment = 0,
-  consumable = 1,
-  unlock = 2,
-  ability = 3,
-  magic = 4,
-  trinity = 5,
-  summon = 6,
-  statsUp = 7,
-  synthesis = 8,
+    equipment = 0,
+    consumable = 1,
+    unlock = 2,
+    ability = 3,
+    magic = 4,
+    trinity = 5,
+    summon = 6,
+    statsUp = 7,
+    synthesis = 8,
 }
 message_cache = {
-  items = {},
-  sent  = {},
-  debug = { {} },
-  locationID = -1,
+    items = {},
+    sent  = {},
+    debug = { {} },
+    locationID = -1,
 }
 prompt_colours = {
-  blue_donald = -8,
-  green_goofy = -4,
-  red_sora = 0,
-  purple_evil = 4,
-  green_goofy_dark = 8,
-  purple_pink = 12,
-  blue_light = 16,
-  green_mint = 20,
-  orange = 24,
-  violet = 28,
-  green_goofy_intensiv = 32,
-  purple_pink_intensiv = 36,
-  blue_light_intensiv = 40,
-  red_rose = 64,
-  red_trap = 140
+    blue_donald = -8,
+    green_goofy = -4,
+    red_sora = 0,
+    purple_evil = 4,
+    green_goofy_dark = 8,
+    purple_pink = 12,
+    blue_light = 16,
+    green_mint = 20,
+    orange = 24,
+    violet = 28,
+    green_goofy_intensiv = 32,
+    purple_pink_intensiv = 36,
+    blue_light_intensiv = 40,
+    red_rose = 64,
+    red_trap = 140
 }
 
 item_usefulness = {
-  trap = 0,
-  useless = 1,
-  normal = 2,
-  progression = 3,
-  special = 4,
+    trap = 0,
+    useless = 1,
+    normal = 2,
+    progression = 3,
+    special = 4,
 }
 
 colourOffsetIterator = -8
@@ -1090,89 +1090,80 @@ function GetKHSCII(INPUT)
 end
 
 function usefulness_to_colour(usefulness)
-  if usefulness == item_usefulness.useless then
-    return prompt_colours.green_mint
-  elseif usefulness == item_usefulness.normal then
-    return prompt_colours.red_sora
-  elseif usefulness == item_usefulness.progression then
-    return prompt_colours.purple_evil
-  elseif usefulness == item_usefulness.special then
-    return prompt_colours.red_rose
-  elseif usefulness == item_usefulness.trap then
-    return prompt_colours.red_trap
-  end
+    if usefulness == item_usefulness.useless then
+        return prompt_colours.green_mint
+    elseif usefulness == item_usefulness.normal then
+        return prompt_colours.red_sora
+    elseif usefulness == item_usefulness.progression then
+        return prompt_colours.purple_evil
+    elseif usefulness == item_usefulness.special then
+        return prompt_colours.red_rose
+    elseif usefulness == item_usefulness.trap then
+        return prompt_colours.red_trap
+    end
 end
 
 function show_prompt_for_item(item)
-  local text_1 = ""
-  local text_2 = { { item.Name } }
-
-  local category = item_categories.consumables;
-  local smallId = item.ID - 2640000
-
-  if smallId > 1000 and smallId < 1009 then
-    category = item_categories.consumable
-  elseif smallId > 1008 and smallId < 1017 then
-    category = item_categories.synthesis
-  elseif smallId > 1016 and smallId < 1136 then
-    category = item_categories.equipment
-  elseif smallId > 2000 and smallId < 4001 then
-    category = item_categories.ability
-  elseif smallId > 4000 and smallId < 5000 then
-    category = item_categories.statsUp
-  elseif smallId > 5000 and smallId < 6000 then
-    category = item_categories.summon
-  elseif smallId > 6000 and smallId < 7000 then
-    category = item_categories.magic
-  elseif smallId > 8000 and smallId < 9000 then
-    category = item_categories.trinity
-  elseif smallId > 5000 and smallId < 6000 then
-    category = item_categories.summon
-  elseif smallId > 7000 and smallId < 10000 then
-    category = item_categories.unlock
-  end
-
-  local catUsefulness = item_usefulness.useless
-
-  if category == item_categories.consumable then
-    text_1 = "Consumable"
-    catUsefulness = item_usefulness.useless
-  elseif category == item_categories.synthesis then
-    text_1 = "Synthesis"
-    catUsefulness = item_usefulness.useless
-  elseif category == item_categories.equipment then
-    text_1 = "Equipment"
-    catUsefulness = item_usefulness.normal
-  elseif category == item_categories.ability then
-    text_1 = "Ability"
-    catUsefulness = item_usefulness.normal
-  elseif category == item_categories.statsUp then
-    text_1 = "Stat Up"
-    catUsefulness = item_usefulness.normal
-  elseif category == item_categories.summon then
-    text_1 = "Summon"
-    catUsefulness = item_usefulness.normal
-  elseif category == item_categories.magic then
-    text_1 = "Magic"
-    catUsefulness = item_usefulness.normal
-  elseif category == item_categories.trinity then
-    text_1 = "Trinity"
-    catUsefulness = item_usefulness.progression
-  elseif category == item_categories.unlock then
-    text_1 = "Unlock"
-    catUsefulness = item_usefulness.progression
-  end
-
-  local colour = prompt_colours.red_sora;
-
-  if item.Usefulness == nil then
-    item.Usefulness = catUsefulness
-  end
-
-  colour = usefulness_to_colour(item.Usefulness)
-
-
-  show_prompt({ text_1 }, text_2, null, colour)
+    local text_1 = ""
+    local text_2 = { { item.Name } }
+    local category = item_categories.consumables;
+    local smallId = item.ID - 2640000
+    if smallId > 1000 and smallId < 1009 then
+        category = item_categories.consumable
+    elseif smallId > 1008 and smallId < 1017 then
+        category = item_categories.synthesis
+    elseif smallId > 1016 and smallId < 1136 then
+        category = item_categories.equipment
+    elseif smallId > 2000 and smallId < 4001 then
+        category = item_categories.ability
+    elseif smallId > 4000 and smallId < 5000 then
+        category = item_categories.statsUp
+    elseif smallId > 5000 and smallId < 6000 then
+        category = item_categories.summon
+    elseif smallId > 6000 and smallId < 7000 then
+        category = item_categories.magic
+    elseif smallId > 8000 and smallId < 9000 then
+        category = item_categories.trinity
+    elseif smallId > 5000 and smallId < 6000 then
+        category = item_categories.summon
+    elseif smallId > 7000 and smallId < 10000 then
+        category = item_categories.unlock
+    end
+    local catUsefulness = item_usefulness.useless
+    if category == item_categories.consumable then
+        text_1 = "Consumable"
+        catUsefulness = item_usefulness.useless
+    elseif category == item_categories.synthesis then
+        text_1 = "Synthesis"
+        catUsefulness = item_usefulness.useless
+    elseif category == item_categories.equipment then
+        text_1 = "Equipment"
+        catUsefulness = item_usefulness.normal
+    elseif category == item_categories.ability then
+        text_1 = "Ability"
+        catUsefulness = item_usefulness.normal
+    elseif category == item_categories.statsUp then
+        text_1 = "Stat Up"
+        catUsefulness = item_usefulness.normal
+    elseif category == item_categories.summon then
+        text_1 = "Summon"
+        catUsefulness = item_usefulness.normal
+    elseif category == item_categories.magic then
+        text_1 = "Magic"
+        catUsefulness = item_usefulness.normal
+    elseif category == item_categories.trinity then
+        text_1 = "Trinity"
+        catUsefulness = item_usefulness.progression
+    elseif category == item_categories.unlock then
+        text_1 = "Unlock"
+        catUsefulness = item_usefulness.progression
+    end
+    local colour = prompt_colours.red_sora;
+    if item.Usefulness == nil then
+        item.Usefulness = catUsefulness
+    end
+    colour = usefulness_to_colour(item.Usefulness)
+    show_prompt({ text_1 }, text_2, null, colour)
 end
 
 function show_prompt(input_title, input_party, duration, colour)
