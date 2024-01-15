@@ -522,7 +522,7 @@ function define_world_progress_location_thressholds()
     --Agrabah
     world_progress_location_thressholds[5] = {
         {0x35, 2656051}  --Ray of Light
-        {0x49, 2656052}  --Blizzard
+       ,{0x49, 2656052}  --Blizzard
        ,{0x5A, 2656053}  --Fire
        ,{0x78, 2656054}  --Genie
        ,{0x78, 2656055}  --Three Wishes
