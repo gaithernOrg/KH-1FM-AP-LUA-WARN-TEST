@@ -496,9 +496,9 @@ function define_world_progress_location_threshholds()
     
     --Traverse Town
     world_progress_location_threshholds[1] = {
-        {0x20, 2656011}  --Dodge Roll
-       ,{0x20, 2656012}  --Fire
-       ,{0x20, 2656013}  --Blue Trinity
+        {0x31, 2656011}  --Dodge Roll
+       ,{0x31, 2656012}  --Fire
+       ,{0x31, 2656013}  --Blue Trinity
        ,{0x3e, 2656014}  --Earthshine
        ,{0x8c, 2656015}} --Oathkeeper
     
@@ -516,7 +516,7 @@ function define_world_progress_location_threshholds()
     
     --Wonderland
     world_progress_location_threshholds[4] = {
-        {0x0D, 2656041}  --Blizzard
+        {0x2E, 2656041}  --Blizzard
        ,{0x2E, 2656042}} --Ifrit's Horn
     
     --Agrabah
@@ -663,8 +663,8 @@ function read_world_progress_array()
     each world.  The order of worlds are as follows:
     Traverse Town, Deep Jungle, Olympus Coliseum, Wonderland, Agrabah, Monstro,
     Atlantica, Halloween Town, Neverland, Hollow Bastion, End of the World]]
-    world_progress_address = 0x2DE79D0 + 0x6C - offset
-    world_progress_array = ReadArray(world_map_lines_address, 11)
+    world_progress_address = 0x2DE65D0 - 0x200 + 0xB04 - offset
+    world_progress_array = ReadArray(world_progress_address, 11)
     return world_progress_array
 end
 
