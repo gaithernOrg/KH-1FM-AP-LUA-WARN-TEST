@@ -102,7 +102,7 @@ function _OnFrame()
         io.input(file)
         death_time = tonumber(io.read())
         io.close(file)
-        if death_time ~= nil:
+        if death_time ~= nil then
             if ReadFloat(soraHUD) > 0 and ReadByte(soraHP) > 0 and ReadByte(blackFade)==128 and ReadShort(deathCheck) == 0x2E74 and death_time >= last_death_time + 3 then
                 WriteByte(soraHP, 0)
                 WriteByte(stateFlag, 1)
