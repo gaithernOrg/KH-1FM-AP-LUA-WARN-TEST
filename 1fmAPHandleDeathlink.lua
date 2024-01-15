@@ -66,7 +66,10 @@ function _OnInit()
     if file_exists(client_communication_path .. "dlreceive") then
         file = io.open(client_communication_path .. "dlreceive")
         io.input(file)
-        last_death_time = tonumber(io.read())
+        death_time = tonumber(io.read())
+        if death_time ~= nil then
+            last_death_time = tonumber(io.read())
+        end
         io.close(file)
     end
     soras_last_hp = ReadByte(soraHP)
