@@ -102,16 +102,18 @@ function _OnFrame()
         io.input(file)
         death_time = tonumber(io.read())
         io.close(file)
-        if ReadFloat(soraHUD) > 0 and ReadByte(soraHP) > 0 and ReadByte(blackFade)==128 and ReadShort(deathCheck) == 0x2E74 and death_time >= last_death_time + 3 and death_time ~= nil then
-            WriteByte(soraHP, 0)
-            WriteByte(stateFlag, 1)
-            WriteShort(deathCheck, 0x9090)
-            if extraSafety then
-                WriteLong(safetyMeasure, 0x89020B958735894C)
+        if death_time ~= nil:
+            if ReadFloat(soraHUD) > 0 and ReadByte(soraHP) > 0 and ReadByte(blackFade)==128 and ReadShort(deathCheck) == 0x2E74 and death_time >= last_death_time + 3 then
+                WriteByte(soraHP, 0)
+                WriteByte(stateFlag, 1)
+                WriteShort(deathCheck, 0x9090)
+                if extraSafety then
+                    WriteLong(safetyMeasure, 0x89020B958735894C)
+                end
+                revertCode = true
+                last_death_time = death_time
+                soras_last_hp = 0
             end
-            revertCode = true
-            last_death_time = death_time
-            soras_last_hp = 0
         end
     end
     
