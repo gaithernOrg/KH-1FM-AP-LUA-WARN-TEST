@@ -488,14 +488,14 @@ function get_item_by_id(item_id)
   end
 end
 
-function define_world_progress_location_thressholds()
+function define_world_progress_location_threshholds()
     --[[Defines an array of location_ids based on thressholds on story progress bytes.
     This information is being obtained from https://retroachievements.org/codenotes.php?g=2780]]
     
-    world_progress_location_thressholds = {}
+    world_progress_location_threshholds = {}
     
     --Traverse Town
-    world_progress_location_thressholds[1] = {
+    world_progress_location_threshholds[1] = {
         {0x20, 2656011}  --Dodge Roll
        ,{0x20, 2656012}  --Fire
        ,{0x20, 2656013}  --Blue Trinity
@@ -503,24 +503,24 @@ function define_world_progress_location_thressholds()
        ,{0x8c, 2656015}} --Oathkeeper
     
     --Deep Jungle
-    world_progress_location_thressholds[2] = {
+    world_progress_location_threshholds[2] = {
         {0x42, 2656021}  --White Fang
        ,{0x56, 2656022}  --Cure
        ,{0x6e, 2656023}  --Jungle King
        ,{0x6e, 2656024}} --Red Trinity
     
     --Olympus Coliseum
-    world_progress_location_thressholds[3] = {
+    world_progress_location_threshholds[3] = {
         {0x0D, 2656031}  --Thunder
        ,{0x32, 2656032}} --Sonic Blade
     
     --Wonderland
-    world_progress_location_thressholds[4] = {
+    world_progress_location_threshholds[4] = {
         {0x0D, 2656041}  --Blizzard
        ,{0x2E, 2656042}} --Ifrit's Horn
     
     --Agrabah
-    world_progress_location_thressholds[5] = {
+    world_progress_location_threshholds[5] = {
         {0x35, 2656051}  --Ray of Light
        ,{0x49, 2656052}  --Blizzard
        ,{0x5A, 2656053}  --Fire
@@ -529,24 +529,24 @@ function define_world_progress_location_thressholds()
        ,{0x78, 2656056}} --Green Trinity
     
     --Monstro
-    world_progress_location_thressholds[6] = {
+    world_progress_location_threshholds[6] = {
         {0x2E, 2656061}  --Goofy Cheer
        ,{0x46, 2656062}} --Stop
     
     --Atlantica
-    world_progress_location_thressholds[7] = {
+    world_progress_location_threshholds[7] = {
         {0x53, 2656071}  --Mermaid Kick
        ,{0x5D, 2656072}  --Thunder
        ,{0x64, 2656073}} --Crabclaw
     
     --Halloween Town
-    world_progress_location_thressholds[8] = {
+    world_progress_location_threshholds[8] = {
         {0x62, 2656081}  --Holy Circlet
        ,{0x6A, 2656082}  --Gravity
        ,{0x6E, 2656083}} --Pumpkinhead
     
     --Neverland
-    world_progress_location_thressholds[9] = {
+    world_progress_location_threshholds[9] = {
         {0x35, 2656091}  --Raven's Claw
        ,{0x3F, 2656092}  --Cure
        ,{0x6E, 2656093}  --Fairy Harp
@@ -554,7 +554,7 @@ function define_world_progress_location_thressholds()
        ,{0x6E, 2656095}} --Glide
     
     --Hollow Bastion
-    world_progress_location_thressholds[10] = {
+    world_progress_location_threshholds[10] = {
         {0x32, 2656101}  --White Trinity
        ,{0x5A, 2656102}  --Donald Cheer
        ,{0x6E, 2656103}  --Fireglow
@@ -563,12 +563,12 @@ function define_world_progress_location_thressholds()
        ,{0xC3, 2656106}} --Fire
 
     --End of the World
-    world_progress_location_thressholds[11] = {
+    world_progress_location_threshholds[11] = {
         {0x33, 2656111}} --Superglide
-    return world_progress_location_thressholds
+    return world_progress_location_threshholds
 end
 
-world_progress_location_thressholds = define_world_progress_location_thressholds()
+world_progress_location_threshholds = define_world_progress_location_threshholds()
 
 function read_chests_opened_array()
     --Reads an array of bits which represent which chests have been opened by the player
@@ -663,7 +663,7 @@ function read_world_progress_array()
     each world.  The order of worlds are as follows:
     Traverse Town, Deep Jungle, Olympus Coliseum, Wonderland, Agrabah, Monstro,
     Atlantica, Halloween Town, Neverland, Hollow Bastion, End of the World]]
-    world_progress_address = 0x2DE65D0 - 0x200 + 0xB04 - offset
+    world_progress_address = 0x2DE79D0 + 0x6C - offset
     world_progress_array = ReadArray(world_map_lines_address, 11)
     return world_progress_array
 end
@@ -856,8 +856,8 @@ function parse_world_progress_array(world_progress_array)
     --[[Parses the world progress array to pull location ids out]]
     found_location_ids = {}
     for world,flags in pairs(world_progress_array) do
-        for thresshold_num,threshhold in pairs(world_progress_location_thressholds[world]) do
-            if flags >= thresshold[1] then --If we've progressed to or passed the thresshold
+        for threshhold_num,threshhold in pairs(world_progress_location_threshholds[world]) do
+            if flags >= threshhold[1] then --If we've progressed to or passed the thresshold
                 found_location_ids[#found_location_ids+1] = threshhold[2] --Store the location_id
             end
         end
@@ -1046,6 +1046,7 @@ function send_locations()
     end
     for k,v in pairs(world_progress_location_ids) do
         if not file_exists(client_communication_path .. "send" .. tostring(v)) then
+                file = io.open(client_communication_path .. "send" .. tostring(v), "w")
                 io.output(file)
                 io.write("")
                 io.close(file)
