@@ -759,6 +759,12 @@ function write_e()
     WriteByte(inventory_address, 0)
 end
 
+function write_receive_reward_instructions()
+    receive_reward_instructions_address = 0x1B430F - offset
+    receive_reward_instructions_replacement_bytes = {0x48, 0x8D, 0x1D, 0xEA, 0xBC, 0xE4, 0xFF, 0x66, 0xC7, 0x00, 0x00, 0x00, 0x45, 0x31, 0xC0, 0x41, 0x0F, 0xB7, 0xC0, 0x41, 0x8B, 0xD0, 0x83, 0xE2, 0x0F, 0x74, 0x79}
+    WriteArray(receive_reward_instructions_address, receive_reward_instructions_replacement_bytes)
+end
+
 function increment_check_array(check_array)
     --[[Correctly increments the check items, as the player can't hold more than 
     255 of one check item]]
@@ -1317,7 +1323,7 @@ function main()
     --Cleaning up static things
     write_synth_requirements()
     write_chests()
-    write_rewards()
+    --write_rewards()
     write_world_lines()
     write_level_up_rewards()
     write_e()
@@ -1327,12 +1333,13 @@ function main()
 end
 
 function _OnInit()
-	if GAME_ID == 0xAF71841E and ENGINE_TYPE == "BACKEND" then
-		canExecute = true
-		ConsolePrint("KH1 detected, running script")
-	else
-		ConsolePrint("KH1 not detected, not running script")
-	end
+    if GAME_ID == 0xAF71841E and ENGINE_TYPE == "BACKEND" then
+        canExecute = true
+        write_receive_reward_instructions()
+        ConsolePrint("KH1 detected, running script")
+    else
+        ConsolePrint("KH1 not detected, not running script")
+    end
 end
 
 function _OnFrame()
