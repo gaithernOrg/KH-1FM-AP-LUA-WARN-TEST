@@ -670,7 +670,7 @@ end
 
 function read_postcards_mailed()
     --[[Reads a byte that tracks how many postcards have been mailed]]
-    postcards_mailed_address = 0x2DE78C0 - 231 - offset
+    postcards_mailed_address = 0x2DE78C0 - 0x231 - offset
     postcards_mailed = ReadByte(postcards_mailed_address)
     return postcards_mailed
 end
