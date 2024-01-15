@@ -668,6 +668,13 @@ function read_world_progress_array()
     return world_progress_array
 end
 
+function read_postcards_mailed()
+    --[[Reads a byte that tracks how many postcards have been mailed]]
+    postcards_mailed_address = 0x2DE78C0 - 231 - offset
+    postcards_mailed = ReadByte(postcards_mailed_address)
+    return postcards_mailed
+end
+
 function write_world_lines()
     --[[Opens all world connections on the world map]]
     world_map_lines_address = 0x2DE78E2 - offset
@@ -1015,6 +1022,7 @@ function send_locations()
     world_progress_location_ids = parse_world_progress_array(world_progress_array)
     ansems_secret_reports_array = read_ansems_secret_reports()
     soras_level = read_soras_level()
+    postcards_mailed = read_postcards_mailed()
     olympus_cups_array = read_olympus_cups_array()
     for k,v in pairs(chest_array) do
         bits = toBits(v)
@@ -1054,6 +1062,15 @@ function send_locations()
     end
     for j=1,soras_level do
         location_id = 2658000 + j
+        if not file_exists(client_communication_path .. "send" .. tostring(location_id)) then
+            file = io.open(client_communication_path .. "send" .. tostring(location_id), "w")
+            io.output(file)
+            io.write("")
+            io.close(file)
+        end
+    end
+    for j=1,postcards_mailed do
+        location_id = 2656119 + j
         if not file_exists(client_communication_path .. "send" .. tostring(location_id)) then
             file = io.open(client_communication_path .. "send" .. tostring(location_id), "w")
             io.output(file)
