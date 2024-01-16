@@ -565,6 +565,12 @@ function define_world_progress_location_threshholds()
     --End of the World
     world_progress_location_threshholds[11] = {
         {0x33, 2656111}} --Superglide
+    
+    --Extra Traverse Town Progress
+    world_progress_location_threshholds[12] = {
+        {0x14, 2656131}} --Aero
+    }
+    
     return world_progress_location_threshholds
 end
 
@@ -665,6 +671,8 @@ function read_world_progress_array()
     Atlantica, Halloween Town, Neverland, Hollow Bastion, End of the World]]
     world_progress_address = 0x2DE65D0 - 0x200 + 0xB04 - offset
     world_progress_array = ReadArray(world_progress_address, 11)
+    extra_traverse_town_progress_address = world_progress_address + 0xE
+    world_progress_array[12] = ReadByte(extra_traverse_town_progress_address)
     return world_progress_array
 end
 
