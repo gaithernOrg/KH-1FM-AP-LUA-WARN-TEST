@@ -539,14 +539,17 @@ function define_world_progress_location_threshholds()
        ,{0x5D, 2656072}  --Thunder
        ,{0x64, 2656073}} --Crabclaw
     
+    --Unused
+    world_progress_location_threshholds[8] = {}
+    
     --Halloween Town
-    world_progress_location_threshholds[8] = {
+    world_progress_location_threshholds[9] = {
         {0x62, 2656081}  --Holy Circlet
        ,{0x6A, 2656082}  --Gravity
        ,{0x6E, 2656083}} --Pumpkinhead
     
     --Neverland
-    world_progress_location_threshholds[9] = {
+    world_progress_location_threshholds[10] = {
         {0x35, 2656091}  --Raven's Claw
        ,{0x3F, 2656092}  --Cure
        ,{0x6E, 2656093}  --Fairy Harp
@@ -554,7 +557,7 @@ function define_world_progress_location_threshholds()
        ,{0x6E, 2656095}} --Glide
     
     --Hollow Bastion
-    world_progress_location_threshholds[10] = {
+    world_progress_location_threshholds[11] = {
         {0x32, 2656101}  --White Trinity
        ,{0x5A, 2656102}  --Donald Cheer
        ,{0x6E, 2656103}  --Fireglow
@@ -563,13 +566,12 @@ function define_world_progress_location_threshholds()
        ,{0xC3, 2656106}} --Fire
 
     --End of the World
-    world_progress_location_threshholds[11] = {
+    world_progress_location_threshholds[12] = {
         {0x33, 2656111}} --Superglide
     
     --Extra Traverse Town Progress
-    world_progress_location_threshholds[12] = {
+    world_progress_location_threshholds[13] = {
         {0x14, 2656131}} --Aero
-    }
     
     return world_progress_location_threshholds
 end
