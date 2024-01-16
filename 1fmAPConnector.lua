@@ -311,7 +311,7 @@ function define_items()
   { ID = 2641208, Name = "Fireglow" },
   { ID = 2641209, Name = "Earthshine" },
   { ID = 2641210, Name = "Crystal Trident" },
-  { ID = 2641211, Name = "Postcard" },
+  { ID = 2641211, Name = "Postcard", Usefulness = item_usefulness.progression },
   { ID = 2641212, Name = "Torn Page 1" },
   { ID = 2641213, Name = "Torn Page 2" },
   { ID = 2641214, Name = "Torn Page 3" },
