@@ -39,6 +39,7 @@ canExecute = false
 worlds_unlocked_array = {3, 0, 0, 0, 0, 0, 0, 0, 0}
 monstro_unlocked = 0
 magic_unlocked_bits = {0, 0, 0, 0, 0, 0, 0}
+trinity_bits = {0, 0, 0, 0, 0}
 initializing = true
 item_categories = {
     equipment = 0,
@@ -562,7 +563,7 @@ function define_world_progress_location_threshholds()
        ,{0x5A, 2656102}  --Donald Cheer
        ,{0x6E, 2656103}  --Fireglow
        ,{0x82, 2656104}  --Ragnarok
-       ,{0xB9, 2656105} --Omega Arts
+       ,{0xB9, 2656105}  --Omega Arts
        ,{0xC3, 2656106}} --Fire
 
     --End of the World
@@ -1020,7 +1021,6 @@ function calculate_full()
     write_magic(magic_unlocked_bits, magic_levels_array)
     write_shared_abilities_array(shared_abilities_array)
     write_summons_array(summons_array)
-    write_trinities(trinity_bits)
     write_olympus_cups(olympus_cups_array)
     return victory
 end
@@ -1472,4 +1472,5 @@ function _OnFrame()
     --Few things that need to happen every frame rather than every 2 seconds.
     write_unlocked_worlds(worlds_unlocked_array, monstro_unlocked)
     fix_shortcuts()
+    write_trinities(trinity_bits)
 end
