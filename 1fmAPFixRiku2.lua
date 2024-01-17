@@ -139,7 +139,7 @@ function main()
     world_progress_array = read_world_progress_array()
     hollow_bastion_progress = world_progress_array[11]
     corrected_world_flag_arrays = {}
-    test_bytes = {0x32,0x5F,0x82,0x78}
+    test_bytes = {0x30,0x5F,0x82,0x6E}
     set_bytes = {0x32,0x6E,0x82,0x78}
     world_progress_indexes = {4,2,5,10}
     
