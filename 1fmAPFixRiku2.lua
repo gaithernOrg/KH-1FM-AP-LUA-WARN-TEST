@@ -10,17 +10,24 @@ LUAGUI_DESC = "Kingdom Hearts 1FM AP Integration"
 local offset = 0x3A0606
 local canExecute = false
 frame_count = 0
+corrected = false
+second_visit = {false,false,false,false}
 
 function read_world_progress_array()
     --[[Reads an array of world progress bytes that correspond to Sora's progress through
     each world.  The order of worlds are as follows:
     Traverse Town, Deep Jungle, Olympus Coliseum, Wonderland, Agrabah, Monstro,
-    Atlantica, Halloween Town, Neverland, Hollow Bastion, End of the World]]
+    Atlantica, Unused, Halloween Town, Neverland, Hollow Bastion, End of the World]]
     world_progress_address = 0x2DE65D0 - 0x200 + 0xB04 - offset
     world_progress_array = ReadArray(world_progress_address, 12)
     extra_traverse_town_progress_address = world_progress_address + 0xE
     world_progress_array[13] = ReadByte(extra_traverse_town_progress_address)
     return world_progress_array
+end
+
+function write_world_progress_byte(world_index, progress_byte)
+    world_progress_address = 0x2DE65D0 - 0x200 + 0xB04 - offset
+    WriteByte(world_progress_address + (world_index-1), progress_byte)
 end
 
 function define_world_progress_reset_array()
@@ -121,26 +128,41 @@ function correct_world_flags(corrected_world_flag_arrays)
     world_flags_address = 0x2DE79D0 + 0x6C - offset
     world_flags_offsets = {0x30, 0x40, 0x60, 0xA0}
     for i=1,#world_flags_offsets do
-        WriteArray(world_flags_address + world_flags_offsets[i], corrected_world_flag_arrays[i])
+        if corrected_world_flag_arrays[i] ~= nil then
+            WriteArray(world_flags_address + world_flags_offsets[i], corrected_world_flag_arrays[i])
+        end
     end
 end
 
 function main()
     specific_worlds_progress_array = {}
     world_progress_array = read_world_progress_array()
-    hollow_bastion_progress = world_progress_array[10]
+    hollow_bastion_progress = world_progress_array[11]
     corrected_world_flag_arrays = {}
+    test_bytes = {0x32,0x5F,0x82,0x78}
+    set_bytes = {0x32,0x6E,0x82,0x78}
+    world_progress_indexes = {4,2,5,10}
     
     if hollow_bastion_progress >= 0x82 then --Riku 2 Defeated
         specific_worlds_progress_array[1] = world_progress_array[4]
         specific_worlds_progress_array[2] = world_progress_array[2]
         specific_worlds_progress_array[3] = world_progress_array[5]
-        specific_worlds_progress_array[4] = world_progress_array[9]
-        for world_num, world_progress in pairs(specific_worlds_progress_array) do
-            for case_num, values in pairs(world_progress_reset_array) do
-                if world_progress >= values[1] then
-                    corrected_world_flag_arrays[world_num] = values[2]
+        specific_worlds_progress_array[4] = world_progress_array[10]
+        if not corrected then
+            for world_num, world_progress in pairs(specific_worlds_progress_array) do
+                    for case_num, values in pairs(world_progress_reset_array[world_num]) do
+                        if world_progress >= values[1] then
+                            corrected_world_flag_arrays[world_num] = values[2]
+                        end
+                    end
                 end
+                corrected = true
+            end
+        for i=1,#test_bytes do
+            if not second_visit[i] and specific_worlds_progress_array[i] >= test_bytes[i] then
+                write_world_progress_byte(world_progress_indexes[i], set_bytes[i])
+                corrected_world_flag_arrays[i] = world_progress_reset_array[i][#world_progress_reset_array[i]][2]
+                second_visit[i] = true
             end
         end
         correct_world_flags(corrected_world_flag_arrays)
