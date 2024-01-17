@@ -39,6 +39,7 @@ canExecute = false
 worlds_unlocked_array = {3, 0, 0, 0, 0, 0, 0, 0, 0}
 monstro_unlocked = 0
 magic_unlocked_bits = {0, 0, 0, 0, 0, 0, 0}
+trinity_bits = {0, 0, 0, 0, 0}
 initializing = true
 item_categories = {
     equipment = 0,
@@ -311,7 +312,7 @@ function define_items()
   { ID = 2641208, Name = "Fireglow" },
   { ID = 2641209, Name = "Earthshine" },
   { ID = 2641210, Name = "Crystal Trident" },
-  { ID = 2641211, Name = "Postcard" },
+  { ID = 2641211, Name = "Postcard", Usefulness = item_usefulness.progression },
   { ID = 2641212, Name = "Torn Page 1" },
   { ID = 2641213, Name = "Torn Page 2" },
   { ID = 2641214, Name = "Torn Page 3" },
@@ -479,6 +480,7 @@ function define_items()
 end
 
 local items = define_items()
+
 function get_item_by_id(item_id)
   for i = 1, #items do
     if items[i].ID == item_id then
@@ -486,6 +488,96 @@ function get_item_by_id(item_id)
     end
   end
 end
+
+function define_world_progress_location_threshholds()
+    --[[Defines an array of location_ids based on thressholds on story progress bytes.
+    This information is being obtained from https://retroachievements.org/codenotes.php?g=2780]]
+    
+    world_progress_location_threshholds = {}
+    
+    --Traverse Town
+    world_progress_location_threshholds[1] = {
+        {0x31, 2656011}  --Dodge Roll
+       ,{0x31, 2656012}  --Fire
+       ,{0x31, 2656013}  --Blue Trinity
+       ,{0x3e, 2656014}  --Earthshine
+       ,{0x8c, 2656015}} --Oathkeeper
+    
+    --Deep Jungle
+    world_progress_location_threshholds[2] = {
+        {0x42, 2656021}  --White Fang
+       ,{0x56, 2656022}  --Cure
+       ,{0x6e, 2656023}  --Jungle King
+       ,{0x6e, 2656024}} --Red Trinity
+    
+    --Olympus Coliseum
+    world_progress_location_threshholds[3] = {
+        {0x0D, 2656031}  --Thunder
+       ,{0x32, 2656032}} --Sonic Blade
+    
+    --Wonderland
+    world_progress_location_threshholds[4] = {
+        {0x2E, 2656041}  --Blizzard
+       ,{0x2E, 2656042}} --Ifrit's Horn
+    
+    --Agrabah
+    world_progress_location_threshholds[5] = {
+        {0x35, 2656051}  --Ray of Light
+       ,{0x49, 2656052}  --Blizzard
+       ,{0x5A, 2656053}  --Fire
+       ,{0x78, 2656054}  --Genie
+       ,{0x78, 2656055}  --Three Wishes
+       ,{0x78, 2656056}} --Green Trinity
+    
+    --Monstro
+    world_progress_location_threshholds[6] = {
+        {0x2E, 2656061}  --Goofy Cheer
+       ,{0x46, 2656062}} --Stop
+    
+    --Atlantica
+    world_progress_location_threshholds[7] = {
+        {0x53, 2656071}  --Mermaid Kick
+       ,{0x5D, 2656072}  --Thunder
+       ,{0x64, 2656073}} --Crabclaw
+    
+    --Unused
+    world_progress_location_threshholds[8] = {}
+    
+    --Halloween Town
+    world_progress_location_threshholds[9] = {
+        {0x62, 2656081}  --Holy Circlet
+       ,{0x6A, 2656082}  --Gravity
+       ,{0x6E, 2656083}} --Pumpkinhead
+    
+    --Neverland
+    world_progress_location_threshholds[10] = {
+        {0x35, 2656091}  --Raven's Claw
+       ,{0x3F, 2656092}  --Cure
+       ,{0x6E, 2656093}  --Fairy Harp
+       ,{0x6E, 2656094}  --Tinker Bell
+       ,{0x6E, 2656095}} --Glide
+    
+    --Hollow Bastion
+    world_progress_location_threshholds[11] = {
+        {0x32, 2656101}  --White Trinity
+       ,{0x5A, 2656102}  --Donald Cheer
+       ,{0x6E, 2656103}  --Fireglow
+       ,{0x82, 2656104}  --Ragnarok
+       ,{0xB9, 2656105}  --Omega Arts
+       ,{0xC3, 2656106}} --Fire
+
+    --End of the World
+    world_progress_location_threshholds[12] = {
+        {0x33, 2656111}} --Superglide
+    
+    --Extra Traverse Town Progress
+    world_progress_location_threshholds[13] = {
+        {0x14, 2656131}} --Aero
+    
+    return world_progress_location_threshholds
+end
+
+world_progress_location_threshholds = define_world_progress_location_threshholds()
 
 function read_chests_opened_array()
     --Reads an array of bits which represent which chests have been opened by the player
@@ -573,6 +665,25 @@ function read_olympus_cups_array()
     cups have been unlocked.]]
     olympus_cups_address = 0x2DE77D0 - offset
     return ReadArray(olympus_cups_address, 4)
+end
+
+function read_world_progress_array()
+    --[[Reads an array of world progress bytes that correspond to Sora's progress through
+    each world.  The order of worlds are as follows:
+    Traverse Town, Deep Jungle, Olympus Coliseum, Wonderland, Agrabah, Monstro,
+    Atlantica, Halloween Town, Neverland, Hollow Bastion, End of the World]]
+    world_progress_address = 0x2DE65D0 - 0x200 + 0xB04 - offset
+    world_progress_array = ReadArray(world_progress_address, 12)
+    extra_traverse_town_progress_address = world_progress_address + 0xE
+    world_progress_array[13] = ReadByte(extra_traverse_town_progress_address)
+    return world_progress_array
+end
+
+function read_postcards_mailed()
+    --[[Reads a byte that tracks how many postcards have been mailed]]
+    postcards_mailed_address = 0x2DE78C0 - 0x231 - offset
+    postcards_mailed = ReadByte(postcards_mailed_address)
+    return postcards_mailed
 end
 
 function write_world_lines()
@@ -759,6 +870,19 @@ function write_e()
     WriteByte(inventory_address, 0)
 end
 
+function parse_world_progress_array(world_progress_array)
+    --[[Parses the world progress array to pull location ids out]]
+    found_location_ids = {}
+    for world,flags in pairs(world_progress_array) do
+        for threshhold_num,threshhold in pairs(world_progress_location_threshholds[world]) do
+            if flags >= threshhold[1] then --If we've progressed to or passed the thresshold
+                found_location_ids[#found_location_ids+1] = threshhold[2] --Store the location_id
+            end
+        end
+    end
+    return found_location_ids
+end
+
 function increment_check_array(check_array)
     --[[Correctly increments the check items, as the player can't hold more than 
     255 of one check item]]
@@ -897,7 +1021,6 @@ function calculate_full()
     write_magic(magic_unlocked_bits, magic_levels_array)
     write_shared_abilities_array(shared_abilities_array)
     write_summons_array(summons_array)
-    write_trinities(trinity_bits)
     write_olympus_cups(olympus_cups_array)
     return victory
 end
@@ -905,29 +1028,17 @@ end
 function send_locations()
     --[[Communicates with the client which locations have been checked]]
     chest_array = read_chests_opened_array()
-    chronicles_array = read_chronicles()
+    world_progress_array = read_world_progress_array()
+    world_progress_location_ids = parse_world_progress_array(world_progress_array)
     ansems_secret_reports_array = read_ansems_secret_reports()
     soras_level = read_soras_level()
+    postcards_mailed = read_postcards_mailed()
     olympus_cups_array = read_olympus_cups_array()
     for k,v in pairs(chest_array) do
         bits = toBits(v)
         for ik,iv in pairs(bits) do
             if iv == 1 then
                 location_id = 2650000 + k * 10 + ik
-                if not file_exists(client_communication_path .. "send" .. tostring(location_id)) then
-                    file = io.open(client_communication_path .. "send" .. tostring(location_id), "w")
-                    io.output(file)
-                    io.write("")
-                    io.close(file)
-                end
-            end
-        end
-    end
-    for k,v in pairs(chronicles_array) do
-        bits = toBits(v)
-        for ik,iv in pairs(bits) do
-            if iv == 1 then
-                location_id = 2656000 + k * 10 + ik
                 if not file_exists(client_communication_path .. "send" .. tostring(location_id)) then
                     file = io.open(client_communication_path .. "send" .. tostring(location_id), "w")
                     io.output(file)
@@ -951,8 +1062,25 @@ function send_locations()
             end
         end
     end
+    for k,v in pairs(world_progress_location_ids) do
+        if not file_exists(client_communication_path .. "send" .. tostring(v)) then
+                file = io.open(client_communication_path .. "send" .. tostring(v), "w")
+                io.output(file)
+                io.write("")
+                io.close(file)
+        end
+    end
     for j=1,soras_level do
         location_id = 2658000 + j
+        if not file_exists(client_communication_path .. "send" .. tostring(location_id)) then
+            file = io.open(client_communication_path .. "send" .. tostring(location_id), "w")
+            io.output(file)
+            io.write("")
+            io.close(file)
+        end
+    end
+    for j=1,postcards_mailed do
+        location_id = 2656119 + j
         if not file_exists(client_communication_path .. "send" .. tostring(location_id)) then
             file = io.open(client_communication_path .. "send" .. tostring(location_id), "w")
             io.output(file)
@@ -1327,12 +1455,12 @@ function main()
 end
 
 function _OnInit()
-	if GAME_ID == 0xAF71841E and ENGINE_TYPE == "BACKEND" then
-		canExecute = true
-		ConsolePrint("KH1 detected, running script")
-	else
-		ConsolePrint("KH1 not detected, not running script")
-	end
+    if GAME_ID == 0xAF71841E and ENGINE_TYPE == "BACKEND" then
+        canExecute = true
+        ConsolePrint("KH1 detected, running script")
+    else
+        ConsolePrint("KH1 not detected, not running script")
+    end
 end
 
 function _OnFrame()
@@ -1344,4 +1472,5 @@ function _OnFrame()
     --Few things that need to happen every frame rather than every 2 seconds.
     write_unlocked_worlds(worlds_unlocked_array, monstro_unlocked)
     fix_shortcuts()
+    write_trinities(trinity_bits)
 end
