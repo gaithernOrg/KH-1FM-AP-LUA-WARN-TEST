@@ -23,3 +23,7 @@ assets:
   method: copy
   source:
   - name: 1fmAPHandleDeathlink.lua
+- name: scripts/1fmAPFixRiku2.lua
+  method: copy
+  source:
+  - name: 1fmAPFixRiku2.lua
