@@ -134,6 +134,11 @@ function correct_world_flags(corrected_world_flag_arrays)
     end
 end
 
+function turn_on_kurt_zisa()
+    carpet_takes_you_to_kurt_zisa_address = 0x2DE6ED0 - offset
+    WriteByte(carpet_takes_you_to_kurt_zisa_address, 0xF0)
+end
+
 function main()
     specific_worlds_progress_array = {}
     world_progress_array = read_world_progress_array()
@@ -163,6 +168,9 @@ function main()
                 write_world_progress_byte(world_progress_indexes[i], set_bytes[i])
                 corrected_world_flag_arrays[i] = world_progress_reset_array[i][#world_progress_reset_array[i]][2]
                 second_visit[i] = true
+                if i == 3 then --Agrabah
+                    turn_on_kurt_zisa()
+                end
             end
         end
         correct_world_flags(corrected_world_flag_arrays)
