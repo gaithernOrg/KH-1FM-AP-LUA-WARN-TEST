@@ -686,6 +686,32 @@ function read_postcards_mailed()
     return postcards_mailed
 end
 
+function read_cup_locations_checked_array(ansems_secret_reports_array)
+    cup_locations_checked = {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0}
+    cup_complete_address = 0x2DE78BF + 0x15C47 - offset
+    cup_rewards_address = 0x2DFD517 - offset
+    cup_complete_array = ReadArray(cup_complete_address, 4)
+    for i=1,#cup_complete_array do
+        for j=1,cup_complete_array[i] do
+            cup_locations_checked[((i-1)*3) + j] = 1
+        end
+    end
+    cup_rewards_array = ReadArray(cup_rewards_address, 4)
+    cup_locations_checked[13] = cup_rewards_array[1]
+    cup_locations_checked[14] = cup_rewards_array[2]
+    cup_locations_checked[15] = cup_rewards_array[3]
+    cup_locations_checked[16] = cup_rewards_array[4]
+    cup_locations_checked[17] = 0
+    if toBits(ansems_secret_reports_array[1])[1] == 1 then
+        cup_locations_checked[17] = 1
+    end
+    if cup_complete_array[3] > 0 then
+        cup_locations_checked[18] = 1
+        cup_locations_checked[19] = 1
+    end
+    return cup_locations_checked
+end
+
 function write_world_lines()
     --[[Opens all world connections on the world map]]
     world_map_lines_address = 0x2DE78E2 - offset
@@ -790,7 +816,7 @@ end
 function write_item(item_offset)
     --[[Grants the players a specific item defined by the offset]]
     inventory_address = 0x2DE5E69 - offset
-    WriteByte(inventory_address + item_offset, ReadByte(inventory_address + item_offset) + 1)
+    WriteByte(inventory_address + item_offset, math.min(ReadByte(inventory_address + item_offset) + 1, 99))
 end
 
 function write_sora_ability(ability_value)
@@ -800,7 +826,9 @@ function write_sora_ability(ability_value)
     while ReadByte(abilities_address + i) ~= 0 do
         i = i + 1
     end
-    WriteByte(abilities_address + i, ability_value + 128)
+    if i <= 48 then
+        WriteByte(abilities_address + i, ability_value + 128)
+    end
 end
 
 function write_shared_abilities_array(shared_abilities_array)
@@ -910,7 +938,9 @@ function add_to_shared_abilities_array(shared_abilities_array, value)
     while shared_abilities_array[i] ~= 0 do
         i = i + 1
     end
-    shared_abilities_array[i] = value
+    if i <= 4 then
+        shared_abilities_array[i] = value
+    end
     return shared_abilities_array
 end
 
@@ -996,7 +1026,7 @@ function calculate_full()
             summons_array = add_to_summons_array(summons_array, received_item_id % 2645000)
         elseif received_item_id >= 2646000 and received_item_id < 2647000 then
             magic_unlocked_bits[received_item_id % 2646000] = 1
-            magic_levels_array[received_item_id % 2646000] = magic_levels_array[received_item_id % 2646000] + 1
+            magic_levels_array[received_item_id % 2646000] = math.min(magic_levels_array[received_item_id % 2646000] + 1, 3)
         elseif received_item_id >= 2647000 and received_item_id < 2648000 then
             if received_item_id % 2647000 < 10 then
                 worlds_unlocked_array[received_item_id % 2647000] = 3
@@ -1033,7 +1063,7 @@ function send_locations()
     ansems_secret_reports_array = read_ansems_secret_reports()
     soras_level = read_soras_level()
     postcards_mailed = read_postcards_mailed()
-    olympus_cups_array = read_olympus_cups_array()
+    cup_locations_checked = read_cup_locations_checked_array(ansems_secret_reports_array)
     for k,v in pairs(chest_array) do
         bits = toBits(v)
         for ik,iv in pairs(bits) do
@@ -1088,8 +1118,8 @@ function send_locations()
             io.close(file)
         end
     end
-    for j=1,#olympus_cups_array do
-        if olympus_cups_array[j] == 1 then
+    for j=1,#cup_locations_checked do
+        if cup_locations_checked[j] == 1 then
             location_id = 2659000 + j
             if not file_exists(client_communication_path .. "send" .. tostring(location_id)) then
                 file = io.open(client_communication_path .. "send" .. tostring(location_id), "w")
