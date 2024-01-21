@@ -41,6 +41,7 @@ local cam = 0x503A18 - offset
 local canExecute = false
 last_death_time = 0
 soras_last_hp = 100
+death_frames = 0
 
 function file_exists(name)
    local f=io.open(name,"r")
@@ -66,7 +67,10 @@ function _OnInit()
     if file_exists(client_communication_path .. "dlreceive") then
         file = io.open(client_communication_path .. "dlreceive")
         io.input(file)
-        last_death_time = tonumber(io.read())
+        death_time = tonumber(io.read())
+        if death_time ~= nil then
+            last_death_time = death_time
+        end
         io.close(file)
     end
     soras_last_hp = ReadByte(soraHP)
@@ -102,28 +106,36 @@ function _OnFrame()
         io.input(file)
         death_time = tonumber(io.read())
         io.close(file)
-        if ReadFloat(soraHUD) > 0 and ReadByte(soraHP) > 0 and ReadByte(blackFade)==128 and ReadShort(deathCheck) == 0x2E74 and death_time >= last_death_time + 3 then
-            WriteByte(soraHP, 0)
-            WriteByte(stateFlag, 1)
-            WriteShort(deathCheck, 0x9090)
-            if extraSafety then
-                WriteLong(safetyMeasure, 0x89020B958735894C)
+        if death_time ~= nil and last_death_time ~= nil then
+            if ReadFloat(soraHUD) > 0 and ReadByte(soraHP) > 0 and ReadByte(blackFade)==128 and ReadShort(deathCheck) == 0x2E74 and death_time >= last_death_time + 3 then
+                WriteByte(soraHP, 0)
+                WriteByte(stateFlag, 1)
+                WriteShort(deathCheck, 0x9090)
+                if extraSafety then
+                    WriteLong(safetyMeasure, 0x89020B958735894C)
+                end
+                revertCode = true
+                last_death_time = death_time
+                soras_last_hp = 0
             end
-            revertCode = true
-            last_death_time = death_time
-            soras_last_hp = 0
         end
     end
     
     if ReadByte(soraHP) == 0 and soras_last_hp > 0 then
-        death_date = os.date("!%Y%m%d%H%M%S")
-        if not file_exists(client_communication_path .. "dlsend" .. tostring(death_date)) then
-            file = io.open(client_communication_path .. "dlsend" .. tostring(death_date), "w")
-            io.output(file)
-            io.write("")
-            io.close(file)
+        death_frames = death_frames + 1
+        if death_frames >= 10 then
+            death_date = os.date("!%Y%m%d%H%M%S")
+            if not file_exists(client_communication_path .. "dlsend" .. tostring(death_date)) then
+                file = io.open(client_communication_path .. "dlsend" .. tostring(death_date), "w")
+                io.output(file)
+                io.write("")
+                io.close(file)
+            end
+            death_frames = 0
         end
     end
-    soras_last_hp = ReadByte(soraHP)
+    if death_frames == 0 or ReadByte(soraHP) > 0 then
+        soras_last_hp = ReadByte(soraHP)
+    end
     ::done::
 end
