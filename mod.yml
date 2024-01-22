@@ -27,3 +27,7 @@ assets:
   method: copy
   source:
   - name: 1fmAPFixRiku2.lua
+- name: scripts/1fmAPEXPMultiplier.lua
+  method: copy
+  source:
+  - name: 1fmAPEXPMultiplier.lua
