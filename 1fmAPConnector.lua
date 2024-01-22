@@ -712,6 +712,21 @@ function read_cup_locations_checked_array(ansems_secret_reports_array)
     return cup_locations_checked
 end
 
+function read_atlantica_clams()
+    atlantica_clams_bits_array = {}
+    atlantica_clams_address = 0x2DE738F + 0x3EA - offset
+    atlantica_clams_bytes_array = ReadArray(atlantica_clams_address, 2)
+    atlantica_byte_1_bits = toBits(atlantica_clams_bytes_array[1])
+    atlantica_byte_2_bits = toBits(atlantica_clams_bytes_array[2])
+    for i=1,8 do
+        atlantica_clams_bits_array[i] = atlantica_byte_1_bits[i]
+    end
+    for i=1,8 do
+        atlantica_clams_bits_array[8+i] = atlantica_byte_2_bits[i]
+    end
+    return atlantica_clams_bits_array
+end
+
 function write_world_lines()
     --[[Opens all world connections on the world map]]
     world_map_lines_address = 0x2DE78E2 - offset
@@ -1064,6 +1079,7 @@ function send_locations()
     soras_level = read_soras_level()
     postcards_mailed = read_postcards_mailed()
     cup_locations_checked = read_cup_locations_checked_array(ansems_secret_reports_array)
+    atlantica_clam_bits = read_atlantica_clams()
     for k,v in pairs(chest_array) do
         bits = toBits(v)
         for ik,iv in pairs(bits) do
@@ -1121,6 +1137,17 @@ function send_locations()
     for j=1,#cup_locations_checked do
         if cup_locations_checked[j] == 1 then
             location_id = 2659000 + j
+            if not file_exists(client_communication_path .. "send" .. tostring(location_id)) then
+                file = io.open(client_communication_path .. "send" .. tostring(location_id), "w")
+                io.output(file)
+                io.write("")
+                io.close(file)
+            end
+        end
+    end
+    for j=1,#atlantica_clam_bits do
+        if atlantica_clam_bits[j] == 1 then
+            location_id = 2656200 + j
             if not file_exists(client_communication_path .. "send" .. tostring(location_id)) then
                 file = io.open(client_communication_path .. "send" .. tostring(location_id), "w")
                 io.output(file)

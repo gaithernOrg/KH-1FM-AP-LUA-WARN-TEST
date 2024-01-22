@@ -155,14 +155,14 @@ function main()
         specific_worlds_progress_array[4] = world_progress_array[10]
         if not corrected then
             for world_num, world_progress in pairs(specific_worlds_progress_array) do
-                    for case_num, values in pairs(world_progress_reset_array[world_num]) do
-                        if world_progress >= values[1] then
-                            corrected_world_flag_arrays[world_num] = values[2]
-                        end
+                for case_num, values in pairs(world_progress_reset_array[world_num]) do
+                    if world_progress >= values[1] then
+                        corrected_world_flag_arrays[world_num] = values[2]
                     end
                 end
-                corrected = true
             end
+            corrected = true
+        end
         for i=1,#test_bytes do
             if not second_visit[i] and specific_worlds_progress_array[i] >= test_bytes[i] then
                 write_world_progress_byte(world_progress_indexes[i], set_bytes[i])
