@@ -714,10 +714,15 @@ function read_world_items()
 end
 
 function read_summon_item()
+    summon_bits = {0,0,0,0,0,0}
     gummi_address = 0x2DF1848 - offset
     summon_item_address = gummi_address + 0x7E
     summon_item_value = ReadByte(summon_item_address)
-    return toBits(summon_item_value)
+    summon_item_bits = toBits(summon_item_value)
+    for k=0,#summon_item_bits do
+        summon_bits[k] = summon_item_bits[k]
+    end
+    return summon_bits
 end
 
 function read_trinity_item()
@@ -853,7 +858,7 @@ function write_shared_ability(shared_ability_value)
         i = i + 1
     end
     if i <= 4 then
-        WriteByte(shared_abilities_address + i, ability_value + 128)
+        WriteByte(shared_abilities_address + i, shared_ability_value + 128)
     end
 end
 
@@ -920,10 +925,14 @@ end
 
 function write_summon_item(summon_bit_number)
     --[[Writes a gummi item who's bits represent a summon being unlocked]]
+    summon_bits = {0,0,0,0,0,0}
     gummi_address = 0x2DF1848 - offset
     summon_item_address = gummi_address + 0x7E
     summon_item_value = ReadByte(summon_item_address)
-    summon_bits = toBits(summon_item_value)
+    summon_item_bits = toBits(summon_item_value)
+    for k=1,#summon_item_bits do
+        summon_bits[k] = summon_item_bits[k]
+    end
     if summon_bits[summon_bit_number+1] == 0 then
         WriteByte(summon_item_address, summon_item_value + 2^summon_bit_number)
     end
@@ -941,6 +950,7 @@ end
 
 function write_world_item(world_bit_number)
     --[[Writes a gummi item who's bits represent a world being unlocked]]
+    world_bits = {0,0,0,0,0,0,0,0}
     gummi_address = 0x2DF1848 - offset
     world_item_address = gummi_address + 0x7B
     if world_bit_number > 8 then
@@ -948,7 +958,10 @@ function write_world_item(world_bit_number)
         world_bit_number = world_bit_number % 8
     end
     world_item_value = ReadByte(world_item_address)
-    world_bits = toBits(world_item_value)
+    world_item_bits = toBits(world_item_value)
+    for k=1,#world_item_bits do
+        world_bits[k] = world_item_bits[k]
+    end
     if world_bits[world_bit_number] == 0 then
         WriteByte(world_item_address, world_item_value + 2^(world_bit_number-1))
     end
@@ -956,10 +969,14 @@ end
 
 function write_trinity_item(trinity_bit_number)
     --[[Writes a gummi item who's bits represent a trinity being unlocked]]
+    trinity_bits = {0,0,0,0,0}
     gummi_address = 0x2DF1848 - offset
     trinity_item_address = gummi_address + 0x7D
     trinity_item_value = ReadByte(trinity_item_address)
-    trinity_bits = toBits(trinity_item_value)
+    trinity_item_bits = toBits(trinity_item_value)
+    for k=0,#trinity_item_bits do
+        trinity_bits[k] = trinity_item_bits[k]
+    end
     if trinity_bits[trinity_bit_number] == 0 then
         WriteByte(trinity_item_address, trinity_item_value + 2^(trinity_bit_number-1))
     end
@@ -1086,7 +1103,7 @@ function calculate_full()
     magic_levels_array  = {1, 1, 1, 1, 1, 1, 1}
     magic_items_array = read_magic_items()
     for i=1,#magic_items_array do
-        if magic_items_array[i] > 1 then
+        if magic_items_array[i] >= 1 then
             magic_unlocked_bits[i] = 1
         end
         magic_levels_array[i] = math.max(magic_items_array[i],1)
@@ -1100,9 +1117,9 @@ function calculate_full()
     world_item_array = read_world_items()
     world_byte_1_bits = toBits(world_item_array[1])
     world_byte_2_bits = toBits(world_item_array[2])
-    for i=1,8 do
+    for i=2,8 do
         if world_byte_1_bits[i] ~= nil then
-            worlds_unlocked_array[i+1] = world_byte_1_bits[i] * 3
+            worlds_unlocked_array[i] = world_byte_1_bits[i] * 3
         end
     end
     if world_byte_2_bits[1] ~= nil then
@@ -1127,7 +1144,7 @@ function calculate_full()
     trinity_bits = {0,0,0,0,0}
     trinity_item_bits = read_trinity_item()
     for i=1,#trinity_item_bits do
-        trinity_bits[i] = read_trinity_item[i]
+        trinity_bits[i] = trinity_item_bits[i]
     end
     --End Handle Trinities
     
