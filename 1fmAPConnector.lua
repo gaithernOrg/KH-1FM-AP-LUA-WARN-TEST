@@ -586,23 +586,10 @@ function read_chests_opened_array()
     return chest_array
 end
 
-function read_soras_abilities_array()
-    --[[Reads an array of Sora's abilties.  The first 7 bits define the ability,
-    while the last bit defines whether its equiped.]]
-    soras_abilities_address   = 0x2DE5A14 - offset
-    return ReadArray(soras_abilities_address, 40)
-end
-
 function read_soras_level()
     --[[Reads Sora's Current Level]]
     soras_level_address = 0x2DE5A08 - offset
     return ReadShort(soras_level_address)
-end
-
-function read_shared_abilities_array()
-    --[[Reads an array of the player's current shared abilities.]]
-    shared_abilties_addresss = 0x2DE5F68 - offset
-    return ReadArray(shared_abilties_addresss, 4)
 end
 
 function read_soras_stats_array()
@@ -626,30 +613,15 @@ end
 
 function read_check_array()
     --[[Reads the current check number by getting the sum total of the 3 AP items]]
-    inventory_address = 0x2DE5E69 - offset
-    check_number_item_address = inventory_address + 0x48
+    gummi_address = 0x2DF1848 - offset
+    check_number_item_address = gummi_address + 0x77
     return ReadArray(check_number_item_address, 3)
-end
-
-function read_room()
-    --[[Gets the numeric value of the currently occupied room]]
-    world_address = 0x233CADC - offset
-    room_address = world_address + 0x68
-    return ReadByte(room_address)
 end
 
 function read_world()
     --[[Gets the numeric value of the currently occupied world]]
     world_address = 0x233CADC - offset
     return ReadByte(world_address)
-end
-
-function read_chronicles()
-    --[[Reads an array of the bytes who's bits correspond to which Chronicles have 
-    been unlocked in Jiminy's Journal]]
-    chronicles_address = 0x2DE7367 - offset
-    chronicles_array = ReadArray(chronicles_address, 36)
-    return chronicles_array
 end
 
 function read_ansems_secret_reports()
@@ -727,6 +699,47 @@ function read_atlantica_clams()
     return atlantica_clams_bits_array
 end
 
+function read_magic_items()
+    gummi_address = 0x2DF1848 - offset
+    magic_item_address = gummi_address + 0x90
+    magic_items_array = ReadArray(magic_item_address, 7)
+    return magic_items_array
+end
+
+function read_world_items()
+    gummi_address = 0x2DF1848 - offset
+    world_item_address = gummi_address + 0x7B
+    world_items_array = ReadArray(world_item_address, 2)
+    return world_items_array
+end
+
+function read_summon_item()
+    gummi_address = 0x2DF1848 - offset
+    summon_item_address = gummi_address + 0x7E
+    summon_item_value = ReadByte(summon_item_address)
+    return toBits(summon_item_value)
+end
+
+function read_trinity_item()
+    gummi_address = 0x2DF1848 - offset
+    trinity_item_address = gummi_address + 0x7D
+    trinity_item_value = ReadByte(trinity_item_address)
+    return toBits(trinity_item_value)
+end
+
+function read_olympus_cups_item()
+    gummi_address = 0x2DF1848 - offset
+    cup_item_address = gummi_address + 0x97
+    olympus_cups_item_value = ReadByte(cup_item_address)
+    return toBits(olympus_cups_item_value)
+end
+
+function read_victory_item()
+    gummi_address = 0x2DF1848 - offset
+    victory_item_address = gummi_address + 0x7F
+    return ReadByte(victory_item_address)
+end
+
 function write_world_lines()
     --[[Opens all world connections on the world map]]
     world_map_lines_address = 0x2DE78E2 - offset
@@ -788,20 +801,6 @@ function write_synth_requirements()
     WriteArray(synth_requirements_address, synth_array)
 end
 
-function write_soras_level_up_rewards()
-    --[[Writes Sora's level up rewards to make them empty.
-    Level up rewards will be handled by the client/server.]]
-    battle_table_address = 0x2D1F3C0 - offset
-    soras_stat_level_up_rewards_address = battle_table_address + 0x3AC0
-    overwrite_array = {}
-    local i = 1
-    while i <= 99 do
-        overwrite_array[i] = 0
-        i = i + 1
-    end
-    WriteArray(soras_stat_level_up_rewards_address, overwrite_array)
-end
-
 function write_soras_stats(soras_stats_array)
     --[[Writes Sora's calculated stats back to memory]]
     soras_stats_address         = 0x2DE59D6 - offset
@@ -822,9 +821,9 @@ function write_soras_stats(soras_stats_array)
 end
 
 function write_check_array(check_array)
-    --[[Writes the correct number of "check" unused accessory items. Used for syncing game with server]]
-    inventory_address = 0x2DE5E69 - offset
-    check_number_item_address = inventory_address + 0x48
+    --[[Writes the correct number of "check" unused gummi items. Used for syncing game with server]]
+    gummi_address = 0x2DF1848 - offset
+    check_number_item_address = gummi_address + 0x77
     WriteArray(check_number_item_address, check_array)
 end
 
@@ -846,10 +845,16 @@ function write_sora_ability(ability_value)
     end
 end
 
-function write_shared_abilities_array(shared_abilities_array)
+function write_shared_ability(shared_ability_value)
     --[[Writes the player's unlocked shared abilities]]
-    shared_abilities_address = 0x2DE5F69 - offset
-    WriteArray(shared_abilities_address, shared_abilities_array)
+    shared_abilities_address = 0x2DE5F68 - offset
+    local i = 1
+    while ReadByte(shared_abilities_address + i) ~= 0 do
+        i = i + 1
+    end
+    if i <= 4 then
+        WriteByte(shared_abilities_address + i, ability_value + 128)
+    end
 end
 
 function write_summons_array(summons_array)
@@ -913,6 +918,71 @@ function write_e()
     WriteByte(inventory_address, 0)
 end
 
+function write_summon_item(summon_bit_number)
+    --[[Writes a gummi item who's bits represent a summon being unlocked]]
+    gummi_address = 0x2DF1848 - offset
+    summon_item_address = gummi_address + 0x7E
+    summon_item_value = ReadByte(summon_item_address)
+    summon_bits = toBits(summon_item_value)
+    if summon_bits[summon_bit_number+1] == 0 then
+        WriteByte(summon_item_address, summon_item_value + 2^summon_bit_number)
+    end
+end
+
+function write_magic_item(magic_item_number)
+    --[[Writes a gummi item who's value represent a spell's level (0 being locked)]]
+    gummi_address = 0x2DF1848 - offset
+    magic_item_address = gummi_address + 0x8F + magic_item_number
+    magic_item_value = ReadByte(magic_item_address)
+    if magic_item_value < 3 then
+        WriteByte(magic_item_address, magic_item_value + 1)
+    end
+end
+
+function write_world_item(world_bit_number)
+    --[[Writes a gummi item who's bits represent a world being unlocked]]
+    gummi_address = 0x2DF1848 - offset
+    world_item_address = gummi_address + 0x7B
+    if world_bit_number > 8 then
+        world_item_address = world_item_address + 1
+        world_bit_number = world_bit_number % 8
+    end
+    world_item_value = ReadByte(world_item_address)
+    world_bits = toBits(world_item_value)
+    if world_bits[world_bit_number] == 0 then
+        WriteByte(world_item_address, world_item_value + 2^(world_bit_number-1))
+    end
+end
+
+function write_trinity_item(trinity_bit_number)
+    --[[Writes a gummi item who's bits represent a trinity being unlocked]]
+    gummi_address = 0x2DF1848 - offset
+    trinity_item_address = gummi_address + 0x7D
+    trinity_item_value = ReadByte(trinity_item_address)
+    trinity_bits = toBits(trinity_item_value)
+    if trinity_bits[trinity_bit_number] == 0 then
+        WriteByte(trinity_item_address, trinity_item_value + 2^(trinity_bit_number-1))
+    end
+end
+
+function write_olympus_cups_item(cup_bit_number)
+    --[[Writes a gummi item who's bits represent a Olympus Coliseum cup being unlocked]]
+    gummi_address = 0x2DF1848 - offset
+    cup_item_address = gummi_address + 0x97
+    cup_item_value = ReadByte(cup_item_address)
+    cup_bits = toBits(cup_item_value)
+    if cup_bits[cup_bit_number] == 0 then
+        WriteByte(cup_item_address, cup_item_value + 2^(cup_bit_number-1))
+    end
+end
+
+function write_victory_item()
+    --[[Writes a gummi item who's value represents the player having completed their goal]]
+    gummi_address = 0x2DF1848 - offset
+    victory_item_address = gummi_address + 0x7F
+    WriteByte(victory_item_address, 1)
+end
+
 function parse_world_progress_array(world_progress_array)
     --[[Parses the world progress array to pull location ids out]]
     found_location_ids = {}
@@ -947,28 +1017,6 @@ function add_to_soras_stats(value)
     write_soras_stats(soras_stats_array)
 end
 
-function add_to_shared_abilities_array(shared_abilities_array, value)
-    --[[Adds a shared ability to the calculated shared_abilities_array]]
-    local i = 1
-    while shared_abilities_array[i] ~= 0 do
-        i = i + 1
-    end
-    if i <= 4 then
-        shared_abilities_array[i] = value
-    end
-    return shared_abilities_array
-end
-
-function add_to_summons_array(summons_array, value)
-    --[[Adds a summon to the calculated summons_array]]
-    local i = 1
-    while summons_array[i] < 10 do
-        i = i + 1
-    end
-    summons_array[i] = value
-    return summons_array
-end
-
 function fix_shortcuts()
     --[[Ensures that the player never has a shortcut set for a spell they don't posses]]
     shortcuts_address = 0x2DE6214 - offset
@@ -1001,12 +1049,26 @@ function receive_items()
             local item = get_item_by_id(received_item_id) or { Name = "UNKNOWN ITEM", ID = -1}
             table.insert(message_cache.items, item)
         end
-        if received_item_id >= 2641000 and received_item_id < 2642000 then
+        if received_item_id == 2640000 then
+            write_victory_item()
+        elseif received_item_id >= 2641000 and received_item_id < 2642000 then
             write_item(received_item_id % 2641000)
+        elseif received_item_id >= 2642000 and received_item_id < 2643000 then
+            write_shared_ability(received_item_id % 2642000)
         elseif received_item_id >= 2643000 and received_item_id < 2644000 then
             write_sora_ability(received_item_id % 2643000)
         elseif received_item_id >= 2644000 and received_item_id < 2645000 then
             add_to_soras_stats(received_item_id % 2644000)
+        elseif received_item_id >= 2645000 and received_item_id < 2646000 then
+            write_summon_item(received_item_id % 2645000)
+        elseif received_item_id >= 2646000 and received_item_id < 2647000 then
+            write_magic_item(received_item_id % 2646000)
+        elseif received_item_id >= 2647000 and received_item_id < 2648000 then
+            write_world_item(received_item_id % 2647000)
+        elseif received_item_id >= 2648000 and received_item_id < 2649000 then
+            write_trinity_item(received_item_id % 2648000)
+        elseif received_item_id >= 2649000 and received_item_id < 2650000 then
+            write_olympus_cups_item(received_item_id % 2649000)
         end
         check_array = increment_check_array(check_array)
         i = i + 1
@@ -1018,55 +1080,73 @@ end
 function calculate_full()
     --[[Main function for calculating values which need to be overwritten consistently, in
     order to remove things the game might give the player.  These include magic, trinities, etc]]
+    
+    --Handle Magic
     magic_unlocked_bits = {0, 0, 0, 0, 0, 0, 0}
-    magic_levels_array  = {0, 0, 0, 0, 0, 0, 0}
+    magic_levels_array  = {1, 1, 1, 1, 1, 1, 1}
+    magic_items_array = read_magic_items()
+    for i=1,#magic_items_array do
+        if magic_items_array[i] > 1 then
+            magic_unlocked_bits[i] = 1
+        end
+        magic_levels_array[i] = math.max(magic_items_array[i],1)
+    end
+    write_magic(magic_unlocked_bits, magic_levels_array)
+    --End Handle Magic
+    
+    --Handle Worlds
     worlds_unlocked_array = {3, 0, 0, 0, 0, 0, 0, 0, 0}
     monstro_unlocked = 0
-    shared_abilities_array = {0, 0, 0, 0}
-    summons_array = {255, 255, 255, 255, 255, 255}
-    trinity_bits = {0, 0, 0, 0, 0}
-    olympus_cups_array = {0, 0, 0, 0}
-    victory = false
-    local i = 1
-    while file_exists(client_communication_path .. "AP_" .. tostring(i) .. ".item") do
-        file = io.open(client_communication_path .. "AP_" .. tostring(i) .. ".item", "r")
-        io.input(file)
-        received_item_id = tonumber(io.read())
-        io.close(file)
-        if received_item_id == 2640000 then
-            victory = true
-        elseif received_item_id >= 2642000 and received_item_id < 2643000 then
-            shared_abilities_array = add_to_shared_abilities_array(shared_abilities_array, received_item_id % 2642000)
-        elseif received_item_id >= 2645000 and received_item_id < 2646000 then
-            summons_array = add_to_summons_array(summons_array, received_item_id % 2645000)
-        elseif received_item_id >= 2646000 and received_item_id < 2647000 then
-            magic_unlocked_bits[received_item_id % 2646000] = 1
-            magic_levels_array[received_item_id % 2646000] = math.min(magic_levels_array[received_item_id % 2646000] + 1, 3)
-        elseif received_item_id >= 2647000 and received_item_id < 2648000 then
-            if received_item_id % 2647000 < 10 then
-                worlds_unlocked_array[received_item_id % 2647000] = 3
-            elseif received_item_id % 2647000 == 11 then
-                monstro_unlocked = 3
-            end
-        elseif received_item_id >= 2648000 and received_item_id < 2649000 then
-            trinity_bits[received_item_id % 2648000] = 1
-        elseif received_item_id >= 2649000 then
-            olympus_cups_array[received_item_id % 2649000] = 10
+    world_item_array = read_world_items()
+    world_byte_1_bits = toBits(world_item_array[1])
+    world_byte_2_bits = toBits(world_item_array[2])
+    for i=1,8 do
+        if world_byte_1_bits[i] ~= nil then
+            worlds_unlocked_array[i+1] = world_byte_1_bits[i] * 3
         end
-        i = i + 1
+    end
+    if world_byte_2_bits[1] ~= nil then
+        monstro_unlocked = world_byte_2_bits[1] * 3
+    end
+    --End Handle Worlds
+    
+    --Handle Summons
+    summons_array = {255, 255, 255, 255, 255, 255}
+    summon_item_array = read_summon_item()
+    j = 1
+    for i=1,#summon_item_array do
+        if summon_item_array[i] == 1 then
+            summons_array[j] = i - 1
+            j = j + 1
+        end
+    end
+    write_summons_array(summons_array)
+    --End Handle Summons
+    
+    --Handle Trinities
+    trinity_bits = {0,0,0,0,0}
+    trinity_item_bits = read_trinity_item()
+    for i=1,#trinity_item_bits do
+        trinity_bits[i] = read_trinity_item[i]
+    end
+    --End Handle Trinities
+    
+    --Handle Olympus Cups
+    olympus_cups_array = {0, 0, 0, 0}
+    olympus_cups_bits = read_olympus_cups_item()
+    for i=1,#olympus_cups_bits do
+        olympus_cups_array[i] = olympus_cups_bits[i] * 10
     end
     if olympus_cups_array[1] == 10 and olympus_cups_array[2] == 10 and olympus_cups_array[3] == 10 then
         olympus_cups_array[4] = 10
     end
-    for k,v in pairs(magic_levels_array) do
-        if v == 0 then
-            magic_levels_array[k] = 1
-        end
-    end
-    write_magic(magic_unlocked_bits, magic_levels_array)
-    write_shared_abilities_array(shared_abilities_array)
-    write_summons_array(summons_array)
     write_olympus_cups(olympus_cups_array)
+    --End Handle Olympus Cups
+    
+    --Handle Victory
+    victory_item_value = read_victory_item()
+    victory = victory_item_value > 0
+    --End Handle Victory
     return victory
 end
 
@@ -1509,6 +1589,12 @@ function main()
     
     --Written by Krujo for handling messages
     handle_messages()
+end
+
+function test()
+    bits = toBits(1)
+    ConsolePrint(bits[1])
+    ConsolePrint(bits[2])
 end
 
 function _OnInit()
