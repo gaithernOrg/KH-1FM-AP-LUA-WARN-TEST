@@ -984,10 +984,14 @@ end
 
 function write_olympus_cups_item(cup_bit_number)
     --[[Writes a gummi item who's bits represent a Olympus Coliseum cup being unlocked]]
+    cup_bits = {0,0,0}
     gummi_address = 0x2DF1848 - offset
     cup_item_address = gummi_address + 0x97
     cup_item_value = ReadByte(cup_item_address)
-    cup_bits = toBits(cup_item_value)
+    cup_item_bits = toBits(cup_item_value)
+    for k=0,#cup_item_bits do
+        cup_bits[k] = cup_item_bits[k]
+    end
     if cup_bits[cup_bit_number] == 0 then
         WriteByte(cup_item_address, cup_item_value + 2^(cup_bit_number-1))
     end
