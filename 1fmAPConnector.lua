@@ -1126,8 +1126,8 @@ function calculate_full()
             worlds_unlocked_array[i] = world_byte_1_bits[i] * 3
         end
     end
-    if world_byte_2_bits[1] ~= nil then
-        monstro_unlocked = world_byte_2_bits[1] * 3
+    if world_byte_2_bits[3] ~= nil then
+        monstro_unlocked = world_byte_2_bits[3] * 3
     end
     --End Handle Worlds
     
