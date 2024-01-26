@@ -1134,10 +1134,8 @@ function calculate_full()
             worlds_unlocked_array[i] = world_byte_1_bits[i] * 3
         end
     end
-    for i=1,2 do
-        if world_byte_2_bits[i] ~= nil then
-            worlds_unlocked_array[i+8] = world_byte_2_bits[i] * 3
-        end
+    if world_byte_2_bits[1] ~= nil then
+        worlds_unlocked_array[9] = world_byte_2_bits[1] * 3
     end
     if world_byte_2_bits[3] ~= nil then
         monstro_unlocked = world_byte_2_bits[3] * 3
