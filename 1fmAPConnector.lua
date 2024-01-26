@@ -34,7 +34,7 @@ function file_exists(name)
 end
 
 --- Global Variables ---
-frame_count = 1
+frame_count = 0
 canExecute = false
 worlds_unlocked_array = {3, 0, 0, 0, 0, 0, 0, 0, 0}
 monstro_unlocked = 0
