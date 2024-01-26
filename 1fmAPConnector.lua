@@ -1004,6 +1004,13 @@ function write_victory_item()
     WriteByte(victory_item_address, 1)
 end
 
+function on_results_screen()
+    --[[Checks if the player is on the results screen, meaning that they defeated Final Ansem]]]
+    world = 0x233CADC - offset
+    room = world + 0x68
+    return (ReadByte(world) == 0x10 and ReadByte(room) == 0x20)
+end
+
 function parse_world_progress_array(world_progress_array)
     --[[Parses the world progress array to pull location ids out]]
     found_location_ids = {}
@@ -1260,6 +1267,15 @@ function send_locations()
                 io.write("")
                 io.close(file)
             end
+        end
+    end
+    if on_results_screen() then
+        location_id = 2659999
+        if not file_exists(client_communication_path .. "send" .. tostring(location_id)) then
+            file = io.open(client_communication_path .. "send" .. tostring(location_id), "w")
+            io.output(file)
+            io.write("")
+            io.close(file)
         end
     end
     if victory then
