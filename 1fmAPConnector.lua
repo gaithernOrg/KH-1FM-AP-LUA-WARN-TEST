@@ -691,10 +691,18 @@ function read_atlantica_clams()
     atlantica_byte_1_bits = toBits(atlantica_clams_bytes_array[1])
     atlantica_byte_2_bits = toBits(atlantica_clams_bytes_array[2])
     for i=1,8 do
-        atlantica_clams_bits_array[i] = atlantica_byte_1_bits[i]
+        if atlantica_byte_1_bits[i] ~= nil then 
+            atlantica_clams_bits_array[i] = atlantica_byte_1_bits[i]
+        else
+            atlantica_clams_bits_array[i] = 0
+        end
     end
     for i=1,8 do
-        atlantica_clams_bits_array[8+i] = atlantica_byte_2_bits[i]
+        if atlantica_byte_2_bits[i] ~= nil then 
+            atlantica_clams_bits_array[8+i] = atlantica_byte_2_bits[i]
+        else
+            atlantica_clams_bits_array[8+i] = 0
+        end
     end
     return atlantica_clams_bits_array
 end
