@@ -36,11 +36,12 @@ end
 --- Global Variables ---
 frame_count = 0
 canExecute = false
-worlds_unlocked_array = {3, 0, 0, 0, 0, 0, 0, 0, 0}
+worlds_unlocked_array = {3, 0, 0, 0, 0, 0, 0, 0, 0, 0}
 monstro_unlocked = 0
 magic_unlocked_bits = {0, 0, 0, 0, 0, 0, 0}
 trinity_bits = {0, 0, 0, 0, 0}
 initializing = true
+reports_required = 14 --EotW won't appear until you've connected to confirm amount
 item_categories = {
     equipment = 0,
     consumable = 1,
@@ -753,6 +754,33 @@ function read_victory_item()
     return ReadByte(victory_item_address)
 end
 
+function read_report_qty()
+    inventory_address = 0x2DE5E69 - offset
+    reports_1 = ReadArray(inventory_address + 149, 3)
+    reports_2 = ReadArray(inventory_address + 168, 10)
+    reports_acquired = 0
+    for k,v in pairs(reports_1) do
+        if v > 0 then
+            reports_acquired = reports_acquired + 1
+        end
+    end
+    for k,v in pairs(reports_2) do
+        if v > 0 then
+            reports_acquired = reports_acquired + 1
+        end
+    end
+    return reports_acquired
+end
+
+function read_required_reports()
+    if file_exists(client_communication_path .. "required_reports.cfg") then
+        file = io.open(client_communication_path .. "required_reports.cfg", "r")
+        io.input(file)
+        required_reports = tonumber(io.read())
+        io.close(file)
+    end
+end
+
 function write_world_lines()
     --[[Opens all world connections on the world map]]
     world_map_lines_address = 0x2DE78E2 - offset
@@ -1144,6 +1172,11 @@ function calculate_full()
     end
     if world_byte_2_bits[1] ~= nil then
         worlds_unlocked_array[9] = world_byte_2_bits[1] * 3
+    end
+    if read_report_qty() >= required_reports then
+        worlds_unlocked_array[10] = 3
+    else
+        worlds_unlocked_array[10] = 0
     end
     if world_byte_2_bits[3] ~= nil then
         monstro_unlocked = world_byte_2_bits[3] * 3
@@ -1623,6 +1656,7 @@ end
 
 function main()
     --Main functions
+    read_required_reports()
     receive_sent_msgs()
     receive_items()
     victory = calculate_full()
