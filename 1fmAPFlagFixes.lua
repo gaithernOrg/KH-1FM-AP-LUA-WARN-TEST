@@ -589,12 +589,18 @@ function FlagFixes()
     end
     
     --Early EotW, blocked until HB2
-    if ReadByte(cutsceneFlags+0xB0E) < 0xC3 and ReadByte(world) == 0x10 then
-        if ReadByte(currentTerminus) == 9 then        --Hide teleporter to HB portal
-            WriteInt(terminusTeleUsable, 0xFFFFD8F0)
-            WriteInt(terminusTeleVisible, 0xC61C4000)
-        end
-    elseif ReadByte(cutsceneFlags+0xB0E) >= 0xC3 and ReadInt(inGummi) > 0 and ReadByte(unlockedWarps+2) < 3 and true then
+    --if ReadByte(cutsceneFlags+0xB0E) < 0xC3 and ReadByte(world) == 0x10 then
+    --    if ReadByte(currentTerminus) == 9 then        --Hide teleporter to HB portal
+    --        WriteInt(terminusTeleUsable, 0xFFFFD8F0)
+    --        WriteInt(terminusTeleVisible, 0xC61C4000)
+    --    end
+    --elseif ReadByte(cutsceneFlags+0xB0E) >= 0xC3 and ReadInt(inGummi) > 0 and ReadByte(unlockedWarps+2) < 3 and true then
+    --    WriteByte(unlockedWarps+2, 3)
+    --    WriteByte(cutsceneFlags+0xB0F, math.max(ReadByte(cutsceneFlags+0xB0F), 8))
+    --    WriteByte(worldFlagBase+0xDC, 0xD)
+    --    WriteByte(worldFlagBase+0xDF, 0xD)
+    --end
+    if ReadInt(inGummi) > 0 and ReadByte(unlockedWarps+2) < 3 and true then
         WriteByte(unlockedWarps+2, 3)
         WriteByte(cutsceneFlags+0xB0F, math.max(ReadByte(cutsceneFlags+0xB0F), 8))
         WriteByte(worldFlagBase+0xDC, 0xD)
