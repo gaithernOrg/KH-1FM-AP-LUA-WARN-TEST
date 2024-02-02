@@ -611,20 +611,20 @@ function FlagFixes()
     end
     
     if ReadByte(world) == 0xF then
-        local embCount = 0
-        for i=0xBB, 0xBE do
-            embCount = embCount + math.min(ReadByte(inventory+i), 1)
-            WriteByte(inventory+i, math.min(1, ReadByte(inventory+i)))
-        end
-
-        local canPlace = embCount == 4 or ReadByte(emblemDoor) > 0
-        
-        WriteByte(emblemCount, canPlace and 4 or 0)
-        if ReadByte(cutsceneFlags+0xB0E) > 0x32 and (ReadByte(room) ~= 4 or ReadByte(blackfade)==0) then
-            local doorClose = ReadByte(roomWarpRead) >= 0x10 and ReadByte(roomWarpRead) <= 0x13
-            WriteByte(emblemDoor, doorClose and 3 or 4)
-            WriteByte(emblemDoor+3, doorClose and 1 or 5)
-        end
+        --local embCount = 0
+        --for i=0xBB, 0xBE do
+        --    embCount = embCount + math.min(ReadByte(inventory+i), 1)
+        --    WriteByte(inventory+i, math.min(1, ReadByte(inventory+i)))
+        --end
+        --
+        --local canPlace = embCount == 4 or ReadByte(emblemDoor) > 0
+        --
+        --WriteByte(emblemCount, canPlace and 4 or 0)
+        --if ReadByte(cutsceneFlags+0xB0E) > 0x32 and (ReadByte(room) ~= 4 or ReadByte(blackfade)==0) then
+        --    local doorClose = ReadByte(roomWarpRead) >= 0x10 and ReadByte(roomWarpRead) <= 0x13
+        --    WriteByte(emblemDoor, doorClose and 3 or 4)
+        --    WriteByte(emblemDoor+3, doorClose and 1 or 5)
+        --end
         
         if ReadByte(libraryFlag) == 0 then
             WriteByte(libraryFlag, 2)
