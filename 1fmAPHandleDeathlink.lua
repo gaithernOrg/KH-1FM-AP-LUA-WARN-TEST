@@ -121,7 +121,7 @@ function _OnFrame()
         end
     end
     
-    if ReadByte(soraHP) == 0 and soras_last_hp > 0 then
+    if ReadByte(soraHP) == 0 and soras_last_hp > 0 and ReadShort(deathCheck) == 0x9090 and ReadByte(stateFlag == 1) then
         death_frames = death_frames + 1
         if death_frames >= 10 then
             death_date = os.date("!%Y%m%d%H%M%S")

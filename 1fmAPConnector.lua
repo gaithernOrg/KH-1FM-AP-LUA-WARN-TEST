@@ -36,11 +36,12 @@ end
 --- Global Variables ---
 frame_count = 0
 canExecute = false
-worlds_unlocked_array = {3, 0, 0, 0, 0, 0, 0, 0, 0}
+worlds_unlocked_array = {3, 0, 0, 0, 0, 0, 0, 0, 0, 0}
 monstro_unlocked = 0
 magic_unlocked_bits = {0, 0, 0, 0, 0, 0, 0}
 trinity_bits = {0, 0, 0, 0, 0}
 initializing = true
+required_reports = 14 --EotW won't appear until you've connected to confirm amount
 item_categories = {
     equipment = 0,
     consumable = 1,
@@ -250,9 +251,9 @@ function define_items()
   { ID = 2641146, Name = "C05" },
   { ID = 2641147, Name = "C06" },
   { ID = 2641148, Name = "C07" },
-  { ID = 2641149, Name = "Ansem's Report 11" },
-  { ID = 2641150, Name = "Ansem's Report 12" },
-  { ID = 2641151, Name = "Ansem's Report 13" },
+  { ID = 2641149, Name = "Ansem's Report 11", Usefulness = item_usefulness.progression },
+  { ID = 2641150, Name = "Ansem's Report 12", Usefulness = item_usefulness.progression },
+  { ID = 2641151, Name = "Ansem's Report 13", Usefulness = item_usefulness.progression },
   { ID = 2641152, Name = "Power Up" },
   { ID = 2641153, Name = "Defense Up" },
   { ID = 2641154, Name = "AP Up" },
@@ -269,22 +270,22 @@ function define_items()
   { ID = 2641165, Name = "Shiitank Rank" },
   { ID = 2641166, Name = "Matsutake Rank" },
   { ID = 2641167, Name = "Mystery Mold" },
-  { ID = 2641168, Name = "Ansem's Report 1" },
-  { ID = 2641169, Name = "Ansem's Report 2" },
-  { ID = 2641170, Name = "Ansem's Report 3" },
-  { ID = 2641171, Name = "Ansem's Report 4" },
-  { ID = 2641172, Name = "Ansem's Report 5" },
-  { ID = 2641173, Name = "Ansem's Report 6" },
-  { ID = 2641174, Name = "Ansem's Report 7" },
-  { ID = 2641175, Name = "Ansem's Report 8" },
-  { ID = 2641176, Name = "Ansem's Report 9" },
-  { ID = 2641177, Name = "Ansem's Report 10" },
+  { ID = 2641168, Name = "Ansem's Report 1",  Usefulness = item_usefulness.progression },
+  { ID = 2641169, Name = "Ansem's Report 2",  Usefulness = item_usefulness.progression },
+  { ID = 2641170, Name = "Ansem's Report 3",  Usefulness = item_usefulness.progression },
+  { ID = 2641171, Name = "Ansem's Report 4",  Usefulness = item_usefulness.progression },
+  { ID = 2641172, Name = "Ansem's Report 5",  Usefulness = item_usefulness.progression },
+  { ID = 2641173, Name = "Ansem's Report 6",  Usefulness = item_usefulness.progression },
+  { ID = 2641174, Name = "Ansem's Report 7",  Usefulness = item_usefulness.progression },
+  { ID = 2641175, Name = "Ansem's Report 8",  Usefulness = item_usefulness.progression },
+  { ID = 2641176, Name = "Ansem's Report 9",  Usefulness = item_usefulness.progression },
+  { ID = 2641177, Name = "Ansem's Report 10", Usefulness = item_usefulness.progression },
   { ID = 2641178, Name = "Khama Vol. 8" },
   { ID = 2641179, Name = "Salegg Vol. 6" },
   { ID = 2641180, Name = "Azal Vol. 3" },
   { ID = 2641181, Name = "Mava Vol. 3" },
   { ID = 2641182, Name = "Mava Vol. 6" },
-  { ID = 2641183, Name = "Theon Vol. 6" },
+  { ID = 2641183, Name = "Theon Vol. 6" ,     Usefulness = item_usefulness.progression },
   { ID = 2641184, Name = "Nahara Vol. 5" },
   { ID = 2641185, Name = "Hafet Vol. 4" },
   { ID = 2641186, Name = "Empty Bottle" },
@@ -753,6 +754,33 @@ function read_victory_item()
     return ReadByte(victory_item_address)
 end
 
+function read_report_qty()
+    inventory_address = 0x2DE5E69 - offset
+    reports_1 = ReadArray(inventory_address + 149, 3)
+    reports_2 = ReadArray(inventory_address + 168, 10)
+    reports_acquired = 0
+    for k,v in pairs(reports_1) do
+        if v > 0 then
+            reports_acquired = reports_acquired + 1
+        end
+    end
+    for k,v in pairs(reports_2) do
+        if v > 0 then
+            reports_acquired = reports_acquired + 1
+        end
+    end
+    return reports_acquired
+end
+
+function read_required_reports()
+    if file_exists(client_communication_path .. "required_reports.cfg") then
+        file = io.open(client_communication_path .. "required_reports.cfg", "r")
+        io.input(file)
+        required_reports = tonumber(io.read())
+        io.close(file)
+    end
+end
+
 function write_world_lines()
     --[[Opens all world connections on the world map]]
     world_map_lines_address = 0x2DE78E2 - offset
@@ -1144,6 +1172,11 @@ function calculate_full()
     end
     if world_byte_2_bits[1] ~= nil then
         worlds_unlocked_array[9] = world_byte_2_bits[1] * 3
+    end
+    if read_report_qty() >= required_reports then
+        worlds_unlocked_array[10] = 3
+    else
+        worlds_unlocked_array[10] = 0
     end
     if world_byte_2_bits[3] ~= nil then
         monstro_unlocked = world_byte_2_bits[3] * 3
@@ -1623,6 +1656,7 @@ end
 
 function main()
     --Main functions
+    read_required_reports()
     receive_sent_msgs()
     receive_items()
     victory = calculate_full()

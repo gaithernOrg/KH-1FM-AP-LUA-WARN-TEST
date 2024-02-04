@@ -124,14 +124,14 @@ end
 
 world_progress_reset_array = define_world_progress_reset_array()
 
-function correct_world_flags(corrected_world_flag_arrays)
+function correct_world_flags(world_offset, corrected_world_flag_array)
     world_flags_address = 0x2DE79D0 + 0x6C - offset
-    world_flags_offsets = {0x30, 0x40, 0x60, 0xA0}
-    for i=1,#world_flags_offsets do
-        if corrected_world_flag_arrays[i] ~= nil then
-            WriteArray(world_flags_address + world_flags_offsets[i], corrected_world_flag_arrays[i])
-        end
-    end
+    WriteArray(world_flags_address + world_offset, corrected_world_flag_array)
+end
+
+function read_world_flags(world_offset)
+    world_flags_address = 0x2DE79D0 + 0x6C - offset
+    return ReadArray(world_flags_address + world_offset, 16)
 end
 
 function turn_on_kurt_zisa()
@@ -144,36 +144,38 @@ function main()
     world_progress_array = read_world_progress_array()
     hollow_bastion_progress = world_progress_array[11]
     corrected_world_flag_arrays = {}
-    test_bytes = {0x30,0x5F,0x82,0x6E}
-    set_bytes = {0x32,0x6E,0x82,0x78}
+    second_visit_test_bytes = {0x30,0x5F,0x82,0x6E}
+    final_bytes = {0x32,0x6E,0x82,0x78}
     world_progress_indexes = {4,2,5,10}
+    check_byte_num = {8, 1, 2, 6}
+    world_offset = {0x30, 0x40, 0x60, 0xA0}
+    
     
     if hollow_bastion_progress >= 0x82 then --Riku 2 Defeated
         specific_worlds_progress_array[1] = world_progress_array[4]
         specific_worlds_progress_array[2] = world_progress_array[2]
         specific_worlds_progress_array[3] = world_progress_array[5]
         specific_worlds_progress_array[4] = world_progress_array[10]
-        if not corrected then
-            for world_num, world_progress in pairs(specific_worlds_progress_array) do
-                for case_num, values in pairs(world_progress_reset_array[world_num]) do
-                    if world_progress >= values[1] then
-                        corrected_world_flag_arrays[world_num] = values[2]
+        for world_num, world_progress_byte in pairs(specific_worlds_progress_array) do
+            if world_progress_byte < final_bytes[world_num] and read_world_flags(world_offset[world_num])[check_byte_num[world_num]] >= 0x10 then
+                for world_progress_reset_cutscene_byte, world_progress_reset_flags_array in pairs(world_progress_reset_array[world_num]) do
+                    if world_progress_byte >= world_progress_reset_cutscene_byte then
+                        reset_array = world_progress_reset_flags_array
                     end
                 end
+                correct_world_flags(world_offset[world_num], reset_array)
             end
-            corrected = true
         end
-        for i=1,#test_bytes do
-            if not second_visit[i] and specific_worlds_progress_array[i] >= test_bytes[i] then
-                write_world_progress_byte(world_progress_indexes[i], set_bytes[i])
-                corrected_world_flag_arrays[i] = world_progress_reset_array[i][#world_progress_reset_array[i]][2]
+        for i=1,#second_visit_test_bytes do
+            if not second_visit[i] and specific_worlds_progress_array[i] >= second_visit_test_bytes[i] then
+                write_world_progress_byte(world_progress_indexes[i], final_bytes[i])
+                correct_world_flags(world_offset[i], world_progress_reset_array[i][#world_progress_reset_array[i]][2])
                 second_visit[i] = true
                 if i == 3 then --Agrabah
                     turn_on_kurt_zisa()
                 end
             end
         end
-        correct_world_flags(corrected_world_flag_arrays)
     end
 end
 

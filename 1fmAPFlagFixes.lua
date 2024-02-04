@@ -589,12 +589,18 @@ function FlagFixes()
     end
     
     --Early EotW, blocked until HB2
-    if ReadByte(cutsceneFlags+0xB0E) < 0xC3 and ReadByte(world) == 0x10 then
-        if ReadByte(currentTerminus) == 9 then        --Hide teleporter to HB portal
-            WriteInt(terminusTeleUsable, 0xFFFFD8F0)
-            WriteInt(terminusTeleVisible, 0xC61C4000)
-        end
-    elseif ReadByte(cutsceneFlags+0xB0E) >= 0xC3 and ReadInt(inGummi) > 0 and ReadByte(unlockedWarps+2) < 3 and true then
+    --if ReadByte(cutsceneFlags+0xB0E) < 0xC3 and ReadByte(world) == 0x10 then
+    --    if ReadByte(currentTerminus) == 9 then        --Hide teleporter to HB portal
+    --        WriteInt(terminusTeleUsable, 0xFFFFD8F0)
+    --        WriteInt(terminusTeleVisible, 0xC61C4000)
+    --    end
+    --elseif ReadByte(cutsceneFlags+0xB0E) >= 0xC3 and ReadInt(inGummi) > 0 and ReadByte(unlockedWarps+2) < 3 and true then
+    --    WriteByte(unlockedWarps+2, 3)
+    --    WriteByte(cutsceneFlags+0xB0F, math.max(ReadByte(cutsceneFlags+0xB0F), 8))
+    --    WriteByte(worldFlagBase+0xDC, 0xD)
+    --    WriteByte(worldFlagBase+0xDF, 0xD)
+    --end
+    if ReadInt(inGummi) > 0 and ReadByte(unlockedWarps+2) < 3 and true then
         WriteByte(unlockedWarps+2, 3)
         WriteByte(cutsceneFlags+0xB0F, math.max(ReadByte(cutsceneFlags+0xB0F), 8))
         WriteByte(worldFlagBase+0xDC, 0xD)
@@ -611,20 +617,20 @@ function FlagFixes()
     end
     
     if ReadByte(world) == 0xF then
-        local embCount = 0
-        for i=0xBB, 0xBE do
-            embCount = embCount + math.min(ReadByte(inventory+i), 1)
-            WriteByte(inventory+i, math.min(1, ReadByte(inventory+i)))
-        end
-
-        local canPlace = embCount == 4 or ReadByte(emblemDoor) > 0
-        
-        WriteByte(emblemCount, canPlace and 4 or 0)
-        if ReadByte(cutsceneFlags+0xB0E) > 0x32 and (ReadByte(room) ~= 4 or ReadByte(blackfade)==0) then
-            local doorClose = ReadByte(roomWarpRead) >= 0x10 and ReadByte(roomWarpRead) <= 0x13
-            WriteByte(emblemDoor, doorClose and 3 or 4)
-            WriteByte(emblemDoor+3, doorClose and 1 or 5)
-        end
+        --local embCount = 0
+        --for i=0xBB, 0xBE do
+        --    embCount = embCount + math.min(ReadByte(inventory+i), 1)
+        --    WriteByte(inventory+i, math.min(1, ReadByte(inventory+i)))
+        --end
+        --
+        --local canPlace = embCount == 4 or ReadByte(emblemDoor) > 0
+        --
+        --WriteByte(emblemCount, canPlace and 4 or 0)
+        --if ReadByte(cutsceneFlags+0xB0E) > 0x32 and (ReadByte(room) ~= 4 or ReadByte(blackfade)==0) then
+        --    local doorClose = ReadByte(roomWarpRead) >= 0x10 and ReadByte(roomWarpRead) <= 0x13
+        --    WriteByte(emblemDoor, doorClose and 3 or 4)
+        --    WriteByte(emblemDoor+3, doorClose and 1 or 5)
+        --end
         
         if ReadByte(libraryFlag) == 0 then
             WriteByte(libraryFlag, 2)
