@@ -125,6 +125,8 @@ end
 world_progress_reset_array = define_world_progress_reset_array()
 
 function correct_world_flags(world_offset, corrected_world_flag_array)
+    ConsolePrint("World Offset: " .. tostring(world_offset))
+    ConsolePrint("Corrected World Flag Array[1]: " .. tostring(corrected_world_flag_array[1]))
     world_flags_address = 0x2DE79D0 + 0x6C - offset
     WriteArray(world_flags_address + world_offset, corrected_world_flag_array)
 end
