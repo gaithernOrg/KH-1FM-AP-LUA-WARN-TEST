@@ -125,8 +125,6 @@ end
 world_progress_reset_array = define_world_progress_reset_array()
 
 function correct_world_flags(world_offset, corrected_world_flag_array)
-    ConsolePrint("World Offset: " .. tostring(world_offset))
-    ConsolePrint("Corrected World Flag Array[1]: " .. tostring(corrected_world_flag_array[1]))
     world_flags_address = 0x2DE79D0 + 0x6C - offset
     WriteArray(world_flags_address + world_offset, corrected_world_flag_array)
 end
@@ -149,7 +147,7 @@ function main()
     second_visit_test_bytes = {0x30,0x5F,0x82,0x6E}
     final_bytes = {0x32,0x6E,0x82,0x78}
     world_progress_indexes = {4,2,5,10}
-    check_byte_num = {8, 1, 2, 6}
+    check_byte_num = {8, 3, 3, 6}
     world_offset = {0x30, 0x40, 0x60, 0xA0}
     
     
@@ -160,12 +158,12 @@ function main()
         specific_worlds_progress_array[4] = world_progress_array[10]
         for world_num, world_progress_byte in pairs(specific_worlds_progress_array) do
             if world_progress_byte < final_bytes[world_num] and read_world_flags(world_offset[world_num])[check_byte_num[world_num]] >= 0x10 then
-                for world_progress_reset_cutscene_byte, world_progress_reset_flags_array in pairs(world_progress_reset_array[world_num]) do
-                    if world_progress_byte >= world_progress_reset_cutscene_byte then
-                        reset_array = world_progress_reset_flags_array
+                for i=1,#world_progress_reset_array[world_num] do
+                    if world_progress_byte >= world_progress_reset_array[world_num][i][1] then
+                        reset_array = world_progress_reset_array[world_num][i][2]
+                        correct_world_flags(world_offset[world_num], reset_array)
                     end
                 end
-                correct_world_flags(world_offset[world_num], reset_array)
             end
         end
         for i=1,#second_visit_test_bytes do
