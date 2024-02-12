@@ -129,9 +129,6 @@ function _OnFrame()
             io.close(file)
         end
     end
-    if ReadByte(soraHP) == 0 and ReadByte(stateFlag == 1) then
-        ConsolePrint("Sora is dead!")
-    end
     soras_last_hp = ReadByte(soraHP)
     ::done::
 end
