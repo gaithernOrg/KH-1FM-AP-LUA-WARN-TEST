@@ -41,7 +41,6 @@ local cam = 0x503A18 - offset
 local canExecute = false
 last_death_time = 0
 soras_last_hp = 100
-death_frames = 0
 
 function file_exists(name)
    local f=io.open(name,"r")
@@ -121,21 +120,18 @@ function _OnFrame()
         end
     end
     
-    if ReadByte(soraHP) == 0 and soras_last_hp > 0 and ReadShort(deathCheck) == 0x9090 and ReadByte(stateFlag == 1) then
-        death_frames = death_frames + 1
-        if death_frames >= 10 then
-            death_date = os.date("!%Y%m%d%H%M%S")
-            if not file_exists(client_communication_path .. "dlsend" .. tostring(death_date)) then
-                file = io.open(client_communication_path .. "dlsend" .. tostring(death_date), "w")
-                io.output(file)
-                io.write("")
-                io.close(file)
-            end
-            death_frames = 0
+    if ReadByte(soraHP) == 0 and soras_last_hp > 0 and ReadByte(stateFlag == 1) then
+        death_date = os.date("!%Y%m%d%H%M%S")
+        if not file_exists(client_communication_path .. "dlsend" .. tostring(death_date)) then
+            file = io.open(client_communication_path .. "dlsend" .. tostring(death_date), "w")
+            io.output(file)
+            io.write("")
+            io.close(file)
         end
     end
-    if death_frames == 0 or ReadByte(soraHP) > 0 then
-        soras_last_hp = ReadByte(soraHP)
+    if ReadByte(soraHP) == 0 and ReadByte(stateFlag == 1) then
+        ConsolePrint("Sora is dead!")
     end
+    soras_last_hp = ReadByte(soraHP)
     ::done::
 end
