@@ -143,8 +143,7 @@ function fix_library()
     world_flag_base_address = 0x2DE79D0 + 0x6C - offset
     hollow_bastion_world_flag_base_address = world_flag_base_address + 0xB0
     library_address = hollow_bastion_world_flag_base_address + 0x7
-    ConsolePrint(ReadByte(library_address))
-    if ReadByte(library_address) == 0x03 then
+    if ReadByte(library_address) ~= 0x02 then
         WriteByte(library_address, 0x02)
     end
 end
