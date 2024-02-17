@@ -31,3 +31,7 @@ assets:
   method: copy
   source:
   - name: 1fmAPEXPMultiplier.lua
+- name: scripts/1fmAPQualityOfLife.lua
+  method: copy
+  source:
+  - name: 1fmAPQualityOfLife.lua
