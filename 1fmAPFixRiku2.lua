@@ -139,6 +139,15 @@ function turn_on_kurt_zisa()
     WriteByte(carpet_takes_you_to_kurt_zisa_address, 0xF0)
 end
 
+function fix_library()
+    world_flag_base_address = 0x2DE79D0 + 0x6C - offset
+    hollow_bastion_world_flag_base_address = world_flag_base_address + 0xB0
+    library_address = hollow_bastion_world_flag_base_address + 0x7
+    if ReadByte(library_address) == 0x03 then
+        WriteByte(library_address, 0x02)
+    end
+end
+
 function main()
     specific_worlds_progress_array = {}
     world_progress_array = read_world_progress_array()
@@ -191,6 +200,7 @@ end
 function _OnFrame()
     if frame_count == 0 and canExecute then
         main()
+        fix_library()
     end
     frame_count = (frame_count + 1) % 120
 end
