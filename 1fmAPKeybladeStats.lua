@@ -66,12 +66,18 @@ function write_keyblade_stats(keyblade_stats)
     end
 end
 
+function give_dream_weapons()
+    inventory_address = 0x2DE5E69 - offset
+    WriteArray(inventory_address + 82, {1,1,1})
+end
+
 function main()
     keyblade_stats = read_keyblade_stats()
     if keyblade_stats ~= nil and not finished then
         write_keyblade_stats(keyblade_stats)
         finished = true
     end
+    give_dream_weapons()
 end
 
 function _OnInit()
