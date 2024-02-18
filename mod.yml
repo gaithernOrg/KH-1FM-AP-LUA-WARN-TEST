@@ -31,3 +31,11 @@ assets:
   method: copy
   source:
   - name: 1fmAPEXPMultiplier.lua
+- name: scripts/1fmAPQualityOfLife.lua
+  method: copy
+  source:
+  - name: 1fmAPQualityOfLife.lua
+- name: scripts/1fmAPKeybladeStats.lua
+  method: copy
+  source:
+  - name: 1fmAPKeybladeStats.lua
