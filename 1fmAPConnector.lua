@@ -288,8 +288,8 @@ function define_items()
   { ID = 2641183, Name = "Theon Vol. 6" ,     Usefulness = item_usefulness.progression },
   { ID = 2641184, Name = "Nahara Vol. 5" },
   { ID = 2641185, Name = "Hafet Vol. 4" },
-  { ID = 2641186, Name = "Empty Bottle" },
-  { ID = 2641187, Name = "Old Book" },
+  { ID = 2641186, Name = "Material" ,               Usefulness = item_usefulness.progression },
+  { ID = 2641187, Name = "Old Book" ,               Usefulness = item_usefulness.progression },
   { ID = 2641188, Name = "Emblem Piece (Flame)",    Usefulness = item_usefulness.progression },
   { ID = 2641189, Name = "Emblem Piece (Chest)",    Usefulness = item_usefulness.progression },
   { ID = 2641190, Name = "Emblem Piece (Statue)",   Usefulness = item_usefulness.progression },
@@ -313,13 +313,13 @@ function define_items()
   { ID = 2641208, Name = "Fireglow" },
   { ID = 2641209, Name = "Earthshine" },
   { ID = 2641210, Name = "Crystal Trident" },
-  { ID = 2641211, Name = "Postcard", Usefulness = item_usefulness.progression },
-  { ID = 2641212, Name = "Torn Page 1" },
-  { ID = 2641213, Name = "Torn Page 2" },
-  { ID = 2641214, Name = "Torn Page 3" },
-  { ID = 2641215, Name = "Torn Page 4" },
-  { ID = 2641216, Name = "Torn Page 5" },
-  { ID = 2641217, Name = "Slide 1", Usefulness = item_usefulness.progression },
+  { ID = 2641211, Name = "Postcard",        Usefulness = item_usefulness.progression },
+  { ID = 2641212, Name = "Torn Page 1" ,    Usefulness = item_usefulness.progression },
+  { ID = 2641213, Name = "Torn Page 2" ,    Usefulness = item_usefulness.progression },
+  { ID = 2641214, Name = "Torn Page 3" ,    Usefulness = item_usefulness.progression },
+  { ID = 2641215, Name = "Torn Page 4" ,    Usefulness = item_usefulness.progression },
+  { ID = 2641216, Name = "Torn Page 5" ,    Usefulness = item_usefulness.progression },
+  { ID = 2641217, Name = "Slide 1",         Usefulness = item_usefulness.progression },
   { ID = 2641218, Name = "Slide 2" },
   { ID = 2641219, Name = "Slide 3" },
   { ID = 2641220, Name = "Slide 4" },
@@ -380,7 +380,7 @@ function define_items()
   { ID = 2643018, Name = "Aerial Sweep" },
   { ID = 2643019, Name = "Counterattack" },
   { ID = 2643020, Name = "Blitz" },
-  { ID = 2643021, Name = "Guard" },
+  { ID = 2643021, Name = "Guard" ,       Usefulness = item_usefulness.progression },
   { ID = 2643022, Name = "Dodge Roll" },
   { ID = 2643023, Name = "MP Haste" },
   { ID = 2643024, Name = "MP Rage" },
@@ -436,12 +436,12 @@ function define_items()
   { ID = 2644007, Name = "Item Slot Increase" },
 
   --Summons
-  { ID = 2645000, Name = "Dumbo" },
-  { ID = 2645001, Name = "Bambi" },
-  { ID = 2645002, Name = "Genie" },
-  { ID = 2645003, Name = "Tinker Bell" },
-  { ID = 2645004, Name = "Mushu" },
-  { ID = 2645005, Name = "Simba" },
+  { ID = 2645000, Name = "Dumbo" ,          Usefulness = item_usefulness.progression },
+  { ID = 2645001, Name = "Bambi" ,          Usefulness = item_usefulness.progression },
+  { ID = 2645002, Name = "Genie" ,          Usefulness = item_usefulness.progression },
+  { ID = 2645003, Name = "Tinker Bell" ,    Usefulness = item_usefulness.progression },
+  { ID = 2645004, Name = "Mushu" ,          Usefulness = item_usefulness.progression },
+  { ID = 2645005, Name = "Simba" ,          Usefulness = item_usefulness.progression },
 
   --Magic
   { ID = 2646001, Name = "Progressive Fire",     Usefulness = item_usefulness.progression },
@@ -513,8 +513,7 @@ function define_world_progress_location_threshholds()
     
     --Olympus Coliseum
     world_progress_location_threshholds[3] = {
-        {0x0D, 2656031}  --Thunder
-       ,{0x32, 2656032}} --Sonic Blade
+        {0x0D, 2656031}}  --Thunder
     
     --Wonderland
     world_progress_location_threshholds[4] = {
@@ -557,6 +556,7 @@ function define_world_progress_location_threshholds()
        ,{0x6E, 2656093}  --Fairy Harp
        ,{0x6E, 2656094}  --Tinker Bell
        ,{0x6E, 2656095}} --Glide
+       ,{0x96, 2656096}} --Stop
     
     --Hollow Bastion
     world_progress_location_threshholds[11] = {
@@ -1040,6 +1040,37 @@ function write_victory_item()
     WriteByte(victory_item_address, 1)
 end
 
+function write_puppy(puppy_id)
+    --[[Handles writing one or more puppies to the acquired puppy list, tracked in the journal]]
+    puppy_array_address = 0x2DE70D3 - offset
+    byte_bases = {0x80, 0x40, 0x20, 0x10, 0x08, 0x04, 0x02, 0x01}
+    puppies_to_write = {}
+    if puppy_id <= 99 then
+        puppies_to_write.insert(puppy_id)
+    elseif puppy_id >= 101 and puppy_id <= 133 then
+        puppy_id = (puppy_id % 100) * 3
+        for j = 0, 2 do
+            puppies_to_write.insert(puppy_id - j)
+        end
+    elseif puppy_id == 140 then
+        for j = 1, 100 do
+            puppies_to_write.insert(j)
+        end
+    end
+    for k,puppy_num in pairs(puppies_to_write) do
+        byte_offset = (puppy_num-1)//8
+        bit_offset = ((puppy_num-1)%8) + 1
+        byte_base = byte_bases[bit_offset]
+        puppy_byte_value = ReadByte(puppy_array_address + byte_offset)
+        if byte_base == 0x80 and puppy_byte_value < 0x80 then
+            puppy_byte_value = puppy_byte_value + 0x80
+        elseif puppy_byte_value % byte_bases[bit_offset-1] <= byte_base then
+            puppy_byte_value = puppy_byte_value + byte_base
+        end
+        ReadByte(puppy_array_address + byte_offset, puppy_byte_value)
+    end
+end
+
 function final_ansem_defeated()
     --[[Checks if the player is on the results screen, meaning that they defeated Final Ansem]]
     world = 0x233CADC - offset
@@ -1118,8 +1149,10 @@ function receive_items()
             write_victory_item()
         elseif received_item_id >= 2641000 and received_item_id < 2642000 then
             write_item(received_item_id % 2641000)
-        elseif received_item_id >= 2642000 and received_item_id < 2643000 then
+        elseif received_item_id >= 2642000 and received_item_id < 2642100 then
             write_shared_ability(received_item_id % 2642000)
+        elseif received_item_id >= 2642100 and received_item_id < 2643000 then
+            write_puppy(received_item_id % 2642100)
         elseif received_item_id >= 2643000 and received_item_id < 2644000 then
             write_sora_ability(received_item_id % 2643000)
         elseif received_item_id >= 2644000 and received_item_id < 2645000 then
