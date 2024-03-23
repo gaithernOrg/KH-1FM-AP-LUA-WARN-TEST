@@ -260,13 +260,13 @@ function define_items()
   { ID = 2641155, Name = "Serenity Power" },
   { ID = 2641156, Name = "Dark Matter" },
   { ID = 2641157, Name = "Mythril Stone" },
-  { ID = 2641158, Name = "Fire Arts" },
-  { ID = 2641159, Name = "Blizzard Arts" },
-  { ID = 2641160, Name = "Thunder Arts" },
-  { ID = 2641161, Name = "Cure Arts" },
-  { ID = 2641162, Name = "Gravity Arts" },
-  { ID = 2641163, Name = "Stop Arts" },
-  { ID = 2641164, Name = "Aero Arts" },
+  { ID = 2641158, Name = "Fire Arts" ,     Usefulness = item_usefulness.progression },
+  { ID = 2641159, Name = "Blizzard Arts" , Usefulness = item_usefulness.progression },
+  { ID = 2641160, Name = "Thunder Arts" ,  Usefulness = item_usefulness.progression },
+  { ID = 2641161, Name = "Cure Arts" ,     Usefulness = item_usefulness.progression },
+  { ID = 2641162, Name = "Gravity Arts" ,  Usefulness = item_usefulness.progression },
+  { ID = 2641163, Name = "Stop Arts" ,     Usefulness = item_usefulness.progression },
+  { ID = 2641164, Name = "Aero Arts" ,     Usefulness = item_usefulness.progression },
   { ID = 2641165, Name = "Shiitank Rank" },
   { ID = 2641166, Name = "Matsutake Rank" },
   { ID = 2641167, Name = "Mystery Mold" },
@@ -308,9 +308,9 @@ function define_items()
   { ID = 2641203, Name = "Navi-G Piece 3" },
   { ID = 2641204, Name = "Navi-G Piece 4" },
   { ID = 2641205, Name = "Navi-Gummi" },
-  { ID = 2641206, Name = "Watergleam" },
-  { ID = 2641207, Name = "Naturespark" },
-  { ID = 2641208, Name = "Fireglow" },
+  { ID = 2641206, Name = "Watergleam" ,     Usefulness = item_usefulness.progression },
+  { ID = 2641207, Name = "Naturespark" ,    Usefulness = item_usefulness.progression },
+  { ID = 2641208, Name = "Fireglow",        Usefulness = item_usefulness.progression },
   { ID = 2641209, Name = "Earthshine" },
   { ID = 2641210, Name = "Crystal Trident" },
   { ID = 2641211, Name = "Postcard",        Usefulness = item_usefulness.progression },
@@ -1287,6 +1287,17 @@ function write_victory_item()
     WriteByte(victory_item_address, 1)
 end
 
+function write_material()
+    material_byte_array = {0x37, 0x45, 0x58, 0x49, 0x56, 0x4D, 0x45, 0x50, 0x00}
+    material_name_pointer_address = 0x4D3650 - offset
+    material_name_pointer_offsets = {0x8,0x8,0x60,0x904}
+    current_address = GetPointer(material_name_pointer_address, 0x108)
+    for k,ptr_offset in pairs(material_name_pointer_offsets) do
+        current_address = GetPointer(current_address, ptr_offset, true)
+    end
+    WriteArray(current_address, material_byte_array, true)
+end
+
 function write_puppy(puppy_id)
     --[[Handles writing one or more puppies to the acquired puppy list, tracked in the journal]]
     puppy_array_address = 0x2DE70D3 - offset
@@ -1973,6 +1984,7 @@ function main()
     write_world_lines()
     write_level_up_rewards()
     write_e()
+    write_material()
     
     --Written by Krujo for handling messages
     handle_messages()
