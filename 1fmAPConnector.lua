@@ -634,6 +634,7 @@ function define_world_progress_location_threshholds()
         {0x31, 2656011}  --Dodge Roll
        ,{0x31, 2656012}  --Fire
        ,{0x31, 2656013}  --Blue Trinity
+       ,{0x31, 2656016}  --Brave Warrior
        ,{0x3e, 2656014}  --Earthshine
        ,{0x8c, 2656015}} --Oathkeeper
     
@@ -686,6 +687,7 @@ function define_world_progress_location_threshholds()
     world_progress_location_threshholds[10] = {
         {0x35, 2656091}  --Raven's Claw
        ,{0x3F, 2656092}  --Cure
+       ,{0x56, 2656097}  --Ars Arcanum
        ,{0x6E, 2656093}  --Fairy Harp
        ,{0x6E, 2656094}  --Tinker Bell
        ,{0x6E, 2656095}  --Glide
@@ -1332,9 +1334,26 @@ function write_puppy(puppy_id)
     end
 end
 
-function write_darkball()
-    darkball_defeated_address = 0x2DE61DE - offset
+function write_geppetto_conditions()
+    darkball_defeated_address =             0x2DE61DE - offset
+    all_summons_address =                   0x2DE66FF - offset
+    times_entered_geppettos_house_address = 0x2DE6707 - offset
+    
+    
     WriteShort(darkball_defeated_address, 5000)
+    WriteByte(times_entered_geppettos_house_address, 30)
+    
+    summons_address = 0x2DE61A0 - offset
+    summons_array = ReadArray(summons_address, 6)
+    number_of_summons_obtained = 0
+    for k,v in pairs(summons_array) do
+        if v < 255 then
+            number_of_summons_obtained = number_of_summons_obtained + 1
+        end
+    end
+    if number_of_summons_obtained == 6 then
+        WriteByte(all_summons_address, 1)
+    end
 end
 
 function final_ansem_defeated()
@@ -1991,7 +2010,7 @@ function main()
     write_level_up_rewards()
     write_e()
     write_material()
-    write_darkball()
+    write_geppetto_conditions()
     
     --Written by Krujo for handling messages
     handle_messages()
