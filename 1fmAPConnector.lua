@@ -1332,6 +1332,11 @@ function write_puppy(puppy_id)
     end
 end
 
+function write_darkball()
+    darkball_defeated_address = 0x2DE61DE - offset
+    WriteShort(darkball_defeated_address, 5000)
+end
+
 function final_ansem_defeated()
     --[[Checks if the player is on the results screen, meaning that they defeated Final Ansem]]
     world = 0x233CADC - offset
@@ -1986,6 +1991,7 @@ function main()
     write_level_up_rewards()
     write_e()
     write_material()
+    write_darkball()
     
     --Written by Krujo for handling messages
     handle_messages()
