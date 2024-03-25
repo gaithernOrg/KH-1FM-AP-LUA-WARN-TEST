@@ -288,7 +288,7 @@ function define_items()
   { ID = 2641183, Name = "Theon Vol. 6" ,     Usefulness = item_usefulness.progression },
   { ID = 2641184, Name = "Nahara Vol. 5" },
   { ID = 2641185, Name = "Hafet Vol. 4" },
-  { ID = 2641186, Name = "Empty Bottle" ,           Usefulness = item_usefulness.progression },
+  { ID = 2641186, Name = "Material" ,               Usefulness = item_usefulness.progression },
   { ID = 2641187, Name = "Old Book" ,               Usefulness = item_usefulness.progression },
   { ID = 2641188, Name = "Emblem Piece (Flame)",    Usefulness = item_usefulness.progression },
   { ID = 2641189, Name = "Emblem Piece (Chest)",    Usefulness = item_usefulness.progression },
@@ -941,7 +941,7 @@ function read_misc_checks()
         ,{0x2DE68D2 - offset, 2656032, 0, 0x1}
         ,{0x2DE693A - offset, 2656328, 0, 0x1}
         ,{0x2DE6939 - offset, 2656329, 0, 0x1}
-        ,{0x2DE77E4 - offset, 2656330, 0, 0xA}
+        ,{0x2DE77E3 - offset, 2656330, 0, 0x1}
         ,{0x2DE77A0 - offset, 2656331, 2, 0x0}
         ,{0x2DE7832 - offset, 2656344, 2, 0x0}
         ,{0x2DE6DD2 - offset, 2656345, 0, 0x2}
@@ -1045,7 +1045,7 @@ function write_synth_requirements()
     synth_array = {}
     local i = 0
     while i < 1 do --First 6 items become DI items to send checks
-        synth_array[(i*4) + 1] = 0xBA --Requirement (Empty Bottle)
+        synth_array[(i*4) + 1] = 0xBA --Requirement (material)
         synth_array[(i*4) + 2] = 0x00 --Blank
         synth_array[(i*4) + 3] = 0x01 --Number of items needed
         synth_array[(i*4) + 4] = 0x00 --Blank
@@ -1285,6 +1285,17 @@ function write_victory_item()
     gummi_address = 0x2DF1848 - offset
     victory_item_address = gummi_address + 0x7F
     WriteByte(victory_item_address, 1)
+end
+
+function write_material()
+    material_byte_array = {0x37, 0x45, 0x58, 0x49, 0x56, 0x4D, 0x45, 0x50, 0x00}
+    material_name_pointer_address = 0x4D3650 - offset
+    material_name_pointer_offsets = {0x8,0x8,0x60,0x904}
+    current_address = GetPointer(material_name_pointer_address, 0x108)
+    for k,ptr_offset in pairs(material_name_pointer_offsets) do
+        current_address = GetPointer(current_address, ptr_offset, true)
+    end
+    WriteArray(current_address, material_byte_array, true)
 end
 
 function write_puppy(puppy_id)
@@ -1973,6 +1984,7 @@ function main()
     write_world_lines()
     write_level_up_rewards()
     write_e()
+    write_material()
     
     --Written by Krujo for handling messages
     handle_messages()
