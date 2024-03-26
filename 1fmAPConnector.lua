@@ -1600,6 +1600,24 @@ function send_locations()
                     io.write("")
                     io.close(file)
                 end
+                if location_id == 2657024 then --Unknown
+                    location_id = 2656379
+                    if not file_exists(client_communication_path .. "send" .. tostring(location_id)) then
+                        file = io.open(client_communication_path .. "send" .. tostring(location_id), "w")
+                        io.output(file)
+                        io.write("")
+                        io.close(file)
+                    end
+                end
+                if location_id == 2657026 then --Kurt Zisa
+                    location_id = 2656378
+                    if not file_exists(client_communication_path .. "send" .. tostring(location_id)) then
+                        file = io.open(client_communication_path .. "send" .. tostring(location_id), "w")
+                        io.output(file)
+                        io.write("")
+                        io.close(file)
+                    end
+                end
             end
         end
     end
