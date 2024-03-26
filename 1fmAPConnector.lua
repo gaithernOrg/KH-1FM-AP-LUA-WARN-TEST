@@ -631,10 +631,10 @@ function define_world_progress_location_threshholds()
     
     --Traverse Town
     world_progress_location_threshholds[1] = {
-        {0x31, 2656011}  --Dodge Roll
+        {0x2B, 2656016}  --Brave Warrior
+       ,{0x31, 2656011}  --Dodge Roll
        ,{0x31, 2656012}  --Fire
        ,{0x31, 2656013}  --Blue Trinity
-       ,{0x31, 2656016}  --Brave Warrior
        ,{0x3e, 2656014}  --Earthshine
        ,{0x8c, 2656015}} --Oathkeeper
     
@@ -981,7 +981,8 @@ function read_misc_checks()
         ,{0x2DE770A - offset, 2656371, 0, 0x1}
         ,{0x2DE770B - offset, 2656372, 0, 0x1}
         ,{0x2DE770C - offset, 2656373, 0, 0x1}
-        ,{0x2DE7705 - offset, 2656374, 0, 0x1}}
+        ,{0x2DE7705 - offset, 2656374, 0, 0x1}
+        ,{0x2DE66EA - offset, 2656375, 0, 0x1}}
     for k,v in pairs(lookup_table) do
         value = ReadByte(v[1])
         if v[3] == 0 and value >= v[4] then
