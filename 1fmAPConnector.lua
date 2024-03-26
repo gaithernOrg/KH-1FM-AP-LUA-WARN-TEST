@@ -648,7 +648,7 @@ function define_world_progress_location_threshholds()
     --Olympus Coliseum
     world_progress_location_threshholds[3] = {
         {0x0D, 2656031}  --Thunder
-       ,{0x25, 2656032}} --Inferno Band
+       ,{0x25, 2656033}} --Inferno Band
     
     --Wonderland
     world_progress_location_threshholds[4] = {
