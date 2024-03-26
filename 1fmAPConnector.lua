@@ -1139,7 +1139,7 @@ function write_item(item_offset)
     --[[Grants the players a specific item defined by the offset]]
     inventory_address = 0x2DE5E69 - offset
     WriteByte(inventory_address + item_offset, math.min(ReadByte(inventory_address + item_offset) + 1, 99))
-    if item_offset == 213 or item_offset == 214 then
+    if item_offset == 213 or item_offset == 214 then --Handles properly setting flags when receiving a torn page
         torn_pages_available_address = 0x2DE6DD0 - offset
         num_of_torn_pages = ReadByte(torn_pages_available_address)
         WriteByte(torn_pages_available_address, num_of_torn_pages+1)
