@@ -288,7 +288,7 @@ function define_items()
   { ID = 2641183, Name = "Theon Vol. 6" ,     Usefulness = item_usefulness.progression },
   { ID = 2641184, Name = "Nahara Vol. 5" },
   { ID = 2641185, Name = "Hafet Vol. 4" },
-  { ID = 2641186, Name = "Material" ,               Usefulness = item_usefulness.progression },
+  { ID = 2641186, Name = "Empty Bottle" ,           Usefulness = item_usefulness.progression },
   { ID = 2641187, Name = "Old Book" ,               Usefulness = item_usefulness.progression },
   { ID = 2641188, Name = "Emblem Piece (Flame)",    Usefulness = item_usefulness.progression },
   { ID = 2641189, Name = "Emblem Piece (Chest)",    Usefulness = item_usefulness.progression },
