@@ -983,7 +983,8 @@ function read_misc_checks()
         ,{0x2DE770C - offset, 2656373, 0, 0x1}
         ,{0x2DE7705 - offset, 2656374, 0, 0x1}
         ,{0x2DE66EA - offset, 2656375, 0, 0x1}
-        ,{0x2DE76B3 - offset, 2656376, 8, 0x0}}
+        ,{0x2DE76B3 - offset, 2656376, 8, 0x0}
+        ,{0x2DE7640 - offset, 2656377, 4, 0x0}}
     for k,v in pairs(lookup_table) do
         value = ReadByte(v[1])
         if v[3] == 0 and value >= v[4] then
