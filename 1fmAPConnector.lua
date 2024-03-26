@@ -260,13 +260,13 @@ function define_items()
   { ID = 2641155, Name = "Serenity Power" },
   { ID = 2641156, Name = "Dark Matter" },
   { ID = 2641157, Name = "Mythril Stone" },
-  { ID = 2641158, Name = "Fire Arts" },
-  { ID = 2641159, Name = "Blizzard Arts" },
-  { ID = 2641160, Name = "Thunder Arts" },
-  { ID = 2641161, Name = "Cure Arts" },
-  { ID = 2641162, Name = "Gravity Arts" },
-  { ID = 2641163, Name = "Stop Arts" },
-  { ID = 2641164, Name = "Aero Arts" },
+  { ID = 2641158, Name = "Fire Arts" ,     Usefulness = item_usefulness.progression },
+  { ID = 2641159, Name = "Blizzard Arts" , Usefulness = item_usefulness.progression },
+  { ID = 2641160, Name = "Thunder Arts" ,  Usefulness = item_usefulness.progression },
+  { ID = 2641161, Name = "Cure Arts" ,     Usefulness = item_usefulness.progression },
+  { ID = 2641162, Name = "Gravity Arts" ,  Usefulness = item_usefulness.progression },
+  { ID = 2641163, Name = "Stop Arts" ,     Usefulness = item_usefulness.progression },
+  { ID = 2641164, Name = "Aero Arts" ,     Usefulness = item_usefulness.progression },
   { ID = 2641165, Name = "Shiitank Rank" },
   { ID = 2641166, Name = "Matsutake Rank" },
   { ID = 2641167, Name = "Mystery Mold" },
@@ -288,8 +288,8 @@ function define_items()
   { ID = 2641183, Name = "Theon Vol. 6" ,     Usefulness = item_usefulness.progression },
   { ID = 2641184, Name = "Nahara Vol. 5" },
   { ID = 2641185, Name = "Hafet Vol. 4" },
-  { ID = 2641186, Name = "Empty Bottle" },
-  { ID = 2641187, Name = "Old Book" },
+  { ID = 2641186, Name = "Empty Bottle" ,           Usefulness = item_usefulness.progression },
+  { ID = 2641187, Name = "Old Book" ,               Usefulness = item_usefulness.progression },
   { ID = 2641188, Name = "Emblem Piece (Flame)",    Usefulness = item_usefulness.progression },
   { ID = 2641189, Name = "Emblem Piece (Chest)",    Usefulness = item_usefulness.progression },
   { ID = 2641190, Name = "Emblem Piece (Statue)",   Usefulness = item_usefulness.progression },
@@ -308,18 +308,18 @@ function define_items()
   { ID = 2641203, Name = "Navi-G Piece 3" },
   { ID = 2641204, Name = "Navi-G Piece 4" },
   { ID = 2641205, Name = "Navi-Gummi" },
-  { ID = 2641206, Name = "Watergleam" },
-  { ID = 2641207, Name = "Naturespark" },
-  { ID = 2641208, Name = "Fireglow" },
+  { ID = 2641206, Name = "Watergleam" ,     Usefulness = item_usefulness.progression },
+  { ID = 2641207, Name = "Naturespark" ,    Usefulness = item_usefulness.progression },
+  { ID = 2641208, Name = "Fireglow",        Usefulness = item_usefulness.progression },
   { ID = 2641209, Name = "Earthshine" },
   { ID = 2641210, Name = "Crystal Trident" },
-  { ID = 2641211, Name = "Postcard", Usefulness = item_usefulness.progression },
-  { ID = 2641212, Name = "Torn Page 1" },
-  { ID = 2641213, Name = "Torn Page 2" },
-  { ID = 2641214, Name = "Torn Page 3" },
-  { ID = 2641215, Name = "Torn Page 4" },
-  { ID = 2641216, Name = "Torn Page 5" },
-  { ID = 2641217, Name = "Slide 1", Usefulness = item_usefulness.progression },
+  { ID = 2641211, Name = "Postcard",        Usefulness = item_usefulness.progression },
+  { ID = 2641212, Name = "Torn Page 1" ,    Usefulness = item_usefulness.progression },
+  { ID = 2641213, Name = "Torn Page 2" ,    Usefulness = item_usefulness.progression },
+  { ID = 2641214, Name = "Torn Page 3" ,    Usefulness = item_usefulness.progression },
+  { ID = 2641215, Name = "Torn Page 4" ,    Usefulness = item_usefulness.progression },
+  { ID = 2641216, Name = "Torn Page 5" ,    Usefulness = item_usefulness.progression },
+  { ID = 2641217, Name = "Slide 1",         Usefulness = item_usefulness.progression },
   { ID = 2641218, Name = "Slide 2" },
   { ID = 2641219, Name = "Slide 3" },
   { ID = 2641220, Name = "Slide 4" },
@@ -360,10 +360,143 @@ function define_items()
   { ID = 2641255, Name = "Orichalcum" },
 
   -- Abilities
-  { ID = 2642001, Name = "High Jump",    Usefulness = item_usefulness.progression },
-  { ID = 2642002, Name = "Mermaid Kick", Usefulness = item_usefulness.progression },
-  { ID = 2642003, Name = "Glide",        Usefulness = item_usefulness.progression },
-  { ID = 2642004, Name = "Superglide",   Usefulness = item_usefulness.progression },
+  { ID = 2642001, Name = "High Jump",     Usefulness = item_usefulness.progression },
+  { ID = 2642002, Name = "Mermaid Kick",  Usefulness = item_usefulness.progression },
+  { ID = 2642003, Name = "Glide",         Usefulness = item_usefulness.progression },
+  { ID = 2642004, Name = "Superglide",    Usefulness = item_usefulness.progression },
+  { ID = 2642101, Name = "Puppy 01",      Usefulness = item_usefulness.progression },
+  { ID = 2642102, Name = "Puppy 02",      Usefulness = item_usefulness.progression },
+  { ID = 2642103, Name = "Puppy 03",      Usefulness = item_usefulness.progression },
+  { ID = 2642104, Name = "Puppy 04",      Usefulness = item_usefulness.progression },
+  { ID = 2642105, Name = "Puppy 05",      Usefulness = item_usefulness.progression },
+  { ID = 2642106, Name = "Puppy 06",      Usefulness = item_usefulness.progression },
+  { ID = 2642107, Name = "Puppy 07",      Usefulness = item_usefulness.progression },
+  { ID = 2642108, Name = "Puppy 08",      Usefulness = item_usefulness.progression },
+  { ID = 2642109, Name = "Puppy 09",      Usefulness = item_usefulness.progression },
+  { ID = 2642110, Name = "Puppy 10",      Usefulness = item_usefulness.progression },
+  { ID = 2642111, Name = "Puppy 11",      Usefulness = item_usefulness.progression },
+  { ID = 2642112, Name = "Puppy 12",      Usefulness = item_usefulness.progression },
+  { ID = 2642113, Name = "Puppy 13",      Usefulness = item_usefulness.progression },
+  { ID = 2642114, Name = "Puppy 14",      Usefulness = item_usefulness.progression },
+  { ID = 2642115, Name = "Puppy 15",      Usefulness = item_usefulness.progression },
+  { ID = 2642116, Name = "Puppy 16",      Usefulness = item_usefulness.progression },
+  { ID = 2642117, Name = "Puppy 17",      Usefulness = item_usefulness.progression },
+  { ID = 2642118, Name = "Puppy 18",      Usefulness = item_usefulness.progression },
+  { ID = 2642119, Name = "Puppy 19",      Usefulness = item_usefulness.progression },
+  { ID = 2642120, Name = "Puppy 20",      Usefulness = item_usefulness.progression },
+  { ID = 2642121, Name = "Puppy 21",      Usefulness = item_usefulness.progression },
+  { ID = 2642122, Name = "Puppy 22",      Usefulness = item_usefulness.progression },
+  { ID = 2642123, Name = "Puppy 23",      Usefulness = item_usefulness.progression },
+  { ID = 2642124, Name = "Puppy 24",      Usefulness = item_usefulness.progression },
+  { ID = 2642125, Name = "Puppy 25",      Usefulness = item_usefulness.progression },
+  { ID = 2642126, Name = "Puppy 26",      Usefulness = item_usefulness.progression },
+  { ID = 2642127, Name = "Puppy 27",      Usefulness = item_usefulness.progression },
+  { ID = 2642128, Name = "Puppy 28",      Usefulness = item_usefulness.progression },
+  { ID = 2642129, Name = "Puppy 29",      Usefulness = item_usefulness.progression },
+  { ID = 2642130, Name = "Puppy 30",      Usefulness = item_usefulness.progression },
+  { ID = 2642131, Name = "Puppy 31",      Usefulness = item_usefulness.progression },
+  { ID = 2642132, Name = "Puppy 32",      Usefulness = item_usefulness.progression },
+  { ID = 2642133, Name = "Puppy 33",      Usefulness = item_usefulness.progression },
+  { ID = 2642134, Name = "Puppy 34",      Usefulness = item_usefulness.progression },
+  { ID = 2642135, Name = "Puppy 35",      Usefulness = item_usefulness.progression },
+  { ID = 2642136, Name = "Puppy 36",      Usefulness = item_usefulness.progression },
+  { ID = 2642137, Name = "Puppy 37",      Usefulness = item_usefulness.progression },
+  { ID = 2642138, Name = "Puppy 38",      Usefulness = item_usefulness.progression },
+  { ID = 2642139, Name = "Puppy 39",      Usefulness = item_usefulness.progression },
+  { ID = 2642140, Name = "Puppy 40",      Usefulness = item_usefulness.progression },
+  { ID = 2642141, Name = "Puppy 41",      Usefulness = item_usefulness.progression },
+  { ID = 2642142, Name = "Puppy 42",      Usefulness = item_usefulness.progression },
+  { ID = 2642143, Name = "Puppy 43",      Usefulness = item_usefulness.progression },
+  { ID = 2642144, Name = "Puppy 44",      Usefulness = item_usefulness.progression },
+  { ID = 2642145, Name = "Puppy 45",      Usefulness = item_usefulness.progression },
+  { ID = 2642146, Name = "Puppy 46",      Usefulness = item_usefulness.progression },
+  { ID = 2642147, Name = "Puppy 47",      Usefulness = item_usefulness.progression },
+  { ID = 2642148, Name = "Puppy 48",      Usefulness = item_usefulness.progression },
+  { ID = 2642149, Name = "Puppy 49",      Usefulness = item_usefulness.progression },
+  { ID = 2642150, Name = "Puppy 50",      Usefulness = item_usefulness.progression },
+  { ID = 2642151, Name = "Puppy 51",      Usefulness = item_usefulness.progression },
+  { ID = 2642152, Name = "Puppy 52",      Usefulness = item_usefulness.progression },
+  { ID = 2642153, Name = "Puppy 53",      Usefulness = item_usefulness.progression },
+  { ID = 2642154, Name = "Puppy 54",      Usefulness = item_usefulness.progression },
+  { ID = 2642155, Name = "Puppy 55",      Usefulness = item_usefulness.progression },
+  { ID = 2642156, Name = "Puppy 56",      Usefulness = item_usefulness.progression },
+  { ID = 2642157, Name = "Puppy 57",      Usefulness = item_usefulness.progression },
+  { ID = 2642158, Name = "Puppy 58",      Usefulness = item_usefulness.progression },
+  { ID = 2642159, Name = "Puppy 59",      Usefulness = item_usefulness.progression },
+  { ID = 2642160, Name = "Puppy 60",      Usefulness = item_usefulness.progression },
+  { ID = 2642161, Name = "Puppy 61",      Usefulness = item_usefulness.progression },
+  { ID = 2642162, Name = "Puppy 62",      Usefulness = item_usefulness.progression },
+  { ID = 2642163, Name = "Puppy 63",      Usefulness = item_usefulness.progression },
+  { ID = 2642164, Name = "Puppy 64",      Usefulness = item_usefulness.progression },
+  { ID = 2642165, Name = "Puppy 65",      Usefulness = item_usefulness.progression },
+  { ID = 2642166, Name = "Puppy 66",      Usefulness = item_usefulness.progression },
+  { ID = 2642167, Name = "Puppy 67",      Usefulness = item_usefulness.progression },
+  { ID = 2642168, Name = "Puppy 68",      Usefulness = item_usefulness.progression },
+  { ID = 2642169, Name = "Puppy 69",      Usefulness = item_usefulness.progression },
+  { ID = 2642170, Name = "Puppy 70",      Usefulness = item_usefulness.progression },
+  { ID = 2642171, Name = "Puppy 71",      Usefulness = item_usefulness.progression },
+  { ID = 2642172, Name = "Puppy 72",      Usefulness = item_usefulness.progression },
+  { ID = 2642173, Name = "Puppy 73",      Usefulness = item_usefulness.progression },
+  { ID = 2642174, Name = "Puppy 74",      Usefulness = item_usefulness.progression },
+  { ID = 2642175, Name = "Puppy 75",      Usefulness = item_usefulness.progression },
+  { ID = 2642176, Name = "Puppy 76",      Usefulness = item_usefulness.progression },
+  { ID = 2642177, Name = "Puppy 77",      Usefulness = item_usefulness.progression },
+  { ID = 2642178, Name = "Puppy 78",      Usefulness = item_usefulness.progression },
+  { ID = 2642179, Name = "Puppy 79",      Usefulness = item_usefulness.progression },
+  { ID = 2642180, Name = "Puppy 80",      Usefulness = item_usefulness.progression },
+  { ID = 2642181, Name = "Puppy 81",      Usefulness = item_usefulness.progression },
+  { ID = 2642182, Name = "Puppy 82",      Usefulness = item_usefulness.progression },
+  { ID = 2642183, Name = "Puppy 83",      Usefulness = item_usefulness.progression },
+  { ID = 2642184, Name = "Puppy 84",      Usefulness = item_usefulness.progression },
+  { ID = 2642185, Name = "Puppy 85",      Usefulness = item_usefulness.progression },
+  { ID = 2642186, Name = "Puppy 86",      Usefulness = item_usefulness.progression },
+  { ID = 2642187, Name = "Puppy 87",      Usefulness = item_usefulness.progression },
+  { ID = 2642188, Name = "Puppy 88",      Usefulness = item_usefulness.progression },
+  { ID = 2642189, Name = "Puppy 89",      Usefulness = item_usefulness.progression },
+  { ID = 2642190, Name = "Puppy 90",      Usefulness = item_usefulness.progression },
+  { ID = 2642191, Name = "Puppy 91",      Usefulness = item_usefulness.progression },
+  { ID = 2642192, Name = "Puppy 92",      Usefulness = item_usefulness.progression },
+  { ID = 2642193, Name = "Puppy 93",      Usefulness = item_usefulness.progression },
+  { ID = 2642194, Name = "Puppy 94",      Usefulness = item_usefulness.progression },
+  { ID = 2642195, Name = "Puppy 95",      Usefulness = item_usefulness.progression },
+  { ID = 2642196, Name = "Puppy 96",      Usefulness = item_usefulness.progression },
+  { ID = 2642197, Name = "Puppy 97",      Usefulness = item_usefulness.progression },
+  { ID = 2642198, Name = "Puppy 98",      Usefulness = item_usefulness.progression },
+  { ID = 2642199, Name = "Puppy 99",      Usefulness = item_usefulness.progression },
+  { ID = 2642201, Name = "Puppies 01-03", Usefulness = item_usefulness.progression },
+  { ID = 2642202, Name = "Puppies 04-06", Usefulness = item_usefulness.progression },
+  { ID = 2642203, Name = "Puppies 07-09", Usefulness = item_usefulness.progression },
+  { ID = 2642204, Name = "Puppies 10-12", Usefulness = item_usefulness.progression },
+  { ID = 2642205, Name = "Puppies 13-15", Usefulness = item_usefulness.progression },
+  { ID = 2642206, Name = "Puppies 16-18", Usefulness = item_usefulness.progression },
+  { ID = 2642207, Name = "Puppies 19-21", Usefulness = item_usefulness.progression },
+  { ID = 2642208, Name = "Puppies 22-24", Usefulness = item_usefulness.progression },
+  { ID = 2642209, Name = "Puppies 25-27", Usefulness = item_usefulness.progression },
+  { ID = 2642210, Name = "Puppies 28-30", Usefulness = item_usefulness.progression },
+  { ID = 2642211, Name = "Puppies 31-33", Usefulness = item_usefulness.progression },
+  { ID = 2642212, Name = "Puppies 34-36", Usefulness = item_usefulness.progression },
+  { ID = 2642213, Name = "Puppies 37-39", Usefulness = item_usefulness.progression },
+  { ID = 2642214, Name = "Puppies 40-42", Usefulness = item_usefulness.progression },
+  { ID = 2642215, Name = "Puppies 43-45", Usefulness = item_usefulness.progression },
+  { ID = 2642216, Name = "Puppies 46-48", Usefulness = item_usefulness.progression },
+  { ID = 2642217, Name = "Puppies 49-51", Usefulness = item_usefulness.progression },
+  { ID = 2642218, Name = "Puppies 52-54", Usefulness = item_usefulness.progression },
+  { ID = 2642219, Name = "Puppies 55-57", Usefulness = item_usefulness.progression },
+  { ID = 2642220, Name = "Puppies 58-60", Usefulness = item_usefulness.progression },
+  { ID = 2642221, Name = "Puppies 61-63", Usefulness = item_usefulness.progression },
+  { ID = 2642222, Name = "Puppies 64-66", Usefulness = item_usefulness.progression },
+  { ID = 2642223, Name = "Puppies 67-69", Usefulness = item_usefulness.progression },
+  { ID = 2642224, Name = "Puppies 70-72", Usefulness = item_usefulness.progression },
+  { ID = 2642225, Name = "Puppies 73-75", Usefulness = item_usefulness.progression },
+  { ID = 2642226, Name = "Puppies 76-78", Usefulness = item_usefulness.progression },
+  { ID = 2642227, Name = "Puppies 79-81", Usefulness = item_usefulness.progression },
+  { ID = 2642228, Name = "Puppies 82-84", Usefulness = item_usefulness.progression },
+  { ID = 2642229, Name = "Puppies 85-87", Usefulness = item_usefulness.progression },
+  { ID = 2642230, Name = "Puppies 88-90", Usefulness = item_usefulness.progression },
+  { ID = 2642231, Name = "Puppies 91-93", Usefulness = item_usefulness.progression },
+  { ID = 2642232, Name = "Puppies 94-96", Usefulness = item_usefulness.progression },
+  { ID = 2642233, Name = "Puppies 97-99", Usefulness = item_usefulness.progression },
+  { ID = 2642240, Name = "All Puppies",   Usefulness = item_usefulness.progression },
   { ID = 2643005, Name = "Treasure Magnet" },
   { ID = 2643006, Name = "Combo Plus" },
   { ID = 2643007, Name = "Air Combo Plus" },
@@ -380,7 +513,7 @@ function define_items()
   { ID = 2643018, Name = "Aerial Sweep" },
   { ID = 2643019, Name = "Counterattack" },
   { ID = 2643020, Name = "Blitz" },
-  { ID = 2643021, Name = "Guard" },
+  { ID = 2643021, Name = "Guard" ,       Usefulness = item_usefulness.progression },
   { ID = 2643022, Name = "Dodge Roll" },
   { ID = 2643023, Name = "MP Haste" },
   { ID = 2643024, Name = "MP Rage" },
@@ -436,12 +569,12 @@ function define_items()
   { ID = 2644007, Name = "Item Slot Increase" },
 
   --Summons
-  { ID = 2645000, Name = "Dumbo" },
-  { ID = 2645001, Name = "Bambi" },
-  { ID = 2645002, Name = "Genie" },
-  { ID = 2645003, Name = "Tinker Bell" },
-  { ID = 2645004, Name = "Mushu" },
-  { ID = 2645005, Name = "Simba" },
+  { ID = 2645000, Name = "Dumbo" ,          Usefulness = item_usefulness.progression },
+  { ID = 2645001, Name = "Bambi" ,          Usefulness = item_usefulness.progression },
+  { ID = 2645002, Name = "Genie" ,          Usefulness = item_usefulness.progression },
+  { ID = 2645003, Name = "Tinker Bell" ,    Usefulness = item_usefulness.progression },
+  { ID = 2645004, Name = "Mushu" ,          Usefulness = item_usefulness.progression },
+  { ID = 2645005, Name = "Simba" ,          Usefulness = item_usefulness.progression },
 
   --Magic
   { ID = 2646001, Name = "Progressive Fire",     Usefulness = item_usefulness.progression },
@@ -498,7 +631,8 @@ function define_world_progress_location_threshholds()
     
     --Traverse Town
     world_progress_location_threshholds[1] = {
-        {0x31, 2656011}  --Dodge Roll
+        {0x2B, 2656016}  --Brave Warrior
+       ,{0x31, 2656011}  --Dodge Roll
        ,{0x31, 2656012}  --Fire
        ,{0x31, 2656013}  --Blue Trinity
        ,{0x3e, 2656014}  --Earthshine
@@ -514,7 +648,7 @@ function define_world_progress_location_threshholds()
     --Olympus Coliseum
     world_progress_location_threshholds[3] = {
         {0x0D, 2656031}  --Thunder
-       ,{0x32, 2656032}} --Sonic Blade
+       ,{0x25, 2656033}} --Inferno Band
     
     --Wonderland
     world_progress_location_threshholds[4] = {
@@ -554,9 +688,11 @@ function define_world_progress_location_threshholds()
     world_progress_location_threshholds[10] = {
         {0x35, 2656091}  --Raven's Claw
        ,{0x3F, 2656092}  --Cure
+       ,{0x56, 2656097}  --Ars Arcanum
        ,{0x6E, 2656093}  --Fairy Harp
        ,{0x6E, 2656094}  --Tinker Bell
-       ,{0x6E, 2656095}} --Glide
+       ,{0x6E, 2656095}  --Glide
+       ,{0x96, 2656096}} --Stop
     
     --Hollow Bastion
     world_progress_location_threshholds[11] = {
@@ -781,6 +917,100 @@ function read_required_reports()
     end
 end
 
+function read_misc_checks()
+    --[[Reads checks that are scattered throughout memory]]
+    location_ids = {}
+    lookup_table = {
+         {0x2DE66F8 - offset, 2656300, 0, 0x1}
+        ,{0x2DE66F9 - offset, 2656301, 0, 0x1}
+        ,{0x2DE66FA - offset, 2656302, 0, 0x1}
+        ,{0x2DE66FF - offset, 2656303, 0, 0x1}
+        ,{0x2DE6700 - offset, 2656304, 0, 0x1}
+        ,{0x2DE6701 - offset, 2656305, 0, 0x1}
+        ,{0x2DE6702 - offset, 2656306, 0, 0x1}
+        ,{0x2DE6703 - offset, 2656307, 0, 0x1}
+        ,{0x2DE6704 - offset, 2656308, 0, 0x1}
+        ,{0x2DE6706 - offset, 2656309, 0, 0x1}
+        ,{0x2DE6705 - offset, 2656310, 0, 0x1}
+        ,{0x2DE6708 - offset, 2656311, 0, 0x1}
+        ,{0x2DE6709 - offset, 2656312, 0, 0x1}
+        ,{0x2DE670A - offset, 2656313, 0, 0x1}
+        ,{0x2DE680C - offset, 2656314, 0, 0x1}
+        ,{0x2DE680D - offset, 2656315, 0, 0x1}
+        ,{0x2DE680E - offset, 2656316, 0, 0x1}
+        ,{0x2DE680F - offset, 2656317, 0, 0x1}
+        ,{0x2DE6810 - offset, 2656318, 0, 0x1}
+      --,{0x2DE6810 - offset, 2656319, 0, 0x1} Torn Page
+        ,{0x2DE6811 - offset, 2656320, 0, 0x1}
+        ,{0x2DE6812 - offset, 2656321, 0, 0x1}
+        ,{0x2DE6813 - offset, 2656322, 0, 0x1}
+        ,{0x2DE6814 - offset, 2656324, 0, 0x1}
+        ,{0x2DE6815 - offset, 2656326, 0, 0x1}
+        ,{0x2DE6815 - offset, 2656327, 0, 0x1}
+        ,{0x2DE68D2 - offset, 2656032, 0, 0x1}
+        ,{0x2DE693A - offset, 2656328, 0, 0x1}
+        ,{0x2DE6939 - offset, 2656329, 0, 0x1}
+        ,{0x2DE77E3 - offset, 2656330, 0, 0x1}
+        ,{0x2DE77A0 - offset, 2656331, 2, 0x0}
+        ,{0x2DE7832 - offset, 2656344, 2, 0x0}
+        ,{0x2DE6DD2 - offset, 2656345, 0, 0x2}
+        ,{0x2DE6DD3 - offset, 2656346, 0, 0x2}
+        ,{0x2DE6DD4 - offset, 2656347, 0, 0x2}
+        ,{0x2DE6DD5 - offset, 2656348, 0, 0x2}
+        ,{0x2DE6DD6 - offset, 2656349, 0, 0x2}
+        ,{0x2DE6DDF - offset, 2656350, 0, 0x1}
+        ,{0x2DE6DE0 - offset, 2656351, 0, 0x1}
+        ,{0x2DE6DE1 - offset, 2656352, 0, 0x1}
+        ,{0x2DE6DE2 - offset, 2656353, 0, 0x1}
+        ,{0x2DE6DE3 - offset, 2656354, 0, 0x1}
+        ,{0x2DE6DE4 - offset, 2656355, 0, 0x1}
+        ,{0x2DE6DF6 - offset, 2656356, 0, 0x4}
+        ,{0x2DE7713 - offset, 2656357, 0, 0x4}
+        ,{0x2DE7714 - offset, 2656358, 0, 0x4}
+        ,{0x2DE7715 - offset, 2656359, 0, 0x4}
+        ,{0x2DE7716 - offset, 2656360, 0, 0x4}
+        ,{0x2DE76EF - offset, 2656361, 0, 0x1}
+        ,{0x2DE76E9 - offset, 2656362, 0, 0x1}
+        ,{0x2DE76F7 - offset, 2656363, 0, 0x1}
+        ,{0x2DE6BDD - offset, 2656364, 0, 0x1}
+        ,{0x2DE6BDE - offset, 2656365, 0, 0x1}
+        ,{0x2DE6BDF - offset, 2656366, 0, 0x1}
+        ,{0x2DE6BE0 - offset, 2656367, 0, 0x1}
+        ,{0x2DE6BE1 - offset, 2656368, 0, 0x1}
+        ,{0x2DE68F9 - offset, 2656369, 2, 0x0}
+        ,{0x2DE7709 - offset, 2656370, 0, 0x1}
+        ,{0x2DE770A - offset, 2656371, 0, 0x1}
+        ,{0x2DE770B - offset, 2656372, 0, 0x1}
+        ,{0x2DE770C - offset, 2656373, 0, 0x1}
+        ,{0x2DE7705 - offset, 2656374, 0, 0x1}
+        ,{0x2DE66EA - offset, 2656375, 0, 0x1}
+        ,{0x2DE76B3 - offset, 2656376, 8, 0x0}
+        ,{0x2DE7640 - offset, 2656377, 4, 0x0}
+        ,{0x2DE6916 - offset, 2659018, 0, 0x1}
+        ,{0x2DE6918 - offset, 2659014, 0, 0x1}}
+    for k,v in pairs(lookup_table) do
+        value = ReadByte(v[1])
+        if v[3] == 0 and value >= v[4] then
+            table.insert(location_ids, v[2])
+        elseif v[3] > 0 and (value%(2^v[3]) >= 2^(v[3]-1)) then
+            table.insert(location_ids, v[2])
+        end
+    end
+    return location_ids
+end
+
+function read_synth()
+    location_ids = {}
+    stock_address = 0x2DE5E69 + 0xC0 - offset
+    synth_array = ReadArray(stock_address, 6)
+    for k,v in pairs(synth_array) do
+        if v >= 1 then
+            location_ids[#location_ids+1] = 2656400 + k
+        end
+    end
+    return location_ids
+end
+
 function write_world_lines()
     --[[Opens all world connections on the world map]]
     world_map_lines_address = 0x2DE78E2 - offset
@@ -830,16 +1060,53 @@ function write_synth_requirements()
     --[[Writes to the synth requirements array, making the first 20 items require
     an unobtainable material, preventing the player from synthing.]]
     synth_requirements_address = 0x544320 - offset
+    synth_items_address =  0x544320 + 0x1E0 - offset
+    synth_items_array = {}
     synth_array = {}
     local i = 0
-    while i < 20 do --First 20 items should be enough to prevent player from unlocking more recipes
+    while i < 1 do --First 6 items become DI items to send checks
+        synth_array[(i*4) + 1] = 0xBA --Requirement (material)
+        synth_array[(i*4) + 2] = 0x00 --Blank
+        synth_array[(i*4) + 3] = 0x01 --Number of items needed
+        synth_array[(i*4) + 4] = 0x00 --Blank
+        i = i + 1
+    end
+    while i < 2 do --First 20 items should be enough to prevent player from unlocking more recipes
         synth_array[(i*4) + 1] = 0xE8 --Requirement (unobtainable)
         synth_array[(i*4) + 2] = 0x00 --Blank
         synth_array[(i*4) + 3] = 0x01 --Number of items needed
         synth_array[(i*4) + 4] = 0x00 --Blank
         i = i + 1
     end
+    i = 0
+    while i < 6 do --First 6 items become DI items to send checks
+        synth_items_array[(i*10) + 1] = 0xC0 + i--Item
+        synth_items_array[(i*10) + 2] = 0x00
+        synth_items_array[(i*10) + 3] = 0x00 --Offset
+        synth_items_array[(i*10) + 4] = 0x01 --Number of items needed
+        synth_items_array[(i*10) + 5] = 0x00
+        synth_items_array[(i*10) + 6] = 0x00
+        synth_items_array[(i*10) + 7] = 0x00
+        synth_items_array[(i*10) + 8] = 0x00
+        synth_items_array[(i*10) + 9] = 0x00
+        synth_items_array[(i*10) + 10] = 0x00
+        i = i + 1
+    end
+    while i < 20 do --First 20 items should be enough to prevent player from unlocking more recipes
+        synth_items_array[(i*10) + 1] = 0xE8 --Item
+        synth_items_array[(i*10) + 2] = 0x00
+        synth_items_array[(i*10) + 3] = 0x01 --Offset
+        synth_items_array[(i*10) + 4] = 0x01 --Number of items needed
+        synth_items_array[(i*10) + 5] = 0x00
+        synth_items_array[(i*10) + 6] = 0x00
+        synth_items_array[(i*10) + 7] = 0x00
+        synth_items_array[(i*10) + 8] = 0x00
+        synth_items_array[(i*10) + 9] = 0x00
+        synth_items_array[(i*10) + 10] = 0x00
+        i = i + 1
+    end
     WriteArray(synth_requirements_address, synth_array)
+    WriteArray(synth_items_address, synth_items_array)
 end
 
 function write_soras_stats(soras_stats_array)
@@ -872,6 +1139,11 @@ function write_item(item_offset)
     --[[Grants the players a specific item defined by the offset]]
     inventory_address = 0x2DE5E69 - offset
     WriteByte(inventory_address + item_offset, math.min(ReadByte(inventory_address + item_offset) + 1, 99))
+    if item_offset == 213 or item_offset == 214 then --Handles properly setting flags when receiving a torn page
+        torn_pages_available_address = 0x2DE6DD0 - offset
+        num_of_torn_pages = ReadByte(torn_pages_available_address)
+        WriteByte(torn_pages_available_address, num_of_torn_pages+1)
+    end
 end
 
 function write_sora_ability(ability_value)
@@ -1040,6 +1312,72 @@ function write_victory_item()
     WriteByte(victory_item_address, 1)
 end
 
+function write_material()
+    material_byte_array = {0x37, 0x45, 0x58, 0x49, 0x56, 0x4D, 0x45, 0x50, 0x00}
+    material_name_pointer_address = 0x4D3650 - offset
+    material_name_pointer_offsets = {0x8,0x8,0x60,0x904}
+    current_address = GetPointer(material_name_pointer_address, 0x108)
+    for k,ptr_offset in pairs(material_name_pointer_offsets) do
+        current_address = GetPointer(current_address, ptr_offset, true)
+    end
+    WriteArray(current_address, material_byte_array, true)
+end
+
+function write_puppy(puppy_id)
+    --[[Handles writing one or more puppies to the acquired puppy list, tracked in the journal]]
+    puppy_array_address = 0x2DE70D3 - offset
+    byte_bases = {0x80, 0x40, 0x20, 0x10, 0x08, 0x04, 0x02, 0x01}
+    puppies_to_write = {}
+    if puppy_id <= 99 then
+        table.insert(puppies_to_write,puppy_id)
+    elseif puppy_id >= 101 and puppy_id <= 133 then
+        puppy_id = (puppy_id % 100) * 3
+        for j = 0, 2 do
+            table.insert(puppies_to_write, puppy_id - j)
+        end
+    elseif puppy_id == 140 then
+        for j = 1, 99 do
+            table.insert(puppies_to_write, j)
+        end
+    end
+    for k,puppy_num in pairs(puppies_to_write) do
+        byte_offset = (puppy_num-1)//8
+        bit_offset = ((puppy_num-1)%8) + 1
+        byte_base = byte_bases[bit_offset]
+        puppy_byte_value = ReadByte(puppy_array_address + byte_offset)
+        if byte_base == 0x80 then
+            if puppy_byte_value < 0x80 then
+                puppy_byte_value = puppy_byte_value + 0x80
+            end
+        elseif puppy_byte_value % byte_bases[bit_offset-1] < byte_base then
+            puppy_byte_value = puppy_byte_value + byte_base
+        end
+        WriteByte(puppy_array_address + byte_offset, puppy_byte_value)
+    end
+end
+
+function write_geppetto_conditions()
+    darkball_defeated_address =             0x2DE61DE - offset
+    all_summons_address =                   0x2DE66FF - offset
+    times_entered_geppettos_house_address = 0x2DE6707 - offset
+    
+    
+    WriteShort(darkball_defeated_address, 5000)
+    WriteByte(times_entered_geppettos_house_address, 30)
+    
+    summons_address = 0x2DE61A0 - offset
+    summons_array = ReadArray(summons_address, 6)
+    number_of_summons_obtained = 0
+    for k,v in pairs(summons_array) do
+        if v < 255 then
+            number_of_summons_obtained = number_of_summons_obtained + 1
+        end
+    end
+    if number_of_summons_obtained == 6 then
+        WriteByte(all_summons_address, 1)
+    end
+end
+
 function final_ansem_defeated()
     --[[Checks if the player is on the results screen, meaning that they defeated Final Ansem]]
     world = 0x233CADC - offset
@@ -1118,8 +1456,10 @@ function receive_items()
             write_victory_item()
         elseif received_item_id >= 2641000 and received_item_id < 2642000 then
             write_item(received_item_id % 2641000)
-        elseif received_item_id >= 2642000 and received_item_id < 2643000 then
+        elseif received_item_id >= 2642000 and received_item_id < 2642100 then
             write_shared_ability(received_item_id % 2642000)
+        elseif received_item_id >= 2642100 and received_item_id < 2643000 then
+            write_puppy(received_item_id % 2642100)
         elseif received_item_id >= 2643000 and received_item_id < 2644000 then
             write_sora_ability(received_item_id % 2643000)
         elseif received_item_id >= 2644000 and received_item_id < 2645000 then
@@ -1229,6 +1569,8 @@ function send_locations()
     world_progress_array = read_world_progress_array()
     world_progress_location_ids = parse_world_progress_array(world_progress_array)
     ansems_secret_reports_array = read_ansems_secret_reports()
+    misc_location_ids = read_misc_checks()
+    synth_location_ids = read_synth()
     soras_level = read_soras_level()
     postcards_mailed = read_postcards_mailed()
     cup_locations_checked = read_cup_locations_checked_array(ansems_secret_reports_array)
@@ -1258,10 +1600,44 @@ function send_locations()
                     io.write("")
                     io.close(file)
                 end
+                if location_id == 2657024 then --Unknown
+                    location_id = 2656379
+                    if not file_exists(client_communication_path .. "send" .. tostring(location_id)) then
+                        file = io.open(client_communication_path .. "send" .. tostring(location_id), "w")
+                        io.output(file)
+                        io.write("")
+                        io.close(file)
+                    end
+                end
+                if location_id == 2657026 then --Kurt Zisa
+                    location_id = 2656378
+                    if not file_exists(client_communication_path .. "send" .. tostring(location_id)) then
+                        file = io.open(client_communication_path .. "send" .. tostring(location_id), "w")
+                        io.output(file)
+                        io.write("")
+                        io.close(file)
+                    end
+                end
             end
         end
     end
     for k,v in pairs(world_progress_location_ids) do
+        if not file_exists(client_communication_path .. "send" .. tostring(v)) then
+                file = io.open(client_communication_path .. "send" .. tostring(v), "w")
+                io.output(file)
+                io.write("")
+                io.close(file)
+        end
+    end
+    for k,v in pairs(misc_location_ids) do
+        if not file_exists(client_communication_path .. "send" .. tostring(v)) then
+                file = io.open(client_communication_path .. "send" .. tostring(v), "w")
+                io.output(file)
+                io.write("")
+                io.close(file)
+        end
+    end
+    for k,v in pairs(synth_location_ids) do
         if not file_exists(client_communication_path .. "send" .. tostring(v)) then
                 file = io.open(client_communication_path .. "send" .. tostring(v), "w")
                 io.output(file)
@@ -1498,7 +1874,11 @@ function show_prompt_for_item(item)
     elseif smallId > 1016 and smallId < 1136 then
         category = item_categories.equipment
     elseif smallId > 2000 and smallId < 4001 then
-        category = item_categories.ability
+        if smallId > 2100 and smallId < 2400 then
+            category = item_categories.unlock
+        else
+            category = item_categories.ability
+        end
     elseif smallId > 4000 and smallId < 5000 then
         category = item_categories.statsUp
     elseif smallId > 5000 and smallId < 6000 then
@@ -1669,6 +2049,8 @@ function main()
     write_world_lines()
     write_level_up_rewards()
     write_e()
+    write_material()
+    write_geppetto_conditions()
     
     --Written by Krujo for handling messages
     handle_messages()

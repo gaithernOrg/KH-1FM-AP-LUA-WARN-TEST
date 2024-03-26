@@ -177,11 +177,13 @@ function main()
         end
         for i=1,#second_visit_test_bytes do
             if not second_visit[i] and specific_worlds_progress_array[i] >= second_visit_test_bytes[i] then
-                write_world_progress_byte(world_progress_indexes[i], final_bytes[i])
-                correct_world_flags(world_offset[i], world_progress_reset_array[i][#world_progress_reset_array[i]][2])
-                second_visit[i] = true
-                if i == 3 then --Agrabah
-                    turn_on_kurt_zisa()
+                if not (i == 4 and specific_worlds_progress_array[i] == 0x96) then --Ignore if Neverland is already post Phantom
+                    write_world_progress_byte(world_progress_indexes[i], final_bytes[i])
+                    correct_world_flags(world_offset[i], world_progress_reset_array[i][#world_progress_reset_array[i]][2])
+                    second_visit[i] = true
+                    if i == 3 then --Agrabah
+                        turn_on_kurt_zisa()
+                    end
                 end
             end
         end
