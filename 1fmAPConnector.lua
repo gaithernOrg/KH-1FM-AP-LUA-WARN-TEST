@@ -924,6 +924,12 @@ function read_misc_checks()
         ,{0x2DE66F9 - offset, 2656301, 0, 0x1}
         ,{0x2DE66FA - offset, 2656302, 0, 0x1}
         ,{0x2DE66FF - offset, 2656303, 0, 0x1}
+        ,{0x2DE6700 - offset, 2656304, 0, 0x1}
+        ,{0x2DE6701 - offset, 2656305, 0, 0x1}
+        ,{0x2DE6702 - offset, 2656306, 0, 0x1}
+        ,{0x2DE6703 - offset, 2656307, 0, 0x1}
+        ,{0x2DE6704 - offset, 2656308, 0, 0x1}
+        ,{0x2DE6706 - offset, 2656309, 0, 0x1}
         ,{0x2DE6705 - offset, 2656310, 0, 0x1}
         ,{0x2DE6708 - offset, 2656311, 0, 0x1}
         ,{0x2DE6709 - offset, 2656312, 0, 0x1}
