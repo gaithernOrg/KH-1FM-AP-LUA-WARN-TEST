@@ -1002,11 +1002,23 @@ end
 function read_synth()
     location_ids = {}
     stock_address = 0x2DE5E69 + 0xC0 - offset
+    material_address = 0x2DE5E69 + 0xBA - offset
     synth_array = ReadArray(stock_address, 6)
+    refund = 0
     for k,v in pairs(synth_array) do
         if v >= 1 then
             location_ids[#location_ids+1] = 2656400 + k
+            if v > 1 then
+                refund = refund + (v - 1)
+                synth_array[k] = 1
+            end
         end
+    end
+    if refund > 0 then
+        materials = ReadByte(material_address)
+        materials = materials + refund
+        WriteByte(material_address, materials)
+        WriteArray(stock_address, synth_array)
     end
     return location_ids
 end
