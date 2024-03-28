@@ -1372,10 +1372,13 @@ function write_geppetto_conditions()
     darkball_defeated_address =             0x2DE61DE - offset
     all_summons_address =                   0x2DE66FF - offset
     times_entered_geppettos_house_address = 0x2DE6707 - offset
+    obtained_cid_address =                  0x2DE6700 - offset
     
-    
-    WriteShort(darkball_defeated_address, 5000)
-    WriteByte(times_entered_geppettos_house_address, 30)
+    if ReadByte(times_entered_geppettos_house_address) > 0 then
+        WriteByte(times_entered_geppettos_house_address, 30)
+        WriteShort(darkball_defeated_address, 5000)
+        WriteByte(obtained_cid_address, 1)
+    end
     
     summons_address = 0x2DE61A0 - offset
     summons_array = ReadArray(summons_address, 6)
