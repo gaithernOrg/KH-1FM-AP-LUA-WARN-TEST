@@ -40,8 +40,8 @@ local cam = 0x503A18 - offset
 
 local canExecute = false
 last_death_time = 0
+soras_hp_address = 0x2DE59D0 - offset + 0x5
 soras_last_hp = 100
-sora_death_state = soraHP - 0x4
 
 function file_exists(name)
    local f=io.open(name,"r")
@@ -121,12 +121,10 @@ function _OnFrame()
         end
     end
     
-    if ReadByte(soraHP) == 0 and soras_last_hp > 0 and ReadByte(stateFlag) == 1 and ReadByte(sora_death_state) == 0x4 then
+    if ReadByte(soras_hp_address) == 0 and soras_last_hp > 0 then
         ConsolePrint("Sending death")
-        ConsolePrint("Sora's HP: " .. tostring(ReadByte(soraHP)))
+        ConsolePrint("Sora's HP: " .. tostring(ReadByte(soras_hp_address)))
         ConsolePrint("Sora's Last HP: " .. tostring(soras_last_hp))
-        ConsolePrint("Sora's State Flag: " .. tostring(ReadByte(stateFlag)))
-        ConsolePrint("Sora's Death State Flag: " .. tostring(ReadByte(sora_death_state)))
         death_date = os.date("!%Y%m%d%H%M%S")
         if not file_exists(client_communication_path .. "dlsend" .. tostring(death_date)) then
             file = io.open(client_communication_path .. "dlsend" .. tostring(death_date), "w")
@@ -135,8 +133,6 @@ function _OnFrame()
             io.close(file)
         end
     end
-    if ReadByte(sora_death_state) == 0x4 or ReadByte(sora_death_state) == 0x0 then
-        soras_last_hp = ReadByte(soraHP)
-    end
+    soras_last_hp = ReadByte(soras_hp_address)
     ::done::
 end
