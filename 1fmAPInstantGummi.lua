@@ -1,5 +1,5 @@
 LUAGUI_NAME = "1fmAPInstantGummi"
-LUAGUI_AUTH = "denhonator"
+LUAGUI_AUTH = "denhonator with edits from Gicu"
 LUAGUI_DESC = "Instantly arrive at gummi destination"
 
 local offset = 0x3A0606
