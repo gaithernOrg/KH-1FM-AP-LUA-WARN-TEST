@@ -41,6 +41,7 @@ local cam = 0x503A18 - offset
 local canExecute = false
 last_death_time = 0
 soras_last_hp = 100
+sora_death_state = soraHP - 0x4
 
 function file_exists(name)
    local f=io.open(name,"r")
@@ -120,7 +121,7 @@ function _OnFrame()
         end
     end
     
-    if ReadByte(soraHP) == 0 and soras_last_hp > 0 and ReadByte(stateFlag == 1) then
+    if ReadByte(soraHP) == 0 and soras_last_hp > 0 and ReadByte(stateFlag == 1) and ReadByte(sora_death_state) > 0 then
         death_date = os.date("!%Y%m%d%H%M%S")
         if not file_exists(client_communication_path .. "dlsend" .. tostring(death_date)) then
             file = io.open(client_communication_path .. "dlsend" .. tostring(death_date), "w")
