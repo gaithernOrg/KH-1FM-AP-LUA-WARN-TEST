@@ -122,7 +122,7 @@ function _OnFrame()
 		local f = io.open("autosave.dat", "wb")
 		f:write(ReadString(continue, 0x16C00))
 		f:close()
-		ConsolePrint("Wrote autosave")
+		--ConsolePrint("Wrote autosave")
 	end
 	prevHUD = ReadFloat(soraHUD)
 	
