@@ -135,6 +135,8 @@ function _OnFrame()
             io.close(file)
         end
     end
-    soras_last_hp = ReadByte(soraHP)
+    if ReadByte(sora_death_state) == 0x4 or ReadByte(sora_death_state) == 0x0 then
+        soras_last_hp = ReadByte(soraHP)
+    end
     ::done::
 end
