@@ -4,7 +4,7 @@
 -----------------------------------
 
 LUAGUI_NAME = "kh1fmAP"
-LUAGUI_AUTH = "Gicu"
+LUAGUI_AUTH = "Gicu and Krujo"
 LUAGUI_DESC = "Kingdom Hearts 1FM AP Integration"
 
 if os.getenv('LOCALAPPDATA') ~= nil then

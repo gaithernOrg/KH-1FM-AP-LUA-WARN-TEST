@@ -1,5 +1,5 @@
 LUAGUI_NAME = "kh1fmAP_flag_fixes"
-LUAGUI_AUTH = "Gicu"
+LUAGUI_AUTH = "denhonator with edits from Gicu"
 LUAGUI_DESC = "Kingdom Hearts 1FM AP Flag Fixes"
 
 local offset = 0x3A0606

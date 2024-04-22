@@ -1,5 +1,5 @@
 LUAGUI_NAME = "1fmAPHandleDeathlink"
-LUAGUI_AUTH = "Gicu"
+LUAGUI_AUTH = "denhonator with edits from Gicu"
 LUAGUI_DESC = "Handles sending and receiving Death Links. Credits to Denho."
 
 if os.getenv('LOCALAPPDATA') ~= nil then
