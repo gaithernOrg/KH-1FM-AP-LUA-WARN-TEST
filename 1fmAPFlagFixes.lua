@@ -237,7 +237,7 @@ function FlagFixes()
     end
     
     if ReadByte(cutsceneFlags+0xB04) ~= prevTTFlag then
-        ConsolePrint(string.format("%x, %x", prevTTFlag, ReadByte(cutsceneFlags+0xB04)))
+        --ConsolePrint(string.format("%x, %x", prevTTFlag, ReadByte(cutsceneFlags+0xB04)))
     end
     -- Revert HB1 effect on TT story
     if (ReadByte(cutsceneFlags+0xB04) == 0x6E and ReadByte(worldFlagBase+0x1C) ~= 5)
@@ -249,7 +249,7 @@ function FlagFixes()
                                             and ReadByte(cutsceneFlags+0xB04) < 0x6E then
         WriteByte(cutsceneFlags+0xB04, 0x6E)
         WriteByte(cutsceneFlags+0xB00, math.max(0xBE, ReadByte(cutsceneFlags+0xB00)))
-        ConsolePrint("Post HB TT")
+        --ConsolePrint("Post HB TT")
     end
 
     prevTTFlag = ReadByte(cutsceneFlags+0xB04)
@@ -299,12 +299,12 @@ function FlagFixes()
     
     if ReadByte(world) == 8 and ReadByte(room) == 0x12 and ReadShort(ardoffset) == 0x7F then
         WriteShort(ardoffset, 0xD1)
-        ConsolePrint("Removed normal genie")
+        --ConsolePrint("Removed normal genie")
     end
     
     if ReadByte(world) == 0xD and ReadByte(room) == 9 and ReadShort(ardoffsetClock) == 0x5F2 then
         WriteShort(ardoffsetClock, 0x628)
-        ConsolePrint("Removed normal tinker bell")
+        --ConsolePrint("Removed normal tinker bell")
     end
 
     if ReadByte(cutsceneFlags+0xB04) >= 0x31 then
