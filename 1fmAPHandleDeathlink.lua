@@ -121,7 +121,7 @@ function _OnFrame()
         end
     end
     
-    if ReadByte(soraHP) == 0 and soras_last_hp > 0 and ReadByte(stateFlag) == 1 and ReadByte(sora_death_state) > 0 then
+    if ReadByte(soraHP) == 0 and soras_last_hp > 0 and ReadByte(stateFlag) == 1 and ReadByte(sora_death_state) == 0x4 then
         ConsolePrint("Sending death")
         ConsolePrint("Sora's HP: " .. tostring(ReadByte(soraHP)))
         ConsolePrint("Sora's Last HP: " .. tostring(soras_last_hp))
