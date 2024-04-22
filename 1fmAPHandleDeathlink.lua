@@ -121,7 +121,12 @@ function _OnFrame()
         end
     end
     
-    if ReadByte(soraHP) == 0 and soras_last_hp > 0 and ReadByte(stateFlag == 1) and ReadByte(sora_death_state) > 0 then
+    if ReadByte(soraHP) == 0 and soras_last_hp > 0 and ReadByte(stateFlag) == 1 and ReadByte(sora_death_state) > 0 then
+        ConsolePrint("Sending death")
+        ConsolePrint("Sora's HP: " .. tostring(ReadByte(soraHP)))
+        ConsolePrint("Sora's Last HP: " .. tostring(soras_last_hp))
+        ConsolePrint("Sora's State Flag: " .. tostring(ReadByte(stateFlag)))
+        ConsolePrint("Sora's Death State Flag: " .. tostring(ReadByte(sora_death_state)))
         death_date = os.date("!%Y%m%d%H%M%S")
         if not file_exists(client_communication_path .. "dlsend" .. tostring(death_date)) then
             file = io.open(client_communication_path .. "dlsend" .. tostring(death_date), "w")
