@@ -11,6 +11,7 @@ ChestFlags = 0x2DE60CC - offset
 EventFlags = 0x2DE67D8 - offset
 RoomFlags = 0x2DE7AAE - offset
 CutsceneFlags = 0x2DE63D0 - offset
+KeybladeExplanation = 0x2DE66DE - offset
 
 function _OnInit()
     if GAME_ID == 0xAF71841E and ENGINE_TYPE == "BACKEND" then
@@ -57,6 +58,9 @@ function _OnFrame()
            WriteByte(CutsceneFlags+0x0B0C, 0x32) --HT Story Progression after finding Jack-in-the-Box
            WriteByte(RoomFlags+0x19, 0x05) --Boneyard Room Flag
            WriteByte(RoomFlags+0x1E, 0x03) --Research Lab Room Flag
+       end
+       if ReadByte(KeybladeExplanation) ~= 0x01 then
+           WriteByte(KeybladeExplanation, 0x01)
        end
     end
 end
