@@ -13,6 +13,14 @@ RoomFlags = 0x2DE7AAE - offset
 CutsceneFlags = 0x2DE63D0 - offset
 KeybladeExplanation = 0x2DE66DE - offset
 
+function BitOr(Address,Bit,Abs)
+    WriteByte(Address,ReadByte(Address)|Bit,Abs and OnPC)
+end
+
+function BitNot(Address,Bit,Abs)
+    WriteByte(Address,ReadByte(Address)&~Bit,Abs and OnPC)
+end
+
 function _OnInit()
     if GAME_ID == 0xAF71841E and ENGINE_TYPE == "BACKEND" then
         canExecute = true
