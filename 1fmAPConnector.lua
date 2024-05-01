@@ -1437,6 +1437,13 @@ end
 
 function fix_shortcuts()
     --[[Ensures that the player never has a shortcut set for a spell they don't posses]]
+    magic_items_array = read_magic_items()
+    for i=1,#magic_items_array do
+        if magic_items_array[i] >= 1 then
+            magic_unlocked_bits[i] = 1
+        end
+    end
+    
     shortcuts_address = 0x2DE6214 - offset
     shortcuts = ReadArray(shortcuts_address, 3)
     shortcuts_changed = false
