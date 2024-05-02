@@ -104,7 +104,7 @@ function main()
     read_door_goal()
     if door_goal == "reports" then
         read_required_reports()
-        write_ansem_door(read_report_qty() >= required_reports)
+        write_ansem_door(read_report_qty() >= required_reports_door)
     elseif door_goal == "puppies" then
         write_ansem_door(all_puppies_returned())
     elseif door_goal == "postcards" then
