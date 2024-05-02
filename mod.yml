@@ -43,3 +43,7 @@ assets:
   method: copy
   source:
   - name: 1fmAPEotWFlagFixes.lua
+- name: scripts/1fmAPEotWDoor.lua
+  method: copy
+  source:
+  - name: 1fmAPEotWDoor.lua

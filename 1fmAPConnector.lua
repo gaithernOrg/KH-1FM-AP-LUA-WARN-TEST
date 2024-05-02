@@ -915,6 +915,12 @@ function read_required_reports()
         required_reports = tonumber(io.read())
         io.close(file)
     end
+    if file_exists(client_communication_path .. "required_reports_eotw.cfg") then
+        file = io.open(client_communication_path .. "required_reports_eotw.cfg", "r")
+        io.input(file)
+        required_reports = tonumber(io.read())
+        io.close(file)
+    end
 end
 
 function read_misc_checks()
@@ -1537,6 +1543,8 @@ function calculate_full()
     end
     if read_report_qty() >= required_reports then
         worlds_unlocked_array[10] = 3
+    elseif world_byte_2_bits[2] ~= nil then
+        if world_byte_2_bits[2] == world_byte_2_bits[1] * 3
     else
         worlds_unlocked_array[10] = 0
     end
