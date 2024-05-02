@@ -13,6 +13,16 @@ door_goal = "reports"
 offset = 0x3A0606
 frame_count = 0
 
+if os.getenv('LOCALAPPDATA') ~= nil then
+    client_communication_path = os.getenv('LOCALAPPDATA') .. "\\KH1FM\\"
+else
+    client_communication_path = os.getenv('HOME') .. "/KH1FM/"
+    ok, err, code = os.rename(client_communication_path, client_communication_path)
+    if not ok and code ~= 13 then
+        os.execute("mkdir " .. path)
+    end
+end
+
 function read_required_reports()
     if file_exists(client_communication_path .. "required_reports_door.cfg") then
         file = io.open(client_communication_path .. "required_reports_door.cfg", "r")
