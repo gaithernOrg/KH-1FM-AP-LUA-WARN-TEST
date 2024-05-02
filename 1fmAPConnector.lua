@@ -1544,7 +1544,7 @@ function calculate_full()
     if read_report_qty() >= required_reports then
         worlds_unlocked_array[10] = 3
     elseif world_byte_2_bits[2] ~= nil then
-        if world_byte_2_bits[2] == world_byte_2_bits[1] * 3
+        worlds_unlocked_array[10] = world_byte_2_bits[2] * 3
     else
         worlds_unlocked_array[10] = 0
     end
