@@ -7,9 +7,11 @@ LUAGUI_NAME = "kh1fmAP"
 LUAGUI_AUTH = "Gicu and Sonicshadowsilver2"
 LUAGUI_DESC = "Kingdom Hearts 1FM AP Integration"
 
+canExecute = false
 required_reports_door = 14
 door_goal = "reports"
 offset = 0x3A0606
+frame_count = 0
 
 function read_required_reports()
     if file_exists(client_communication_path .. "required_reports_door.cfg") then
