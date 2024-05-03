@@ -32,7 +32,7 @@ function read_required_reports()
     if file_exists(client_communication_path .. "required_reports_door.cfg") then
         file = io.open(client_communication_path .. "required_reports_door.cfg", "r")
         io.input(file)
-        required_reports = tonumber(io.read())
+        required_reports_door = tonumber(io.read())
         io.close(file)
     end
 end
