@@ -61,16 +61,15 @@ end
 function all_super_bosses_defeated()
     sephiroth_address             = 0x2DE693A - offset
     ice_titan_address             = 0x2DE6939 - offset
-    unknown_and_kurt_zisa_address = 0x2DE7390 - offset
+    unknown_and_kurt_zisa_address = 0x2DE7391 - offset
     phantom_address               = 0x2DE6EDD - offset
     
     sephiroth_complete             = ReadByte(sephiroth_address) > 0
-    ice_titan_complete             = ReadByte(ice_titan_address) > 0
     unknown_complete               = (ReadByte(unknown_and_kurt_zisa_address) % 16) >= 8
     kurt_zisa_complete             = (ReadByte(unknown_and_kurt_zisa_address) % 64) >= 32
     phantom_complete               = ReadByte(phantom_address) >= 0x96
     
-    return sephiroth_complete and ice_titan_complete and unknown_complete and kurt_zisa_complete and phantom_complete
+    return sephiroth_complete and unknown_complete and kurt_zisa_complete and phantom_complete
 end
 
 function read_report_qty()
