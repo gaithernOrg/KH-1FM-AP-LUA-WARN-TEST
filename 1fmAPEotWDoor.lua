@@ -89,11 +89,6 @@ function read_report_qty()
     return reports_acquired
 end
 
-function current_world()
-    current_world_address = 0x233CADC - offset
-    return ReadByte(current_world_address)
-end
-
 function write_ansem_door(ansem_door_on)
     final_rest = 0x2DE7B1C - offset
     if ansem_door_on then
@@ -104,18 +99,16 @@ function write_ansem_door(ansem_door_on)
 end
 
 function main()
-    if current_world() ~= 0x10 then
-        read_door_goal()
-        if door_goal == "reports" then
-            read_required_reports()
-            write_ansem_door(read_report_qty() >= required_reports_door)
-        elseif door_goal == "puppies" then
-            write_ansem_door(all_puppies_returned())
-        elseif door_goal == "postcards" then
-            write_ansem_door(all_postcards_mailed())
-        elseif door_goal == "superbosses" then
-            write_ansem_door(all_super_bosses_defeated())
-        end
+    read_door_goal()
+    if door_goal == "reports" then
+        read_required_reports()
+        write_ansem_door(read_report_qty() >= required_reports_door)
+    elseif door_goal == "puppies" then
+        write_ansem_door(all_puppies_returned())
+    elseif door_goal == "postcards" then
+        write_ansem_door(all_postcards_mailed())
+    elseif door_goal == "superbosses" then
+        write_ansem_door(all_super_bosses_defeated())
     end
 end
 
