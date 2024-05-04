@@ -976,6 +976,7 @@ function read_misc_checks()
         ,{0x2DE7715 - offset, 2656359, 0, 0x4}
         ,{0x2DE7716 - offset, 2656360, 0, 0x4}
         ,{0x2DE76EF - offset, 2656361, 0, 0x1}
+        ,{0x2DE76ED - offset, 2656361, 0, 0x1} --Alternative, light stove before putting in potion
         ,{0x2DE76E9 - offset, 2656362, 0, 0x1}
         ,{0x2DE76F7 - offset, 2656363, 0, 0x1}
         ,{0x2DE6BDD - offset, 2656364, 0, 0x1}
