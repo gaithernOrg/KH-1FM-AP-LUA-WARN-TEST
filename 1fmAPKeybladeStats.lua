@@ -48,6 +48,12 @@ function read_keyblade_stats()
         keyblade_stats = split(io.read(),",")
         io.close(file)
         return keyblade_stats
+    elseif file_exists(client_communication_path .. "Keyblade Stats.cfg") then
+        file = io.open(client_communication_path .. "Keyblade Stats.cfg", "r")
+        io.input(file)
+        keyblade_stats = split(io.read(),",")
+        io.close(file)
+        return keyblade_stats
     else
         return nil
     end
