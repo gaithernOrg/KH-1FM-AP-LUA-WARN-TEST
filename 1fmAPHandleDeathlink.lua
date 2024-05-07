@@ -105,6 +105,7 @@ function _OnFrame()
     
     if file_exists(client_communication_path .. "goofydl.cfg") then
         if ReadByte(goofys_hp_address) == 0 and ReadByte(soras_hp_address) > 0 then
+            ConsolePrint("Goofy was defeated!")
             WriteByte(soraHP, 0)
             WriteByte(soras_hp_address, 0)
             WriteByte(stateFlag, 1)
@@ -117,6 +118,7 @@ function _OnFrame()
     end
     if file_exists(client_communication_path .. "donalddl.cfg") then
         if ReadByte(donalds_hp_address) == 0 and ReadByte(soras_hp_address) > 0 then
+            ConsolePrint("Donald was defeated!")
             WriteByte(soraHP, 0)
             WriteByte(soras_hp_address, 0)
             WriteByte(stateFlag, 1)
