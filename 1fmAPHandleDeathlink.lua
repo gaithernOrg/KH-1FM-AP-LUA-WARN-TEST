@@ -41,6 +41,8 @@ local cam = 0x503A18 - offset
 local canExecute = false
 last_death_time = 0
 soras_hp_address = 0x2DE59D0 - offset + 0x5
+donalds_hp_address = soras_hp_address + 0x74
+goofys_hp_address = donalds_hp_address + 0x74
 soras_last_hp = 100
 
 function file_exists(name)
@@ -99,6 +101,31 @@ function _OnFrame()
         end
         removeWhite = 1000
         revertCode = false
+    end
+    
+    if file_exists(client_communication_path .. "goofydl.cfg") then
+        if ReadByte(goofys_hp_address) == 0 and ReadByte(soras_hp_address) > 0 then
+            WriteByte(soraHP, 0)
+            WriteByte(soras_hp_address, 0)
+            WriteByte(stateFlag, 1)
+            WriteShort(deathCheck, 0x9090)
+            if extraSafety then
+                WriteLong(safetyMeasure, 0x89020B958735894C)
+            end
+            revertCode = true
+        end
+    end
+    if file_exists(client_communication_path .. "donalddl.cfg") then
+        if ReadByte(donalds_hp_address) == 0 and ReadByte(soras_hp_address) > 0 then
+            WriteByte(soraHP, 0)
+            WriteByte(soras_hp_address, 0)
+            WriteByte(stateFlag, 1)
+            WriteShort(deathCheck, 0x9090)
+            if extraSafety then
+                WriteLong(safetyMeasure, 0x89020B958735894C)
+            end
+            revertCode = true
+        end
     end
     
     if file_exists(client_communication_path .. "dlreceive") then
