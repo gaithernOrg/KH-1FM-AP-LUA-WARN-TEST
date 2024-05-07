@@ -40,6 +40,11 @@ function read_mult()
         io.input(file)
         xp_mult = tonumber(io.read())
         io.close(file)
+    elseif file_exists(client_communication_path .. "EXP Multiplier.cfg") then
+        file = io.open(client_communication_path .. "EXP Multiplier.cfg", "r")
+        io.input(file)
+        xp_mult = tonumber(io.read())
+        io.close(file)
     else
         xp_mult = 1.0
     end
