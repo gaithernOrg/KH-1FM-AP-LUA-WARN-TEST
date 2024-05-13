@@ -752,7 +752,7 @@ function read_check_array()
     --[[Reads the current check number by getting the sum total of the 3 AP items]]
     gummi_address = 0x2DF1848 - offset
     check_number_item_address = gummi_address + 0x77
-    return ReadArray(check_number_item_address, 3)
+    return ReadArray(check_number_item_address, 4)
 end
 
 function read_world()
@@ -1424,12 +1424,15 @@ end
 function increment_check_array(check_array)
     --[[Correctly increments the check items, as the player can't hold more than 
     255 of one check item]]
-    if check_array[1] == 255 and check_array[2] == 255 then
-        check_array[3] = check_array[3] + 1
-    elseif check_array[1] == 255 then
-        check_array[2] = check_array[2] + 1
-    else
-        check_array[1] = check_array[1] + 1
+    incremented = False
+    for k,v in pairs(check_array) do
+        if v < 255 and not incremented then
+            v = v + 1
+            incremented = true
+        end
+    end
+    if not incremented then
+        ConsolePrint("EXCEEDED MAXIMUM VALUE OF 1020 ITEMS, ERROR")
     end
     return check_array
 end
@@ -1471,7 +1474,10 @@ function receive_items()
     --[[Main function for receiving incremental items, like non-shared abilities, weapons
     consumables, and accessories]]
     check_array = read_check_array()
-    i = check_array[1] + check_array[2] + check_array[3] + 1
+    i = 1
+    for k,v in pairs(check_array) do
+        i = i + v
+    end
     while file_exists(client_communication_path .. "AP_" .. tostring(i) .. ".item") do
         file = io.open(client_communication_path .. "AP_" .. tostring(i) .. ".item", "r")
         io.input(file)
