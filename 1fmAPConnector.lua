@@ -748,11 +748,21 @@ function read_soras_stats_array()
           , ReadByte(soras_stats_address + sora_item_slots_offset)}
 end
 
-function read_check_array()
-    --[[Reads the current check number by getting the sum total of the 3 AP items]]
+function read_check_number()
+    --[[Reads the current check number]]
     gummi_address = 0x2DF1848 - offset
+    ap_item_converted_to_int_address = gummi_address + 0x98
     check_number_item_address = gummi_address + 0x77
-    return ReadArray(check_number_item_address, 4)
+    check_number = 0
+    if ReadByte(ap_item_converted_to_int_address) == 0 then
+        check_array = ReadArray(check_number_item_address, 4)
+        check_number = check_array[1] + check_array[2] + check_array[3] + check_array[4]
+        WriteInt(check_number_item_address, check_number)
+        WriteByte(ap_item_converted_to_int_address, 1)
+    else
+        check_number = ReadInt(check_number_item_address)
+    end
+    return check_number
 end
 
 function read_world()
@@ -1147,11 +1157,11 @@ function write_soras_stats(soras_stats_array)
     WriteByte(soras_stats_address + sora_item_slots_offset      , soras_stats_array[7])
 end
 
-function write_check_array(check_array)
+function write_check_number(check_number)
     --[[Writes the correct number of "check" unused gummi items. Used for syncing game with server]]
     gummi_address = 0x2DF1848 - offset
     check_number_item_address = gummi_address + 0x77
-    WriteArray(check_number_item_address, check_array)
+    WriteInt(check_number_item_address, check_number)
 end
 
 function write_item(item_offset)
@@ -1421,22 +1431,6 @@ function parse_world_progress_array(world_progress_array)
     return found_location_ids
 end
 
-function increment_check_array(check_array)
-    --[[Correctly increments the check items, as the player can't hold more than 
-    255 of one check item]]
-    incremented = False
-    for k,v in pairs(check_array) do
-        if v < 255 and not incremented then
-            v = v + 1
-            incremented = true
-        end
-    end
-    if not incremented then
-        ConsolePrint("EXCEEDED MAXIMUM VALUE OF 1020 ITEMS, ERROR")
-    end
-    return check_array
-end
-
 function add_to_soras_stats(value)
     --[[Calculates sora's stats by incrementing the stat based on the stat_increases array]]
     stat_increases = {3, 1, 2, 2, 2, 1, 1}
@@ -1473,11 +1467,7 @@ end
 function receive_items()
     --[[Main function for receiving incremental items, like non-shared abilities, weapons
     consumables, and accessories]]
-    check_array = read_check_array()
-    i = 1
-    for k,v in pairs(check_array) do
-        i = i + v
-    end
+    i = read_check_number() + 1
     while file_exists(client_communication_path .. "AP_" .. tostring(i) .. ".item") do
         file = io.open(client_communication_path .. "AP_" .. tostring(i) .. ".item", "r")
         io.input(file)
@@ -1510,11 +1500,10 @@ function receive_items()
         elseif received_item_id >= 2649000 and received_item_id < 2650000 then
             write_olympus_cups_item(received_item_id % 2649000)
         end
-        check_array = increment_check_array(check_array)
         i = i + 1
     end
     initializing = false
-    write_check_array(check_array)
+    write_check_number(i - 1)
 end
 
 function calculate_full()
