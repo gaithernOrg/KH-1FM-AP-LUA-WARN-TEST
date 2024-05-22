@@ -1,5 +1,5 @@
 LUAGUI_NAME = "1fmAPSaveAnywhere"
-LUAGUI_AUTH = "denhonator"
+LUAGUI_AUTH = "denhonator with slight edits from Gicu"
 LUAGUI_DESC = "Read readme for button combinations.  Modified for AP by Gicu"
 
 local extraSafety = false
@@ -27,104 +27,106 @@ local title = 0x233CAB8 - offset
 local continue = 0x2DFC5D0 - offset
 local config = 0x2DFBDD0 - offset
 local cam = 0x503A18 - offset
+local state = 0x2863958 - offset
 
 local canExecute = false
 
 function _OnInit()
-	if GAME_ID == 0xAF71841E and ENGINE_TYPE == "BACKEND" then
-		if ReadShort(deathCheck) == 0x2E74 then
-			ConsolePrint("Global version detected")	
-		elseif ReadShort(deathCheck-0x1C0) == 0x2E74 then
-			deathCheck = deathCheck-0x1C0
-			safetyMeasure = safetyMeasure-0x1C0
-			extraSafety = false
-			ConsolePrint("JP detected")
-		end
-		canExecute = true
-	else
-		ConsolePrint("KH1 not detected, not running script")
-	end
+    if GAME_ID == 0xAF71841E and ENGINE_TYPE == "BACKEND" then
+        if ReadShort(deathCheck) == 0x2E74 then
+            ConsolePrint("Global version detected")    
+        elseif ReadShort(deathCheck-0x1C0) == 0x2E74 then
+            deathCheck = deathCheck-0x1C0
+            safetyMeasure = safetyMeasure-0x1C0
+            extraSafety = false
+            ConsolePrint("JP detected")
+        end
+        canExecute = true
+    else
+        ConsolePrint("KH1 not detected, not running script")
+    end
 
-	lastDeathPointer = ReadLong(deathPointer)
+    lastDeathPointer = ReadLong(deathPointer)
 end
 
 function InstantContinue()
-	if ReadByte(warpTrigger) == 0 then
-		ConsolePrint("Instant continue trigger")
-		WriteByte(warpType1, 5)
-		WriteByte(warpType2, 12)
-		WriteByte(warpTrigger, 2)
-	end
+    if ReadByte(warpTrigger) == 0 then
+        ConsolePrint("Instant continue trigger")
+        WriteByte(warpType1, 5)
+        WriteByte(warpType2, 12)
+        WriteByte(warpTrigger, 2)
+    end
 end
 
 function SoftReset()
-	ConsolePrint("Soft reset")
-	WriteByte(warpType1, 3)
-	WriteByte(warpType2, 1)
-	if ReadByte(title) == 0 then
-		WriteByte(title, 1)
-	end
-	WriteByte(warpTrigger, 2)
+    ConsolePrint("Soft reset")
+    WriteByte(warpType1, 3)
+    WriteByte(warpType2, 1)
+    if ReadByte(title) == 0 then
+        WriteByte(title, 1)
+    end
+    WriteByte(warpTrigger, 2)
 end
 
 function _OnFrame()
-	if not canExecute then
-		goto done
-	end
+    if not canExecute then
+        goto done
+    end
 
-	local input = ReadInt(0x233D034-offset)
-	local savemenuopen = ReadByte(0x232A604-offset)
-	
-	if input == 1793 and lastInput ~= 1793 and savemenuopen~=4 and ReadByte(0x2350CD4-offset) == 0 then 
-		WriteByte(0x2350CD4-offset, 0x1)
-		addgummi = 5
-	elseif input == 1793 and lastInput ~= 1793 then
-		WriteLong(closeMenu, 0)
-	end
-	
-	if input == 3968 and lastInput ~= 3968 and ReadLong(closeMenu) == 0 then
-		InstantContinue()
-	end
-	
-	if input == 3872 and lastInput ~= 3872 and ReadLong(closeMenu) == 0 then
-		local f = io.open("autosave.dat", "rb")
-		if f ~= nil then
-			WriteString(continue, f:read("*a"))
-			f:close()
-			ConsolePrint("Loaded autosave")
-			WriteByte(closeMenu, 1)
-			InstantContinue()
-			WriteFloat(cam, -1.0 + ReadByte(config+0x14)*2)
-			WriteFloat(cam+4, 1.0 - ReadByte(config+0x18)*2)
-		end
-	end
-	
-	if input == 3848 and lastInput ~= 3848 then
-		SoftReset()
-	end
-	
-	if savemenuopen == 4 and addgummi==1 then
-		WriteByte(0x2E1CC28-offset, 3) --Unlock gummi
-		WriteByte(0x2E1CB9C-offset, 5) --Set 5 buttons to save menu
-		WriteByte(0x2E8F450-offset, 5) --Set 5 buttons to save menu
-		WriteByte(0x2E8F452-offset, 5) --Set 5 buttons to save menu
-		for i=0,4 do
-			WriteByte(0x2E1CBA0+i*4-offset, i) --Set button types
-		end
-	end
-	
-	addgummi = addgummi > 0 and addgummi-1 or addgummi
-	
-	lastInput = input
-	lastDeathPointer = ReadLong(deathPointer)
-	
-	if ReadFloat(soraHUD) == 1 and prevHUD < 1 then
-		local f = io.open("autosave.dat", "wb")
-		f:write(ReadString(continue, 0x16C00))
-		f:close()
-		--ConsolePrint("Wrote autosave")
-	end
-	prevHUD = ReadFloat(soraHUD)
-	
-	::done::
+    local input = ReadInt(0x233D034-offset)
+    local savemenuopen = ReadByte(0x232A604-offset)
+    
+    if ReadByte(state) ~= 0x01 then
+        if input == 1793 and lastInput ~= 1793 and savemenuopen~=4 and ReadByte(0x2350CD4-offset) == 0 then 
+            WriteByte(0x2350CD4-offset, 0x1)
+            addgummi = 5
+        elseif input == 1793 and lastInput ~= 1793 then
+            WriteLong(closeMenu, 0)
+        end
+        
+        if input == 3968 and lastInput ~= 3968 and ReadLong(closeMenu) == 0 then
+            InstantContinue()
+        end
+        
+        if input == 3872 and lastInput ~= 3872 and ReadLong(closeMenu) == 0 then
+            local f = io.open("autosave.dat", "rb")
+            if f ~= nil then
+                WriteString(continue, f:read("*a"))
+                f:close()
+                ConsolePrint("Loaded autosave")
+                WriteByte(closeMenu, 1)
+                InstantContinue()
+                WriteFloat(cam, -1.0 + ReadByte(config+0x14)*2)
+                WriteFloat(cam+4, 1.0 - ReadByte(config+0x18)*2)
+            end
+        end
+        
+        if input == 3848 and lastInput ~= 3848 then
+            SoftReset()
+        end
+    end
+    if savemenuopen == 4 and addgummi==1 then
+        WriteByte(0x2E1CC28-offset, 3) --Unlock gummi
+        WriteByte(0x2E1CB9C-offset, 5) --Set 5 buttons to save menu
+        WriteByte(0x2E8F450-offset, 5) --Set 5 buttons to save menu
+        WriteByte(0x2E8F452-offset, 5) --Set 5 buttons to save menu
+        for i=0,4 do
+            WriteByte(0x2E1CBA0+i*4-offset, i) --Set button types
+        end
+    end
+    
+    addgummi = addgummi > 0 and addgummi-1 or addgummi
+    
+    lastInput = input
+    lastDeathPointer = ReadLong(deathPointer)
+    
+    if ReadFloat(soraHUD) == 1 and prevHUD < 1 then
+        local f = io.open("autosave.dat", "wb")
+        f:write(ReadString(continue, 0x16C00))
+        f:close()
+        --ConsolePrint("Wrote autosave")
+    end
+    prevHUD = ReadFloat(soraHUD)
+    
+    ::done::
 end
