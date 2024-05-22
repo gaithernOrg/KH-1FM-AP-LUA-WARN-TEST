@@ -105,7 +105,7 @@ function _OnFrame()
             SoftReset()
         end
     end
-    if savemenuopen == 4 and addgummi==1 then
+    if savemenuopen == 4 then --and addgummi==1 then
         WriteByte(0x2E1CC28-offset, 3) --Unlock gummi
         WriteByte(0x2E1CB9C-offset, 5) --Set 5 buttons to save menu
         WriteByte(0x2E8F450-offset, 5) --Set 5 buttons to save menu
