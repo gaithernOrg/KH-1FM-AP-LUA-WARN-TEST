@@ -1190,12 +1190,21 @@ end
 function write_shared_ability(shared_ability_value)
     --[[Writes the player's unlocked shared abilities]]
     shared_abilities_address = 0x2DE5F68 - offset
-    local i = 1
-    while ReadByte(shared_abilities_address + i) ~= 0 do
-        i = i + 1
+    can_add_ability = false
+    current_shared_abilities_array = ReadArray(shared_abilities_address,4)
+    for current_shared_ability_index, current_shared_ability_value in pairs(current_shared_abilities_array) do
+        if shared_ability_value == current_shared_ability_value or shared_ability_value == current_shared_ability_value + 128 then
+            can_add_ability = true
+        end
     end
-    if i <= 4 then
-        WriteByte(shared_abilities_address + i, shared_ability_value + 128)
+    if can_add_ability then
+        local i = 1
+        while ReadByte(shared_abilities_address + i) ~= 0 do
+            i = i + 1
+        end
+        if i <= 4 then
+            WriteByte(shared_abilities_address + i, shared_ability_value + 128)
+        end
     end
 end
 
