@@ -1190,11 +1190,11 @@ end
 function write_shared_ability(shared_ability_value)
     --[[Writes the player's unlocked shared abilities]]
     shared_abilities_address = 0x2DE5F68 - offset
-    can_add_ability = false
+    can_add_ability = true
     current_shared_abilities_array = ReadArray(shared_abilities_address,4)
     for current_shared_ability_index, current_shared_ability_value in pairs(current_shared_abilities_array) do
         if shared_ability_value == current_shared_ability_value or shared_ability_value == current_shared_ability_value + 128 then
-            can_add_ability = true
+            can_add_ability = false
         end
     end
     if can_add_ability then
