@@ -660,11 +660,11 @@ function FlagFixes()
     elseif ReadByte(cutsceneFlags+0xB0A) == 0x21 then
         WriteByte(worldFlagBase+0x7B, 0x00)
     end
-    if ReadByte(world) == 0x09 and ReadByte(room) == 0x10 and ReadByte(StoryProgression+9) == 0x46 then --Prevent Ursula II Early
+    if ReadByte(world) == 0x09 and ReadByte(room) == 0x10 and ReadByte(StoryProgression+9) == 0x53 then --Prevent Ursula II Early
         WriteByte(room, 0x02)
         WriteByte(warpType1, 5)
         WriteByte(warpType2, 12)
-        WriteByute(warpTrigger, 0x02)
+        WriteByte(warpTrigger, 0x02)
     end
     if ReadByte(cutsceneFlags+0xB04+0x9) > 0x00 then --Prevent Neverland Ship: Cabin from being missable
         neverland_warps_address = 0x2DE78D6 - offset
