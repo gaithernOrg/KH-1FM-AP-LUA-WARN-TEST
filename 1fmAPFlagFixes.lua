@@ -652,6 +652,27 @@ function FlagFixes()
     --if ReadByte(gummiFlagBase+9)==0 then
     --    OpenGummi()
     --end
+    
+    --BEGIN SONIC AND GICU BLOCK---
+    
+    if ReadByte(cutsceneFlags+0xB0A) < 0x21 then --Prevent Atlantica Sunken Ship Softlock
+        WriteByte(worldFlagBase+0x7B, 0x0E)
+    elseif ReadByte(cutsceneFlags+0xB0A) == 0x21 then
+        WriteByte(worldFlagBase+0x7B, 0x00)
+    end
+    if ReadByte(world) == 0x09 and ReadByte(room) == 0x10 and ReadByte(StoryProgression+9) == 0x46 then --Prevent Ursula II Early
+        WriteByte(room, 0x02)
+        WriteByte(warpType1, 5)
+        WriteByte(warpType2, 12)
+        WriteByute(warpTrigger, 0x02)
+    end
+    if ReadByte(cutsceneFlags+0xB04+0x9) > 0x00 then --Prevent Neverland Ship: Cabin from being missable
+        neverland_warps_address = 0x2DE78D6 - offset
+        neverland_warps = ReadByte(neverland_warps_address)
+        if (neverland_warps % 2) < 1 then
+            WriteByte(neverland_warps_address, neverland_warps + 1)
+        end
+    end
 end
 
 function OpenGummi()
