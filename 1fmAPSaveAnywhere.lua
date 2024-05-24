@@ -30,6 +30,7 @@ local cam = 0x503A18 - offset
 local state = 0x2863958 - offset
 
 local canExecute = false
+local lastsavemenuopen = 0
 
 function _OnInit()
     if GAME_ID == 0xAF71841E and ENGINE_TYPE == "BACKEND" then
@@ -105,7 +106,10 @@ function _OnFrame()
             SoftReset()
         end
     end
-    if savemenuopen == 4 then --and addgummi==1 then
+    if savemenuopen == 4 and lastsavemenuopen ~= 4 then
+        addgummi = 5
+    end
+    if savemenuopen == 4 and addgummi==1 then
         WriteByte(0x2E1CC28-offset, 3) --Unlock gummi
         WriteByte(0x2E1CB9C-offset, 5) --Set 5 buttons to save menu
         WriteByte(0x2E8F450-offset, 5) --Set 5 buttons to save menu
@@ -118,6 +122,7 @@ function _OnFrame()
     addgummi = addgummi > 0 and addgummi-1 or addgummi
     
     lastInput = input
+    lastsavemenuopen = savemenuopen
     lastDeathPointer = ReadLong(deathPointer)
     
     if ReadFloat(soraHUD) == 1 and prevHUD < 1 then
