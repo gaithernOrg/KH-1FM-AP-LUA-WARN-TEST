@@ -62,7 +62,7 @@ function _OnFrame()
                BitNot(EventFlags+0x0E6E, 0x80) --Respawn White Trinity in Monstro: Chamber 6
            end
        end
-       if ReadByte(Items+0xE3) == 0x01 and ReadByte(CutsceneFlags+0x0B0C) == 0x2B and ReadByte(ChestFlags+0x00) == 0x02 then
+       if ReadByte(Items+0xE3) > 0x00 and ReadByte(CutsceneFlags+0x0B0C) == 0x2B and ReadByte(ChestFlags+0x00) == 0x02 then
            WriteByte(CutsceneFlags+0x0B0C, 0x32) --HT Story Progression after finding Jack-in-the-Box
            WriteByte(RoomFlags+0x19, 0x05) --Boneyard Room Flag
            WriteByte(RoomFlags+0x1E, 0x03) --Research Lab Room Flag
