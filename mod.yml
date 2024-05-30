@@ -47,3 +47,7 @@ assets:
   method: copy
   source:
   - name: 1fmAPEotWDoor.lua
+- name: scripts/1fmAPSynthShopHint.lua
+  method: copy
+  source:
+  - name: 1fmAPSynthShopHint.lua
