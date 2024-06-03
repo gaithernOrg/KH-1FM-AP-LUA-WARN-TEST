@@ -83,7 +83,7 @@ function _OnFrame()
         read_settings()
         chests_address = 0x2B12C4 - offset
         chests = ReadByte(chests_address)
-        if chestslocked and has_correct_keyblade() and chests == 0x72 then
+        if (chestslocked and has_correct_keyblade() and chests == 0x72) or not chestslocked then
             if interactinbattle then
                 WriteByte(chests_address, 0x73)
             else
