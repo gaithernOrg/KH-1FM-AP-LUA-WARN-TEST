@@ -49,9 +49,11 @@ function has_correct_keyblade()
     world_address = 0x233CADC - offset
     keyblade_offsets = {nil, nil, 94, 98, 86, 96, nil, 87, 90, 89, 93, 99, 88, 91, nil, 97}
     current_world = ReadByte(world_address)
-    keyblade_amt = ReadByte(stock_address + keyblade_offsets[current_world])
-    if keyblade_amt > 0 then
-        return true
+    if current_world ~= nil then
+        keyblade_amt = ReadByte(stock_address + keyblade_offsets[current_world])
+        if keyblade_amt > 0 then
+            return true
+        end
     end
     return false
 end
