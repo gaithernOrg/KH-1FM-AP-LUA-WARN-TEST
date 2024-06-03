@@ -9,6 +9,8 @@ LUAGUI_DESC = "Kingdom Hearts 1FM AP Integration"
 
 offset = 0x3A0606
 chestslocked = true
+interactinbattle = false
+interactset = false
 canExecute = false
 settings_read = false
 
@@ -36,6 +38,9 @@ function read_settings()
             chestslocked = false
             settings_read = true
         end
+        if file_exists(client_communication_path .. "interactinbattle.cfg") then
+            interactinbattle = true
+        end
     end
 end
 
@@ -49,6 +54,17 @@ function has_correct_keyblade()
         return true
     end
     return false
+end
+
+function get_dg_count()
+    dg = 0
+    if ReadByte(0x2DE5E5F - offset) == 1 or ReadByte(0x2DE5E5F - offset) == 2 then
+        dg = dg + 1
+    end
+    if ReadByte(0x2DE5E60 - offset) == 1 or ReadByte(0x2DE5E60 - offset) == 2 then
+        dg = dg + 1
+    end
+    return dg
 end
 
 function _OnInit()
@@ -66,9 +82,28 @@ function _OnFrame()
         chests_address = 0x2B12C4 - offset
         chests = ReadByte(chests_address)
         if chestslocked and has_correct_keyblade() and chests == 0x72 then
-            WriteByte(chests_address, 0x74)
+            if interactinbattle then
+                WriteByte(chests_address, 0x73)
+            else
+                WriteByte(chests_address, 0x74)
+            end
         elseif chestslocked and not has_correct_keyblade() and chests ~= 0x72 then
             WriteByte(chests_address, 0x72)
+        end
+        if interactinbattle then
+            if not interactset then
+                Examine = 0x2903B9 - offset
+                Talk = 0x2903F9 - offset
+                WriteByte(Examine, 0x70)
+                WriteByte(Talk, 0x70)
+                interactset = true
+            end
+            Trinity = 0x1A06CF - offset
+            if get_dg_count() >= 2 then
+                WriteByte(Trinity, 0x71) -- Forced
+            else
+                WriteByte(Trinity, 0x75) -- Default
+            end
         end
     end
 end
