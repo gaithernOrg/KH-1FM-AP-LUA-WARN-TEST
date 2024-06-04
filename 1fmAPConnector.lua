@@ -1193,7 +1193,7 @@ function write_shared_ability(shared_ability_value)
     can_add_ability = true
     current_shared_abilities_array = ReadArray(shared_abilities_address+1,8)
     current_shared_abilities_count = {}
-    max_shared_abilities = {3, 2, 1, 1}
+    max_shared_abilities = {3, 2, 1, 3}
     for current_shared_ability_index, current_shared_ability_value in pairs(current_shared_abilities_array) do
         if current_shared_abilities_count[current_shared_ability_value%128] == nil then
             current_shared_abilities_count[current_shared_ability_value%128] = 1
@@ -1204,6 +1204,9 @@ function write_shared_ability(shared_ability_value)
     if current_shared_abilities_count[shared_ability_value] ~= nil then
         if shared_ability_value == 3 and current_shared_abilities_count[shared_ability_value] == 1 then --Handle Progressive Glide
             shared_ability_value = 4
+            if current_shared_abilities_count[shared_ability_value] == nil then
+                current_shared_abilities_count[shared_ability_value] = 0
+            end
         end
         if current_shared_abilities_count[shared_ability_value] >= max_shared_abilities[shared_ability_value] then
             can_add_ability = false
@@ -1211,10 +1214,10 @@ function write_shared_ability(shared_ability_value)
     end
     if can_add_ability then
         local i = 1
-        while ReadByte(shared_abilities_address + i) ~= 0 and i <= 9 do
+        while ReadByte(shared_abilities_address + i) ~= 0 and i <= 10 do
             i = i + 1
         end
-        if i <= 8 then
+        if i <= 9 then
             WriteByte(shared_abilities_address + i, shared_ability_value + 128)
         end
     end

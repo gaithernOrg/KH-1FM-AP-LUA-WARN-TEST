@@ -9,6 +9,7 @@ LUAGUI_DESC = "Kingdom Hearts 1FM AP Integration"
 
 offset = 0x3A0606
 canExecute = false
+dodgeDataAddr = 0
 
 function CountSharedAbilities()
     sharedAbilities = 0x2DE5F69 - offset
@@ -24,26 +25,6 @@ function CountSharedAbilities()
     return shared
 end
 
-function DodgeDataValid(a)
-    return ReadShort(a+0x18, true) == 0xEF and ReadShort(a+0x34, true) == 0x94
-end
-
-function CountSoraAbilities()
-    soraCurAbilities = 0x2DE5A14 - offset
-    local abils = {}
-    for i=0, 40 do
-        local ab = ReadByte(soraCurAbilities+i)
-        if ab==0 then
-            break
-        elseif not abils[ab] then
-            abils[ab] = 1
-        else
-            abils[ab] = abils[ab]+1
-        end
-    end
-    return abils
-end
-
 function StackAbilities()
     jumpHeights         = 0x2D1F46C - offset
     world               = 0x233CADC - offset
@@ -53,10 +34,10 @@ function StackAbilities()
     sharedAbilities     = 0x2DE5F69 - offset
     superglideSpeedHack = 0x2AE2B4 - offset
     mermaidKickSpeed    = 0x3ED5FC - offset
-    soraPointer         = 0x2534680 - offset
     stateFlag           = 0x2863958 - offset
     local countedAbilities = CountSharedAbilities()
     local jumpHeight = math.max(290, 190+(countedAbilities[1]*100))
+    stackAbilities = 2
 
     WriteShort(jumpHeights+2, jumpHeight)
     if ReadByte(world) == 0x10 and countedAbilities[3] == 0 and stackAbilities == 3 and (ReadByte(room) == 0x21 or 
@@ -83,33 +64,10 @@ function StackAbilities()
         
         WriteFloat(mermaidKickSpeed, 10+(8*countedAbilities[2]))
         
-        if stackAbilities == 3 then
-            if countedAbilities[3] == 0 and ReadLong(soraPointer) then
-                if (ReadByte(stateFlag) // 0x20) % 2 == 1 then
-                    WriteByte(stateFlag, ReadByte(stateFlag) - 0x20)
-                end
-                local airGround = ReadLong(soraPointer)+0x70
-                if ReadInt(ReadLong(soraPointer)+0xB0) > 0 then
-                    WriteByte(airGround, 2, true)
-                end
-            end
-        end
-        
         -- Allow early flight in Neverland if glide equipped
         if countedAbilities[3] > 0 and ReadByte(world) == 0xD then
             if (ReadByte(stateFlag) // 0x20) % 2 == 0 then
                 WriteByte(stateFlag, ReadByte(stateFlag) + 0x20)
-            end
-        end
-        
-        if not DodgeDataValid(dodgeDataAddr) then
-            dodgeDataAddr = GetDodgeDataAddr()
-        end
-        
-        if DodgeDataValid(dodgeDataAddr) then
-            local abils = CountSoraAbilities()
-            if abils[0x16] then
-                WriteShort(dodgeDataAddr+4, math.max(50-(12*abils[0x16]), 22), true)
             end
         end
     end
