@@ -55,3 +55,7 @@ assets:
   method: copy
   source:
   - name: 1fmAPKeybladeLock.lua
+- name: scripts/1fmAPStackableGrowth.lua
+  method: copy
+  source:
+  - name: 1fmAPStackableGrowth.lua
