@@ -557,7 +557,7 @@ function define_items()
   { ID = 2643062, Name = "Leaf Bracer", Usefulness = item_usefulness.progression },
   { ID = 2643063, Name = "Evolution" },
   { ID = 2643064, Name = "EXP Zero" },
-  { ID = 2643065, Name = "Combo Master" },
+  { ID = 2643065, Name = "Combo Master", Usefulness = item_usefulness.progression },
 
   --Stats Up
   { ID = 2644001, Name = "Max HP Increase" },
