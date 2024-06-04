@@ -15,10 +15,10 @@ assets:
   method: copy
   source:
   - name: 1fmAPFlagFixes.lua
-- name: scripts/1fmAPSaveAnywhere.lua
+- name: scripts/1fmBoardGummi.lua
   method: copy
   source:
-  - name: 1fmAPSaveAnywhere.lua
+  - name: 1fmBoardGummi.lua
 - name: scripts/1fmAPHandleDeathlink.lua
   method: copy
   source:
