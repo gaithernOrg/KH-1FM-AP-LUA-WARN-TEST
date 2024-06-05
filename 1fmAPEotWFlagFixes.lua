@@ -4,12 +4,14 @@
 -----------------------------------
 
 LUAGUI_NAME = "kh1fmAP"
-LUAGUI_AUTH = "Sonicshadowsilver2"
+LUAGUI_AUTH = "Sonicshadowsilver2 with edits from Gicu"
 LUAGUI_DESC = "Kingdom Hearts 1FM AP Integration"
 
-Now = 0x233CADC - 0x3A0606
-RoomFlags = 0x2DE7AAE - 0x3A0606
-CutsceneFlags = 0x2DE63D0 - 0x3A0606
+offset = 0x3A0606
+Now = 0x233CADC - offset
+RoomFlags = 0x2DE7AAE - offset
+CutsceneFlags = 0x2DE63D0 - offset
+eotw_world_terminus_hb_chest_address = 0x2DE5DFF - offset + 0x379
 canExecute = false
 
 function _OnInit()
@@ -31,6 +33,10 @@ function _OnFrame()
             WriteByte(RoomFlags+0x5F, 0x0D)
             WriteInt(RoomFlags+0x61, 0x0D0D0D0D)
             WriteInt(RoomFlags+0x65, 0x0D0D0D0D)
+        end
+        eotw_world_terminus_hb_chest_byte = ReadByte(eotw_world_terminus_hb_chest_address)
+        if eotw_world_terminus_hb_chest_byte % 2 == 0 then
+            WriteByte(eotw_world_terminus_hb_chest_address, eotw_world_terminus_hb_chest_byte + 1)
         end
     end
 end
