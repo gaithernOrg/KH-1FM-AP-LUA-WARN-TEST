@@ -64,3 +64,4235 @@ assets:
   method: copy
   source:
   - name: exchange/AP_treasure.ev
+- name: remastered/al01.ard/UK_al01_ard0.evdl
+  method: copy
+  source:
+  - name: remastered/al01.ard/AP_al01_ard0.evdl
+- name: remastered/al01.ard/UK_al01_ard19.evdl
+  method: copy
+  source:
+  - name: remastered/al01.ard/AP_al01_ard19.evdl
+- name: remastered/al01.ard/UK_al01_ard3.evdl
+  method: copy
+  source:
+  - name: remastered/al01.ard/AP_al01_ard3.evdl
+- name: remastered/al01.ard/UK_al01_ard4.evdl
+  method: copy
+  source:
+  - name: remastered/al01.ard/AP_al01_ard4.evdl
+- name: remastered/al01.ard/UK_al01_ard5.evdl
+  method: copy
+  source:
+  - name: remastered/al01.ard/AP_al01_ard5.evdl
+- name: remastered/al01.ard/UK_al01_ardc.evdl
+  method: copy
+  source:
+  - name: remastered/al01.ard/AP_al01_ardc.evdl
+- name: remastered/al01.ard/UK_al01_ardd.evdl
+  method: copy
+  source:
+  - name: remastered/al01.ard/AP_al01_ardd.evdl
+- name: remastered/al02.ard/UK_al02_ard0.evdl
+  method: copy
+  source:
+  - name: remastered/al02.ard/AP_al02_ard0.evdl
+- name: remastered/al02.ard/UK_al02_ard10.evdl
+  method: copy
+  source:
+  - name: remastered/al02.ard/AP_al02_ard10.evdl
+- name: remastered/al02.ard/UK_al02_ard19.evdl
+  method: copy
+  source:
+  - name: remastered/al02.ard/AP_al02_ard19.evdl
+- name: remastered/al02.ard/UK_al02_ard2.evdl
+  method: copy
+  source:
+  - name: remastered/al02.ard/AP_al02_ard2.evdl
+- name: remastered/al02.ard/UK_al02_ard3.evdl
+  method: copy
+  source:
+  - name: remastered/al02.ard/AP_al02_ard3.evdl
+- name: remastered/al02.ard/UK_al02_ard4.evdl
+  method: copy
+  source:
+  - name: remastered/al02.ard/AP_al02_ard4.evdl
+- name: remastered/al02.ard/UK_al02_ardc.evdl
+  method: copy
+  source:
+  - name: remastered/al02.ard/AP_al02_ardc.evdl
+- name: remastered/al02.ard/UK_al02_arde.evdl
+  method: copy
+  source:
+  - name: remastered/al02.ard/AP_al02_arde.evdl
+- name: remastered/al02.ard/UK_al02_ardf.evdl
+  method: copy
+  source:
+  - name: remastered/al02.ard/AP_al02_ardf.evdl
+- name: remastered/al03.ard/UK_al03_ard0.evdl
+  method: copy
+  source:
+  - name: remastered/al03.ard/AP_al03_ard0.evdl
+- name: remastered/al03.ard/UK_al03_ard10.evdl
+  method: copy
+  source:
+  - name: remastered/al03.ard/AP_al03_ard10.evdl
+- name: remastered/al03.ard/UK_al03_ard19.evdl
+  method: copy
+  source:
+  - name: remastered/al03.ard/AP_al03_ard19.evdl
+- name: remastered/al03.ard/UK_al03_ardc.evdl
+  method: copy
+  source:
+  - name: remastered/al03.ard/AP_al03_ardc.evdl
+- name: remastered/al03.ard/UK_al03_ardd.evdl
+  method: copy
+  source:
+  - name: remastered/al03.ard/AP_al03_ardd.evdl
+- name: remastered/al03.ard/UK_al03_arde.evdl
+  method: copy
+  source:
+  - name: remastered/al03.ard/AP_al03_arde.evdl
+- name: remastered/al03.ard/UK_al03_ardf.evdl
+  method: copy
+  source:
+  - name: remastered/al03.ard/AP_al03_ardf.evdl
+- name: remastered/al04.ard/UK_al04_ard0.evdl
+  method: copy
+  source:
+  - name: remastered/al04.ard/AP_al04_ard0.evdl
+- name: remastered/al04.ard/UK_al04_ard10.evdl
+  method: copy
+  source:
+  - name: remastered/al04.ard/AP_al04_ard10.evdl
+- name: remastered/al04.ard/UK_al04_ard19.evdl
+  method: copy
+  source:
+  - name: remastered/al04.ard/AP_al04_ard19.evdl
+- name: remastered/al04.ard/UK_al04_ard2.evdl
+  method: copy
+  source:
+  - name: remastered/al04.ard/AP_al04_ard2.evdl
+- name: remastered/al04.ard/UK_al04_ardc.evdl
+  method: copy
+  source:
+  - name: remastered/al04.ard/AP_al04_ardc.evdl
+- name: remastered/al04.ard/UK_al04_ardd.evdl
+  method: copy
+  source:
+  - name: remastered/al04.ard/AP_al04_ardd.evdl
+- name: remastered/al04.ard/UK_al04_arde.evdl
+  method: copy
+  source:
+  - name: remastered/al04.ard/AP_al04_arde.evdl
+- name: remastered/al04.ard/UK_al04_ardf.evdl
+  method: copy
+  source:
+  - name: remastered/al04.ard/AP_al04_ardf.evdl
+- name: remastered/al05.ard/UK_al05_ard0.evdl
+  method: copy
+  source:
+  - name: remastered/al05.ard/AP_al05_ard0.evdl
+- name: remastered/al05.ard/UK_al05_ard10.evdl
+  method: copy
+  source:
+  - name: remastered/al05.ard/AP_al05_ard10.evdl
+- name: remastered/al05.ard/UK_al05_ard18.evdl
+  method: copy
+  source:
+  - name: remastered/al05.ard/AP_al05_ard18.evdl
+- name: remastered/al05.ard/UK_al05_ard19.evdl
+  method: copy
+  source:
+  - name: remastered/al05.ard/AP_al05_ard19.evdl
+- name: remastered/al05.ard/UK_al05_ardc.evdl
+  method: copy
+  source:
+  - name: remastered/al05.ard/AP_al05_ardc.evdl
+- name: remastered/al05.ard/UK_al05_arde.evdl
+  method: copy
+  source:
+  - name: remastered/al05.ard/AP_al05_arde.evdl
+- name: remastered/al05.ard/UK_al05_ardf.evdl
+  method: copy
+  source:
+  - name: remastered/al05.ard/AP_al05_ardf.evdl
+- name: remastered/al06.ard/UK_al06_ard0.evdl
+  method: copy
+  source:
+  - name: remastered/al06.ard/AP_al06_ard0.evdl
+- name: remastered/al06.ard/UK_al06_ard10.evdl
+  method: copy
+  source:
+  - name: remastered/al06.ard/AP_al06_ard10.evdl
+- name: remastered/al06.ard/UK_al06_ard19.evdl
+  method: copy
+  source:
+  - name: remastered/al06.ard/AP_al06_ard19.evdl
+- name: remastered/al06.ard/UK_al06_ard2.evdl
+  method: copy
+  source:
+  - name: remastered/al06.ard/AP_al06_ard2.evdl
+- name: remastered/al06.ard/UK_al06_ardc.evdl
+  method: copy
+  source:
+  - name: remastered/al06.ard/AP_al06_ardc.evdl
+- name: remastered/al06.ard/UK_al06_ardd.evdl
+  method: copy
+  source:
+  - name: remastered/al06.ard/AP_al06_ardd.evdl
+- name: remastered/al06.ard/UK_al06_arde.evdl
+  method: copy
+  source:
+  - name: remastered/al06.ard/AP_al06_arde.evdl
+- name: remastered/al06.ard/UK_al06_ardf.evdl
+  method: copy
+  source:
+  - name: remastered/al06.ard/AP_al06_ardf.evdl
+- name: remastered/al07.ard/UK_al07_ard0.evdl
+  method: copy
+  source:
+  - name: remastered/al07.ard/AP_al07_ard0.evdl
+- name: remastered/al07.ard/UK_al07_ard10.evdl
+  method: copy
+  source:
+  - name: remastered/al07.ard/AP_al07_ard10.evdl
+- name: remastered/al07.ard/UK_al07_ard19.evdl
+  method: copy
+  source:
+  - name: remastered/al07.ard/AP_al07_ard19.evdl
+- name: remastered/al07.ard/UK_al07_ardc.evdl
+  method: copy
+  source:
+  - name: remastered/al07.ard/AP_al07_ardc.evdl
+- name: remastered/al07.ard/UK_al07_arde.evdl
+  method: copy
+  source:
+  - name: remastered/al07.ard/AP_al07_arde.evdl
+- name: remastered/al07.ard/UK_al07_ardf.evdl
+  method: copy
+  source:
+  - name: remastered/al07.ard/AP_al07_ardf.evdl
+- name: remastered/al08.ard/UK_al08_ard0.evdl
+  method: copy
+  source:
+  - name: remastered/al08.ard/AP_al08_ard0.evdl
+- name: remastered/al08.ard/UK_al08_ard19.evdl
+  method: copy
+  source:
+  - name: remastered/al08.ard/AP_al08_ard19.evdl
+- name: remastered/al08.ard/UK_al08_ardc.evdl
+  method: copy
+  source:
+  - name: remastered/al08.ard/AP_al08_ardc.evdl
+- name: remastered/al09.ard/UK_al09_ard0.evdl
+  method: copy
+  source:
+  - name: remastered/al09.ard/AP_al09_ard0.evdl
+- name: remastered/al09.ard/UK_al09_ard10.evdl
+  method: copy
+  source:
+  - name: remastered/al09.ard/AP_al09_ard10.evdl
+- name: remastered/al09.ard/UK_al09_ard19.evdl
+  method: copy
+  source:
+  - name: remastered/al09.ard/AP_al09_ard19.evdl
+- name: remastered/al09.ard/UK_al09_ardc.evdl
+  method: copy
+  source:
+  - name: remastered/al09.ard/AP_al09_ardc.evdl
+- name: remastered/al09.ard/UK_al09_ardf.evdl
+  method: copy
+  source:
+  - name: remastered/al09.ard/AP_al09_ardf.evdl
+- name: remastered/al10.ard/UK_al10_ard0.evdl
+  method: copy
+  source:
+  - name: remastered/al10.ard/AP_al10_ard0.evdl
+- name: remastered/al10.ard/UK_al10_ard10.evdl
+  method: copy
+  source:
+  - name: remastered/al10.ard/AP_al10_ard10.evdl
+- name: remastered/al10.ard/UK_al10_ard19.evdl
+  method: copy
+  source:
+  - name: remastered/al10.ard/AP_al10_ard19.evdl
+- name: remastered/al10.ard/UK_al10_ardc.evdl
+  method: copy
+  source:
+  - name: remastered/al10.ard/AP_al10_ardc.evdl
+- name: remastered/al10.ard/UK_al10_ardf.evdl
+  method: copy
+  source:
+  - name: remastered/al10.ard/AP_al10_ardf.evdl
+- name: remastered/al11.ard/UK_al11_ard0.evdl
+  method: copy
+  source:
+  - name: remastered/al11.ard/AP_al11_ard0.evdl
+- name: remastered/al11.ard/UK_al11_ard10.evdl
+  method: copy
+  source:
+  - name: remastered/al11.ard/AP_al11_ard10.evdl
+- name: remastered/al11.ard/UK_al11_ard19.evdl
+  method: copy
+  source:
+  - name: remastered/al11.ard/AP_al11_ard19.evdl
+- name: remastered/al11.ard/UK_al11_ardc.evdl
+  method: copy
+  source:
+  - name: remastered/al11.ard/AP_al11_ardc.evdl
+- name: remastered/al11.ard/UK_al11_ardf.evdl
+  method: copy
+  source:
+  - name: remastered/al11.ard/AP_al11_ardf.evdl
+- name: remastered/al12.ard/UK_al12_ard0.evdl
+  method: copy
+  source:
+  - name: remastered/al12.ard/AP_al12_ard0.evdl
+- name: remastered/al12.ard/UK_al12_ard10.evdl
+  method: copy
+  source:
+  - name: remastered/al12.ard/AP_al12_ard10.evdl
+- name: remastered/al12.ard/UK_al12_ard18.evdl
+  method: copy
+  source:
+  - name: remastered/al12.ard/AP_al12_ard18.evdl
+- name: remastered/al12.ard/UK_al12_ard19.evdl
+  method: copy
+  source:
+  - name: remastered/al12.ard/AP_al12_ard19.evdl
+- name: remastered/al12.ard/UK_al12_ardc.evdl
+  method: copy
+  source:
+  - name: remastered/al12.ard/AP_al12_ardc.evdl
+- name: remastered/al12.ard/UK_al12_ardf.evdl
+  method: copy
+  source:
+  - name: remastered/al12.ard/AP_al12_ardf.evdl
+- name: remastered/al13.ard/UK_al13_ard0.evdl
+  method: copy
+  source:
+  - name: remastered/al13.ard/AP_al13_ard0.evdl
+- name: remastered/al13.ard/UK_al13_ard10.evdl
+  method: copy
+  source:
+  - name: remastered/al13.ard/AP_al13_ard10.evdl
+- name: remastered/al13.ard/UK_al13_ard19.evdl
+  method: copy
+  source:
+  - name: remastered/al13.ard/AP_al13_ard19.evdl
+- name: remastered/al13.ard/UK_al13_ardc.evdl
+  method: copy
+  source:
+  - name: remastered/al13.ard/AP_al13_ardc.evdl
+- name: remastered/al13.ard/UK_al13_ardf.evdl
+  method: copy
+  source:
+  - name: remastered/al13.ard/AP_al13_ardf.evdl
+- name: remastered/al14.ard/UK_al14_ard0.evdl
+  method: copy
+  source:
+  - name: remastered/al14.ard/AP_al14_ard0.evdl
+- name: remastered/al14.ard/UK_al14_ard10.evdl
+  method: copy
+  source:
+  - name: remastered/al14.ard/AP_al14_ard10.evdl
+- name: remastered/al14.ard/UK_al14_ard19.evdl
+  method: copy
+  source:
+  - name: remastered/al14.ard/AP_al14_ard19.evdl
+- name: remastered/al14.ard/UK_al14_ardc.evdl
+  method: copy
+  source:
+  - name: remastered/al14.ard/AP_al14_ardc.evdl
+- name: remastered/al14.ard/UK_al14_ardf.evdl
+  method: copy
+  source:
+  - name: remastered/al14.ard/AP_al14_ardf.evdl
+- name: remastered/al15.ard/UK_al15_ard0.evdl
+  method: copy
+  source:
+  - name: remastered/al15.ard/AP_al15_ard0.evdl
+- name: remastered/al15.ard/UK_al15_ard10.evdl
+  method: copy
+  source:
+  - name: remastered/al15.ard/AP_al15_ard10.evdl
+- name: remastered/al15.ard/UK_al15_ard19.evdl
+  method: copy
+  source:
+  - name: remastered/al15.ard/AP_al15_ard19.evdl
+- name: remastered/al15.ard/UK_al15_ardc.evdl
+  method: copy
+  source:
+  - name: remastered/al15.ard/AP_al15_ardc.evdl
+- name: remastered/al15.ard/UK_al15_ardf.evdl
+  method: copy
+  source:
+  - name: remastered/al15.ard/AP_al15_ardf.evdl
+- name: remastered/al16.ard/UK_al16_ard0.evdl
+  method: copy
+  source:
+  - name: remastered/al16.ard/AP_al16_ard0.evdl
+- name: remastered/al16.ard/UK_al16_ard10.evdl
+  method: copy
+  source:
+  - name: remastered/al16.ard/AP_al16_ard10.evdl
+- name: remastered/al16.ard/UK_al16_ard19.evdl
+  method: copy
+  source:
+  - name: remastered/al16.ard/AP_al16_ard19.evdl
+- name: remastered/al16.ard/UK_al16_ardc.evdl
+  method: copy
+  source:
+  - name: remastered/al16.ard/AP_al16_ardc.evdl
+- name: remastered/al16.ard/UK_al16_ardf.evdl
+  method: copy
+  source:
+  - name: remastered/al16.ard/AP_al16_ardf.evdl
+- name: remastered/al17.ard/UK_al17_ard0.evdl
+  method: copy
+  source:
+  - name: remastered/al17.ard/AP_al17_ard0.evdl
+- name: remastered/al17.ard/UK_al17_ard10.evdl
+  method: copy
+  source:
+  - name: remastered/al17.ard/AP_al17_ard10.evdl
+- name: remastered/al17.ard/UK_al17_ard19.evdl
+  method: copy
+  source:
+  - name: remastered/al17.ard/AP_al17_ard19.evdl
+- name: remastered/al17.ard/UK_al17_ard3.evdl
+  method: copy
+  source:
+  - name: remastered/al17.ard/AP_al17_ard3.evdl
+- name: remastered/al17.ard/UK_al17_ard4.evdl
+  method: copy
+  source:
+  - name: remastered/al17.ard/AP_al17_ard4.evdl
+- name: remastered/al17.ard/UK_al17_ard5.evdl
+  method: copy
+  source:
+  - name: remastered/al17.ard/AP_al17_ard5.evdl
+- name: remastered/al17.ard/UK_al17_ard6.evdl
+  method: copy
+  source:
+  - name: remastered/al17.ard/AP_al17_ard6.evdl
+- name: remastered/al17.ard/UK_al17_ardc.evdl
+  method: copy
+  source:
+  - name: remastered/al17.ard/AP_al17_ardc.evdl
+- name: remastered/al17.ard/UK_al17_ardf.evdl
+  method: copy
+  source:
+  - name: remastered/al17.ard/AP_al17_ardf.evdl
+- name: remastered/al18.ard/UK_al18_ard0.evdl
+  method: copy
+  source:
+  - name: remastered/al18.ard/AP_al18_ard0.evdl
+- name: remastered/al18.ard/UK_al18_ard16.evdl
+  method: copy
+  source:
+  - name: remastered/al18.ard/AP_al18_ard16.evdl
+- name: remastered/al18.ard/UK_al18_ard19.evdl
+  method: copy
+  source:
+  - name: remastered/al18.ard/AP_al18_ard19.evdl
+- name: remastered/al18.ard/UK_al18_ardc.evdl
+  method: copy
+  source:
+  - name: remastered/al18.ard/AP_al18_ardc.evdl
+- name: remastered/al19.ard/UK_al19_ard0.evdl
+  method: copy
+  source:
+  - name: remastered/al19.ard/AP_al19_ard0.evdl
+- name: remastered/al19.ard/UK_al19_ard19.evdl
+  method: copy
+  source:
+  - name: remastered/al19.ard/AP_al19_ard19.evdl
+- name: remastered/al19.ard/UK_al19_ard2.evdl
+  method: copy
+  source:
+  - name: remastered/al19.ard/AP_al19_ard2.evdl
+- name: remastered/al19.ard/UK_al19_ard3.evdl
+  method: copy
+  source:
+  - name: remastered/al19.ard/AP_al19_ard3.evdl
+- name: remastered/al19.ard/UK_al19_ard4.evdl
+  method: copy
+  source:
+  - name: remastered/al19.ard/AP_al19_ard4.evdl
+- name: remastered/al19.ard/UK_al19_ard5.evdl
+  method: copy
+  source:
+  - name: remastered/al19.ard/AP_al19_ard5.evdl
+- name: remastered/al19.ard/UK_al19_ardc.evdl
+  method: copy
+  source:
+  - name: remastered/al19.ard/AP_al19_ardc.evdl
+- name: remastered/al20.ard/UK_al20_ard0.evdl
+  method: copy
+  source:
+  - name: remastered/al20.ard/AP_al20_ard0.evdl
+- name: remastered/al20.ard/UK_al20_ard19.evdl
+  method: copy
+  source:
+  - name: remastered/al20.ard/AP_al20_ard19.evdl
+- name: remastered/al20.ard/UK_al20_ardc.evdl
+  method: copy
+  source:
+  - name: remastered/al20.ard/AP_al20_ardc.evdl
+- name: remastered/al21.ard/UK_al21_ard19.evdl
+  method: copy
+  source:
+  - name: remastered/al21.ard/AP_al21_ard19.evdl
+- name: remastered/al21.ard/UK_al21_ardc.evdl
+  method: copy
+  source:
+  - name: remastered/al21.ard/AP_al21_ardc.evdl
+- name: remastered/aw01.ard/UK_aw01_ard0.evdl
+  method: copy
+  source:
+  - name: remastered/aw01.ard/AP_aw01_ard0.evdl
+- name: remastered/aw01.ard/UK_aw01_ard10.evdl
+  method: copy
+  source:
+  - name: remastered/aw01.ard/AP_aw01_ard10.evdl
+- name: remastered/aw01.ard/UK_aw01_ard19.evdl
+  method: copy
+  source:
+  - name: remastered/aw01.ard/AP_aw01_ard19.evdl
+- name: remastered/aw01.ard/UK_aw01_ard2.evdl
+  method: copy
+  source:
+  - name: remastered/aw01.ard/AP_aw01_ard2.evdl
+- name: remastered/aw01.ard/UK_aw01_ardc.evdl
+  method: copy
+  source:
+  - name: remastered/aw01.ard/AP_aw01_ardc.evdl
+- name: remastered/aw01.ard/UK_aw01_ardd.evdl
+  method: copy
+  source:
+  - name: remastered/aw01.ard/AP_aw01_ardd.evdl
+- name: remastered/aw01.ard/UK_aw01_arde.evdl
+  method: copy
+  source:
+  - name: remastered/aw01.ard/AP_aw01_arde.evdl
+- name: remastered/aw02.ard/UK_aw02_ard0.evdl
+  method: copy
+  source:
+  - name: remastered/aw02.ard/AP_aw02_ard0.evdl
+- name: remastered/aw02.ard/UK_aw02_ard10.evdl
+  method: copy
+  source:
+  - name: remastered/aw02.ard/AP_aw02_ard10.evdl
+- name: remastered/aw02.ard/UK_aw02_ard19.evdl
+  method: copy
+  source:
+  - name: remastered/aw02.ard/AP_aw02_ard19.evdl
+- name: remastered/aw02.ard/UK_aw02_ard2.evdl
+  method: copy
+  source:
+  - name: remastered/aw02.ard/AP_aw02_ard2.evdl
+- name: remastered/aw02.ard/UK_aw02_ardc.evdl
+  method: copy
+  source:
+  - name: remastered/aw02.ard/AP_aw02_ardc.evdl
+- name: remastered/aw02.ard/UK_aw02_ardd.evdl
+  method: copy
+  source:
+  - name: remastered/aw02.ard/AP_aw02_ardd.evdl
+- name: remastered/aw02.ard/UK_aw02_arde.evdl
+  method: copy
+  source:
+  - name: remastered/aw02.ard/AP_aw02_arde.evdl
+- name: remastered/aw03.ard/UK_aw03_ard0.evdl
+  method: copy
+  source:
+  - name: remastered/aw03.ard/AP_aw03_ard0.evdl
+- name: remastered/aw03.ard/UK_aw03_ard19.evdl
+  method: copy
+  source:
+  - name: remastered/aw03.ard/AP_aw03_ard19.evdl
+- name: remastered/aw03.ard/UK_aw03_ard2.evdl
+  method: copy
+  source:
+  - name: remastered/aw03.ard/AP_aw03_ard2.evdl
+- name: remastered/aw03.ard/UK_aw03_ardc.evdl
+  method: copy
+  source:
+  - name: remastered/aw03.ard/AP_aw03_ardc.evdl
+- name: remastered/aw04.ard/UK_aw04_ard0.evdl
+  method: copy
+  source:
+  - name: remastered/aw04.ard/AP_aw04_ard0.evdl
+- name: remastered/aw04.ard/UK_aw04_ard1.evdl
+  method: copy
+  source:
+  - name: remastered/aw04.ard/AP_aw04_ard1.evdl
+- name: remastered/aw04.ard/UK_aw04_ard19.evdl
+  method: copy
+  source:
+  - name: remastered/aw04.ard/AP_aw04_ard19.evdl
+- name: remastered/aw04.ard/UK_aw04_ard2.evdl
+  method: copy
+  source:
+  - name: remastered/aw04.ard/AP_aw04_ard2.evdl
+- name: remastered/aw04.ard/UK_aw04_ardc.evdl
+  method: copy
+  source:
+  - name: remastered/aw04.ard/AP_aw04_ardc.evdl
+- name: remastered/aw05.ard/UK_aw05_ard0.evdl
+  method: copy
+  source:
+  - name: remastered/aw05.ard/AP_aw05_ard0.evdl
+- name: remastered/aw05.ard/UK_aw05_ard10.evdl
+  method: copy
+  source:
+  - name: remastered/aw05.ard/AP_aw05_ard10.evdl
+- name: remastered/aw05.ard/UK_aw05_ard13.evdl
+  method: copy
+  source:
+  - name: remastered/aw05.ard/AP_aw05_ard13.evdl
+- name: remastered/aw05.ard/UK_aw05_ard19.evdl
+  method: copy
+  source:
+  - name: remastered/aw05.ard/AP_aw05_ard19.evdl
+- name: remastered/aw05.ard/UK_aw05_ard2.evdl
+  method: copy
+  source:
+  - name: remastered/aw05.ard/AP_aw05_ard2.evdl
+- name: remastered/aw05.ard/UK_aw05_ardc.evdl
+  method: copy
+  source:
+  - name: remastered/aw05.ard/AP_aw05_ardc.evdl
+- name: remastered/aw05.ard/UK_aw05_ardd.evdl
+  method: copy
+  source:
+  - name: remastered/aw05.ard/AP_aw05_ardd.evdl
+- name: remastered/aw05.ard/UK_aw05_arde.evdl
+  method: copy
+  source:
+  - name: remastered/aw05.ard/AP_aw05_arde.evdl
+- name: remastered/aw06.ard/UK_aw06_ard0.evdl
+  method: copy
+  source:
+  - name: remastered/aw06.ard/AP_aw06_ard0.evdl
+- name: remastered/aw06.ard/UK_aw06_ardc.evdl
+  method: copy
+  source:
+  - name: remastered/aw06.ard/AP_aw06_ardc.evdl
+- name: remastered/aw07.ard/UK_aw07_ard0.evdl
+  method: copy
+  source:
+  - name: remastered/aw07.ard/AP_aw07_ard0.evdl
+- name: remastered/aw07.ard/UK_aw07_ard10.evdl
+  method: copy
+  source:
+  - name: remastered/aw07.ard/AP_aw07_ard10.evdl
+- name: remastered/aw07.ard/UK_aw07_ard19.evdl
+  method: copy
+  source:
+  - name: remastered/aw07.ard/AP_aw07_ard19.evdl
+- name: remastered/aw07.ard/UK_aw07_ardc.evdl
+  method: copy
+  source:
+  - name: remastered/aw07.ard/AP_aw07_ardc.evdl
+- name: remastered/aw07.ard/UK_aw07_arde.evdl
+  method: copy
+  source:
+  - name: remastered/aw07.ard/AP_aw07_arde.evdl
+- name: remastered/aw07.ard/UK_aw07_ardf.evdl
+  method: copy
+  source:
+  - name: remastered/aw07.ard/AP_aw07_ardf.evdl
+- name: remastered/aw08.ard/UK_aw08_ard0.evdl
+  method: copy
+  source:
+  - name: remastered/aw08.ard/AP_aw08_ard0.evdl
+- name: remastered/aw08.ard/UK_aw08_ard10.evdl
+  method: copy
+  source:
+  - name: remastered/aw08.ard/AP_aw08_ard10.evdl
+- name: remastered/aw08.ard/UK_aw08_ard19.evdl
+  method: copy
+  source:
+  - name: remastered/aw08.ard/AP_aw08_ard19.evdl
+- name: remastered/aw08.ard/UK_aw08_ardc.evdl
+  method: copy
+  source:
+  - name: remastered/aw08.ard/AP_aw08_ardc.evdl
+- name: remastered/aw08.ard/UK_aw08_arde.evdl
+  method: copy
+  source:
+  - name: remastered/aw08.ard/AP_aw08_arde.evdl
+- name: remastered/aw08.ard/UK_aw08_ardf.evdl
+  method: copy
+  source:
+  - name: remastered/aw08.ard/AP_aw08_ardf.evdl
+- name: remastered/aw09.ard/UK_aw09_ard0.evdl
+  method: copy
+  source:
+  - name: remastered/aw09.ard/AP_aw09_ard0.evdl
+- name: remastered/aw09.ard/UK_aw09_ard10.evdl
+  method: copy
+  source:
+  - name: remastered/aw09.ard/AP_aw09_ard10.evdl
+- name: remastered/aw09.ard/UK_aw09_ard19.evdl
+  method: copy
+  source:
+  - name: remastered/aw09.ard/AP_aw09_ard19.evdl
+- name: remastered/aw09.ard/UK_aw09_ardc.evdl
+  method: copy
+  source:
+  - name: remastered/aw09.ard/AP_aw09_ardc.evdl
+- name: remastered/aw09.ard/UK_aw09_arde.evdl
+  method: copy
+  source:
+  - name: remastered/aw09.ard/AP_aw09_arde.evdl
+- name: remastered/aw09.ard/UK_aw09_ardf.evdl
+  method: copy
+  source:
+  - name: remastered/aw09.ard/AP_aw09_ardf.evdl
+- name: remastered/aw10.ard/UK_aw10_ard10.evdl
+  method: copy
+  source:
+  - name: remastered/aw10.ard/AP_aw10_ard10.evdl
+- name: remastered/aw10.ard/UK_aw10_ard19.evdl
+  method: copy
+  source:
+  - name: remastered/aw10.ard/AP_aw10_ard19.evdl
+- name: remastered/aw10.ard/UK_aw10_ardc.evdl
+  method: copy
+  source:
+  - name: remastered/aw10.ard/AP_aw10_ardc.evdl
+- name: remastered/aw10.ard/UK_aw10_ardd.evdl
+  method: copy
+  source:
+  - name: remastered/aw10.ard/AP_aw10_ardd.evdl
+- name: remastered/aw10.ard/UK_aw10_arde.evdl
+  method: copy
+  source:
+  - name: remastered/aw10.ard/AP_aw10_arde.evdl
+- name: remastered/dc01.ard/UK_dc01_ard0.evdl
+  method: copy
+  source:
+  - name: remastered/dc01.ard/AP_dc01_ard0.evdl
+- name: remastered/dc01.ard/UK_dc01_ard19.evdl
+  method: copy
+  source:
+  - name: remastered/dc01.ard/AP_dc01_ard19.evdl
+- name: remastered/dc02.ard/UK_dc02_ard0.evdl
+  method: copy
+  source:
+  - name: remastered/dc02.ard/AP_dc02_ard0.evdl
+- name: remastered/dc02.ard/UK_dc02_ard19.evdl
+  method: copy
+  source:
+  - name: remastered/dc02.ard/AP_dc02_ard19.evdl
+- name: remastered/dc03.ard/UK_dc03_ard0.evdl
+  method: copy
+  source:
+  - name: remastered/dc03.ard/AP_dc03_ard0.evdl
+- name: remastered/dc03.ard/UK_dc03_ard19.evdl
+  method: copy
+  source:
+  - name: remastered/dc03.ard/AP_dc03_ard19.evdl
+- name: remastered/dc04.ard/UK_dc04_ard0.evdl
+  method: copy
+  source:
+  - name: remastered/dc04.ard/AP_dc04_ard0.evdl
+- name: remastered/dc04.ard/UK_dc04_ard19.evdl
+  method: copy
+  source:
+  - name: remastered/dc04.ard/AP_dc04_ard19.evdl
+- name: remastered/dc05.ard/UK_dc05_ard0.evdl
+  method: copy
+  source:
+  - name: remastered/dc05.ard/AP_dc05_ard0.evdl
+- name: remastered/dc05.ard/UK_dc05_ard19.evdl
+  method: copy
+  source:
+  - name: remastered/dc05.ard/AP_dc05_ard19.evdl
+- name: remastered/dc06.ard/UK_dc06_ard0.evdl
+  method: copy
+  source:
+  - name: remastered/dc06.ard/AP_dc06_ard0.evdl
+- name: remastered/dc06.ard/UK_dc06_ard19.evdl
+  method: copy
+  source:
+  - name: remastered/dc06.ard/AP_dc06_ard19.evdl
+- name: remastered/dc07.ard/UK_dc07_ard19.evdl
+  method: copy
+  source:
+  - name: remastered/dc07.ard/AP_dc07_ard19.evdl
+- name: remastered/dc08.ard/UK_dc08_ard0.evdl
+  method: copy
+  source:
+  - name: remastered/dc08.ard/AP_dc08_ard0.evdl
+- name: remastered/dc08.ard/UK_dc08_ard19.evdl
+  method: copy
+  source:
+  - name: remastered/dc08.ard/AP_dc08_ard19.evdl
+- name: remastered/dc09.ard/UK_dc09_ard0.evdl
+  method: copy
+  source:
+  - name: remastered/dc09.ard/AP_dc09_ard0.evdl
+- name: remastered/dc09.ard/UK_dc09_ard19.evdl
+  method: copy
+  source:
+  - name: remastered/dc09.ard/AP_dc09_ard19.evdl
+- name: remastered/dh01.ard/UK_dh01_ard19.evdl
+  method: copy
+  source:
+  - name: remastered/dh01.ard/AP_dh01_ard19.evdl
+- name: remastered/dh01.ard/UK_dh01_ard2.evdl
+  method: copy
+  source:
+  - name: remastered/dh01.ard/AP_dh01_ard2.evdl
+- name: remastered/dh02.ard/UK_dh02_ard0.evdl
+  method: copy
+  source:
+  - name: remastered/dh02.ard/AP_dh02_ard0.evdl
+- name: remastered/dh02.ard/UK_dh02_ard19.evdl
+  method: copy
+  source:
+  - name: remastered/dh02.ard/AP_dh02_ard19.evdl
+- name: remastered/dh02.ard/UK_dh02_ard3.evdl
+  method: copy
+  source:
+  - name: remastered/dh02.ard/AP_dh02_ard3.evdl
+- name: remastered/dh03.ard/UK_dh03_ard0.evdl
+  method: copy
+  source:
+  - name: remastered/dh03.ard/AP_dh03_ard0.evdl
+- name: remastered/dh03.ard/UK_dh03_ard19.evdl
+  method: copy
+  source:
+  - name: remastered/dh03.ard/AP_dh03_ard19.evdl
+- name: remastered/dh03.ard/UK_dh03_ard3.evdl
+  method: copy
+  source:
+  - name: remastered/dh03.ard/AP_dh03_ard3.evdl
+- name: remastered/dh05.ard/UK_dh05_ard0.evdl
+  method: copy
+  source:
+  - name: remastered/dh05.ard/AP_dh05_ard0.evdl
+- name: remastered/dh05.ard/UK_dh05_ard19.evdl
+  method: copy
+  source:
+  - name: remastered/dh05.ard/AP_dh05_ard19.evdl
+- name: remastered/dh05.ard/UK_dh05_ard3.evdl
+  method: copy
+  source:
+  - name: remastered/dh05.ard/AP_dh05_ard3.evdl
+- name: remastered/dh06.ard/UK_dh06_ard0.evdl
+  method: copy
+  source:
+  - name: remastered/dh06.ard/AP_dh06_ard0.evdl
+- name: remastered/dh06.ard/UK_dh06_ard19.evdl
+  method: copy
+  source:
+  - name: remastered/dh06.ard/AP_dh06_ard19.evdl
+- name: remastered/dh06.ard/UK_dh06_ard3.evdl
+  method: copy
+  source:
+  - name: remastered/dh06.ard/AP_dh06_ard3.evdl
+- name: remastered/di01.ard/UK_di01_ard0.evdl
+  method: copy
+  source:
+  - name: remastered/di01.ard/AP_di01_ard0.evdl
+- name: remastered/di01.ard/UK_di01_ard19.evdl
+  method: copy
+  source:
+  - name: remastered/di01.ard/AP_di01_ard19.evdl
+- name: remastered/di01.ard/UK_di01_ard2.evdl
+  method: copy
+  source:
+  - name: remastered/di01.ard/AP_di01_ard2.evdl
+- name: remastered/di01.ard/UK_di01_ard4.evdl
+  method: copy
+  source:
+  - name: remastered/di01.ard/AP_di01_ard4.evdl
+- name: remastered/di01.ard/UK_di01_ardc.evdl
+  method: copy
+  source:
+  - name: remastered/di01.ard/AP_di01_ardc.evdl
+- name: remastered/di02.ard/UK_di02_ard0.evdl
+  method: copy
+  source:
+  - name: remastered/di02.ard/AP_di02_ard0.evdl
+- name: remastered/di02.ard/UK_di02_ard19.evdl
+  method: copy
+  source:
+  - name: remastered/di02.ard/AP_di02_ard19.evdl
+- name: remastered/di02.ard/UK_di02_ard2.evdl
+  method: copy
+  source:
+  - name: remastered/di02.ard/AP_di02_ard2.evdl
+- name: remastered/di02.ard/UK_di02_ardc.evdl
+  method: copy
+  source:
+  - name: remastered/di02.ard/AP_di02_ardc.evdl
+- name: remastered/di03.ard/UK_di03_ard0.evdl
+  method: copy
+  source:
+  - name: remastered/di03.ard/AP_di03_ard0.evdl
+- name: remastered/di03.ard/UK_di03_ard19.evdl
+  method: copy
+  source:
+  - name: remastered/di03.ard/AP_di03_ard19.evdl
+- name: remastered/di03.ard/UK_di03_ardc.evdl
+  method: copy
+  source:
+  - name: remastered/di03.ard/AP_di03_ardc.evdl
+- name: remastered/di04.ard/UK_di04_ard0.evdl
+  method: copy
+  source:
+  - name: remastered/di04.ard/AP_di04_ard0.evdl
+- name: remastered/di04.ard/UK_di04_ard19.evdl
+  method: copy
+  source:
+  - name: remastered/di04.ard/AP_di04_ard19.evdl
+- name: remastered/di04.ard/UK_di04_ard2.evdl
+  method: copy
+  source:
+  - name: remastered/di04.ard/AP_di04_ard2.evdl
+- name: remastered/di04.ard/UK_di04_ardc.evdl
+  method: copy
+  source:
+  - name: remastered/di04.ard/AP_di04_ardc.evdl
+- name: remastered/di05.ard/UK_di05_ard0.evdl
+  method: copy
+  source:
+  - name: remastered/di05.ard/AP_di05_ard0.evdl
+- name: remastered/di05.ard/UK_di05_ard19.evdl
+  method: copy
+  source:
+  - name: remastered/di05.ard/AP_di05_ard19.evdl
+- name: remastered/di06.ard/UK_di06_ard0.evdl
+  method: copy
+  source:
+  - name: remastered/di06.ard/AP_di06_ard0.evdl
+- name: remastered/di06.ard/UK_di06_ard19.evdl
+  method: copy
+  source:
+  - name: remastered/di06.ard/AP_di06_ard19.evdl
+- name: remastered/di06.ard/UK_di06_ardc.evdl
+  method: copy
+  source:
+  - name: remastered/di06.ard/AP_di06_ardc.evdl
+- name: remastered/di07.ard/UK_di07_ard0.evdl
+  method: copy
+  source:
+  - name: remastered/di07.ard/AP_di07_ard0.evdl
+- name: remastered/di07.ard/UK_di07_ard19.evdl
+  method: copy
+  source:
+  - name: remastered/di07.ard/AP_di07_ard19.evdl
+- name: remastered/di07.ard/UK_di07_ardc.evdl
+  method: copy
+  source:
+  - name: remastered/di07.ard/AP_di07_ardc.evdl
+- name: remastered/di08.ard/UK_di08_ard0.evdl
+  method: copy
+  source:
+  - name: remastered/di08.ard/AP_di08_ard0.evdl
+- name: remastered/di08.ard/UK_di08_ard19.evdl
+  method: copy
+  source:
+  - name: remastered/di08.ard/AP_di08_ard19.evdl
+- name: remastered/di08.ard/UK_di08_ardc.evdl
+  method: copy
+  source:
+  - name: remastered/di08.ard/AP_di08_ardc.evdl
+- name: remastered/di09.ard/UK_di09_ard0.evdl
+  method: copy
+  source:
+  - name: remastered/di09.ard/AP_di09_ard0.evdl
+- name: remastered/di09.ard/UK_di09_ard19.evdl
+  method: copy
+  source:
+  - name: remastered/di09.ard/AP_di09_ard19.evdl
+- name: remastered/di10.ard/UK_di10_ard0.evdl
+  method: copy
+  source:
+  - name: remastered/di10.ard/AP_di10_ard0.evdl
+- name: remastered/di10.ard/UK_di10_ard19.evdl
+  method: copy
+  source:
+  - name: remastered/di10.ard/AP_di10_ard19.evdl
+- name: remastered/di11.ard/UK_di11_ard0.evdl
+  method: copy
+  source:
+  - name: remastered/di11.ard/AP_di11_ard0.evdl
+- name: remastered/di11.ard/UK_di11_ard19.evdl
+  method: copy
+  source:
+  - name: remastered/di11.ard/AP_di11_ard19.evdl
+- name: remastered/di11.ard/UK_di11_ardc.evdl
+  method: copy
+  source:
+  - name: remastered/di11.ard/AP_di11_ardc.evdl
+- name: remastered/di12.ard/UK_di12_ard19.evdl
+  method: copy
+  source:
+  - name: remastered/di12.ard/AP_di12_ard19.evdl
+- name: remastered/di12.ard/UK_di12_ard4.evdl
+  method: copy
+  source:
+  - name: remastered/di12.ard/AP_di12_ard4.evdl
+- name: remastered/ew01.ard/UK_ew01_ard0.evdl
+  method: copy
+  source:
+  - name: remastered/ew01.ard/AP_ew01_ard0.evdl
+- name: remastered/ew01.ard/UK_ew01_ard19.evdl
+  method: copy
+  source:
+  - name: remastered/ew01.ard/AP_ew01_ard19.evdl
+- name: remastered/ew01.ard/UK_ew01_ardc.evdl
+  method: copy
+  source:
+  - name: remastered/ew01.ard/AP_ew01_ardc.evdl
+- name: remastered/ew01.ard/UK_ew01_ardd.evdl
+  method: copy
+  source:
+  - name: remastered/ew01.ard/AP_ew01_ardd.evdl
+- name: remastered/ew02.ard/UK_ew02_ard0.evdl
+  method: copy
+  source:
+  - name: remastered/ew02.ard/AP_ew02_ard0.evdl
+- name: remastered/ew02.ard/UK_ew02_ard19.evdl
+  method: copy
+  source:
+  - name: remastered/ew02.ard/AP_ew02_ard19.evdl
+- name: remastered/ew02.ard/UK_ew02_ardc.evdl
+  method: copy
+  source:
+  - name: remastered/ew02.ard/AP_ew02_ardc.evdl
+- name: remastered/ew02.ard/UK_ew02_ardd.evdl
+  method: copy
+  source:
+  - name: remastered/ew02.ard/AP_ew02_ardd.evdl
+- name: remastered/ew03.ard/UK_ew03_ard19.evdl
+  method: copy
+  source:
+  - name: remastered/ew03.ard/AP_ew03_ard19.evdl
+- name: remastered/ew03.ard/UK_ew03_ardc.evdl
+  method: copy
+  source:
+  - name: remastered/ew03.ard/AP_ew03_ardc.evdl
+- name: remastered/ew03.ard/UK_ew03_ardd.evdl
+  method: copy
+  source:
+  - name: remastered/ew03.ard/AP_ew03_ardd.evdl
+- name: remastered/ew04.ard/UK_ew04_ard19.evdl
+  method: copy
+  source:
+  - name: remastered/ew04.ard/AP_ew04_ard19.evdl
+- name: remastered/ew04.ard/UK_ew04_ardc.evdl
+  method: copy
+  source:
+  - name: remastered/ew04.ard/AP_ew04_ardc.evdl
+- name: remastered/ew04.ard/UK_ew04_ardd.evdl
+  method: copy
+  source:
+  - name: remastered/ew04.ard/AP_ew04_ardd.evdl
+- name: remastered/ew05.ard/UK_ew05_ard19.evdl
+  method: copy
+  source:
+  - name: remastered/ew05.ard/AP_ew05_ard19.evdl
+- name: remastered/ew05.ard/UK_ew05_ardc.evdl
+  method: copy
+  source:
+  - name: remastered/ew05.ard/AP_ew05_ardc.evdl
+- name: remastered/ew05.ard/UK_ew05_ardd.evdl
+  method: copy
+  source:
+  - name: remastered/ew05.ard/AP_ew05_ardd.evdl
+- name: remastered/ew06.ard/UK_ew06_ard19.evdl
+  method: copy
+  source:
+  - name: remastered/ew06.ard/AP_ew06_ard19.evdl
+- name: remastered/ew06.ard/UK_ew06_ardc.evdl
+  method: copy
+  source:
+  - name: remastered/ew06.ard/AP_ew06_ardc.evdl
+- name: remastered/ew06.ard/UK_ew06_ardd.evdl
+  method: copy
+  source:
+  - name: remastered/ew06.ard/AP_ew06_ardd.evdl
+- name: remastered/ew07.ard/UK_ew07_ard19.evdl
+  method: copy
+  source:
+  - name: remastered/ew07.ard/AP_ew07_ard19.evdl
+- name: remastered/ew07.ard/UK_ew07_ardc.evdl
+  method: copy
+  source:
+  - name: remastered/ew07.ard/AP_ew07_ardc.evdl
+- name: remastered/ew07.ard/UK_ew07_ardd.evdl
+  method: copy
+  source:
+  - name: remastered/ew07.ard/AP_ew07_ardd.evdl
+- name: remastered/ew08.ard/UK_ew08_ard19.evdl
+  method: copy
+  source:
+  - name: remastered/ew08.ard/AP_ew08_ard19.evdl
+- name: remastered/ew08.ard/UK_ew08_ardc.evdl
+  method: copy
+  source:
+  - name: remastered/ew08.ard/AP_ew08_ardc.evdl
+- name: remastered/ew08.ard/UK_ew08_ardd.evdl
+  method: copy
+  source:
+  - name: remastered/ew08.ard/AP_ew08_ardd.evdl
+- name: remastered/ew09.ard/UK_ew09_ard19.evdl
+  method: copy
+  source:
+  - name: remastered/ew09.ard/AP_ew09_ard19.evdl
+- name: remastered/ew09.ard/UK_ew09_ardc.evdl
+  method: copy
+  source:
+  - name: remastered/ew09.ard/AP_ew09_ardc.evdl
+- name: remastered/ew09.ard/UK_ew09_ardd.evdl
+  method: copy
+  source:
+  - name: remastered/ew09.ard/AP_ew09_ardd.evdl
+- name: remastered/ew10.ard/UK_ew10_ard19.evdl
+  method: copy
+  source:
+  - name: remastered/ew10.ard/AP_ew10_ard19.evdl
+- name: remastered/ew10.ard/UK_ew10_ardc.evdl
+  method: copy
+  source:
+  - name: remastered/ew10.ard/AP_ew10_ardc.evdl
+- name: remastered/ew10.ard/UK_ew10_ardd.evdl
+  method: copy
+  source:
+  - name: remastered/ew10.ard/AP_ew10_ardd.evdl
+- name: remastered/ew11.ard/UK_ew11_ard19.evdl
+  method: copy
+  source:
+  - name: remastered/ew11.ard/AP_ew11_ard19.evdl
+- name: remastered/ew11.ard/UK_ew11_ardc.evdl
+  method: copy
+  source:
+  - name: remastered/ew11.ard/AP_ew11_ardc.evdl
+- name: remastered/ew11.ard/UK_ew11_ardd.evdl
+  method: copy
+  source:
+  - name: remastered/ew11.ard/AP_ew11_ardd.evdl
+- name: remastered/ew12.ard/UK_ew12_ard19.evdl
+  method: copy
+  source:
+  - name: remastered/ew12.ard/AP_ew12_ard19.evdl
+- name: remastered/ew12.ard/UK_ew12_ardc.evdl
+  method: copy
+  source:
+  - name: remastered/ew12.ard/AP_ew12_ardc.evdl
+- name: remastered/ew12.ard/UK_ew12_ardd.evdl
+  method: copy
+  source:
+  - name: remastered/ew12.ard/AP_ew12_ardd.evdl
+- name: remastered/ew13.ard/UK_ew13_ard19.evdl
+  method: copy
+  source:
+  - name: remastered/ew13.ard/AP_ew13_ard19.evdl
+- name: remastered/ew13.ard/UK_ew13_ardc.evdl
+  method: copy
+  source:
+  - name: remastered/ew13.ard/AP_ew13_ardc.evdl
+- name: remastered/ew13.ard/UK_ew13_ardd.evdl
+  method: copy
+  source:
+  - name: remastered/ew13.ard/AP_ew13_ardd.evdl
+- name: remastered/ew14.ard/UK_ew14_ard0.evdl
+  method: copy
+  source:
+  - name: remastered/ew14.ard/AP_ew14_ard0.evdl
+- name: remastered/ew14.ard/UK_ew14_ard19.evdl
+  method: copy
+  source:
+  - name: remastered/ew14.ard/AP_ew14_ard19.evdl
+- name: remastered/ew14.ard/UK_ew14_ardc.evdl
+  method: copy
+  source:
+  - name: remastered/ew14.ard/AP_ew14_ardc.evdl
+- name: remastered/ew15.ard/UK_ew15_ard19.evdl
+  method: copy
+  source:
+  - name: remastered/ew15.ard/AP_ew15_ard19.evdl
+- name: remastered/ew15.ard/UK_ew15_ardc.evdl
+  method: copy
+  source:
+  - name: remastered/ew15.ard/AP_ew15_ardc.evdl
+- name: remastered/ew15.ard/UK_ew15_ardd.evdl
+  method: copy
+  source:
+  - name: remastered/ew15.ard/AP_ew15_ardd.evdl
+- name: remastered/ew16.ard/UK_ew16_ard0.evdl
+  method: copy
+  source:
+  - name: remastered/ew16.ard/AP_ew16_ard0.evdl
+- name: remastered/ew16.ard/UK_ew16_ard19.evdl
+  method: copy
+  source:
+  - name: remastered/ew16.ard/AP_ew16_ard19.evdl
+- name: remastered/ew16.ard/UK_ew16_ardc.evdl
+  method: copy
+  source:
+  - name: remastered/ew16.ard/AP_ew16_ardc.evdl
+- name: remastered/ew17.ard/UK_ew17_ard19.evdl
+  method: copy
+  source:
+  - name: remastered/ew17.ard/AP_ew17_ard19.evdl
+- name: remastered/ew17.ard/UK_ew17_ardc.evdl
+  method: copy
+  source:
+  - name: remastered/ew17.ard/AP_ew17_ardc.evdl
+- name: remastered/ew17.ard/UK_ew17_ardd.evdl
+  method: copy
+  source:
+  - name: remastered/ew17.ard/AP_ew17_ardd.evdl
+- name: remastered/ew18.ard/UK_ew18_ard19.evdl
+  method: copy
+  source:
+  - name: remastered/ew18.ard/AP_ew18_ard19.evdl
+- name: remastered/ew18.ard/UK_ew18_ardc.evdl
+  method: copy
+  source:
+  - name: remastered/ew18.ard/AP_ew18_ardc.evdl
+- name: remastered/ew18.ard/UK_ew18_ardd.evdl
+  method: copy
+  source:
+  - name: remastered/ew18.ard/AP_ew18_ardd.evdl
+- name: remastered/ew19.ard/UK_ew19_ard19.evdl
+  method: copy
+  source:
+  - name: remastered/ew19.ard/AP_ew19_ard19.evdl
+- name: remastered/ew19.ard/UK_ew19_ardc.evdl
+  method: copy
+  source:
+  - name: remastered/ew19.ard/AP_ew19_ardc.evdl
+- name: remastered/ew19.ard/UK_ew19_ardd.evdl
+  method: copy
+  source:
+  - name: remastered/ew19.ard/AP_ew19_ardd.evdl
+- name: remastered/ew20.ard/UK_ew20_ard0.evdl
+  method: copy
+  source:
+  - name: remastered/ew20.ard/AP_ew20_ard0.evdl
+- name: remastered/ew20.ard/UK_ew20_ard19.evdl
+  method: copy
+  source:
+  - name: remastered/ew20.ard/AP_ew20_ard19.evdl
+- name: remastered/ew20.ard/UK_ew20_ardc.evdl
+  method: copy
+  source:
+  - name: remastered/ew20.ard/AP_ew20_ardc.evdl
+- name: remastered/ew21.ard/UK_ew21_ard19.evdl
+  method: copy
+  source:
+  - name: remastered/ew21.ard/AP_ew21_ard19.evdl
+- name: remastered/ew21.ard/UK_ew21_ardc.evdl
+  method: copy
+  source:
+  - name: remastered/ew21.ard/AP_ew21_ardc.evdl
+- name: remastered/ew21.ard/UK_ew21_ardd.evdl
+  method: copy
+  source:
+  - name: remastered/ew21.ard/AP_ew21_ardd.evdl
+- name: remastered/ew22.ard/UK_ew22_ard19.evdl
+  method: copy
+  source:
+  - name: remastered/ew22.ard/AP_ew22_ard19.evdl
+- name: remastered/ew22.ard/UK_ew22_ardc.evdl
+  method: copy
+  source:
+  - name: remastered/ew22.ard/AP_ew22_ardc.evdl
+- name: remastered/ew22.ard/UK_ew22_ardd.evdl
+  method: copy
+  source:
+  - name: remastered/ew22.ard/AP_ew22_ardd.evdl
+- name: remastered/ew23.ard/UK_ew23_ard19.evdl
+  method: copy
+  source:
+  - name: remastered/ew23.ard/AP_ew23_ard19.evdl
+- name: remastered/ew23.ard/UK_ew23_ardc.evdl
+  method: copy
+  source:
+  - name: remastered/ew23.ard/AP_ew23_ardc.evdl
+- name: remastered/ew23.ard/UK_ew23_ardd.evdl
+  method: copy
+  source:
+  - name: remastered/ew23.ard/AP_ew23_ardd.evdl
+- name: remastered/ew24.ard/UK_ew24_ard19.evdl
+  method: copy
+  source:
+  - name: remastered/ew24.ard/AP_ew24_ard19.evdl
+- name: remastered/ew24.ard/UK_ew24_ardc.evdl
+  method: copy
+  source:
+  - name: remastered/ew24.ard/AP_ew24_ardc.evdl
+- name: remastered/ew24.ard/UK_ew24_ardd.evdl
+  method: copy
+  source:
+  - name: remastered/ew24.ard/AP_ew24_ardd.evdl
+- name: remastered/ew25.ard/UK_ew25_ard0.evdl
+  method: copy
+  source:
+  - name: remastered/ew25.ard/AP_ew25_ard0.evdl
+- name: remastered/ew25.ard/UK_ew25_ard19.evdl
+  method: copy
+  source:
+  - name: remastered/ew25.ard/AP_ew25_ard19.evdl
+- name: remastered/ew25.ard/UK_ew25_ardc.evdl
+  method: copy
+  source:
+  - name: remastered/ew25.ard/AP_ew25_ardc.evdl
+- name: remastered/ew26.ard/UK_ew26_ard19.evdl
+  method: copy
+  source:
+  - name: remastered/ew26.ard/AP_ew26_ard19.evdl
+- name: remastered/ew26.ard/UK_ew26_ardc.evdl
+  method: copy
+  source:
+  - name: remastered/ew26.ard/AP_ew26_ardc.evdl
+- name: remastered/ew26.ard/UK_ew26_ardd.evdl
+  method: copy
+  source:
+  - name: remastered/ew26.ard/AP_ew26_ardd.evdl
+- name: remastered/ew27.ard/UK_ew27_ard0.evdl
+  method: copy
+  source:
+  - name: remastered/ew27.ard/AP_ew27_ard0.evdl
+- name: remastered/ew27.ard/UK_ew27_ard19.evdl
+  method: copy
+  source:
+  - name: remastered/ew27.ard/AP_ew27_ard19.evdl
+- name: remastered/ew27.ard/UK_ew27_ardc.evdl
+  method: copy
+  source:
+  - name: remastered/ew27.ard/AP_ew27_ardc.evdl
+- name: remastered/ew27.ard/UK_ew27_ardd.evdl
+  method: copy
+  source:
+  - name: remastered/ew27.ard/AP_ew27_ardd.evdl
+- name: remastered/ew28.ard/UK_ew28_ard0.evdl
+  method: copy
+  source:
+  - name: remastered/ew28.ard/AP_ew28_ard0.evdl
+- name: remastered/ew28.ard/UK_ew28_ard19.evdl
+  method: copy
+  source:
+  - name: remastered/ew28.ard/AP_ew28_ard19.evdl
+- name: remastered/ew28.ard/UK_ew28_ardc.evdl
+  method: copy
+  source:
+  - name: remastered/ew28.ard/AP_ew28_ardc.evdl
+- name: remastered/ew29.ard/UK_ew29_ard19.evdl
+  method: copy
+  source:
+  - name: remastered/ew29.ard/AP_ew29_ard19.evdl
+- name: remastered/ew29.ard/UK_ew29_ardc.evdl
+  method: copy
+  source:
+  - name: remastered/ew29.ard/AP_ew29_ardc.evdl
+- name: remastered/ew29.ard/UK_ew29_ardd.evdl
+  method: copy
+  source:
+  - name: remastered/ew29.ard/AP_ew29_ardd.evdl
+- name: remastered/ew29.ard/UK_ew29_arde.evdl
+  method: copy
+  source:
+  - name: remastered/ew29.ard/AP_ew29_arde.evdl
+- name: remastered/ew30.ard/UK_ew30_ard0.evdl
+  method: copy
+  source:
+  - name: remastered/ew30.ard/AP_ew30_ard0.evdl
+- name: remastered/ew30.ard/UK_ew30_ard19.evdl
+  method: copy
+  source:
+  - name: remastered/ew30.ard/AP_ew30_ard19.evdl
+- name: remastered/ew30.ard/UK_ew30_ardc.evdl
+  method: copy
+  source:
+  - name: remastered/ew30.ard/AP_ew30_ardc.evdl
+- name: remastered/ew31.ard/UK_ew31_ard0.evdl
+  method: copy
+  source:
+  - name: remastered/ew31.ard/AP_ew31_ard0.evdl
+- name: remastered/ew31.ard/UK_ew31_ard15.evdl
+  method: copy
+  source:
+  - name: remastered/ew31.ard/AP_ew31_ard15.evdl
+- name: remastered/ew31.ard/UK_ew31_ard16.evdl
+  method: copy
+  source:
+  - name: remastered/ew31.ard/AP_ew31_ard16.evdl
+- name: remastered/ew31.ard/UK_ew31_ard17.evdl
+  method: copy
+  source:
+  - name: remastered/ew31.ard/AP_ew31_ard17.evdl
+- name: remastered/ew31.ard/UK_ew31_ard19.evdl
+  method: copy
+  source:
+  - name: remastered/ew31.ard/AP_ew31_ard19.evdl
+- name: remastered/ew31.ard/UK_ew31_ardc.evdl
+  method: copy
+  source:
+  - name: remastered/ew31.ard/AP_ew31_ardc.evdl
+- name: remastered/ew32.ard/UK_ew32_ard0.evdl
+  method: copy
+  source:
+  - name: remastered/ew32.ard/AP_ew32_ard0.evdl
+- name: remastered/ew32.ard/UK_ew32_ard19.evdl
+  method: copy
+  source:
+  - name: remastered/ew32.ard/AP_ew32_ard19.evdl
+- name: remastered/ew32.ard/UK_ew32_ardc.evdl
+  method: copy
+  source:
+  - name: remastered/ew32.ard/AP_ew32_ardc.evdl
+- name: remastered/ew33.ard/UK_ew33_ard0.evdl
+  method: copy
+  source:
+  - name: remastered/ew33.ard/AP_ew33_ard0.evdl
+- name: remastered/ew33.ard/UK_ew33_ard19.evdl
+  method: copy
+  source:
+  - name: remastered/ew33.ard/AP_ew33_ard19.evdl
+- name: remastered/ew33.ard/UK_ew33_ardc.evdl
+  method: copy
+  source:
+  - name: remastered/ew33.ard/AP_ew33_ardc.evdl
+- name: remastered/ew34.ard/UK_ew34_ard0.evdl
+  method: copy
+  source:
+  - name: remastered/ew34.ard/AP_ew34_ard0.evdl
+- name: remastered/ew34.ard/UK_ew34_ard1.evdl
+  method: copy
+  source:
+  - name: remastered/ew34.ard/AP_ew34_ard1.evdl
+- name: remastered/ew34.ard/UK_ew34_ard2.evdl
+  method: copy
+  source:
+  - name: remastered/ew34.ard/AP_ew34_ard2.evdl
+- name: remastered/ew34.ard/UK_ew34_ard3.evdl
+  method: copy
+  source:
+  - name: remastered/ew34.ard/AP_ew34_ard3.evdl
+- name: remastered/ew34.ard/UK_ew34_ard4.evdl
+  method: copy
+  source:
+  - name: remastered/ew34.ard/AP_ew34_ard4.evdl
+- name: remastered/ew35.ard/UK_ew35_ard0.evdl
+  method: copy
+  source:
+  - name: remastered/ew35.ard/AP_ew35_ard0.evdl
+- name: remastered/ew35.ard/UK_ew35_ard19.evdl
+  method: copy
+  source:
+  - name: remastered/ew35.ard/AP_ew35_ard19.evdl
+- name: remastered/ew35.ard/UK_ew35_ardc.evdl
+  method: copy
+  source:
+  - name: remastered/ew35.ard/AP_ew35_ardc.evdl
+- name: remastered/ew36.ard/UK_ew36_ard0.evdl
+  method: copy
+  source:
+  - name: remastered/ew36.ard/AP_ew36_ard0.evdl
+- name: remastered/ew36.ard/UK_ew36_ard19.evdl
+  method: copy
+  source:
+  - name: remastered/ew36.ard/AP_ew36_ard19.evdl
+- name: remastered/ew36.ard/UK_ew36_ardc.evdl
+  method: copy
+  source:
+  - name: remastered/ew36.ard/AP_ew36_ardc.evdl
+- name: remastered/ew37.ard/UK_ew37_ard19.evdl
+  method: copy
+  source:
+  - name: remastered/ew37.ard/AP_ew37_ard19.evdl
+- name: remastered/ew37.ard/UK_ew37_ardc.evdl
+  method: copy
+  source:
+  - name: remastered/ew37.ard/AP_ew37_ardc.evdl
+- name: remastered/ew37.ard/UK_ew37_ardd.evdl
+  method: copy
+  source:
+  - name: remastered/ew37.ard/AP_ew37_ardd.evdl
+- name: remastered/ew38.ard/UK_ew38_ard19.evdl
+  method: copy
+  source:
+  - name: remastered/ew38.ard/AP_ew38_ard19.evdl
+- name: remastered/ew38.ard/UK_ew38_ardc.evdl
+  method: copy
+  source:
+  - name: remastered/ew38.ard/AP_ew38_ardc.evdl
+- name: remastered/ew38.ard/UK_ew38_ardd.evdl
+  method: copy
+  source:
+  - name: remastered/ew38.ard/AP_ew38_ardd.evdl
+- name: remastered/ew39.ard/UK_ew39_ard19.evdl
+  method: copy
+  source:
+  - name: remastered/ew39.ard/AP_ew39_ard19.evdl
+- name: remastered/ew39.ard/UK_ew39_ardc.evdl
+  method: copy
+  source:
+  - name: remastered/ew39.ard/AP_ew39_ardc.evdl
+- name: remastered/ew39.ard/UK_ew39_ardd.evdl
+  method: copy
+  source:
+  - name: remastered/ew39.ard/AP_ew39_ardd.evdl
+- name: remastered/he01.ard/UK_he01_ard0.evdl
+  method: copy
+  source:
+  - name: remastered/he01.ard/AP_he01_ard0.evdl
+- name: remastered/he01.ard/UK_he01_ard1.evdl
+  method: copy
+  source:
+  - name: remastered/he01.ard/AP_he01_ard1.evdl
+- name: remastered/he01.ard/UK_he01_ard19.evdl
+  method: copy
+  source:
+  - name: remastered/he01.ard/AP_he01_ard19.evdl
+- name: remastered/he01.ard/UK_he01_ard2.evdl
+  method: copy
+  source:
+  - name: remastered/he01.ard/AP_he01_ard2.evdl
+- name: remastered/he01.ard/UK_he01_ard3.evdl
+  method: copy
+  source:
+  - name: remastered/he01.ard/AP_he01_ard3.evdl
+- name: remastered/he01.ard/UK_he01_ardc.evdl
+  method: copy
+  source:
+  - name: remastered/he01.ard/AP_he01_ardc.evdl
+- name: remastered/he02.ard/UK_he02_ard0.evdl
+  method: copy
+  source:
+  - name: remastered/he02.ard/AP_he02_ard0.evdl
+- name: remastered/he02.ard/UK_he02_ard1.evdl
+  method: copy
+  source:
+  - name: remastered/he02.ard/AP_he02_ard1.evdl
+- name: remastered/he02.ard/UK_he02_ard19.evdl
+  method: copy
+  source:
+  - name: remastered/he02.ard/AP_he02_ard19.evdl
+- name: remastered/he02.ard/UK_he02_ard2.evdl
+  method: copy
+  source:
+  - name: remastered/he02.ard/AP_he02_ard2.evdl
+- name: remastered/he02.ard/UK_he02_ard3.evdl
+  method: copy
+  source:
+  - name: remastered/he02.ard/AP_he02_ard3.evdl
+- name: remastered/he02.ard/UK_he02_ard4.evdl
+  method: copy
+  source:
+  - name: remastered/he02.ard/AP_he02_ard4.evdl
+- name: remastered/he02.ard/UK_he02_ardc.evdl
+  method: copy
+  source:
+  - name: remastered/he02.ard/AP_he02_ardc.evdl
+- name: remastered/he03.ard/UK_he03_ard0.evdl
+  method: copy
+  source:
+  - name: remastered/he03.ard/AP_he03_ard0.evdl
+- name: remastered/he03.ard/UK_he03_ard1.evdl
+  method: copy
+  source:
+  - name: remastered/he03.ard/AP_he03_ard1.evdl
+- name: remastered/he03.ard/UK_he03_ard19.evdl
+  method: copy
+  source:
+  - name: remastered/he03.ard/AP_he03_ard19.evdl
+- name: remastered/he03.ard/UK_he03_ard2.evdl
+  method: copy
+  source:
+  - name: remastered/he03.ard/AP_he03_ard2.evdl
+- name: remastered/he03.ard/UK_he03_ard3.evdl
+  method: copy
+  source:
+  - name: remastered/he03.ard/AP_he03_ard3.evdl
+- name: remastered/he03.ard/UK_he03_ard4.evdl
+  method: copy
+  source:
+  - name: remastered/he03.ard/AP_he03_ard4.evdl
+- name: remastered/he03.ard/UK_he03_ard5.evdl
+  method: copy
+  source:
+  - name: remastered/he03.ard/AP_he03_ard5.evdl
+- name: remastered/he03.ard/UK_he03_ard7.evdl
+  method: copy
+  source:
+  - name: remastered/he03.ard/AP_he03_ard7.evdl
+- name: remastered/he03.ard/UK_he03_ard9.evdl
+  method: copy
+  source:
+  - name: remastered/he03.ard/AP_he03_ard9.evdl
+- name: remastered/he03.ard/UK_he03_ardb.evdl
+  method: copy
+  source:
+  - name: remastered/he03.ard/AP_he03_ardb.evdl
+- name: remastered/he04.ard/UK_he04_ard0.evdl
+  method: copy
+  source:
+  - name: remastered/he04.ard/AP_he04_ard0.evdl
+- name: remastered/he04.ard/UK_he04_ard19.evdl
+  method: copy
+  source:
+  - name: remastered/he04.ard/AP_he04_ard19.evdl
+- name: remastered/he04.ard/UK_he04_ardc.evdl
+  method: copy
+  source:
+  - name: remastered/he04.ard/AP_he04_ardc.evdl
+- name: remastered/he06.ard/UK_he06_ard0.evdl
+  method: copy
+  source:
+  - name: remastered/he06.ard/AP_he06_ard0.evdl
+- name: remastered/he06.ard/UK_he06_ard1.evdl
+  method: copy
+  source:
+  - name: remastered/he06.ard/AP_he06_ard1.evdl
+- name: remastered/he06.ard/UK_he06_ard19.evdl
+  method: copy
+  source:
+  - name: remastered/he06.ard/AP_he06_ard19.evdl
+- name: remastered/he06.ard/UK_he06_ard4.evdl
+  method: copy
+  source:
+  - name: remastered/he06.ard/AP_he06_ard4.evdl
+- name: remastered/he06.ard/UK_he06_ardb.evdl
+  method: copy
+  source:
+  - name: remastered/he06.ard/AP_he06_ardb.evdl
+- name: remastered/he06.ard/UK_he06_ardc.evdl
+  method: copy
+  source:
+  - name: remastered/he06.ard/AP_he06_ardc.evdl
+- name: remastered/he06.ard/UK_he06_ardd.evdl
+  method: copy
+  source:
+  - name: remastered/he06.ard/AP_he06_ardd.evdl
+- name: remastered/he07.ard/UK_he07_ard1.evdl
+  method: copy
+  source:
+  - name: remastered/he07.ard/AP_he07_ard1.evdl
+- name: remastered/he07.ard/UK_he07_ard19.evdl
+  method: copy
+  source:
+  - name: remastered/he07.ard/AP_he07_ard19.evdl
+- name: remastered/he07.ard/UK_he07_ard3.evdl
+  method: copy
+  source:
+  - name: remastered/he07.ard/AP_he07_ard3.evdl
+- name: remastered/he07.ard/UK_he07_ard4.evdl
+  method: copy
+  source:
+  - name: remastered/he07.ard/AP_he07_ard4.evdl
+- name: remastered/he07.ard/UK_he07_ard6.evdl
+  method: copy
+  source:
+  - name: remastered/he07.ard/AP_he07_ard6.evdl
+- name: remastered/he07.ard/UK_he07_ard7.evdl
+  method: copy
+  source:
+  - name: remastered/he07.ard/AP_he07_ard7.evdl
+- name: remastered/he07.ard/UK_he07_ardc.evdl
+  method: copy
+  source:
+  - name: remastered/he07.ard/AP_he07_ardc.evdl
+- name: remastered/lm01.ard/UK_lm01_ard10.evdl
+  method: copy
+  source:
+  - name: remastered/lm01.ard/AP_lm01_ard10.evdl
+- name: remastered/lm01.ard/UK_lm01_ard11.evdl
+  method: copy
+  source:
+  - name: remastered/lm01.ard/AP_lm01_ard11.evdl
+- name: remastered/lm01.ard/UK_lm01_ard12.evdl
+  method: copy
+  source:
+  - name: remastered/lm01.ard/AP_lm01_ard12.evdl
+- name: remastered/lm01.ard/UK_lm01_ardc.evdl
+  method: copy
+  source:
+  - name: remastered/lm01.ard/AP_lm01_ardc.evdl
+- name: remastered/lm01.ard/UK_lm01_ardd.evdl
+  method: copy
+  source:
+  - name: remastered/lm01.ard/AP_lm01_ardd.evdl
+- name: remastered/lm01.ard/UK_lm01_arde.evdl
+  method: copy
+  source:
+  - name: remastered/lm01.ard/AP_lm01_arde.evdl
+- name: remastered/lm01.ard/UK_lm01_ardf.evdl
+  method: copy
+  source:
+  - name: remastered/lm01.ard/AP_lm01_ardf.evdl
+- name: remastered/lm02.ard/UK_lm02_ard0.evdl
+  method: copy
+  source:
+  - name: remastered/lm02.ard/AP_lm02_ard0.evdl
+- name: remastered/lm02.ard/UK_lm02_ard19.evdl
+  method: copy
+  source:
+  - name: remastered/lm02.ard/AP_lm02_ard19.evdl
+- name: remastered/lm02.ard/UK_lm02_ardc.evdl
+  method: copy
+  source:
+  - name: remastered/lm02.ard/AP_lm02_ardc.evdl
+- name: remastered/lm02.ard/UK_lm02_ardd.evdl
+  method: copy
+  source:
+  - name: remastered/lm02.ard/AP_lm02_ardd.evdl
+- name: remastered/lm02.ard/UK_lm02_arde.evdl
+  method: copy
+  source:
+  - name: remastered/lm02.ard/AP_lm02_arde.evdl
+- name: remastered/lm03.ard/UK_lm03_ard0.evdl
+  method: copy
+  source:
+  - name: remastered/lm03.ard/AP_lm03_ard0.evdl
+- name: remastered/lm03.ard/UK_lm03_ard11.evdl
+  method: copy
+  source:
+  - name: remastered/lm03.ard/AP_lm03_ard11.evdl
+- name: remastered/lm03.ard/UK_lm03_ard12.evdl
+  method: copy
+  source:
+  - name: remastered/lm03.ard/AP_lm03_ard12.evdl
+- name: remastered/lm03.ard/UK_lm03_ard17.evdl
+  method: copy
+  source:
+  - name: remastered/lm03.ard/AP_lm03_ard17.evdl
+- name: remastered/lm03.ard/UK_lm03_ard19.evdl
+  method: copy
+  source:
+  - name: remastered/lm03.ard/AP_lm03_ard19.evdl
+- name: remastered/lm03.ard/UK_lm03_ardc.evdl
+  method: copy
+  source:
+  - name: remastered/lm03.ard/AP_lm03_ardc.evdl
+- name: remastered/lm03.ard/UK_lm03_ardd.evdl
+  method: copy
+  source:
+  - name: remastered/lm03.ard/AP_lm03_ardd.evdl
+- name: remastered/lm03.ard/UK_lm03_arde.evdl
+  method: copy
+  source:
+  - name: remastered/lm03.ard/AP_lm03_arde.evdl
+- name: remastered/lm03.ard/UK_lm03_ardf.evdl
+  method: copy
+  source:
+  - name: remastered/lm03.ard/AP_lm03_ardf.evdl
+- name: remastered/lm04.ard/UK_lm04_ard10.evdl
+  method: copy
+  source:
+  - name: remastered/lm04.ard/AP_lm04_ard10.evdl
+- name: remastered/lm04.ard/UK_lm04_ard11.evdl
+  method: copy
+  source:
+  - name: remastered/lm04.ard/AP_lm04_ard11.evdl
+- name: remastered/lm04.ard/UK_lm04_ard12.evdl
+  method: copy
+  source:
+  - name: remastered/lm04.ard/AP_lm04_ard12.evdl
+- name: remastered/lm04.ard/UK_lm04_ard17.evdl
+  method: copy
+  source:
+  - name: remastered/lm04.ard/AP_lm04_ard17.evdl
+- name: remastered/lm04.ard/UK_lm04_ard19.evdl
+  method: copy
+  source:
+  - name: remastered/lm04.ard/AP_lm04_ard19.evdl
+- name: remastered/lm04.ard/UK_lm04_ardc.evdl
+  method: copy
+  source:
+  - name: remastered/lm04.ard/AP_lm04_ardc.evdl
+- name: remastered/lm04.ard/UK_lm04_ardd.evdl
+  method: copy
+  source:
+  - name: remastered/lm04.ard/AP_lm04_ardd.evdl
+- name: remastered/lm04.ard/UK_lm04_arde.evdl
+  method: copy
+  source:
+  - name: remastered/lm04.ard/AP_lm04_arde.evdl
+- name: remastered/lm04.ard/UK_lm04_ardf.evdl
+  method: copy
+  source:
+  - name: remastered/lm04.ard/AP_lm04_ardf.evdl
+- name: remastered/lm05.ard/UK_lm05_ard11.evdl
+  method: copy
+  source:
+  - name: remastered/lm05.ard/AP_lm05_ard11.evdl
+- name: remastered/lm05.ard/UK_lm05_ard19.evdl
+  method: copy
+  source:
+  - name: remastered/lm05.ard/AP_lm05_ard19.evdl
+- name: remastered/lm05.ard/UK_lm05_ardc.evdl
+  method: copy
+  source:
+  - name: remastered/lm05.ard/AP_lm05_ardc.evdl
+- name: remastered/lm05.ard/UK_lm05_ardd.evdl
+  method: copy
+  source:
+  - name: remastered/lm05.ard/AP_lm05_ardd.evdl
+- name: remastered/lm05.ard/UK_lm05_arde.evdl
+  method: copy
+  source:
+  - name: remastered/lm05.ard/AP_lm05_arde.evdl
+- name: remastered/lm05.ard/UK_lm05_ardf.evdl
+  method: copy
+  source:
+  - name: remastered/lm05.ard/AP_lm05_ardf.evdl
+- name: remastered/lm06.ard/UK_lm06_ard0.evdl
+  method: copy
+  source:
+  - name: remastered/lm06.ard/AP_lm06_ard0.evdl
+- name: remastered/lm06.ard/UK_lm06_ard19.evdl
+  method: copy
+  source:
+  - name: remastered/lm06.ard/AP_lm06_ard19.evdl
+- name: remastered/lm06.ard/UK_lm06_ard2.evdl
+  method: copy
+  source:
+  - name: remastered/lm06.ard/AP_lm06_ard2.evdl
+- name: remastered/lm06.ard/UK_lm06_ardc.evdl
+  method: copy
+  source:
+  - name: remastered/lm06.ard/AP_lm06_ardc.evdl
+- name: remastered/lm06.ard/UK_lm06_ardf.evdl
+  method: copy
+  source:
+  - name: remastered/lm06.ard/AP_lm06_ardf.evdl
+- name: remastered/lm07.ard/UK_lm07_ard0.evdl
+  method: copy
+  source:
+  - name: remastered/lm07.ard/AP_lm07_ard0.evdl
+- name: remastered/lm07.ard/UK_lm07_ard11.evdl
+  method: copy
+  source:
+  - name: remastered/lm07.ard/AP_lm07_ard11.evdl
+- name: remastered/lm07.ard/UK_lm07_ard17.evdl
+  method: copy
+  source:
+  - name: remastered/lm07.ard/AP_lm07_ard17.evdl
+- name: remastered/lm07.ard/UK_lm07_ard19.evdl
+  method: copy
+  source:
+  - name: remastered/lm07.ard/AP_lm07_ard19.evdl
+- name: remastered/lm07.ard/UK_lm07_ard2.evdl
+  method: copy
+  source:
+  - name: remastered/lm07.ard/AP_lm07_ard2.evdl
+- name: remastered/lm07.ard/UK_lm07_ardc.evdl
+  method: copy
+  source:
+  - name: remastered/lm07.ard/AP_lm07_ardc.evdl
+- name: remastered/lm07.ard/UK_lm07_arde.evdl
+  method: copy
+  source:
+  - name: remastered/lm07.ard/AP_lm07_arde.evdl
+- name: remastered/lm07.ard/UK_lm07_ardf.evdl
+  method: copy
+  source:
+  - name: remastered/lm07.ard/AP_lm07_ardf.evdl
+- name: remastered/lm08.ard/UK_lm08_ard0.evdl
+  method: copy
+  source:
+  - name: remastered/lm08.ard/AP_lm08_ard0.evdl
+- name: remastered/lm08.ard/UK_lm08_ard11.evdl
+  method: copy
+  source:
+  - name: remastered/lm08.ard/AP_lm08_ard11.evdl
+- name: remastered/lm08.ard/UK_lm08_ard13.evdl
+  method: copy
+  source:
+  - name: remastered/lm08.ard/AP_lm08_ard13.evdl
+- name: remastered/lm08.ard/UK_lm08_ard17.evdl
+  method: copy
+  source:
+  - name: remastered/lm08.ard/AP_lm08_ard17.evdl
+- name: remastered/lm08.ard/UK_lm08_ard19.evdl
+  method: copy
+  source:
+  - name: remastered/lm08.ard/AP_lm08_ard19.evdl
+- name: remastered/lm08.ard/UK_lm08_ardc.evdl
+  method: copy
+  source:
+  - name: remastered/lm08.ard/AP_lm08_ardc.evdl
+- name: remastered/lm08.ard/UK_lm08_arde.evdl
+  method: copy
+  source:
+  - name: remastered/lm08.ard/AP_lm08_arde.evdl
+- name: remastered/lm08.ard/UK_lm08_ardf.evdl
+  method: copy
+  source:
+  - name: remastered/lm08.ard/AP_lm08_ardf.evdl
+- name: remastered/lm10.ard/UK_lm10_ard11.evdl
+  method: copy
+  source:
+  - name: remastered/lm10.ard/AP_lm10_ard11.evdl
+- name: remastered/lm10.ard/UK_lm10_ard17.evdl
+  method: copy
+  source:
+  - name: remastered/lm10.ard/AP_lm10_ard17.evdl
+- name: remastered/lm10.ard/UK_lm10_ard19.evdl
+  method: copy
+  source:
+  - name: remastered/lm10.ard/AP_lm10_ard19.evdl
+- name: remastered/lm10.ard/UK_lm10_ardc.evdl
+  method: copy
+  source:
+  - name: remastered/lm10.ard/AP_lm10_ardc.evdl
+- name: remastered/lm10.ard/UK_lm10_ardf.evdl
+  method: copy
+  source:
+  - name: remastered/lm10.ard/AP_lm10_ardf.evdl
+- name: remastered/lm11.ard/UK_lm11_ard19.evdl
+  method: copy
+  source:
+  - name: remastered/lm11.ard/AP_lm11_ard19.evdl
+- name: remastered/lm11.ard/UK_lm11_ardc.evdl
+  method: copy
+  source:
+  - name: remastered/lm11.ard/AP_lm11_ardc.evdl
+- name: remastered/lm11.ard/UK_lm11_ardf.evdl
+  method: copy
+  source:
+  - name: remastered/lm11.ard/AP_lm11_ardf.evdl
+- name: remastered/lm12.ard/UK_lm12_ard11.evdl
+  method: copy
+  source:
+  - name: remastered/lm12.ard/AP_lm12_ard11.evdl
+- name: remastered/lm12.ard/UK_lm12_ard19.evdl
+  method: copy
+  source:
+  - name: remastered/lm12.ard/AP_lm12_ard19.evdl
+- name: remastered/lm12.ard/UK_lm12_ardc.evdl
+  method: copy
+  source:
+  - name: remastered/lm12.ard/AP_lm12_ardc.evdl
+- name: remastered/lm12.ard/UK_lm12_ardf.evdl
+  method: copy
+  source:
+  - name: remastered/lm12.ard/AP_lm12_ardf.evdl
+- name: remastered/lm13.ard/UK_lm13_ard0.evdl
+  method: copy
+  source:
+  - name: remastered/lm13.ard/AP_lm13_ard0.evdl
+- name: remastered/lm13.ard/UK_lm13_ard17.evdl
+  method: copy
+  source:
+  - name: remastered/lm13.ard/AP_lm13_ard17.evdl
+- name: remastered/lm13.ard/UK_lm13_ard19.evdl
+  method: copy
+  source:
+  - name: remastered/lm13.ard/AP_lm13_ard19.evdl
+- name: remastered/lm13.ard/UK_lm13_ard2.evdl
+  method: copy
+  source:
+  - name: remastered/lm13.ard/AP_lm13_ard2.evdl
+- name: remastered/lm13.ard/UK_lm13_ard3.evdl
+  method: copy
+  source:
+  - name: remastered/lm13.ard/AP_lm13_ard3.evdl
+- name: remastered/lm13.ard/UK_lm13_ardc.evdl
+  method: copy
+  source:
+  - name: remastered/lm13.ard/AP_lm13_ardc.evdl
+- name: remastered/lm14.ard/UK_lm14_ard0.evdl
+  method: copy
+  source:
+  - name: remastered/lm14.ard/AP_lm14_ard0.evdl
+- name: remastered/lm14.ard/UK_lm14_ard11.evdl
+  method: copy
+  source:
+  - name: remastered/lm14.ard/AP_lm14_ard11.evdl
+- name: remastered/lm14.ard/UK_lm14_ard19.evdl
+  method: copy
+  source:
+  - name: remastered/lm14.ard/AP_lm14_ard19.evdl
+- name: remastered/lm14.ard/UK_lm14_ard2.evdl
+  method: copy
+  source:
+  - name: remastered/lm14.ard/AP_lm14_ard2.evdl
+- name: remastered/lm14.ard/UK_lm14_ard3.evdl
+  method: copy
+  source:
+  - name: remastered/lm14.ard/AP_lm14_ard3.evdl
+- name: remastered/lm14.ard/UK_lm14_ardc.evdl
+  method: copy
+  source:
+  - name: remastered/lm14.ard/AP_lm14_ardc.evdl
+- name: remastered/lm15.ard/UK_lm15_ard11.evdl
+  method: copy
+  source:
+  - name: remastered/lm15.ard/AP_lm15_ard11.evdl
+- name: remastered/lm15.ard/UK_lm15_ard19.evdl
+  method: copy
+  source:
+  - name: remastered/lm15.ard/AP_lm15_ard19.evdl
+- name: remastered/lm15.ard/UK_lm15_ardc.evdl
+  method: copy
+  source:
+  - name: remastered/lm15.ard/AP_lm15_ardc.evdl
+- name: remastered/lm15.ard/UK_lm15_ardd.evdl
+  method: copy
+  source:
+  - name: remastered/lm15.ard/AP_lm15_ardd.evdl
+- name: remastered/lm15.ard/UK_lm15_arde.evdl
+  method: copy
+  source:
+  - name: remastered/lm15.ard/AP_lm15_arde.evdl
+- name: remastered/lm15.ard/UK_lm15_ardf.evdl
+  method: copy
+  source:
+  - name: remastered/lm15.ard/AP_lm15_ardf.evdl
+- name: remastered/lm16.ard/UK_lm16_ard0.evdl
+  method: copy
+  source:
+  - name: remastered/lm16.ard/AP_lm16_ard0.evdl
+- name: remastered/lm16.ard/UK_lm16_ard11.evdl
+  method: copy
+  source:
+  - name: remastered/lm16.ard/AP_lm16_ard11.evdl
+- name: remastered/lm16.ard/UK_lm16_ard19.evdl
+  method: copy
+  source:
+  - name: remastered/lm16.ard/AP_lm16_ard19.evdl
+- name: remastered/lm16.ard/UK_lm16_ard2.evdl
+  method: copy
+  source:
+  - name: remastered/lm16.ard/AP_lm16_ard2.evdl
+- name: remastered/lm16.ard/UK_lm16_ard3.evdl
+  method: copy
+  source:
+  - name: remastered/lm16.ard/AP_lm16_ard3.evdl
+- name: remastered/lm16.ard/UK_lm16_ard4.evdl
+  method: copy
+  source:
+  - name: remastered/lm16.ard/AP_lm16_ard4.evdl
+- name: remastered/lm16.ard/UK_lm16_ardc.evdl
+  method: copy
+  source:
+  - name: remastered/lm16.ard/AP_lm16_ardc.evdl
+- name: remastered/lm17.ard/UK_lm17_ard0.evdl
+  method: copy
+  source:
+  - name: remastered/lm17.ard/AP_lm17_ard0.evdl
+- name: remastered/lm17.ard/UK_lm17_ard19.evdl
+  method: copy
+  source:
+  - name: remastered/lm17.ard/AP_lm17_ard19.evdl
+- name: remastered/nm01.ard/UK_nm01_ard0.evdl
+  method: copy
+  source:
+  - name: remastered/nm01.ard/AP_nm01_ard0.evdl
+- name: remastered/nm01.ard/UK_nm01_ard1.evdl
+  method: copy
+  source:
+  - name: remastered/nm01.ard/AP_nm01_ard1.evdl
+- name: remastered/nm01.ard/UK_nm01_ard19.evdl
+  method: copy
+  source:
+  - name: remastered/nm01.ard/AP_nm01_ard19.evdl
+- name: remastered/nm01.ard/UK_nm01_ard2.evdl
+  method: copy
+  source:
+  - name: remastered/nm01.ard/AP_nm01_ard2.evdl
+- name: remastered/nm01.ard/UK_nm01_ardc.evdl
+  method: copy
+  source:
+  - name: remastered/nm01.ard/AP_nm01_ardc.evdl
+- name: remastered/nm01.ard/UK_nm01_ardd.evdl
+  method: copy
+  source:
+  - name: remastered/nm01.ard/AP_nm01_ardd.evdl
+- name: remastered/nm01.ard/UK_nm01_arde.evdl
+  method: copy
+  source:
+  - name: remastered/nm01.ard/AP_nm01_arde.evdl
+- name: remastered/nm01.ard/UK_nm01_ardf.evdl
+  method: copy
+  source:
+  - name: remastered/nm01.ard/AP_nm01_ardf.evdl
+- name: remastered/nm02.ard/UK_nm02_ard19.evdl
+  method: copy
+  source:
+  - name: remastered/nm02.ard/AP_nm02_ard19.evdl
+- name: remastered/nm02.ard/UK_nm02_ard2.evdl
+  method: copy
+  source:
+  - name: remastered/nm02.ard/AP_nm02_ard2.evdl
+- name: remastered/nm02.ard/UK_nm02_ard3.evdl
+  method: copy
+  source:
+  - name: remastered/nm02.ard/AP_nm02_ard3.evdl
+- name: remastered/nm02.ard/UK_nm02_ardc.evdl
+  method: copy
+  source:
+  - name: remastered/nm02.ard/AP_nm02_ardc.evdl
+- name: remastered/nm03.ard/UK_nm03_ard0.evdl
+  method: copy
+  source:
+  - name: remastered/nm03.ard/AP_nm03_ard0.evdl
+- name: remastered/nm03.ard/UK_nm03_ard1.evdl
+  method: copy
+  source:
+  - name: remastered/nm03.ard/AP_nm03_ard1.evdl
+- name: remastered/nm03.ard/UK_nm03_ard10.evdl
+  method: copy
+  source:
+  - name: remastered/nm03.ard/AP_nm03_ard10.evdl
+- name: remastered/nm03.ard/UK_nm03_ard18.evdl
+  method: copy
+  source:
+  - name: remastered/nm03.ard/AP_nm03_ard18.evdl
+- name: remastered/nm03.ard/UK_nm03_ard19.evdl
+  method: copy
+  source:
+  - name: remastered/nm03.ard/AP_nm03_ard19.evdl
+- name: remastered/nm03.ard/UK_nm03_ard2.evdl
+  method: copy
+  source:
+  - name: remastered/nm03.ard/AP_nm03_ard2.evdl
+- name: remastered/nm03.ard/UK_nm03_ardc.evdl
+  method: copy
+  source:
+  - name: remastered/nm03.ard/AP_nm03_ardc.evdl
+- name: remastered/nm03.ard/UK_nm03_ardd.evdl
+  method: copy
+  source:
+  - name: remastered/nm03.ard/AP_nm03_ardd.evdl
+- name: remastered/nm03.ard/UK_nm03_arde.evdl
+  method: copy
+  source:
+  - name: remastered/nm03.ard/AP_nm03_arde.evdl
+- name: remastered/nm03.ard/UK_nm03_ardf.evdl
+  method: copy
+  source:
+  - name: remastered/nm03.ard/AP_nm03_ardf.evdl
+- name: remastered/nm04.ard/UK_nm04_ard0.evdl
+  method: copy
+  source:
+  - name: remastered/nm04.ard/AP_nm04_ard0.evdl
+- name: remastered/nm04.ard/UK_nm04_ard10.evdl
+  method: copy
+  source:
+  - name: remastered/nm04.ard/AP_nm04_ard10.evdl
+- name: remastered/nm04.ard/UK_nm04_ard19.evdl
+  method: copy
+  source:
+  - name: remastered/nm04.ard/AP_nm04_ard19.evdl
+- name: remastered/nm04.ard/UK_nm04_ard3.evdl
+  method: copy
+  source:
+  - name: remastered/nm04.ard/AP_nm04_ard3.evdl
+- name: remastered/nm04.ard/UK_nm04_ard4.evdl
+  method: copy
+  source:
+  - name: remastered/nm04.ard/AP_nm04_ard4.evdl
+- name: remastered/nm04.ard/UK_nm04_ardc.evdl
+  method: copy
+  source:
+  - name: remastered/nm04.ard/AP_nm04_ardc.evdl
+- name: remastered/nm04.ard/UK_nm04_arde.evdl
+  method: copy
+  source:
+  - name: remastered/nm04.ard/AP_nm04_arde.evdl
+- name: remastered/nm04.ard/UK_nm04_ardf.evdl
+  method: copy
+  source:
+  - name: remastered/nm04.ard/AP_nm04_ardf.evdl
+- name: remastered/nm05.ard/UK_nm05_ard0.evdl
+  method: copy
+  source:
+  - name: remastered/nm05.ard/AP_nm05_ard0.evdl
+- name: remastered/nm05.ard/UK_nm05_ard10.evdl
+  method: copy
+  source:
+  - name: remastered/nm05.ard/AP_nm05_ard10.evdl
+- name: remastered/nm05.ard/UK_nm05_ard18.evdl
+  method: copy
+  source:
+  - name: remastered/nm05.ard/AP_nm05_ard18.evdl
+- name: remastered/nm05.ard/UK_nm05_ard19.evdl
+  method: copy
+  source:
+  - name: remastered/nm05.ard/AP_nm05_ard19.evdl
+- name: remastered/nm05.ard/UK_nm05_ardc.evdl
+  method: copy
+  source:
+  - name: remastered/nm05.ard/AP_nm05_ardc.evdl
+- name: remastered/nm05.ard/UK_nm05_ardf.evdl
+  method: copy
+  source:
+  - name: remastered/nm05.ard/AP_nm05_ardf.evdl
+- name: remastered/nm06.ard/UK_nm06_ard19.evdl
+  method: copy
+  source:
+  - name: remastered/nm06.ard/AP_nm06_ard19.evdl
+- name: remastered/nm06.ard/UK_nm06_ard4.evdl
+  method: copy
+  source:
+  - name: remastered/nm06.ard/AP_nm06_ard4.evdl
+- name: remastered/nm06.ard/UK_nm06_ard5.evdl
+  method: copy
+  source:
+  - name: remastered/nm06.ard/AP_nm06_ard5.evdl
+- name: remastered/nm06.ard/UK_nm06_ardc.evdl
+  method: copy
+  source:
+  - name: remastered/nm06.ard/AP_nm06_ardc.evdl
+- name: remastered/nm07.ard/UK_nm07_ard19.evdl
+  method: copy
+  source:
+  - name: remastered/nm07.ard/AP_nm07_ard19.evdl
+- name: remastered/nm07.ard/UK_nm07_ard2.evdl
+  method: copy
+  source:
+  - name: remastered/nm07.ard/AP_nm07_ard2.evdl
+- name: remastered/nm07.ard/UK_nm07_ard3.evdl
+  method: copy
+  source:
+  - name: remastered/nm07.ard/AP_nm07_ard3.evdl
+- name: remastered/nm07.ard/UK_nm07_ard4.evdl
+  method: copy
+  source:
+  - name: remastered/nm07.ard/AP_nm07_ard4.evdl
+- name: remastered/nm07.ard/UK_nm07_ardc.evdl
+  method: copy
+  source:
+  - name: remastered/nm07.ard/AP_nm07_ardc.evdl
+- name: remastered/nm07.ard/UK_nm07_ardf.evdl
+  method: copy
+  source:
+  - name: remastered/nm07.ard/AP_nm07_ardf.evdl
+- name: remastered/nm08.ard/UK_nm08_ard1.evdl
+  method: copy
+  source:
+  - name: remastered/nm08.ard/AP_nm08_ard1.evdl
+- name: remastered/nm08.ard/UK_nm08_ard16.evdl
+  method: copy
+  source:
+  - name: remastered/nm08.ard/AP_nm08_ard16.evdl
+- name: remastered/nm08.ard/UK_nm08_ard19.evdl
+  method: copy
+  source:
+  - name: remastered/nm08.ard/AP_nm08_ard19.evdl
+- name: remastered/nm08.ard/UK_nm08_ard2.evdl
+  method: copy
+  source:
+  - name: remastered/nm08.ard/AP_nm08_ard2.evdl
+- name: remastered/nm08.ard/UK_nm08_ardc.evdl
+  method: copy
+  source:
+  - name: remastered/nm08.ard/AP_nm08_ardc.evdl
+- name: remastered/nm09.ard/UK_nm09_ard0.evdl
+  method: copy
+  source:
+  - name: remastered/nm09.ard/AP_nm09_ard0.evdl
+- name: remastered/nm09.ard/UK_nm09_ard1.evdl
+  method: copy
+  source:
+  - name: remastered/nm09.ard/AP_nm09_ard1.evdl
+- name: remastered/nm09.ard/UK_nm09_ard10.evdl
+  method: copy
+  source:
+  - name: remastered/nm09.ard/AP_nm09_ard10.evdl
+- name: remastered/nm09.ard/UK_nm09_ard12.evdl
+  method: copy
+  source:
+  - name: remastered/nm09.ard/AP_nm09_ard12.evdl
+- name: remastered/nm09.ard/UK_nm09_ard19.evdl
+  method: copy
+  source:
+  - name: remastered/nm09.ard/AP_nm09_ard19.evdl
+- name: remastered/nm09.ard/UK_nm09_ardc.evdl
+  method: copy
+  source:
+  - name: remastered/nm09.ard/AP_nm09_ardc.evdl
+- name: remastered/nm09.ard/UK_nm09_ardf.evdl
+  method: copy
+  source:
+  - name: remastered/nm09.ard/AP_nm09_ardf.evdl
+- name: remastered/nm10.ard/UK_nm10_ard0.evdl
+  method: copy
+  source:
+  - name: remastered/nm10.ard/AP_nm10_ard0.evdl
+- name: remastered/nm10.ard/UK_nm10_ard1.evdl
+  method: copy
+  source:
+  - name: remastered/nm10.ard/AP_nm10_ard1.evdl
+- name: remastered/nm10.ard/UK_nm10_ard19.evdl
+  method: copy
+  source:
+  - name: remastered/nm10.ard/AP_nm10_ard19.evdl
+- name: remastered/nm10.ard/UK_nm10_ard3.evdl
+  method: copy
+  source:
+  - name: remastered/nm10.ard/AP_nm10_ard3.evdl
+- name: remastered/nm10.ard/UK_nm10_ardc.evdl
+  method: copy
+  source:
+  - name: remastered/nm10.ard/AP_nm10_ardc.evdl
+- name: remastered/nm11.ard/UK_nm11_ard0.evdl
+  method: copy
+  source:
+  - name: remastered/nm11.ard/AP_nm11_ard0.evdl
+- name: remastered/nm11.ard/UK_nm11_ard19.evdl
+  method: copy
+  source:
+  - name: remastered/nm11.ard/AP_nm11_ard19.evdl
+- name: remastered/nm11.ard/UK_nm11_ard2.evdl
+  method: copy
+  source:
+  - name: remastered/nm11.ard/AP_nm11_ard2.evdl
+- name: remastered/nm11.ard/UK_nm11_ard3.evdl
+  method: copy
+  source:
+  - name: remastered/nm11.ard/AP_nm11_ard3.evdl
+- name: remastered/nm11.ard/UK_nm11_ardc.evdl
+  method: copy
+  source:
+  - name: remastered/nm11.ard/AP_nm11_ardc.evdl
+- name: remastered/nm12.ard/UK_nm12_ard0.evdl
+  method: copy
+  source:
+  - name: remastered/nm12.ard/AP_nm12_ard0.evdl
+- name: remastered/nm12.ard/UK_nm12_ard19.evdl
+  method: copy
+  source:
+  - name: remastered/nm12.ard/AP_nm12_ard19.evdl
+- name: remastered/nm12.ard/UK_nm12_ard2.evdl
+  method: copy
+  source:
+  - name: remastered/nm12.ard/AP_nm12_ard2.evdl
+- name: remastered/nm12.ard/UK_nm12_ardc.evdl
+  method: copy
+  source:
+  - name: remastered/nm12.ard/AP_nm12_ardc.evdl
+- name: remastered/nm13.ard/UK_nm13_ard0.evdl
+  method: copy
+  source:
+  - name: remastered/nm13.ard/AP_nm13_ard0.evdl
+- name: remastered/nm13.ard/UK_nm13_ard19.evdl
+  method: copy
+  source:
+  - name: remastered/nm13.ard/AP_nm13_ard19.evdl
+- name: remastered/nm13.ard/UK_nm13_ardc.evdl
+  method: copy
+  source:
+  - name: remastered/nm13.ard/AP_nm13_ardc.evdl
+- name: remastered/pc01.ard/UK_pc01_ard0.evdl
+  method: copy
+  source:
+  - name: remastered/pc01.ard/AP_pc01_ard0.evdl
+- name: remastered/pc01.ard/UK_pc01_ard19.evdl
+  method: copy
+  source:
+  - name: remastered/pc01.ard/AP_pc01_ard19.evdl
+- name: remastered/pc01.ard/UK_pc01_ard2.evdl
+  method: copy
+  source:
+  - name: remastered/pc01.ard/AP_pc01_ard2.evdl
+- name: remastered/pc01.ard/UK_pc01_ardc.evdl
+  method: copy
+  source:
+  - name: remastered/pc01.ard/AP_pc01_ardc.evdl
+- name: remastered/pc02.ard/UK_pc02_ard0.evdl
+  method: copy
+  source:
+  - name: remastered/pc02.ard/AP_pc02_ard0.evdl
+- name: remastered/pc02.ard/UK_pc02_ard19.evdl
+  method: copy
+  source:
+  - name: remastered/pc02.ard/AP_pc02_ard19.evdl
+- name: remastered/pc02.ard/UK_pc02_arda.evdl
+  method: copy
+  source:
+  - name: remastered/pc02.ard/AP_pc02_arda.evdl
+- name: remastered/pc02.ard/UK_pc02_ardc.evdl
+  method: copy
+  source:
+  - name: remastered/pc02.ard/AP_pc02_ardc.evdl
+- name: remastered/pc02.ard/UK_pc02_ardd.evdl
+  method: copy
+  source:
+  - name: remastered/pc02.ard/AP_pc02_ardd.evdl
+- name: remastered/pc02.ard/UK_pc02_arde.evdl
+  method: copy
+  source:
+  - name: remastered/pc02.ard/AP_pc02_arde.evdl
+- name: remastered/pc03.ard/UK_pc03_ard0.evdl
+  method: copy
+  source:
+  - name: remastered/pc03.ard/AP_pc03_ard0.evdl
+- name: remastered/pc03.ard/UK_pc03_ard19.evdl
+  method: copy
+  source:
+  - name: remastered/pc03.ard/AP_pc03_ard19.evdl
+- name: remastered/pc03.ard/UK_pc03_ard2.evdl
+  method: copy
+  source:
+  - name: remastered/pc03.ard/AP_pc03_ard2.evdl
+- name: remastered/pc03.ard/UK_pc03_arda.evdl
+  method: copy
+  source:
+  - name: remastered/pc03.ard/AP_pc03_arda.evdl
+- name: remastered/pc03.ard/UK_pc03_ardc.evdl
+  method: copy
+  source:
+  - name: remastered/pc03.ard/AP_pc03_ardc.evdl
+- name: remastered/pc03.ard/UK_pc03_ardd.evdl
+  method: copy
+  source:
+  - name: remastered/pc03.ard/AP_pc03_ardd.evdl
+- name: remastered/pc03.ard/UK_pc03_arde.evdl
+  method: copy
+  source:
+  - name: remastered/pc03.ard/AP_pc03_arde.evdl
+- name: remastered/pc04.ard/UK_pc04_ard0.evdl
+  method: copy
+  source:
+  - name: remastered/pc04.ard/AP_pc04_ard0.evdl
+- name: remastered/pc04.ard/UK_pc04_ard19.evdl
+  method: copy
+  source:
+  - name: remastered/pc04.ard/AP_pc04_ard19.evdl
+- name: remastered/pc04.ard/UK_pc04_arda.evdl
+  method: copy
+  source:
+  - name: remastered/pc04.ard/AP_pc04_arda.evdl
+- name: remastered/pc04.ard/UK_pc04_ardc.evdl
+  method: copy
+  source:
+  - name: remastered/pc04.ard/AP_pc04_ardc.evdl
+- name: remastered/pc04.ard/UK_pc04_ardd.evdl
+  method: copy
+  source:
+  - name: remastered/pc04.ard/AP_pc04_ardd.evdl
+- name: remastered/pc04.ard/UK_pc04_arde.evdl
+  method: copy
+  source:
+  - name: remastered/pc04.ard/AP_pc04_arde.evdl
+- name: remastered/pc05.ard/UK_pc05_ard0.evdl
+  method: copy
+  source:
+  - name: remastered/pc05.ard/AP_pc05_ard0.evdl
+- name: remastered/pc05.ard/UK_pc05_ard19.evdl
+  method: copy
+  source:
+  - name: remastered/pc05.ard/AP_pc05_ard19.evdl
+- name: remastered/pc05.ard/UK_pc05_ard2.evdl
+  method: copy
+  source:
+  - name: remastered/pc05.ard/AP_pc05_ard2.evdl
+- name: remastered/pc05.ard/UK_pc05_arda.evdl
+  method: copy
+  source:
+  - name: remastered/pc05.ard/AP_pc05_arda.evdl
+- name: remastered/pc05.ard/UK_pc05_ardc.evdl
+  method: copy
+  source:
+  - name: remastered/pc05.ard/AP_pc05_ardc.evdl
+- name: remastered/pc05.ard/UK_pc05_ardd.evdl
+  method: copy
+  source:
+  - name: remastered/pc05.ard/AP_pc05_ardd.evdl
+- name: remastered/pc05.ard/UK_pc05_arde.evdl
+  method: copy
+  source:
+  - name: remastered/pc05.ard/AP_pc05_arde.evdl
+- name: remastered/pc06.ard/UK_pc06_ard0.evdl
+  method: copy
+  source:
+  - name: remastered/pc06.ard/AP_pc06_ard0.evdl
+- name: remastered/pc06.ard/UK_pc06_ard19.evdl
+  method: copy
+  source:
+  - name: remastered/pc06.ard/AP_pc06_ard19.evdl
+- name: remastered/pc06.ard/UK_pc06_ard2.evdl
+  method: copy
+  source:
+  - name: remastered/pc06.ard/AP_pc06_ard2.evdl
+- name: remastered/pc06.ard/UK_pc06_ard3.evdl
+  method: copy
+  source:
+  - name: remastered/pc06.ard/AP_pc06_ard3.evdl
+- name: remastered/pc06.ard/UK_pc06_arda.evdl
+  method: copy
+  source:
+  - name: remastered/pc06.ard/AP_pc06_arda.evdl
+- name: remastered/pc06.ard/UK_pc06_ardc.evdl
+  method: copy
+  source:
+  - name: remastered/pc06.ard/AP_pc06_ardc.evdl
+- name: remastered/pc07.ard/UK_pc07_ard0.evdl
+  method: copy
+  source:
+  - name: remastered/pc07.ard/AP_pc07_ard0.evdl
+- name: remastered/pc07.ard/UK_pc07_ard19.evdl
+  method: copy
+  source:
+  - name: remastered/pc07.ard/AP_pc07_ard19.evdl
+- name: remastered/pc07.ard/UK_pc07_arda.evdl
+  method: copy
+  source:
+  - name: remastered/pc07.ard/AP_pc07_arda.evdl
+- name: remastered/pc07.ard/UK_pc07_ardc.evdl
+  method: copy
+  source:
+  - name: remastered/pc07.ard/AP_pc07_ardc.evdl
+- name: remastered/pc07.ard/UK_pc07_ardd.evdl
+  method: copy
+  source:
+  - name: remastered/pc07.ard/AP_pc07_ardd.evdl
+- name: remastered/pc07.ard/UK_pc07_arde.evdl
+  method: copy
+  source:
+  - name: remastered/pc07.ard/AP_pc07_arde.evdl
+- name: remastered/pc08.ard/UK_pc08_ard0.evdl
+  method: copy
+  source:
+  - name: remastered/pc08.ard/AP_pc08_ard0.evdl
+- name: remastered/pc08.ard/UK_pc08_ard10.evdl
+  method: copy
+  source:
+  - name: remastered/pc08.ard/AP_pc08_ard10.evdl
+- name: remastered/pc08.ard/UK_pc08_ard19.evdl
+  method: copy
+  source:
+  - name: remastered/pc08.ard/AP_pc08_ard19.evdl
+- name: remastered/pc08.ard/UK_pc08_arda.evdl
+  method: copy
+  source:
+  - name: remastered/pc08.ard/AP_pc08_arda.evdl
+- name: remastered/pc08.ard/UK_pc08_ardc.evdl
+  method: copy
+  source:
+  - name: remastered/pc08.ard/AP_pc08_ardc.evdl
+- name: remastered/pc08.ard/UK_pc08_ardd.evdl
+  method: copy
+  source:
+  - name: remastered/pc08.ard/AP_pc08_ardd.evdl
+- name: remastered/pc08.ard/UK_pc08_arde.evdl
+  method: copy
+  source:
+  - name: remastered/pc08.ard/AP_pc08_arde.evdl
+- name: remastered/pc09.ard/UK_pc09_ard10.evdl
+  method: copy
+  source:
+  - name: remastered/pc09.ard/AP_pc09_ard10.evdl
+- name: remastered/pc09.ard/UK_pc09_ard19.evdl
+  method: copy
+  source:
+  - name: remastered/pc09.ard/AP_pc09_ard19.evdl
+- name: remastered/pc09.ard/UK_pc09_arda.evdl
+  method: copy
+  source:
+  - name: remastered/pc09.ard/AP_pc09_arda.evdl
+- name: remastered/pc09.ard/UK_pc09_ardc.evdl
+  method: copy
+  source:
+  - name: remastered/pc09.ard/AP_pc09_ardc.evdl
+- name: remastered/pc09.ard/UK_pc09_ardd.evdl
+  method: copy
+  source:
+  - name: remastered/pc09.ard/AP_pc09_ardd.evdl
+- name: remastered/pc09.ard/UK_pc09_arde.evdl
+  method: copy
+  source:
+  - name: remastered/pc09.ard/AP_pc09_arde.evdl
+- name: remastered/pc10.ard/UK_pc10_ard0.evdl
+  method: copy
+  source:
+  - name: remastered/pc10.ard/AP_pc10_ard0.evdl
+- name: remastered/pc10.ard/UK_pc10_ard10.evdl
+  method: copy
+  source:
+  - name: remastered/pc10.ard/AP_pc10_ard10.evdl
+- name: remastered/pc10.ard/UK_pc10_ard19.evdl
+  method: copy
+  source:
+  - name: remastered/pc10.ard/AP_pc10_ard19.evdl
+- name: remastered/pc10.ard/UK_pc10_arda.evdl
+  method: copy
+  source:
+  - name: remastered/pc10.ard/AP_pc10_arda.evdl
+- name: remastered/pc10.ard/UK_pc10_ardc.evdl
+  method: copy
+  source:
+  - name: remastered/pc10.ard/AP_pc10_ardc.evdl
+- name: remastered/pc10.ard/UK_pc10_ardd.evdl
+  method: copy
+  source:
+  - name: remastered/pc10.ard/AP_pc10_ardd.evdl
+- name: remastered/pc10.ard/UK_pc10_arde.evdl
+  method: copy
+  source:
+  - name: remastered/pc10.ard/AP_pc10_arde.evdl
+- name: remastered/pc11.ard/UK_pc11_ard0.evdl
+  method: copy
+  source:
+  - name: remastered/pc11.ard/AP_pc11_ard0.evdl
+- name: remastered/pc11.ard/UK_pc11_ard10.evdl
+  method: copy
+  source:
+  - name: remastered/pc11.ard/AP_pc11_ard10.evdl
+- name: remastered/pc11.ard/UK_pc11_ard13.evdl
+  method: copy
+  source:
+  - name: remastered/pc11.ard/AP_pc11_ard13.evdl
+- name: remastered/pc11.ard/UK_pc11_ard19.evdl
+  method: copy
+  source:
+  - name: remastered/pc11.ard/AP_pc11_ard19.evdl
+- name: remastered/pc11.ard/UK_pc11_arda.evdl
+  method: copy
+  source:
+  - name: remastered/pc11.ard/AP_pc11_arda.evdl
+- name: remastered/pc11.ard/UK_pc11_ardc.evdl
+  method: copy
+  source:
+  - name: remastered/pc11.ard/AP_pc11_ardc.evdl
+- name: remastered/pc11.ard/UK_pc11_ardd.evdl
+  method: copy
+  source:
+  - name: remastered/pc11.ard/AP_pc11_ardd.evdl
+- name: remastered/pc11.ard/UK_pc11_arde.evdl
+  method: copy
+  source:
+  - name: remastered/pc11.ard/AP_pc11_arde.evdl
+- name: remastered/pc12.ard/UK_pc12_ard0.evdl
+  method: copy
+  source:
+  - name: remastered/pc12.ard/AP_pc12_ard0.evdl
+- name: remastered/pc12.ard/UK_pc12_ard19.evdl
+  method: copy
+  source:
+  - name: remastered/pc12.ard/AP_pc12_ard19.evdl
+- name: remastered/pc12.ard/UK_pc12_ard2.evdl
+  method: copy
+  source:
+  - name: remastered/pc12.ard/AP_pc12_ard2.evdl
+- name: remastered/pc12.ard/UK_pc12_ard3.evdl
+  method: copy
+  source:
+  - name: remastered/pc12.ard/AP_pc12_ard3.evdl
+- name: remastered/pc12.ard/UK_pc12_arda.evdl
+  method: copy
+  source:
+  - name: remastered/pc12.ard/AP_pc12_arda.evdl
+- name: remastered/pc12.ard/UK_pc12_ardc.evdl
+  method: copy
+  source:
+  - name: remastered/pc12.ard/AP_pc12_ardc.evdl
+- name: remastered/pc13.ard/UK_pc13_ard0.evdl
+  method: copy
+  source:
+  - name: remastered/pc13.ard/AP_pc13_ard0.evdl
+- name: remastered/pc13.ard/UK_pc13_ard19.evdl
+  method: copy
+  source:
+  - name: remastered/pc13.ard/AP_pc13_ard19.evdl
+- name: remastered/pc13.ard/UK_pc13_ardc.evdl
+  method: copy
+  source:
+  - name: remastered/pc13.ard/AP_pc13_ardc.evdl
+- name: remastered/pc15.ard/UK_pc15_ard0.evdl
+  method: copy
+  source:
+  - name: remastered/pc15.ard/AP_pc15_ard0.evdl
+- name: remastered/pc15.ard/UK_pc15_ard19.evdl
+  method: copy
+  source:
+  - name: remastered/pc15.ard/AP_pc15_ard19.evdl
+- name: remastered/pc15.ard/UK_pc15_ard3.evdl
+  method: copy
+  source:
+  - name: remastered/pc15.ard/AP_pc15_ard3.evdl
+- name: remastered/pc15.ard/UK_pc15_ard4.evdl
+  method: copy
+  source:
+  - name: remastered/pc15.ard/AP_pc15_ard4.evdl
+- name: remastered/pc15.ard/UK_pc15_ard5.evdl
+  method: copy
+  source:
+  - name: remastered/pc15.ard/AP_pc15_ard5.evdl
+- name: remastered/pc15.ard/UK_pc15_arda.evdl
+  method: copy
+  source:
+  - name: remastered/pc15.ard/AP_pc15_arda.evdl
+- name: remastered/pc15.ard/UK_pc15_ardc.evdl
+  method: copy
+  source:
+  - name: remastered/pc15.ard/AP_pc15_ardc.evdl
+- name: remastered/pc15.ard/UK_pc15_arde.evdl
+  method: copy
+  source:
+  - name: remastered/pc15.ard/AP_pc15_arde.evdl
+- name: remastered/pc16.ard/UK_pc16_ard0.evdl
+  method: copy
+  source:
+  - name: remastered/pc16.ard/AP_pc16_ard0.evdl
+- name: remastered/pc16.ard/UK_pc16_ard19.evdl
+  method: copy
+  source:
+  - name: remastered/pc16.ard/AP_pc16_ard19.evdl
+- name: remastered/pc16.ard/UK_pc16_ard2.evdl
+  method: copy
+  source:
+  - name: remastered/pc16.ard/AP_pc16_ard2.evdl
+- name: remastered/pc16.ard/UK_pc16_ardc.evdl
+  method: copy
+  source:
+  - name: remastered/pc16.ard/AP_pc16_ardc.evdl
+- name: remastered/pc17.ard/UK_pc17_ard0.evdl
+  method: copy
+  source:
+  - name: remastered/pc17.ard/AP_pc17_ard0.evdl
+- name: remastered/pc17.ard/UK_pc17_ard1.evdl
+  method: copy
+  source:
+  - name: remastered/pc17.ard/AP_pc17_ard1.evdl
+- name: remastered/pc17.ard/UK_pc17_ard2.evdl
+  method: copy
+  source:
+  - name: remastered/pc17.ard/AP_pc17_ard2.evdl
+- name: remastered/pi01.ard/UK_pi01_ard0.evdl
+  method: copy
+  source:
+  - name: remastered/pi01.ard/AP_pi01_ard0.evdl
+- name: remastered/pi01.ard/UK_pi01_ard19.evdl
+  method: copy
+  source:
+  - name: remastered/pi01.ard/AP_pi01_ard19.evdl
+- name: remastered/pi01.ard/UK_pi01_ardc.evdl
+  method: copy
+  source:
+  - name: remastered/pi01.ard/AP_pi01_ardc.evdl
+- name: remastered/pi02.ard/UK_pi02_ard0.evdl
+  method: copy
+  source:
+  - name: remastered/pi02.ard/AP_pi02_ard0.evdl
+- name: remastered/pi02.ard/UK_pi02_ard10.evdl
+  method: copy
+  source:
+  - name: remastered/pi02.ard/AP_pi02_ard10.evdl
+- name: remastered/pi02.ard/UK_pi02_ard19.evdl
+  method: copy
+  source:
+  - name: remastered/pi02.ard/AP_pi02_ard19.evdl
+- name: remastered/pi02.ard/UK_pi02_ard2.evdl
+  method: copy
+  source:
+  - name: remastered/pi02.ard/AP_pi02_ard2.evdl
+- name: remastered/pi02.ard/UK_pi02_ardc.evdl
+  method: copy
+  source:
+  - name: remastered/pi02.ard/AP_pi02_ardc.evdl
+- name: remastered/pi03.ard/UK_pi03_ard0.evdl
+  method: copy
+  source:
+  - name: remastered/pi03.ard/AP_pi03_ard0.evdl
+- name: remastered/pi03.ard/UK_pi03_ard10.evdl
+  method: copy
+  source:
+  - name: remastered/pi03.ard/AP_pi03_ard10.evdl
+- name: remastered/pi03.ard/UK_pi03_ard11.evdl
+  method: copy
+  source:
+  - name: remastered/pi03.ard/AP_pi03_ard11.evdl
+- name: remastered/pi03.ard/UK_pi03_ard12.evdl
+  method: copy
+  source:
+  - name: remastered/pi03.ard/AP_pi03_ard12.evdl
+- name: remastered/pi03.ard/UK_pi03_ard19.evdl
+  method: copy
+  source:
+  - name: remastered/pi03.ard/AP_pi03_ard19.evdl
+- name: remastered/pi03.ard/UK_pi03_ard2.evdl
+  method: copy
+  source:
+  - name: remastered/pi03.ard/AP_pi03_ard2.evdl
+- name: remastered/pi03.ard/UK_pi03_ardc.evdl
+  method: copy
+  source:
+  - name: remastered/pi03.ard/AP_pi03_ardc.evdl
+- name: remastered/pi03.ard/UK_pi03_arde.evdl
+  method: copy
+  source:
+  - name: remastered/pi03.ard/AP_pi03_arde.evdl
+- name: remastered/pi04.ard/UK_pi04_ard10.evdl
+  method: copy
+  source:
+  - name: remastered/pi04.ard/AP_pi04_ard10.evdl
+- name: remastered/pi04.ard/UK_pi04_ard11.evdl
+  method: copy
+  source:
+  - name: remastered/pi04.ard/AP_pi04_ard11.evdl
+- name: remastered/pi04.ard/UK_pi04_ard12.evdl
+  method: copy
+  source:
+  - name: remastered/pi04.ard/AP_pi04_ard12.evdl
+- name: remastered/pi04.ard/UK_pi04_ard18.evdl
+  method: copy
+  source:
+  - name: remastered/pi04.ard/AP_pi04_ard18.evdl
+- name: remastered/pi04.ard/UK_pi04_ard19.evdl
+  method: copy
+  source:
+  - name: remastered/pi04.ard/AP_pi04_ard19.evdl
+- name: remastered/pi04.ard/UK_pi04_ardc.evdl
+  method: copy
+  source:
+  - name: remastered/pi04.ard/AP_pi04_ardc.evdl
+- name: remastered/pi04.ard/UK_pi04_arde.evdl
+  method: copy
+  source:
+  - name: remastered/pi04.ard/AP_pi04_arde.evdl
+- name: remastered/pi05.ard/UK_pi05_ard0.evdl
+  method: copy
+  source:
+  - name: remastered/pi05.ard/AP_pi05_ard0.evdl
+- name: remastered/pi05.ard/UK_pi05_ard10.evdl
+  method: copy
+  source:
+  - name: remastered/pi05.ard/AP_pi05_ard10.evdl
+- name: remastered/pi05.ard/UK_pi05_ard11.evdl
+  method: copy
+  source:
+  - name: remastered/pi05.ard/AP_pi05_ard11.evdl
+- name: remastered/pi05.ard/UK_pi05_ard12.evdl
+  method: copy
+  source:
+  - name: remastered/pi05.ard/AP_pi05_ard12.evdl
+- name: remastered/pi05.ard/UK_pi05_ard19.evdl
+  method: copy
+  source:
+  - name: remastered/pi05.ard/AP_pi05_ard19.evdl
+- name: remastered/pi05.ard/UK_pi05_ard2.evdl
+  method: copy
+  source:
+  - name: remastered/pi05.ard/AP_pi05_ard2.evdl
+- name: remastered/pi05.ard/UK_pi05_ardc.evdl
+  method: copy
+  source:
+  - name: remastered/pi05.ard/AP_pi05_ardc.evdl
+- name: remastered/pi05.ard/UK_pi05_arde.evdl
+  method: copy
+  source:
+  - name: remastered/pi05.ard/AP_pi05_arde.evdl
+- name: remastered/pi06.ard/UK_pi06_ard0.evdl
+  method: copy
+  source:
+  - name: remastered/pi06.ard/AP_pi06_ard0.evdl
+- name: remastered/pi06.ard/UK_pi06_ard10.evdl
+  method: copy
+  source:
+  - name: remastered/pi06.ard/AP_pi06_ard10.evdl
+- name: remastered/pi06.ard/UK_pi06_ard11.evdl
+  method: copy
+  source:
+  - name: remastered/pi06.ard/AP_pi06_ard11.evdl
+- name: remastered/pi06.ard/UK_pi06_ard12.evdl
+  method: copy
+  source:
+  - name: remastered/pi06.ard/AP_pi06_ard12.evdl
+- name: remastered/pi06.ard/UK_pi06_ard19.evdl
+  method: copy
+  source:
+  - name: remastered/pi06.ard/AP_pi06_ard19.evdl
+- name: remastered/pi06.ard/UK_pi06_ard2.evdl
+  method: copy
+  source:
+  - name: remastered/pi06.ard/AP_pi06_ard2.evdl
+- name: remastered/pi06.ard/UK_pi06_ardc.evdl
+  method: copy
+  source:
+  - name: remastered/pi06.ard/AP_pi06_ardc.evdl
+- name: remastered/pi06.ard/UK_pi06_ardd.evdl
+  method: copy
+  source:
+  - name: remastered/pi06.ard/AP_pi06_ardd.evdl
+- name: remastered/pi06.ard/UK_pi06_arde.evdl
+  method: copy
+  source:
+  - name: remastered/pi06.ard/AP_pi06_arde.evdl
+- name: remastered/pi07.ard/UK_pi07_ard10.evdl
+  method: copy
+  source:
+  - name: remastered/pi07.ard/AP_pi07_ard10.evdl
+- name: remastered/pi07.ard/UK_pi07_ard11.evdl
+  method: copy
+  source:
+  - name: remastered/pi07.ard/AP_pi07_ard11.evdl
+- name: remastered/pi07.ard/UK_pi07_ard12.evdl
+  method: copy
+  source:
+  - name: remastered/pi07.ard/AP_pi07_ard12.evdl
+- name: remastered/pi07.ard/UK_pi07_ard19.evdl
+  method: copy
+  source:
+  - name: remastered/pi07.ard/AP_pi07_ard19.evdl
+- name: remastered/pi07.ard/UK_pi07_ardc.evdl
+  method: copy
+  source:
+  - name: remastered/pi07.ard/AP_pi07_ardc.evdl
+- name: remastered/pi07.ard/UK_pi07_ardd.evdl
+  method: copy
+  source:
+  - name: remastered/pi07.ard/AP_pi07_ardd.evdl
+- name: remastered/pi07.ard/UK_pi07_arde.evdl
+  method: copy
+  source:
+  - name: remastered/pi07.ard/AP_pi07_arde.evdl
+- name: remastered/pi08.ard/UK_pi08_ard10.evdl
+  method: copy
+  source:
+  - name: remastered/pi08.ard/AP_pi08_ard10.evdl
+- name: remastered/pi08.ard/UK_pi08_ard11.evdl
+  method: copy
+  source:
+  - name: remastered/pi08.ard/AP_pi08_ard11.evdl
+- name: remastered/pi08.ard/UK_pi08_ard12.evdl
+  method: copy
+  source:
+  - name: remastered/pi08.ard/AP_pi08_ard12.evdl
+- name: remastered/pi08.ard/UK_pi08_ard19.evdl
+  method: copy
+  source:
+  - name: remastered/pi08.ard/AP_pi08_ard19.evdl
+- name: remastered/pi08.ard/UK_pi08_ardc.evdl
+  method: copy
+  source:
+  - name: remastered/pi08.ard/AP_pi08_ardc.evdl
+- name: remastered/pi08.ard/UK_pi08_ardd.evdl
+  method: copy
+  source:
+  - name: remastered/pi08.ard/AP_pi08_ardd.evdl
+- name: remastered/pi08.ard/UK_pi08_arde.evdl
+  method: copy
+  source:
+  - name: remastered/pi08.ard/AP_pi08_arde.evdl
+- name: remastered/pi09.ard/UK_pi09_ard0.evdl
+  method: copy
+  source:
+  - name: remastered/pi09.ard/AP_pi09_ard0.evdl
+- name: remastered/pi09.ard/UK_pi09_ard10.evdl
+  method: copy
+  source:
+  - name: remastered/pi09.ard/AP_pi09_ard10.evdl
+- name: remastered/pi09.ard/UK_pi09_ard11.evdl
+  method: copy
+  source:
+  - name: remastered/pi09.ard/AP_pi09_ard11.evdl
+- name: remastered/pi09.ard/UK_pi09_ard12.evdl
+  method: copy
+  source:
+  - name: remastered/pi09.ard/AP_pi09_ard12.evdl
+- name: remastered/pi09.ard/UK_pi09_ard19.evdl
+  method: copy
+  source:
+  - name: remastered/pi09.ard/AP_pi09_ard19.evdl
+- name: remastered/pi09.ard/UK_pi09_ard2.evdl
+  method: copy
+  source:
+  - name: remastered/pi09.ard/AP_pi09_ard2.evdl
+- name: remastered/pi09.ard/UK_pi09_ardc.evdl
+  method: copy
+  source:
+  - name: remastered/pi09.ard/AP_pi09_ardc.evdl
+- name: remastered/pi10.ard/UK_pi10_ard10.evdl
+  method: copy
+  source:
+  - name: remastered/pi10.ard/AP_pi10_ard10.evdl
+- name: remastered/pi10.ard/UK_pi10_ard11.evdl
+  method: copy
+  source:
+  - name: remastered/pi10.ard/AP_pi10_ard11.evdl
+- name: remastered/pi10.ard/UK_pi10_ard12.evdl
+  method: copy
+  source:
+  - name: remastered/pi10.ard/AP_pi10_ard12.evdl
+- name: remastered/pi10.ard/UK_pi10_ard19.evdl
+  method: copy
+  source:
+  - name: remastered/pi10.ard/AP_pi10_ard19.evdl
+- name: remastered/pi10.ard/UK_pi10_ardc.evdl
+  method: copy
+  source:
+  - name: remastered/pi10.ard/AP_pi10_ardc.evdl
+- name: remastered/pi10.ard/UK_pi10_ardd.evdl
+  method: copy
+  source:
+  - name: remastered/pi10.ard/AP_pi10_ardd.evdl
+- name: remastered/pi10.ard/UK_pi10_arde.evdl
+  method: copy
+  source:
+  - name: remastered/pi10.ard/AP_pi10_arde.evdl
+- name: remastered/pi11.ard/UK_pi11_ard10.evdl
+  method: copy
+  source:
+  - name: remastered/pi11.ard/AP_pi11_ard10.evdl
+- name: remastered/pi11.ard/UK_pi11_ard11.evdl
+  method: copy
+  source:
+  - name: remastered/pi11.ard/AP_pi11_ard11.evdl
+- name: remastered/pi11.ard/UK_pi11_ard12.evdl
+  method: copy
+  source:
+  - name: remastered/pi11.ard/AP_pi11_ard12.evdl
+- name: remastered/pi11.ard/UK_pi11_ard19.evdl
+  method: copy
+  source:
+  - name: remastered/pi11.ard/AP_pi11_ard19.evdl
+- name: remastered/pi11.ard/UK_pi11_ardc.evdl
+  method: copy
+  source:
+  - name: remastered/pi11.ard/AP_pi11_ardc.evdl
+- name: remastered/pi11.ard/UK_pi11_ardd.evdl
+  method: copy
+  source:
+  - name: remastered/pi11.ard/AP_pi11_ardd.evdl
+- name: remastered/pi11.ard/UK_pi11_arde.evdl
+  method: copy
+  source:
+  - name: remastered/pi11.ard/AP_pi11_arde.evdl
+- name: remastered/pi32.ard/UK_pi32_ard0.evdl
+  method: copy
+  source:
+  - name: remastered/pi32.ard/AP_pi32_ard0.evdl
+- name: remastered/pi32.ard/UK_pi32_ard19.evdl
+  method: copy
+  source:
+  - name: remastered/pi32.ard/AP_pi32_ard19.evdl
+- name: remastered/pi32.ard/UK_pi32_ardc.evdl
+  method: copy
+  source:
+  - name: remastered/pi32.ard/AP_pi32_ardc.evdl
+- name: remastered/pi37.ard/UK_pi37_ard0.evdl
+  method: copy
+  source:
+  - name: remastered/pi37.ard/AP_pi37_ard0.evdl
+- name: remastered/pi37.ard/UK_pi37_ard19.evdl
+  method: copy
+  source:
+  - name: remastered/pi37.ard/AP_pi37_ard19.evdl
+- name: remastered/pi37.ard/UK_pi37_ardc.evdl
+  method: copy
+  source:
+  - name: remastered/pi37.ard/AP_pi37_ardc.evdl
+- name: remastered/po01.ard/UK_po01_ard0.evdl
+  method: copy
+  source:
+  - name: remastered/po01.ard/AP_po01_ard0.evdl
+- name: remastered/po01.ard/UK_po01_ard1.evdl
+  method: copy
+  source:
+  - name: remastered/po01.ard/AP_po01_ard1.evdl
+- name: remastered/po01.ard/UK_po01_ard19.evdl
+  method: copy
+  source:
+  - name: remastered/po01.ard/AP_po01_ard19.evdl
+- name: remastered/po01.ard/UK_po01_ardc.evdl
+  method: copy
+  source:
+  - name: remastered/po01.ard/AP_po01_ardc.evdl
+- name: remastered/po02.ard/UK_po02_ard0.evdl
+  method: copy
+  source:
+  - name: remastered/po02.ard/AP_po02_ard0.evdl
+- name: remastered/po02.ard/UK_po02_ard19.evdl
+  method: copy
+  source:
+  - name: remastered/po02.ard/AP_po02_ard19.evdl
+- name: remastered/po02.ard/UK_po02_ardc.evdl
+  method: copy
+  source:
+  - name: remastered/po02.ard/AP_po02_ardc.evdl
+- name: remastered/po03.ard/UK_po03_ard0.evdl
+  method: copy
+  source:
+  - name: remastered/po03.ard/AP_po03_ard0.evdl
+- name: remastered/po03.ard/UK_po03_ard19.evdl
+  method: copy
+  source:
+  - name: remastered/po03.ard/AP_po03_ard19.evdl
+- name: remastered/po03.ard/UK_po03_ardc.evdl
+  method: copy
+  source:
+  - name: remastered/po03.ard/AP_po03_ardc.evdl
+- name: remastered/po04.ard/UK_po04_ard0.evdl
+  method: copy
+  source:
+  - name: remastered/po04.ard/AP_po04_ard0.evdl
+- name: remastered/po04.ard/UK_po04_ard19.evdl
+  method: copy
+  source:
+  - name: remastered/po04.ard/AP_po04_ard19.evdl
+- name: remastered/po04.ard/UK_po04_ardc.evdl
+  method: copy
+  source:
+  - name: remastered/po04.ard/AP_po04_ardc.evdl
+- name: remastered/po05.ard/UK_po05_ard0.evdl
+  method: copy
+  source:
+  - name: remastered/po05.ard/AP_po05_ard0.evdl
+- name: remastered/po05.ard/UK_po05_ard19.evdl
+  method: copy
+  source:
+  - name: remastered/po05.ard/AP_po05_ard19.evdl
+- name: remastered/po05.ard/UK_po05_ardc.evdl
+  method: copy
+  source:
+  - name: remastered/po05.ard/AP_po05_ardc.evdl
+- name: remastered/po06.ard/UK_po06_ard0.evdl
+  method: copy
+  source:
+  - name: remastered/po06.ard/AP_po06_ard0.evdl
+- name: remastered/po06.ard/UK_po06_ard19.evdl
+  method: copy
+  source:
+  - name: remastered/po06.ard/AP_po06_ard19.evdl
+- name: remastered/po06.ard/UK_po06_ardc.evdl
+  method: copy
+  source:
+  - name: remastered/po06.ard/AP_po06_ardc.evdl
+- name: remastered/po07.ard/UK_po07_ard0.evdl
+  method: copy
+  source:
+  - name: remastered/po07.ard/AP_po07_ard0.evdl
+- name: remastered/po07.ard/UK_po07_ard19.evdl
+  method: copy
+  source:
+  - name: remastered/po07.ard/AP_po07_ard19.evdl
+- name: remastered/po07.ard/UK_po07_ardc.evdl
+  method: copy
+  source:
+  - name: remastered/po07.ard/AP_po07_ardc.evdl
+- name: remastered/po08.ard/UK_po08_ard0.evdl
+  method: copy
+  source:
+  - name: remastered/po08.ard/AP_po08_ard0.evdl
+- name: remastered/po08.ard/UK_po08_ard19.evdl
+  method: copy
+  source:
+  - name: remastered/po08.ard/AP_po08_ard19.evdl
+- name: remastered/po08.ard/UK_po08_ardc.evdl
+  method: copy
+  source:
+  - name: remastered/po08.ard/AP_po08_ardc.evdl
+- name: remastered/po09.ard/UK_po09_ard0.evdl
+  method: copy
+  source:
+  - name: remastered/po09.ard/AP_po09_ard0.evdl
+- name: remastered/po09.ard/UK_po09_ard19.evdl
+  method: copy
+  source:
+  - name: remastered/po09.ard/AP_po09_ard19.evdl
+- name: remastered/po09.ard/UK_po09_ardc.evdl
+  method: copy
+  source:
+  - name: remastered/po09.ard/AP_po09_ardc.evdl
+- name: remastered/po10.ard/UK_po10_ard0.evdl
+  method: copy
+  source:
+  - name: remastered/po10.ard/AP_po10_ard0.evdl
+- name: remastered/po10.ard/UK_po10_ard19.evdl
+  method: copy
+  source:
+  - name: remastered/po10.ard/AP_po10_ard19.evdl
+- name: remastered/po10.ard/UK_po10_ardc.evdl
+  method: copy
+  source:
+  - name: remastered/po10.ard/AP_po10_ardc.evdl
+- name: remastered/po11.ard/UK_po11_ard0.evdl
+  method: copy
+  source:
+  - name: remastered/po11.ard/AP_po11_ard0.evdl
+- name: remastered/po11.ard/UK_po11_ard19.evdl
+  method: copy
+  source:
+  - name: remastered/po11.ard/AP_po11_ard19.evdl
+- name: remastered/po11.ard/UK_po11_ardc.evdl
+  method: copy
+  source:
+  - name: remastered/po11.ard/AP_po11_ardc.evdl
+- name: remastered/po32.ard/UK_po32_ard10.evdl
+  method: copy
+  source:
+  - name: remastered/po32.ard/AP_po32_ard10.evdl
+- name: remastered/po32.ard/UK_po32_ard11.evdl
+  method: copy
+  source:
+  - name: remastered/po32.ard/AP_po32_ard11.evdl
+- name: remastered/po32.ard/UK_po32_ard12.evdl
+  method: copy
+  source:
+  - name: remastered/po32.ard/AP_po32_ard12.evdl
+- name: remastered/po32.ard/UK_po32_ard19.evdl
+  method: copy
+  source:
+  - name: remastered/po32.ard/AP_po32_ard19.evdl
+- name: remastered/po32.ard/UK_po32_ardc.evdl
+  method: copy
+  source:
+  - name: remastered/po32.ard/AP_po32_ardc.evdl
+- name: remastered/po32.ard/UK_po32_ardd.evdl
+  method: copy
+  source:
+  - name: remastered/po32.ard/AP_po32_ardd.evdl
+- name: remastered/po32.ard/UK_po32_arde.evdl
+  method: copy
+  source:
+  - name: remastered/po32.ard/AP_po32_arde.evdl
+- name: remastered/po37.ard/UK_po37_ard0.evdl
+  method: copy
+  source:
+  - name: remastered/po37.ard/AP_po37_ard0.evdl
+- name: remastered/po37.ard/UK_po37_ard10.evdl
+  method: copy
+  source:
+  - name: remastered/po37.ard/AP_po37_ard10.evdl
+- name: remastered/po37.ard/UK_po37_ard19.evdl
+  method: copy
+  source:
+  - name: remastered/po37.ard/AP_po37_ard19.evdl
+- name: remastered/po37.ard/UK_po37_ard2.evdl
+  method: copy
+  source:
+  - name: remastered/po37.ard/AP_po37_ard2.evdl
+- name: remastered/po37.ard/UK_po37_ardc.evdl
+  method: copy
+  source:
+  - name: remastered/po37.ard/AP_po37_ardc.evdl
+- name: remastered/pp01.ard/UK_pp01_ard0.evdl
+  method: copy
+  source:
+  - name: remastered/pp01.ard/AP_pp01_ard0.evdl
+- name: remastered/pp01.ard/UK_pp01_ard11.evdl
+  method: copy
+  source:
+  - name: remastered/pp01.ard/AP_pp01_ard11.evdl
+- name: remastered/pp01.ard/UK_pp01_ard19.evdl
+  method: copy
+  source:
+  - name: remastered/pp01.ard/AP_pp01_ard19.evdl
+- name: remastered/pp01.ard/UK_pp01_ardc.evdl
+  method: copy
+  source:
+  - name: remastered/pp01.ard/AP_pp01_ardc.evdl
+- name: remastered/pp01.ard/UK_pp01_ardd.evdl
+  method: copy
+  source:
+  - name: remastered/pp01.ard/AP_pp01_ardd.evdl
+- name: remastered/pp01.ard/UK_pp01_arde.evdl
+  method: copy
+  source:
+  - name: remastered/pp01.ard/AP_pp01_arde.evdl
+- name: remastered/pp02.ard/UK_pp02_ard0.evdl
+  method: copy
+  source:
+  - name: remastered/pp02.ard/AP_pp02_ard0.evdl
+- name: remastered/pp02.ard/UK_pp02_ard11.evdl
+  method: copy
+  source:
+  - name: remastered/pp02.ard/AP_pp02_ard11.evdl
+- name: remastered/pp02.ard/UK_pp02_ard19.evdl
+  method: copy
+  source:
+  - name: remastered/pp02.ard/AP_pp02_ard19.evdl
+- name: remastered/pp02.ard/UK_pp02_ardc.evdl
+  method: copy
+  source:
+  - name: remastered/pp02.ard/AP_pp02_ardc.evdl
+- name: remastered/pp02.ard/UK_pp02_ardd.evdl
+  method: copy
+  source:
+  - name: remastered/pp02.ard/AP_pp02_ardd.evdl
+- name: remastered/pp02.ard/UK_pp02_arde.evdl
+  method: copy
+  source:
+  - name: remastered/pp02.ard/AP_pp02_arde.evdl
+- name: remastered/pp03.ard/UK_pp03_ard0.evdl
+  method: copy
+  source:
+  - name: remastered/pp03.ard/AP_pp03_ard0.evdl
+- name: remastered/pp03.ard/UK_pp03_ard11.evdl
+  method: copy
+  source:
+  - name: remastered/pp03.ard/AP_pp03_ard11.evdl
+- name: remastered/pp03.ard/UK_pp03_ard19.evdl
+  method: copy
+  source:
+  - name: remastered/pp03.ard/AP_pp03_ard19.evdl
+- name: remastered/pp03.ard/UK_pp03_ardc.evdl
+  method: copy
+  source:
+  - name: remastered/pp03.ard/AP_pp03_ardc.evdl
+- name: remastered/pp03.ard/UK_pp03_ardd.evdl
+  method: copy
+  source:
+  - name: remastered/pp03.ard/AP_pp03_ardd.evdl
+- name: remastered/pp03.ard/UK_pp03_arde.evdl
+  method: copy
+  source:
+  - name: remastered/pp03.ard/AP_pp03_arde.evdl
+- name: remastered/pp04.ard/UK_pp04_ard0.evdl
+  method: copy
+  source:
+  - name: remastered/pp04.ard/AP_pp04_ard0.evdl
+- name: remastered/pp04.ard/UK_pp04_ard11.evdl
+  method: copy
+  source:
+  - name: remastered/pp04.ard/AP_pp04_ard11.evdl
+- name: remastered/pp04.ard/UK_pp04_ard19.evdl
+  method: copy
+  source:
+  - name: remastered/pp04.ard/AP_pp04_ard19.evdl
+- name: remastered/pp04.ard/UK_pp04_ardc.evdl
+  method: copy
+  source:
+  - name: remastered/pp04.ard/AP_pp04_ardc.evdl
+- name: remastered/pp04.ard/UK_pp04_ardd.evdl
+  method: copy
+  source:
+  - name: remastered/pp04.ard/AP_pp04_ardd.evdl
+- name: remastered/pp04.ard/UK_pp04_arde.evdl
+  method: copy
+  source:
+  - name: remastered/pp04.ard/AP_pp04_arde.evdl
+- name: remastered/pp05.ard/UK_pp05_ard0.evdl
+  method: copy
+  source:
+  - name: remastered/pp05.ard/AP_pp05_ard0.evdl
+- name: remastered/pp05.ard/UK_pp05_ard11.evdl
+  method: copy
+  source:
+  - name: remastered/pp05.ard/AP_pp05_ard11.evdl
+- name: remastered/pp05.ard/UK_pp05_ard19.evdl
+  method: copy
+  source:
+  - name: remastered/pp05.ard/AP_pp05_ard19.evdl
+- name: remastered/pp05.ard/UK_pp05_ard2.evdl
+  method: copy
+  source:
+  - name: remastered/pp05.ard/AP_pp05_ard2.evdl
+- name: remastered/pp05.ard/UK_pp05_ardc.evdl
+  method: copy
+  source:
+  - name: remastered/pp05.ard/AP_pp05_ardc.evdl
+- name: remastered/pp05.ard/UK_pp05_ardd.evdl
+  method: copy
+  source:
+  - name: remastered/pp05.ard/AP_pp05_ardd.evdl
+- name: remastered/pp05.ard/UK_pp05_arde.evdl
+  method: copy
+  source:
+  - name: remastered/pp05.ard/AP_pp05_arde.evdl
+- name: remastered/pp06.ard/UK_pp06_ard0.evdl
+  method: copy
+  source:
+  - name: remastered/pp06.ard/AP_pp06_ard0.evdl
+- name: remastered/pp06.ard/UK_pp06_ard11.evdl
+  method: copy
+  source:
+  - name: remastered/pp06.ard/AP_pp06_ard11.evdl
+- name: remastered/pp06.ard/UK_pp06_ard19.evdl
+  method: copy
+  source:
+  - name: remastered/pp06.ard/AP_pp06_ard19.evdl
+- name: remastered/pp06.ard/UK_pp06_ardc.evdl
+  method: copy
+  source:
+  - name: remastered/pp06.ard/AP_pp06_ardc.evdl
+- name: remastered/pp06.ard/UK_pp06_ardd.evdl
+  method: copy
+  source:
+  - name: remastered/pp06.ard/AP_pp06_ardd.evdl
+- name: remastered/pp06.ard/UK_pp06_arde.evdl
+  method: copy
+  source:
+  - name: remastered/pp06.ard/AP_pp06_arde.evdl
+- name: remastered/pp07.ard/UK_pp07_ard0.evdl
+  method: copy
+  source:
+  - name: remastered/pp07.ard/AP_pp07_ard0.evdl
+- name: remastered/pp07.ard/UK_pp07_ard1.evdl
+  method: copy
+  source:
+  - name: remastered/pp07.ard/AP_pp07_ard1.evdl
+- name: remastered/pp07.ard/UK_pp07_ard11.evdl
+  method: copy
+  source:
+  - name: remastered/pp07.ard/AP_pp07_ard11.evdl
+- name: remastered/pp07.ard/UK_pp07_ard19.evdl
+  method: copy
+  source:
+  - name: remastered/pp07.ard/AP_pp07_ard19.evdl
+- name: remastered/pp07.ard/UK_pp07_ard2.evdl
+  method: copy
+  source:
+  - name: remastered/pp07.ard/AP_pp07_ard2.evdl
+- name: remastered/pp07.ard/UK_pp07_ard3.evdl
+  method: copy
+  source:
+  - name: remastered/pp07.ard/AP_pp07_ard3.evdl
+- name: remastered/pp07.ard/UK_pp07_ardc.evdl
+  method: copy
+  source:
+  - name: remastered/pp07.ard/AP_pp07_ardc.evdl
+- name: remastered/pp07.ard/UK_pp07_ardd.evdl
+  method: copy
+  source:
+  - name: remastered/pp07.ard/AP_pp07_ardd.evdl
+- name: remastered/pp07.ard/UK_pp07_arde.evdl
+  method: copy
+  source:
+  - name: remastered/pp07.ard/AP_pp07_arde.evdl
+- name: remastered/pp08.ard/UK_pp08_ard0.evdl
+  method: copy
+  source:
+  - name: remastered/pp08.ard/AP_pp08_ard0.evdl
+- name: remastered/pp08.ard/UK_pp08_ard19.evdl
+  method: copy
+  source:
+  - name: remastered/pp08.ard/AP_pp08_ard19.evdl
+- name: remastered/pp08.ard/UK_pp08_ard2.evdl
+  method: copy
+  source:
+  - name: remastered/pp08.ard/AP_pp08_ard2.evdl
+- name: remastered/pp08.ard/UK_pp08_ardc.evdl
+  method: copy
+  source:
+  - name: remastered/pp08.ard/AP_pp08_ardc.evdl
+- name: remastered/pp09.ard/UK_pp09_ard0.evdl
+  method: copy
+  source:
+  - name: remastered/pp09.ard/AP_pp09_ard0.evdl
+- name: remastered/pp09.ard/UK_pp09_ard1.evdl
+  method: copy
+  source:
+  - name: remastered/pp09.ard/AP_pp09_ard1.evdl
+- name: remastered/pp09.ard/UK_pp09_ard11.evdl
+  method: copy
+  source:
+  - name: remastered/pp09.ard/AP_pp09_ard11.evdl
+- name: remastered/pp09.ard/UK_pp09_ard13.evdl
+  method: copy
+  source:
+  - name: remastered/pp09.ard/AP_pp09_ard13.evdl
+- name: remastered/pp09.ard/UK_pp09_ard19.evdl
+  method: copy
+  source:
+  - name: remastered/pp09.ard/AP_pp09_ard19.evdl
+- name: remastered/pp09.ard/UK_pp09_ard2.evdl
+  method: copy
+  source:
+  - name: remastered/pp09.ard/AP_pp09_ard2.evdl
+- name: remastered/pp09.ard/UK_pp09_ardc.evdl
+  method: copy
+  source:
+  - name: remastered/pp09.ard/AP_pp09_ardc.evdl
+- name: remastered/pp09.ard/UK_pp09_ardd.evdl
+  method: copy
+  source:
+  - name: remastered/pp09.ard/AP_pp09_ardd.evdl
+- name: remastered/pp09.ard/UK_pp09_arde.evdl
+  method: copy
+  source:
+  - name: remastered/pp09.ard/AP_pp09_arde.evdl
+- name: remastered/pp10.ard/UK_pp10_ard0.evdl
+  method: copy
+  source:
+  - name: remastered/pp10.ard/AP_pp10_ard0.evdl
+- name: remastered/pp10.ard/UK_pp10_ard1.evdl
+  method: copy
+  source:
+  - name: remastered/pp10.ard/AP_pp10_ard1.evdl
+- name: remastered/pp10.ard/UK_pp10_ard19.evdl
+  method: copy
+  source:
+  - name: remastered/pp10.ard/AP_pp10_ard19.evdl
+- name: remastered/pp10.ard/UK_pp10_ard2.evdl
+  method: copy
+  source:
+  - name: remastered/pp10.ard/AP_pp10_ard2.evdl
+- name: remastered/pp10.ard/UK_pp10_ardc.evdl
+  method: copy
+  source:
+  - name: remastered/pp10.ard/AP_pp10_ardc.evdl
+- name: remastered/pp11.ard/UK_pp11_ard0.evdl
+  method: copy
+  source:
+  - name: remastered/pp11.ard/AP_pp11_ard0.evdl
+- name: remastered/pp11.ard/UK_pp11_ard19.evdl
+  method: copy
+  source:
+  - name: remastered/pp11.ard/AP_pp11_ard19.evdl
+- name: remastered/pp11.ard/UK_pp11_ard2.evdl
+  method: copy
+  source:
+  - name: remastered/pp11.ard/AP_pp11_ard2.evdl
+- name: remastered/pp11.ard/UK_pp11_ardc.evdl
+  method: copy
+  source:
+  - name: remastered/pp11.ard/AP_pp11_ardc.evdl
+- name: remastered/pp12.ard/UK_pp12_ard0.evdl
+  method: copy
+  source:
+  - name: remastered/pp12.ard/AP_pp12_ard0.evdl
+- name: remastered/pp12.ard/UK_pp12_ard19.evdl
+  method: copy
+  source:
+  - name: remastered/pp12.ard/AP_pp12_ard19.evdl
+- name: remastered/pp12.ard/UK_pp12_ardc.evdl
+  method: copy
+  source:
+  - name: remastered/pp12.ard/AP_pp12_ardc.evdl
+- name: remastered/tw01.ard/UK_tw01_ard0.evdl
+  method: copy
+  source:
+  - name: remastered/tw01.ard/AP_tw01_ard0.evdl
+- name: remastered/tw01.ard/UK_tw01_ard19.evdl
+  method: copy
+  source:
+  - name: remastered/tw01.ard/AP_tw01_ard19.evdl
+- name: remastered/tw01.ard/UK_tw01_ard2.evdl
+  method: copy
+  source:
+  - name: remastered/tw01.ard/AP_tw01_ard2.evdl
+- name: remastered/tw01.ard/UK_tw01_ard3.evdl
+  method: copy
+  source:
+  - name: remastered/tw01.ard/AP_tw01_ard3.evdl
+- name: remastered/tw01.ard/UK_tw01_ard4.evdl
+  method: copy
+  source:
+  - name: remastered/tw01.ard/AP_tw01_ard4.evdl
+- name: remastered/tw01.ard/UK_tw01_ard5.evdl
+  method: copy
+  source:
+  - name: remastered/tw01.ard/AP_tw01_ard5.evdl
+- name: remastered/tw01.ard/UK_tw01_ardc.evdl
+  method: copy
+  source:
+  - name: remastered/tw01.ard/AP_tw01_ardc.evdl
+- name: remastered/tw01.ard/UK_tw01_ardd.evdl
+  method: copy
+  source:
+  - name: remastered/tw01.ard/AP_tw01_ardd.evdl
+- name: remastered/tw02.ard/UK_tw02_ard0.evdl
+  method: copy
+  source:
+  - name: remastered/tw02.ard/AP_tw02_ard0.evdl
+- name: remastered/tw02.ard/UK_tw02_ard19.evdl
+  method: copy
+  source:
+  - name: remastered/tw02.ard/AP_tw02_ard19.evdl
+- name: remastered/tw02.ard/UK_tw02_ard2.evdl
+  method: copy
+  source:
+  - name: remastered/tw02.ard/AP_tw02_ard2.evdl
+- name: remastered/tw02.ard/UK_tw02_ard3.evdl
+  method: copy
+  source:
+  - name: remastered/tw02.ard/AP_tw02_ard3.evdl
+- name: remastered/tw02.ard/UK_tw02_ard4.evdl
+  method: copy
+  source:
+  - name: remastered/tw02.ard/AP_tw02_ard4.evdl
+- name: remastered/tw02.ard/UK_tw02_ardc.evdl
+  method: copy
+  source:
+  - name: remastered/tw02.ard/AP_tw02_ardc.evdl
+- name: remastered/tw02.ard/UK_tw02_ardd.evdl
+  method: copy
+  source:
+  - name: remastered/tw02.ard/AP_tw02_ardd.evdl
+- name: remastered/tw02.ard/UK_tw02_arde.evdl
+  method: copy
+  source:
+  - name: remastered/tw02.ard/AP_tw02_arde.evdl
+- name: remastered/tw03.ard/UK_tw03_ard0.evdl
+  method: copy
+  source:
+  - name: remastered/tw03.ard/AP_tw03_ard0.evdl
+- name: remastered/tw03.ard/UK_tw03_ard10.evdl
+  method: copy
+  source:
+  - name: remastered/tw03.ard/AP_tw03_ard10.evdl
+- name: remastered/tw03.ard/UK_tw03_ard19.evdl
+  method: copy
+  source:
+  - name: remastered/tw03.ard/AP_tw03_ard19.evdl
+- name: remastered/tw03.ard/UK_tw03_ard2.evdl
+  method: copy
+  source:
+  - name: remastered/tw03.ard/AP_tw03_ard2.evdl
+- name: remastered/tw03.ard/UK_tw03_ard3.evdl
+  method: copy
+  source:
+  - name: remastered/tw03.ard/AP_tw03_ard3.evdl
+- name: remastered/tw03.ard/UK_tw03_ard4.evdl
+  method: copy
+  source:
+  - name: remastered/tw03.ard/AP_tw03_ard4.evdl
+- name: remastered/tw03.ard/UK_tw03_ardc.evdl
+  method: copy
+  source:
+  - name: remastered/tw03.ard/AP_tw03_ardc.evdl
+- name: remastered/tw03.ard/UK_tw03_ardd.evdl
+  method: copy
+  source:
+  - name: remastered/tw03.ard/AP_tw03_ardd.evdl
+- name: remastered/tw03.ard/UK_tw03_arde.evdl
+  method: copy
+  source:
+  - name: remastered/tw03.ard/AP_tw03_arde.evdl
+- name: remastered/tw04.ard/UK_tw04_ard0.evdl
+  method: copy
+  source:
+  - name: remastered/tw04.ard/AP_tw04_ard0.evdl
+- name: remastered/tw04.ard/UK_tw04_ard19.evdl
+  method: copy
+  source:
+  - name: remastered/tw04.ard/AP_tw04_ard19.evdl
+- name: remastered/tw04.ard/UK_tw04_ard2.evdl
+  method: copy
+  source:
+  - name: remastered/tw04.ard/AP_tw04_ard2.evdl
+- name: remastered/tw04.ard/UK_tw04_ardc.evdl
+  method: copy
+  source:
+  - name: remastered/tw04.ard/AP_tw04_ardc.evdl
+- name: remastered/tw05.ard/UK_tw05_ard0.evdl
+  method: copy
+  source:
+  - name: remastered/tw05.ard/AP_tw05_ard0.evdl
+- name: remastered/tw05.ard/UK_tw05_ard10.evdl
+  method: copy
+  source:
+  - name: remastered/tw05.ard/AP_tw05_ard10.evdl
+- name: remastered/tw05.ard/UK_tw05_ard19.evdl
+  method: copy
+  source:
+  - name: remastered/tw05.ard/AP_tw05_ard19.evdl
+- name: remastered/tw05.ard/UK_tw05_ard2.evdl
+  method: copy
+  source:
+  - name: remastered/tw05.ard/AP_tw05_ard2.evdl
+- name: remastered/tw05.ard/UK_tw05_ard3.evdl
+  method: copy
+  source:
+  - name: remastered/tw05.ard/AP_tw05_ard3.evdl
+- name: remastered/tw05.ard/UK_tw05_ardc.evdl
+  method: copy
+  source:
+  - name: remastered/tw05.ard/AP_tw05_ardc.evdl
+- name: remastered/tw05.ard/UK_tw05_ardd.evdl
+  method: copy
+  source:
+  - name: remastered/tw05.ard/AP_tw05_ardd.evdl
+- name: remastered/tw05.ard/UK_tw05_arde.evdl
+  method: copy
+  source:
+  - name: remastered/tw05.ard/AP_tw05_arde.evdl
+- name: remastered/tw06.ard/UK_tw06_ard0.evdl
+  method: copy
+  source:
+  - name: remastered/tw06.ard/AP_tw06_ard0.evdl
+- name: remastered/tw06.ard/UK_tw06_ard19.evdl
+  method: copy
+  source:
+  - name: remastered/tw06.ard/AP_tw06_ard19.evdl
+- name: remastered/tw06.ard/UK_tw06_ard2.evdl
+  method: copy
+  source:
+  - name: remastered/tw06.ard/AP_tw06_ard2.evdl
+- name: remastered/tw06.ard/UK_tw06_ardc.evdl
+  method: copy
+  source:
+  - name: remastered/tw06.ard/AP_tw06_ardc.evdl
+- name: remastered/tw06.ard/UK_tw06_ardd.evdl
+  method: copy
+  source:
+  - name: remastered/tw06.ard/AP_tw06_ardd.evdl
+- name: remastered/tw07.ard/UK_tw07_ard0.evdl
+  method: copy
+  source:
+  - name: remastered/tw07.ard/AP_tw07_ard0.evdl
+- name: remastered/tw07.ard/UK_tw07_ard19.evdl
+  method: copy
+  source:
+  - name: remastered/tw07.ard/AP_tw07_ard19.evdl
+- name: remastered/tw07.ard/UK_tw07_ardc.evdl
+  method: copy
+  source:
+  - name: remastered/tw07.ard/AP_tw07_ardc.evdl
+- name: remastered/tw07.ard/UK_tw07_ardd.evdl
+  method: copy
+  source:
+  - name: remastered/tw07.ard/AP_tw07_ardd.evdl
+- name: remastered/tw08.ard/UK_tw08_ard0.evdl
+  method: copy
+  source:
+  - name: remastered/tw08.ard/AP_tw08_ard0.evdl
+- name: remastered/tw08.ard/UK_tw08_ard10.evdl
+  method: copy
+  source:
+  - name: remastered/tw08.ard/AP_tw08_ard10.evdl
+- name: remastered/tw08.ard/UK_tw08_ard19.evdl
+  method: copy
+  source:
+  - name: remastered/tw08.ard/AP_tw08_ard19.evdl
+- name: remastered/tw08.ard/UK_tw08_ard2.evdl
+  method: copy
+  source:
+  - name: remastered/tw08.ard/AP_tw08_ard2.evdl
+- name: remastered/tw08.ard/UK_tw08_ardc.evdl
+  method: copy
+  source:
+  - name: remastered/tw08.ard/AP_tw08_ardc.evdl
+- name: remastered/tw08.ard/UK_tw08_ardd.evdl
+  method: copy
+  source:
+  - name: remastered/tw08.ard/AP_tw08_ardd.evdl
+- name: remastered/tw09.ard/UK_tw09_ard0.evdl
+  method: copy
+  source:
+  - name: remastered/tw09.ard/AP_tw09_ard0.evdl
+- name: remastered/tw09.ard/UK_tw09_ard19.evdl
+  method: copy
+  source:
+  - name: remastered/tw09.ard/AP_tw09_ard19.evdl
+- name: remastered/tw09.ard/UK_tw09_ardc.evdl
+  method: copy
+  source:
+  - name: remastered/tw09.ard/AP_tw09_ardc.evdl
+- name: remastered/tw10.ard/UK_tw10_ard19.evdl
+  method: copy
+  source:
+  - name: remastered/tw10.ard/AP_tw10_ard19.evdl
+- name: remastered/tw10.ard/UK_tw10_ard2.evdl
+  method: copy
+  source:
+  - name: remastered/tw10.ard/AP_tw10_ard2.evdl
+- name: remastered/tw10.ard/UK_tw10_ardc.evdl
+  method: copy
+  source:
+  - name: remastered/tw10.ard/AP_tw10_ardc.evdl
+- name: remastered/tw11.ard/UK_tw11_ard0.evdl
+  method: copy
+  source:
+  - name: remastered/tw11.ard/AP_tw11_ard0.evdl
+- name: remastered/tw11.ard/UK_tw11_ard19.evdl
+  method: copy
+  source:
+  - name: remastered/tw11.ard/AP_tw11_ard19.evdl
+- name: remastered/tw11.ard/UK_tw11_ard2.evdl
+  method: copy
+  source:
+  - name: remastered/tw11.ard/AP_tw11_ard2.evdl
+- name: remastered/tw11.ard/UK_tw11_ardb.evdl
+  method: copy
+  source:
+  - name: remastered/tw11.ard/AP_tw11_ardb.evdl
+- name: remastered/tw11.ard/UK_tw11_ardc.evdl
+  method: copy
+  source:
+  - name: remastered/tw11.ard/AP_tw11_ardc.evdl
+- name: remastered/tw12.ard/UK_tw12_ard0.evdl
+  method: copy
+  source:
+  - name: remastered/tw12.ard/AP_tw12_ard0.evdl
+- name: remastered/tw12.ard/UK_tw12_ard19.evdl
+  method: copy
+  source:
+  - name: remastered/tw12.ard/AP_tw12_ard19.evdl
+- name: remastered/tw12.ard/UK_tw12_ardc.evdl
+  method: copy
+  source:
+  - name: remastered/tw12.ard/AP_tw12_ardc.evdl
+- name: remastered/tw13.ard/UK_tw13_ard0.evdl
+  method: copy
+  source:
+  - name: remastered/tw13.ard/AP_tw13_ard0.evdl
+- name: remastered/tw13.ard/UK_tw13_ard19.evdl
+  method: copy
+  source:
+  - name: remastered/tw13.ard/AP_tw13_ard19.evdl
+- name: remastered/tw13.ard/UK_tw13_ardc.evdl
+  method: copy
+  source:
+  - name: remastered/tw13.ard/AP_tw13_ardc.evdl
+- name: remastered/tw14.ard/UK_tw14_ard0.evdl
+  method: copy
+  source:
+  - name: remastered/tw14.ard/AP_tw14_ard0.evdl
+- name: remastered/tw14.ard/UK_tw14_ard19.evdl
+  method: copy
+  source:
+  - name: remastered/tw14.ard/AP_tw14_ard19.evdl
+- name: remastered/tw14.ard/UK_tw14_ardc.evdl
+  method: copy
+  source:
+  - name: remastered/tw14.ard/AP_tw14_ardc.evdl
+- name: remastered/tw15.ard/UK_tw15_ard0.evdl
+  method: copy
+  source:
+  - name: remastered/tw15.ard/AP_tw15_ard0.evdl
+- name: remastered/tw15.ard/UK_tw15_ard19.evdl
+  method: copy
+  source:
+  - name: remastered/tw15.ard/AP_tw15_ard19.evdl
+- name: remastered/tw15.ard/UK_tw15_ardc.evdl
+  method: copy
+  source:
+  - name: remastered/tw15.ard/AP_tw15_ardc.evdl
+- name: remastered/tw16.ard/UK_tw16_ard0.evdl
+  method: copy
+  source:
+  - name: remastered/tw16.ard/AP_tw16_ard0.evdl
+- name: remastered/tw16.ard/UK_tw16_ard19.evdl
+  method: copy
+  source:
+  - name: remastered/tw16.ard/AP_tw16_ard19.evdl
+- name: remastered/tw16.ard/UK_tw16_ardc.evdl
+  method: copy
+  source:
+  - name: remastered/tw16.ard/AP_tw16_ardc.evdl
+- name: remastered/tw17.ard/UK_tw17_ard0.evdl
+  method: copy
+  source:
+  - name: remastered/tw17.ard/AP_tw17_ard0.evdl
+- name: remastered/tw17.ard/UK_tw17_ard19.evdl
+  method: copy
+  source:
+  - name: remastered/tw17.ard/AP_tw17_ard19.evdl
+- name: remastered/tw17.ard/UK_tw17_ardc.evdl
+  method: copy
+  source:
+  - name: remastered/tw17.ard/AP_tw17_ardc.evdl
+- name: remastered/tw18.ard/UK_tw18_ard0.evdl
+  method: copy
+  source:
+  - name: remastered/tw18.ard/AP_tw18_ard0.evdl
+- name: remastered/tw18.ard/UK_tw18_ard10.evdl
+  method: copy
+  source:
+  - name: remastered/tw18.ard/AP_tw18_ard10.evdl
+- name: remastered/tw18.ard/UK_tw18_ard19.evdl
+  method: copy
+  source:
+  - name: remastered/tw18.ard/AP_tw18_ard19.evdl
+- name: remastered/tw18.ard/UK_tw18_ardc.evdl
+  method: copy
+  source:
+  - name: remastered/tw18.ard/AP_tw18_ardc.evdl
+- name: remastered/tw18.ard/UK_tw18_ardd.evdl
+  method: copy
+  source:
+  - name: remastered/tw18.ard/AP_tw18_ardd.evdl
+- name: remastered/tw18.ard/UK_tw18_arde.evdl
+  method: copy
+  source:
+  - name: remastered/tw18.ard/AP_tw18_arde.evdl
+- name: remastered/tw19.ard/UK_tw19_ard0.evdl
+  method: copy
+  source:
+  - name: remastered/tw19.ard/AP_tw19_ard0.evdl
+- name: remastered/tw19.ard/UK_tw19_ard19.evdl
+  method: copy
+  source:
+  - name: remastered/tw19.ard/AP_tw19_ard19.evdl
+- name: remastered/tw19.ard/UK_tw19_ardc.evdl
+  method: copy
+  source:
+  - name: remastered/tw19.ard/AP_tw19_ardc.evdl
+- name: remastered/tw20.ard/UK_tw20_ard0.evdl
+  method: copy
+  source:
+  - name: remastered/tw20.ard/AP_tw20_ard0.evdl
+- name: remastered/tw20.ard/UK_tw20_ard19.evdl
+  method: copy
+  source:
+  - name: remastered/tw20.ard/AP_tw20_ard19.evdl
+- name: remastered/tw20.ard/UK_tw20_ardc.evdl
+  method: copy
+  source:
+  - name: remastered/tw20.ard/AP_tw20_ardc.evdl
+- name: remastered/tw21.ard/UK_tw21_ard19.evdl
+  method: copy
+  source:
+  - name: remastered/tw21.ard/AP_tw21_ard19.evdl
+- name: remastered/tw21.ard/UK_tw21_ard2.evdl
+  method: copy
+  source:
+  - name: remastered/tw21.ard/AP_tw21_ard2.evdl
+- name: remastered/tw21.ard/UK_tw21_ardc.evdl
+  method: copy
+  source:
+  - name: remastered/tw21.ard/AP_tw21_ardc.evdl
+- name: remastered/tw23.ard/UK_tw23_ard0.evdl
+  method: copy
+  source:
+  - name: remastered/tw23.ard/AP_tw23_ard0.evdl
+- name: remastered/tw23.ard/UK_tw23_ard19.evdl
+  method: copy
+  source:
+  - name: remastered/tw23.ard/AP_tw23_ard19.evdl
+- name: remastered/tw23.ard/UK_tw23_ard2.evdl
+  method: copy
+  source:
+  - name: remastered/tw23.ard/AP_tw23_ard2.evdl
+- name: remastered/tw23.ard/UK_tw23_ard3.evdl
+  method: copy
+  source:
+  - name: remastered/tw23.ard/AP_tw23_ard3.evdl
+- name: remastered/tw23.ard/UK_tw23_ardc.evdl
+  method: copy
+  source:
+  - name: remastered/tw23.ard/AP_tw23_ardc.evdl
+- name: remastered/tw25.ard/UK_tw25_ard0.evdl
+  method: copy
+  source:
+  - name: remastered/tw25.ard/AP_tw25_ard0.evdl
+- name: remastered/tw25.ard/UK_tw25_ard10.evdl
+  method: copy
+  source:
+  - name: remastered/tw25.ard/AP_tw25_ard10.evdl
+- name: remastered/tw25.ard/UK_tw25_ard19.evdl
+  method: copy
+  source:
+  - name: remastered/tw25.ard/AP_tw25_ard19.evdl
+- name: remastered/tw25.ard/UK_tw25_ard2.evdl
+  method: copy
+  source:
+  - name: remastered/tw25.ard/AP_tw25_ard2.evdl
+- name: remastered/tw25.ard/UK_tw25_ard3.evdl
+  method: copy
+  source:
+  - name: remastered/tw25.ard/AP_tw25_ard3.evdl
+- name: remastered/tw25.ard/UK_tw25_ardc.evdl
+  method: copy
+  source:
+  - name: remastered/tw25.ard/AP_tw25_ardc.evdl
+- name: remastered/tw26.ard/UK_tw26_ard0.evdl
+  method: copy
+  source:
+  - name: remastered/tw26.ard/AP_tw26_ard0.evdl
+- name: remastered/tw26.ard/UK_tw26_ard19.evdl
+  method: copy
+  source:
+  - name: remastered/tw26.ard/AP_tw26_ard19.evdl
+- name: remastered/tw26.ard/UK_tw26_ard2.evdl
+  method: copy
+  source:
+  - name: remastered/tw26.ard/AP_tw26_ard2.evdl
+- name: remastered/tw26.ard/UK_tw26_ard3.evdl
+  method: copy
+  source:
+  - name: remastered/tw26.ard/AP_tw26_ard3.evdl
+- name: remastered/tw26.ard/UK_tw26_ard4.evdl
+  method: copy
+  source:
+  - name: remastered/tw26.ard/AP_tw26_ard4.evdl
+- name: remastered/tw26.ard/UK_tw26_ardc.evdl
+  method: copy
+  source:
+  - name: remastered/tw26.ard/AP_tw26_ardc.evdl
+- name: remastered/tz01.ard/UK_tz01_ard0.evdl
+  method: copy
+  source:
+  - name: remastered/tz01.ard/AP_tz01_ard0.evdl
+- name: remastered/tz01.ard/UK_tz01_ard1.evdl
+  method: copy
+  source:
+  - name: remastered/tz01.ard/AP_tz01_ard1.evdl
+- name: remastered/tz01.ard/UK_tz01_ard11.evdl
+  method: copy
+  source:
+  - name: remastered/tz01.ard/AP_tz01_ard11.evdl
+- name: remastered/tz01.ard/UK_tz01_ard13.evdl
+  method: copy
+  source:
+  - name: remastered/tz01.ard/AP_tz01_ard13.evdl
+- name: remastered/tz01.ard/UK_tz01_ard19.evdl
+  method: copy
+  source:
+  - name: remastered/tz01.ard/AP_tz01_ard19.evdl
+- name: remastered/tz01.ard/UK_tz01_ard2.evdl
+  method: copy
+  source:
+  - name: remastered/tz01.ard/AP_tz01_ard2.evdl
+- name: remastered/tz01.ard/UK_tz01_ard3.evdl
+  method: copy
+  source:
+  - name: remastered/tz01.ard/AP_tz01_ard3.evdl
+- name: remastered/tz01.ard/UK_tz01_ardd.evdl
+  method: copy
+  source:
+  - name: remastered/tz01.ard/AP_tz01_ardd.evdl
+- name: remastered/tz01.ard/UK_tz01_ardf.evdl
+  method: copy
+  source:
+  - name: remastered/tz01.ard/AP_tz01_ardf.evdl
+- name: remastered/tz02.ard/UK_tz02_ard0.evdl
+  method: copy
+  source:
+  - name: remastered/tz02.ard/AP_tz02_ard0.evdl
+- name: remastered/tz02.ard/UK_tz02_ard1.evdl
+  method: copy
+  source:
+  - name: remastered/tz02.ard/AP_tz02_ard1.evdl
+- name: remastered/tz02.ard/UK_tz02_ard19.evdl
+  method: copy
+  source:
+  - name: remastered/tz02.ard/AP_tz02_ard19.evdl
+- name: remastered/tz03.ard/UK_tz03_ard0.evdl
+  method: copy
+  source:
+  - name: remastered/tz03.ard/AP_tz03_ard0.evdl
+- name: remastered/tz03.ard/UK_tz03_ard1.evdl
+  method: copy
+  source:
+  - name: remastered/tz03.ard/AP_tz03_ard1.evdl
+- name: remastered/tz03.ard/UK_tz03_ard11.evdl
+  method: copy
+  source:
+  - name: remastered/tz03.ard/AP_tz03_ard11.evdl
+- name: remastered/tz03.ard/UK_tz03_ard19.evdl
+  method: copy
+  source:
+  - name: remastered/tz03.ard/AP_tz03_ard19.evdl
+- name: remastered/tz03.ard/UK_tz03_ard2.evdl
+  method: copy
+  source:
+  - name: remastered/tz03.ard/AP_tz03_ard2.evdl
+- name: remastered/tz03.ard/UK_tz03_ardd.evdl
+  method: copy
+  source:
+  - name: remastered/tz03.ard/AP_tz03_ardd.evdl
+- name: remastered/tz03.ard/UK_tz03_ardf.evdl
+  method: copy
+  source:
+  - name: remastered/tz03.ard/AP_tz03_ardf.evdl
+- name: remastered/tz04.ard/UK_tz04_ard0.evdl
+  method: copy
+  source:
+  - name: remastered/tz04.ard/AP_tz04_ard0.evdl
+- name: remastered/tz04.ard/UK_tz04_ard19.evdl
+  method: copy
+  source:
+  - name: remastered/tz04.ard/AP_tz04_ard19.evdl
+- name: remastered/tz05.ard/UK_tz05_ard0.evdl
+  method: copy
+  source:
+  - name: remastered/tz05.ard/AP_tz05_ard0.evdl
+- name: remastered/tz05.ard/UK_tz05_ard19.evdl
+  method: copy
+  source:
+  - name: remastered/tz05.ard/AP_tz05_ard19.evdl
+- name: remastered/tz06.ard/UK_tz06_ard0.evdl
+  method: copy
+  source:
+  - name: remastered/tz06.ard/AP_tz06_ard0.evdl
+- name: remastered/tz06.ard/UK_tz06_ard19.evdl
+  method: copy
+  source:
+  - name: remastered/tz06.ard/AP_tz06_ard19.evdl
+- name: remastered/tz07.ard/UK_tz07_ard0.evdl
+  method: copy
+  source:
+  - name: remastered/tz07.ard/AP_tz07_ard0.evdl
+- name: remastered/tz07.ard/UK_tz07_ard1.evdl
+  method: copy
+  source:
+  - name: remastered/tz07.ard/AP_tz07_ard1.evdl
+- name: remastered/tz07.ard/UK_tz07_ard11.evdl
+  method: copy
+  source:
+  - name: remastered/tz07.ard/AP_tz07_ard11.evdl
+- name: remastered/tz07.ard/UK_tz07_ard19.evdl
+  method: copy
+  source:
+  - name: remastered/tz07.ard/AP_tz07_ard19.evdl
+- name: remastered/tz07.ard/UK_tz07_ard2.evdl
+  method: copy
+  source:
+  - name: remastered/tz07.ard/AP_tz07_ard2.evdl
+- name: remastered/tz07.ard/UK_tz07_ardd.evdl
+  method: copy
+  source:
+  - name: remastered/tz07.ard/AP_tz07_ardd.evdl
+- name: remastered/tz07.ard/UK_tz07_ardf.evdl
+  method: copy
+  source:
+  - name: remastered/tz07.ard/AP_tz07_ardf.evdl
+- name: remastered/tz08.ard/UK_tz08_ard0.evdl
+  method: copy
+  source:
+  - name: remastered/tz08.ard/AP_tz08_ard0.evdl
+- name: remastered/tz08.ard/UK_tz08_ard19.evdl
+  method: copy
+  source:
+  - name: remastered/tz08.ard/AP_tz08_ard19.evdl
+- name: remastered/tz09.ard/UK_tz09_ard0.evdl
+  method: copy
+  source:
+  - name: remastered/tz09.ard/AP_tz09_ard0.evdl
+- name: remastered/tz09.ard/UK_tz09_ard19.evdl
+  method: copy
+  source:
+  - name: remastered/tz09.ard/AP_tz09_ard19.evdl
+- name: remastered/tz10.ard/UK_tz10_ard0.evdl
+  method: copy
+  source:
+  - name: remastered/tz10.ard/AP_tz10_ard0.evdl
+- name: remastered/tz10.ard/UK_tz10_ard19.evdl
+  method: copy
+  source:
+  - name: remastered/tz10.ard/AP_tz10_ard19.evdl
+- name: remastered/tz11.ard/UK_tz11_ard0.evdl
+  method: copy
+  source:
+  - name: remastered/tz11.ard/AP_tz11_ard0.evdl
+- name: remastered/tz11.ard/UK_tz11_ard19.evdl
+  method: copy
+  source:
+  - name: remastered/tz11.ard/AP_tz11_ard19.evdl
+- name: remastered/tz12.ard/UK_tz12_ard0.evdl
+  method: copy
+  source:
+  - name: remastered/tz12.ard/AP_tz12_ard0.evdl
+- name: remastered/tz12.ard/UK_tz12_ard1.evdl
+  method: copy
+  source:
+  - name: remastered/tz12.ard/AP_tz12_ard1.evdl
+- name: remastered/tz12.ard/UK_tz12_ard11.evdl
+  method: copy
+  source:
+  - name: remastered/tz12.ard/AP_tz12_ard11.evdl
+- name: remastered/tz12.ard/UK_tz12_ard19.evdl
+  method: copy
+  source:
+  - name: remastered/tz12.ard/AP_tz12_ard19.evdl
+- name: remastered/tz12.ard/UK_tz12_ard2.evdl
+  method: copy
+  source:
+  - name: remastered/tz12.ard/AP_tz12_ard2.evdl
+- name: remastered/tz12.ard/UK_tz12_ardd.evdl
+  method: copy
+  source:
+  - name: remastered/tz12.ard/AP_tz12_ardd.evdl
+- name: remastered/tz12.ard/UK_tz12_ardf.evdl
+  method: copy
+  source:
+  - name: remastered/tz12.ard/AP_tz12_ardf.evdl
+- name: remastered/tz13.ard/UK_tz13_ard0.evdl
+  method: copy
+  source:
+  - name: remastered/tz13.ard/AP_tz13_ard0.evdl
+- name: remastered/tz13.ard/UK_tz13_ard1.evdl
+  method: copy
+  source:
+  - name: remastered/tz13.ard/AP_tz13_ard1.evdl
+- name: remastered/tz13.ard/UK_tz13_ard11.evdl
+  method: copy
+  source:
+  - name: remastered/tz13.ard/AP_tz13_ard11.evdl
+- name: remastered/tz13.ard/UK_tz13_ard13.evdl
+  method: copy
+  source:
+  - name: remastered/tz13.ard/AP_tz13_ard13.evdl
+- name: remastered/tz13.ard/UK_tz13_ard19.evdl
+  method: copy
+  source:
+  - name: remastered/tz13.ard/AP_tz13_ard19.evdl
+- name: remastered/tz13.ard/UK_tz13_ard2.evdl
+  method: copy
+  source:
+  - name: remastered/tz13.ard/AP_tz13_ard2.evdl
+- name: remastered/tz13.ard/UK_tz13_arde.evdl
+  method: copy
+  source:
+  - name: remastered/tz13.ard/AP_tz13_arde.evdl
+- name: remastered/tz13.ard/UK_tz13_ardf.evdl
+  method: copy
+  source:
+  - name: remastered/tz13.ard/AP_tz13_ardf.evdl
+- name: remastered/tz15.ard/UK_tz15_ard0.evdl
+  method: copy
+  source:
+  - name: remastered/tz15.ard/AP_tz15_ard0.evdl
+- name: remastered/tz15.ard/UK_tz15_ard19.evdl
+  method: copy
+  source:
+  - name: remastered/tz15.ard/AP_tz15_ard19.evdl
+- name: remastered/tz16.ard/UK_tz16_ard0.evdl
+  method: copy
+  source:
+  - name: remastered/tz16.ard/AP_tz16_ard0.evdl
+- name: remastered/tz16.ard/UK_tz16_ard18.evdl
+  method: copy
+  source:
+  - name: remastered/tz16.ard/AP_tz16_ard18.evdl
+- name: remastered/tz16.ard/UK_tz16_ard19.evdl
+  method: copy
+  source:
+  - name: remastered/tz16.ard/AP_tz16_ard19.evdl
+- name: remastered/tz17.ard/UK_tz17_ard0.evdl
+  method: copy
+  source:
+  - name: remastered/tz17.ard/AP_tz17_ard0.evdl
+- name: remastered/tz17.ard/UK_tz17_ard18.evdl
+  method: copy
+  source:
+  - name: remastered/tz17.ard/AP_tz17_ard18.evdl
+- name: remastered/tz17.ard/UK_tz17_ard19.evdl
+  method: copy
+  source:
+  - name: remastered/tz17.ard/AP_tz17_ard19.evdl
+- name: remastered/tz18.ard/UK_tz18_ard0.evdl
+  method: copy
+  source:
+  - name: remastered/tz18.ard/AP_tz18_ard0.evdl
+- name: remastered/tz18.ard/UK_tz18_ard18.evdl
+  method: copy
+  source:
+  - name: remastered/tz18.ard/AP_tz18_ard18.evdl
+- name: remastered/tz18.ard/UK_tz18_ard19.evdl
+  method: copy
+  source:
+  - name: remastered/tz18.ard/AP_tz18_ard19.evdl
+- name: remastered/tz19.ard/UK_tz19_ard0.evdl
+  method: copy
+  source:
+  - name: remastered/tz19.ard/AP_tz19_ard0.evdl
+- name: remastered/tz19.ard/UK_tz19_ard18.evdl
+  method: copy
+  source:
+  - name: remastered/tz19.ard/AP_tz19_ard18.evdl
+- name: remastered/tz19.ard/UK_tz19_ard19.evdl
+  method: copy
+  source:
+  - name: remastered/tz19.ard/AP_tz19_ard19.evdl
+- name: remastered/tz20.ard/UK_tz20_ard0.evdl
+  method: copy
+  source:
+  - name: remastered/tz20.ard/AP_tz20_ard0.evdl
+- name: remastered/tz20.ard/UK_tz20_ard18.evdl
+  method: copy
+  source:
+  - name: remastered/tz20.ard/AP_tz20_ard18.evdl
+- name: remastered/tz20.ard/UK_tz20_ard19.evdl
+  method: copy
+  source:
+  - name: remastered/tz20.ard/AP_tz20_ard19.evdl
