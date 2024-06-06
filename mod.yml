@@ -60,10 +60,6 @@ assets:
   source:
   - name: 1fmAPStackableGrowth.lua
 #Files
-- name: exchange/US_treasure.ev
-  method: copy
-  source:
-  - name: exchange/AP_treasure.ev
 - name: exchange/UK_treasure.ev
   method: copy
   source:
