@@ -59,3 +59,8 @@ assets:
   method: copy
   source:
   - name: 1fmAPStackableGrowth.lua
+#Files
+- name: exchange/UK_PresentMessage.bin
+  method: copy
+  source:
+  - name: exchange/AP_PresentMessage.bin

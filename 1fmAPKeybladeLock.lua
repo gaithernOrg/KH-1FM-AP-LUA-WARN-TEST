@@ -4,7 +4,7 @@
 -----------------------------------
 
 LUAGUI_NAME = "kh1fmAP"
-LUAGUI_AUTH = "Gicu"
+LUAGUI_AUTH = "KSX and Gicu"
 LUAGUI_DESC = "Kingdom Hearts 1FM AP Integration"
 
 offset = 0x3A0606
