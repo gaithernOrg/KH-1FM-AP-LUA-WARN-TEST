@@ -34,9 +34,5 @@ function _OnFrame()
             WriteInt(RoomFlags+0x61, 0x0D0D0D0D)
             WriteInt(RoomFlags+0x65, 0x0D0D0D0D)
         end
-        eotw_world_terminus_hb_chest_byte = ReadByte(eotw_world_terminus_hb_chest_address)
-        if eotw_world_terminus_hb_chest_byte % 2 == 0 then
-            WriteByte(eotw_world_terminus_hb_chest_address, eotw_world_terminus_hb_chest_byte + 1)
-        end
     end
 end
