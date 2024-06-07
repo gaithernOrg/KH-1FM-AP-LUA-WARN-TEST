@@ -319,7 +319,7 @@ function define_items()
   { ID = 2641214, Name = "Torn Page" ,      Usefulness = item_usefulness.progression },
   { ID = 2641215, Name = "Torn Page" ,      Usefulness = item_usefulness.progression },
   { ID = 2641216, Name = "Torn Page" ,      Usefulness = item_usefulness.progression },
-  { ID = 2641217, Name = "Slide 1",         Usefulness = item_usefulness.progression },
+  { ID = 2641217, Name = "Slides",          Usefulness = item_usefulness.progression },
   { ID = 2641218, Name = "Slide 2" },
   { ID = 2641219, Name = "Slide 3" },
   { ID = 2641220, Name = "Slide 4" },
@@ -1504,7 +1504,16 @@ function receive_items()
         if received_item_id == 2640000 then
             write_victory_item()
         elseif received_item_id >= 2641000 and received_item_id < 2642000 then
-            write_item(received_item_id % 2641000)
+            if received_item_id % 2641000 == 217 then
+                write_item(received_item_id % 2641000)
+                write_item(received_item_id % 2641000 + 1)
+                write_item(received_item_id % 2641000 + 2)
+                write_item(received_item_id % 2641000 + 3)
+                write_item(received_item_id % 2641000 + 4)
+                write_item(received_item_id % 2641000 + 5)
+            else
+                write_item(received_item_id % 2641000)
+            end
         elseif received_item_id >= 2642000 and received_item_id < 2642100 then
             write_shared_ability(received_item_id % 2642000)
         elseif received_item_id >= 2642100 and received_item_id < 2643000 then
