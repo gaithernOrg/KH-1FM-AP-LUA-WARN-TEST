@@ -1006,7 +1006,7 @@ function read_misc_checks()
         ,{0x2DE768E - offset, 2656503, 7, 0x1} --Gizmo Shop Postcard 2
         ,{0x2DE7690 - offset, 2656504, 5, 0x1} --Item Workshop Postcard
         ,{0x2DE7690 - offset, 2656505, 7, 0x1} --3rd District Balcony Postcard
-        --,{0x2DE7690 - offset, 2656506, 7, 0x1} --Geppetto's House Postcard
+        ,{0x2DE7690 - offset, 2656506, 4, 0x1} --Geppetto's House Postcard
         ,{0x2DE77A0 - offset, 2656508, 1, 0x0} --Lab Torn Page
         ,{0x2DE7884 - offset, 2656509, 0, 0xA} --Khama vol. 8
         ,{0x2DE7885 - offset, 2656510, 0, 0xA} --Salegg vol. 6
