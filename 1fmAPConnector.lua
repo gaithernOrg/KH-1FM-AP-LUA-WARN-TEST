@@ -270,24 +270,24 @@ function define_items()
   { ID = 2641165, Name = "Shiitank Rank" },
   { ID = 2641166, Name = "Matsutake Rank" },
   { ID = 2641167, Name = "Mystery Mold" },
-  { ID = 2641168, Name = "Ansem's Report 1",  Usefulness = item_usefulness.progression },
-  { ID = 2641169, Name = "Ansem's Report 2",  Usefulness = item_usefulness.progression },
-  { ID = 2641170, Name = "Ansem's Report 3",  Usefulness = item_usefulness.progression },
-  { ID = 2641171, Name = "Ansem's Report 4",  Usefulness = item_usefulness.progression },
-  { ID = 2641172, Name = "Ansem's Report 5",  Usefulness = item_usefulness.progression },
-  { ID = 2641173, Name = "Ansem's Report 6",  Usefulness = item_usefulness.progression },
-  { ID = 2641174, Name = "Ansem's Report 7",  Usefulness = item_usefulness.progression },
-  { ID = 2641175, Name = "Ansem's Report 8",  Usefulness = item_usefulness.progression },
-  { ID = 2641176, Name = "Ansem's Report 9",  Usefulness = item_usefulness.progression },
-  { ID = 2641177, Name = "Ansem's Report 10", Usefulness = item_usefulness.progression },
-  { ID = 2641178, Name = "Khama Vol. 8" },
-  { ID = 2641179, Name = "Salegg Vol. 6" },
-  { ID = 2641180, Name = "Azal Vol. 3" },
-  { ID = 2641181, Name = "Mava Vol. 3" },
-  { ID = 2641182, Name = "Mava Vol. 6" },
-  { ID = 2641183, Name = "Theon Vol. 6" ,     Usefulness = item_usefulness.progression },
-  { ID = 2641184, Name = "Nahara Vol. 5" },
-  { ID = 2641185, Name = "Hafet Vol. 4" },
+  { ID = 2641168, Name = "Ansem's Report 1",        Usefulness = item_usefulness.progression },
+  { ID = 2641169, Name = "Ansem's Report 2",        Usefulness = item_usefulness.progression },
+  { ID = 2641170, Name = "Ansem's Report 3",        Usefulness = item_usefulness.progression },
+  { ID = 2641171, Name = "Ansem's Report 4",        Usefulness = item_usefulness.progression },
+  { ID = 2641172, Name = "Ansem's Report 5",        Usefulness = item_usefulness.progression },
+  { ID = 2641173, Name = "Ansem's Report 6",        Usefulness = item_usefulness.progression },
+  { ID = 2641174, Name = "Ansem's Report 7",        Usefulness = item_usefulness.progression },
+  { ID = 2641175, Name = "Ansem's Report 8",        Usefulness = item_usefulness.progression },
+  { ID = 2641176, Name = "Ansem's Report 9",        Usefulness = item_usefulness.progression },
+  { ID = 2641177, Name = "Ansem's Report 10",       Usefulness = item_usefulness.progression },
+  { ID = 2641178, Name = "Khama Vol. 8" ,           Usefulness = item_usefulness.progression },
+  { ID = 2641179, Name = "Salegg Vol. 6" ,          Usefulness = item_usefulness.progression },
+  { ID = 2641180, Name = "Azal Vol. 3" ,            Usefulness = item_usefulness.progression },
+  { ID = 2641181, Name = "Mava Vol. 3" ,            Usefulness = item_usefulness.progression },
+  { ID = 2641182, Name = "Mava Vol. 6" ,            Usefulness = item_usefulness.progression },
+  { ID = 2641183, Name = "Theon Vol. 6" ,           Usefulness = item_usefulness.progression },
+  { ID = 2641184, Name = "Nahara Vol. 5",           Usefulness = item_usefulness.progression },
+  { ID = 2641185, Name = "Hafet Vol. 4",            Usefulness = item_usefulness.progression },
   { ID = 2641186, Name = "Empty Bottle" ,           Usefulness = item_usefulness.progression },
   { ID = 2641187, Name = "Old Book" ,               Usefulness = item_usefulness.progression },
   { ID = 2641188, Name = "Emblem Piece (Flame)",    Usefulness = item_usefulness.progression },
@@ -947,7 +947,7 @@ function read_misc_checks()
         ,{0x2DE680E - offset, 2656316, 0, 0x1}
         ,{0x2DE680F - offset, 2656317, 0, 0x1}
         ,{0x2DE6810 - offset, 2656318, 0, 0x1}
-      --,{0x2DE6810 - offset, 2656319, 0, 0x1} Torn Page
+        ,{0x2DE6810 - offset, 2656319, 0, 0x1}
         ,{0x2DE6811 - offset, 2656320, 0, 0x1}
         ,{0x2DE6812 - offset, 2656321, 0, 0x1}
         ,{0x2DE6813 - offset, 2656322, 0, 0x1}
@@ -995,11 +995,49 @@ function read_misc_checks()
         ,{0x2DE76B3 - offset, 2656376, 8, 0x0}
         ,{0x2DE7640 - offset, 2656377, 4, 0x0}
         ,{0x2DE6916 - offset, 2659018, 0, 0x1}
-        ,{0x2DE6918 - offset, 2659014, 0, 0x1}}
+        ,{0x2DE6918 - offset, 2659014, 0, 0x1}
+        ,{0x2DE7690 - offset, 2656500, 8, 0x0} --Item Shop Postcard
+        ,{0x2DE7687 - offset, 2656501, 0, 0x1} --Safe Postcard
+        ,{0x2DE768E - offset, 2656502, 6, 0x1} --Gizmo Shop Postcard 1
+        ,{0x2DE768E - offset, 2656503, 7, 0x1} --Gizmo Shop Postcard 2
+        ,{0x2DE7690 - offset, 2656504, 5, 0x1} --Item Workshop Postcard
+        ,{0x2DE7690 - offset, 2656505, 7, 0x1} --3rd District Balcony Postcard
+        --,{0x2DE7690 - offset, 2656506, 7, 0x1} --Geppetto's House Postcard
+        ,{0x2DE77A0 - offset, 2656508, 1, 0x0} --Lab Torn Page
+        ,{0x2DE7884 - offset, 2656509, 0, 0xA} --Khama vol. 8
+        ,{0x2DE7885 - offset, 2656510, 0, 0xA} --Salegg vol. 6
+        ,{0x2DE7886 - offset, 2656511, 0, 0xA} --Azal vol. 3
+        ,{0x2DE7887 - offset, 2656512, 0, 0xA} --Mava vol. 3
+        ,{0x2DE7888 - offset, 2656513, 0, 0xA} --Mava vol. 6
+        ,{0x2DE788A - offset, 2656514, 0, 0xA} --Nahara vol. 5
+        ,{0x2DE788B - offset, 2656515, 0, 0xA} --Hafet vol. 4
+        ,{0x2DE787E - offset, 2656516, 0, 0x2} --Emblem Piece (Flame)
+        ,{0x2DE787F - offset, 2656517, 0, 0x2} --Emblem Piece (Chest)
+        ,{0x2DE7880 - offset, 2656518, 0, 0x2} --Emblem Piece (Statue)
+        ,{0x2DE7881 - offset, 2656519, 0, 0x2} --Emblem Piece (Fountain)
+        ,{0x2DE7831 - offset, 2656332, 8, 0x0} --Clock Tower 1:00 Door
+        ,{0x2DE7831 - offset, 2656333, 7, 0x0} --Clock Tower 2:00 Door
+        ,{0x2DE7831 - offset, 2656334, 6, 0x0} --Clock Tower 3:00 Door
+        ,{0x2DE7831 - offset, 2656335, 5, 0x0} --Clock Tower 4:00 Door
+        ,{0x2DE7831 - offset, 2656336, 4, 0x0} --Clock Tower 5:00 Door
+        ,{0x2DE7831 - offset, 2656337, 3, 0x0} --Clock Tower 6:00 Door
+        ,{0x2DE7831 - offset, 2656338, 2, 0x0} --Clock Tower 7:00 Door
+        ,{0x2DE7831 - offset, 2656339, 1, 0x0} --Clock Tower 8:00 Door
+        ,{0x2DE7832 - offset, 2656340, 8, 0x0} --Clock Tower 9:00 Door
+        ,{0x2DE7832 - offset, 2656341, 7, 0x0} --Clock Tower 10:00 Door
+        ,{0x2DE7832 - offset, 2656342, 6, 0x0} --Clock Tower 11:00 Door
+        ,{0x2DE7832 - offset, 2656343, 5, 0x0} --Clock Tower 12:00 Door
+        ,{0x2DE66DD - offset, 2656520, 0, 0x1} --Leon Gift
+        ,{0x2DE66DF - offset, 2656521, 0, 0x1} --Aerith Gift
+        ,{0x2DE66EA - offset, 2656375, 0, 0x1}} --Cid Comet G
     for k,v in pairs(lookup_table) do
         value = ReadByte(v[1])
         if v[3] == 0 and value >= v[4] then
-            table.insert(location_ids, v[2])
+            if v[2] ~= 2656520 then
+                table.insert(location_ids, v[2])
+            elseif ReadByte(0x2DE65D0 - 0x200 + 0xB04 - offset) >= 0x31 then
+                table.insert(location_ids, v[2])
+            end
         elseif v[3] > 0 and (value%(2^v[3]) >= 2^(v[3]-1)) then
             table.insert(location_ids, v[2])
         end
