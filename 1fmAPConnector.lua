@@ -640,7 +640,8 @@ function define_world_progress_location_threshholds()
     
     --Deep Jungle
     world_progress_location_threshholds[2] = {
-        {0x42, 2656021}  --White Fang
+        {0x17, 2656383}  --Protect-G
+       ,{0x42, 2656021}  --White Fang
        ,{0x56, 2656022}  --Cure
        ,{0x6e, 2656023}  --Jungle King
        ,{0x6e, 2656024}} --Red Trinity
