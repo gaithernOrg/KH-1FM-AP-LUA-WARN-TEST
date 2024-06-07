@@ -648,7 +648,9 @@ function define_world_progress_location_threshholds()
     --Olympus Coliseum
     world_progress_location_threshholds[3] = {
         {0x0D, 2656031}  --Thunder
-       ,{0x25, 2656033}} --Inferno Band
+       ,{0x10, 2656382}  --Entry Pass
+       ,{0x25, 2656033}  --Inferno Band
+       ,{0x28, 2656380}} --Hero's License
     
     --Wonderland
     world_progress_location_threshholds[4] = {
@@ -671,7 +673,8 @@ function define_world_progress_location_threshholds()
     
     --Atlantica
     world_progress_location_threshholds[7] = {
-        {0x53, 2656071}  --Mermaid Kick
+        {0x32, 2656381}  --Crystal Trident
+       ,{0x53, 2656071}  --Mermaid Kick
        ,{0x5D, 2656072}  --Thunder
        ,{0x64, 2656073}} --Crabclaw
     
@@ -680,7 +683,8 @@ function define_world_progress_location_threshholds()
     
     --Halloween Town
     world_progress_location_threshholds[9] = {
-        {0x62, 2656081}  --Holy Circlet
+        {0x1E, 2656382}  --Forget-Me-Not
+       ,{0x62, 2656081}  --Holy Circlet
        ,{0x6A, 2656082}  --Gravity
        ,{0x6E, 2656083}} --Pumpkinhead
     

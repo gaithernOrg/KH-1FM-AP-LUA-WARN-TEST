@@ -54,7 +54,8 @@ function find_items_to_remove()
         ,{0x2DE7887 - offset, 0x0, 0xA, 0xB5, 0x0} --Mava vol. 3
         ,{0x2DE7888 - offset, 0x0, 0xA, 0xB6, 0x0} --Mava vol. 6
         ,{0x2DE788A - offset, 0x0, 0xA, 0xB8, 0x0} --Nahara vol. 5
-        ,{0x2DE788B - offset, 0x0, 0xA, 0xB9, 0x0}} --Hafet vol. 4
+        ,{0x2DE788B - offset, 0x0, 0xA, 0xB9, 0x0} --Hafet vol. 4
+        ,{0x2DE7690 - offset, 0x4, 0x1, 0xD3, 0x0}} --Geppetto's House Postcard
     for item_table_index, item_data in pairs(item_data_table) do
         need_to_delete = false
         byte_offset = math.floor((item_table_index-1) / 8)
