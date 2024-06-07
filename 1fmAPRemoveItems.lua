@@ -48,7 +48,6 @@ function find_items_to_remove()
         need_to_delete = false
         byte_offset = math.floor((item_table_index-1) / 8)
         removed_bits_value = ReadByte(removed_bits_address + byte_offset)
-        ConsolePrint(((item_table_index-1)%8)+1)
         deleted_bit = toBits(removed_bits_value)[((item_table_index-1)%8)+1]
         if deleted_bit == 0 then
             if item_data[2] > 0 then --Need to read a specific bit
@@ -70,7 +69,7 @@ function find_items_to_remove()
                         torn_pages_available_for_turn_in_address = 0x2DE6DD0 - offset
                         WriteByte(torn_pages_available_for_turn_in_address, math.max(ReadByte(torn_pages_available_for_turn_in_address)-1,0))
                     end
-                    removed_bits_value = removed_bits_value + 2^(item_table_index-1)
+                    removed_bits_value = removed_bits_value + 2^((item_table_index-1)%8)
                     WriteByte(removed_bits_address + byte_offset, removed_bits_value)
                 end
             end
