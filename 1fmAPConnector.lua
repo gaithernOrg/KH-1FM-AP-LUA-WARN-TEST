@@ -751,17 +751,8 @@ end
 function read_check_number()
     --[[Reads the current check number]]
     gummi_address = 0x2DF1848 - offset
-    ap_item_converted_to_int_address = gummi_address + 0x98
     check_number_item_address = gummi_address + 0x77
-    check_number = 0
-    if ReadByte(ap_item_converted_to_int_address) == 0 then
-        check_array = ReadArray(check_number_item_address, 4)
-        check_number = check_array[1] + check_array[2] + check_array[3] + check_array[4]
-        WriteInt(check_number_item_address, check_number)
-        WriteByte(ap_item_converted_to_int_address, 1)
-    else
-        check_number = ReadInt(check_number_item_address)
-    end
+    check_number = ReadInt(check_number_item_address)
     return check_number
 end
 
