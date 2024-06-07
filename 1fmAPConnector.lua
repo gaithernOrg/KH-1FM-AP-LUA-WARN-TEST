@@ -1434,6 +1434,18 @@ function write_geppetto_conditions()
     end
 end
 
+function write_slides()
+    write_item(217)
+    write_item(218)
+    write_item(219)
+    write_item(220)
+    write_item(221)
+    write_item(222)
+    slides_picked_up_array = {1,1,1,1,1,1}
+    slides_picked_up_array_address = 0x2DE6BD7 - offset
+    WriteArray(slides_picked_up_array_address, slides_picked_up_array)
+end
+
 function final_ansem_defeated()
     --[[Checks if the player is on the results screen, meaning that they defeated Final Ansem]]
     world = 0x233CADC - offset
@@ -1505,12 +1517,7 @@ function receive_items()
             write_victory_item()
         elseif received_item_id >= 2641000 and received_item_id < 2642000 then
             if received_item_id % 2641000 == 217 then
-                write_item(received_item_id % 2641000)
-                write_item(received_item_id % 2641000 + 1)
-                write_item(received_item_id % 2641000 + 2)
-                write_item(received_item_id % 2641000 + 3)
-                write_item(received_item_id % 2641000 + 4)
-                write_item(received_item_id % 2641000 + 5)
+                write_slides()
             else
                 write_item(received_item_id % 2641000)
             end
