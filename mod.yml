@@ -59,6 +59,11 @@ assets:
   method: copy
   source:
   - name: 1fmAPStackableGrowth.lua
+- name: scripts/1fmAPRemoveItems.lua
+  method: copy
+  source:
+  - name: 1fmAPRemoveItems.lua
+#Files
 #Files
 - name: exchange/UK_treasure.ev
   method: copy
