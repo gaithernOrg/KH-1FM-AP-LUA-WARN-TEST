@@ -64,6 +64,10 @@ assets:
   method: copy
   source:
   - name: exchange/AP_treasure.ev
+- name: exchange/UK_PresentMessage.bin
+  method: copy
+  source:
+  - name: exchange/AP_PresentMessage.bin
 
 - name: remastered/al01.ard/UK_al01_ard0.evdl
   method: copy
