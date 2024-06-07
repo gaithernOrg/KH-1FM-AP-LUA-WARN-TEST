@@ -191,13 +191,13 @@ function define_items()
   { ID = 2641087, Name = "Three Wishes", Usefulness = item_usefulness.progression },
   { ID = 2641088, Name = "Fairy Harp", Usefulness = item_usefulness.progression },
   { ID = 2641089, Name = "Pumpkinhead", Usefulness = item_usefulness.progression },
-  { ID = 2641090, Name = "Crabclaw", Usefulness = item_usefulness.progression },
+  { ID = 2641090, Name = "Crabclaw"},
   { ID = 2641091, Name = "Divine Rose", Usefulness = item_usefulness.progression },
   { ID = 2641092, Name = "Spellbinder" },
   { ID = 2641093, Name = "Olympia", Usefulness = item_usefulness.progression },
   { ID = 2641094, Name = "Lionheart", Usefulness = item_usefulness.progression },
   { ID = 2641095, Name = "Metal Chocobo" },
-  { ID = 2641096, Name = "Oathkeeper", Usefulness = item_usefulness.progression },
+  { ID = 2641096, Name = "Oathkeeper"},
   { ID = 2641097, Name = "Oblivion", Usefulness = item_usefulness.progression },
   { ID = 2641098, Name = "Lady Luck", Usefulness = item_usefulness.progression },
   { ID = 2641099, Name = "Wishing Star", Usefulness = item_usefulness.progression },
@@ -643,20 +643,22 @@ function define_world_progress_location_threshholds()
         {0x17, 2656383}  --Protect-G
        ,{0x42, 2656021}  --White Fang
        ,{0x56, 2656022}  --Cure
+       ,{0x5C, 2656384}  --Navi-G
        ,{0x6e, 2656023}  --Jungle King
        ,{0x6e, 2656024}} --Red Trinity
     
     --Olympus Coliseum
     world_progress_location_threshholds[3] = {
         {0x0D, 2656031}  --Thunder
-       ,{0x10, 2656382}  --Entry Pass
+       ,{0x10, 2656386}  --Entry Pass
        ,{0x25, 2656033}  --Inferno Band
        ,{0x28, 2656380}} --Hero's License
     
     --Wonderland
     world_progress_location_threshholds[4] = {
         {0x2E, 2656041}  --Blizzard
-       ,{0x2E, 2656042}} --Ifrit's Horn
+       ,{0x2E, 2656042}  --Ifrit's Horn
+       ,{0x30, 2656385}} --Navi-G Piece
     
     --Agrabah
     world_progress_location_threshholds[5] = {
@@ -982,7 +984,7 @@ function read_misc_checks()
         ,{0x2DE7715 - offset, 2656359, 0, 0x4}
         ,{0x2DE7716 - offset, 2656360, 0, 0x4}
         ,{0x2DE76EF - offset, 2656361, 0, 0x1}
-        ,{0x2DE76ED - offset, 2656361, 0, 0x1} --Alternative, light stove before putting in potion
+        ,{0x2DE76ED - offset, 2656361, 0, 0x1}  --Alternative, light stove before putting in potion
         ,{0x2DE76E9 - offset, 2656362, 0, 0x1}
         ,{0x2DE76F7 - offset, 2656363, 0, 0x1}
         ,{0x2DE6BDD - offset, 2656364, 0, 0x1}
@@ -1001,40 +1003,35 @@ function read_misc_checks()
         ,{0x2DE7640 - offset, 2656377, 4, 0x0}
         ,{0x2DE6916 - offset, 2659018, 0, 0x1}
         ,{0x2DE6918 - offset, 2659014, 0, 0x1}
-        ,{0x2DE7690 - offset, 2656500, 8, 0x0} --Item Shop Postcard
-        ,{0x2DE7687 - offset, 2656501, 0, 0x1} --Safe Postcard
-        ,{0x2DE768E - offset, 2656502, 6, 0x1} --Gizmo Shop Postcard 1
-        ,{0x2DE768E - offset, 2656503, 7, 0x1} --Gizmo Shop Postcard 2
-        ,{0x2DE7690 - offset, 2656504, 5, 0x1} --Item Workshop Postcard
-        ,{0x2DE7690 - offset, 2656505, 7, 0x1} --3rd District Balcony Postcard
-        ,{0x2DE7690 - offset, 2656506, 4, 0x1} --Geppetto's House Postcard
-        ,{0x2DE77A0 - offset, 2656508, 1, 0x0} --Lab Torn Page
-        ,{0x2DE7884 - offset, 2656509, 0, 0xA} --Khama vol. 8
-        ,{0x2DE7885 - offset, 2656510, 0, 0xA} --Salegg vol. 6
-        ,{0x2DE7886 - offset, 2656511, 0, 0xA} --Azal vol. 3
-        ,{0x2DE7887 - offset, 2656512, 0, 0xA} --Mava vol. 3
-        ,{0x2DE7888 - offset, 2656513, 0, 0xA} --Mava vol. 6
-        ,{0x2DE788A - offset, 2656514, 0, 0xA} --Nahara vol. 5
-        ,{0x2DE788B - offset, 2656515, 0, 0xA} --Hafet vol. 4
-        ,{0x2DE787E - offset, 2656516, 0, 0x2} --Emblem Piece (Flame)
-        ,{0x2DE787F - offset, 2656517, 0, 0x2} --Emblem Piece (Chest)
-        ,{0x2DE7880 - offset, 2656518, 0, 0x2} --Emblem Piece (Statue)
-        ,{0x2DE7881 - offset, 2656519, 0, 0x2} --Emblem Piece (Fountain)
-        ,{0x2DE7831 - offset, 2656332, 8, 0x0} --Clock Tower 1:00 Door
-        ,{0x2DE7831 - offset, 2656333, 7, 0x0} --Clock Tower 2:00 Door
-        ,{0x2DE7831 - offset, 2656334, 6, 0x0} --Clock Tower 3:00 Door
-        ,{0x2DE7831 - offset, 2656335, 5, 0x0} --Clock Tower 4:00 Door
-        ,{0x2DE7831 - offset, 2656336, 4, 0x0} --Clock Tower 5:00 Door
-        ,{0x2DE7831 - offset, 2656337, 3, 0x0} --Clock Tower 6:00 Door
-        ,{0x2DE7831 - offset, 2656338, 2, 0x0} --Clock Tower 7:00 Door
-        ,{0x2DE7831 - offset, 2656339, 1, 0x0} --Clock Tower 8:00 Door
-        ,{0x2DE7832 - offset, 2656340, 8, 0x0} --Clock Tower 9:00 Door
-        ,{0x2DE7832 - offset, 2656341, 7, 0x0} --Clock Tower 10:00 Door
-        ,{0x2DE7832 - offset, 2656342, 6, 0x0} --Clock Tower 11:00 Door
-        ,{0x2DE7832 - offset, 2656343, 5, 0x0} --Clock Tower 12:00 Door
-        ,{0x2DE66DD - offset, 2656520, 0, 0x1} --Leon Gift
-        ,{0x2DE66DF - offset, 2656521, 0, 0x1} --Aerith Gift
-        ,{0x2DE66EA - offset, 2656375, 0, 0x1}} --Cid Comet G
+        ,{0x2DE7690 - offset, 2656500, 8, 0x0}  --Item Shop Postcard
+        ,{0x2DE7687 - offset, 2656501, 0, 0x1}  --Safe Postcard
+        ,{0x2DE768E - offset, 2656502, 6, 0x1}  --Gizmo Shop Postcard 1
+        ,{0x2DE768E - offset, 2656503, 7, 0x1}  --Gizmo Shop Postcard 2
+        ,{0x2DE7690 - offset, 2656504, 5, 0x1}  --Item Workshop Postcard
+        ,{0x2DE7690 - offset, 2656505, 7, 0x1}  --3rd District Balcony Postcard
+        ,{0x2DE7690 - offset, 2656506, 4, 0x1}  --Geppetto's House Postcard
+        ,{0x2DE77A0 - offset, 2656508, 1, 0x0}  --Lab Torn Page
+        ,{0x2DE787E - offset, 2656516, 0, 0x2}  --Emblem Piece (Flame)
+        ,{0x2DE787F - offset, 2656517, 0, 0x2}  --Emblem Piece (Chest)
+        ,{0x2DE7880 - offset, 2656518, 0, 0x2}  --Emblem Piece (Statue)
+        ,{0x2DE7881 - offset, 2656519, 0, 0x2}  --Emblem Piece (Fountain)
+        ,{0x2DE7831 - offset, 2656332, 8, 0x0}  --Clock Tower 1:00 Door
+        ,{0x2DE7831 - offset, 2656333, 7, 0x0}  --Clock Tower 2:00 Door
+        ,{0x2DE7831 - offset, 2656334, 6, 0x0}  --Clock Tower 3:00 Door
+        ,{0x2DE7831 - offset, 2656335, 5, 0x0}  --Clock Tower 4:00 Door
+        ,{0x2DE7831 - offset, 2656336, 4, 0x0}  --Clock Tower 5:00 Door
+        ,{0x2DE7831 - offset, 2656337, 3, 0x0}  --Clock Tower 6:00 Door
+        ,{0x2DE7831 - offset, 2656338, 2, 0x0}  --Clock Tower 7:00 Door
+        ,{0x2DE7831 - offset, 2656339, 1, 0x0}  --Clock Tower 8:00 Door
+        ,{0x2DE7832 - offset, 2656340, 8, 0x0}  --Clock Tower 9:00 Door
+        ,{0x2DE7832 - offset, 2656341, 7, 0x0}  --Clock Tower 10:00 Door
+        ,{0x2DE7832 - offset, 2656342, 6, 0x0}  --Clock Tower 11:00 Door
+        ,{0x2DE7832 - offset, 2656343, 5, 0x0}  --Clock Tower 12:00 Door
+        ,{0x2DE66DD - offset, 2656520, 0, 0x1}  --Leon Gift
+        ,{0x2DE66DF - offset, 2656521, 0, 0x1}  --Aerith Gift
+        ,{0x2DE66EA - offset, 2656375, 0, 0x1}  --Cid Comet G
+        ,{0x2DE6ADF - offset, 2656522, 0, 0x1}  --Divine Rose
+        ,{0x2DE6ADE - offset, 2656523, 0, 0x1}} --Cure
     for k,v in pairs(lookup_table) do
         value = ReadByte(v[1])
         if v[3] == 0 and value >= v[4] then
