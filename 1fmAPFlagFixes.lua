@@ -673,6 +673,13 @@ function FlagFixes()
             WriteByte(neverland_warps_address, neverland_warps + 1)
         end
     end
+    if ReadByte(0x2DE787B - offset) == 0 --Fix shelves in HB library
+        WriteByte(0x2DE787B - offset, 0xF6)
+    end
+    if ReadByte(0x2DE7884 - offset) == 0 --Fix books in HB library
+        WriteArray(0x2DE7884 - offset, {0x14,0x14,0x14,0x14,0x14}) --Fix shelves 1
+        WriteArray(0x2DE788A - offset, {0x14,0x14}) --Fix shelves 2, keeping T shelf in place
+    end
 end
 
 function OpenGummi()
