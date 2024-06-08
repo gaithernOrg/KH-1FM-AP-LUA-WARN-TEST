@@ -202,7 +202,7 @@ end
 function _OnFrame()
     if frame_count == 0 and canExecute then
         main()
-        fix_library()
+        --fix_library()
     end
     frame_count = (frame_count + 1) % 120
 end

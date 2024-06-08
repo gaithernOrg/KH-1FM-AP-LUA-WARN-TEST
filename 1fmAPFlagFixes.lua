@@ -550,23 +550,23 @@ function FlagFixes()
                 -- end
             -- end
             if ReadByte(room) == 0xC then
-                local slideCount = 0
-                for i=0,5 do
-                    slideCount = slideCount + math.min(ReadByte(inventory+0xD8+i), 1)
+                --local slideCount = 0
+                --for i=0,5 do
+                --    slideCount = slideCount + math.min(ReadByte(inventory+0xD8+i), 1)
+                --end
+                --if slideCount < 1 then
+                local o = 0
+                while ReadInt(slideActive+o*0x4B0+4) ~= 0x40018 and ReadInt(slideActive+o*0x4B0+4) ~= 0 and o > -5 do
+                    o = o-1
                 end
-                if slideCount < 1 then
-                    local o = 0
-                    while ReadInt(slideActive+o*0x4B0+4) ~= 0x40018 and ReadInt(slideActive+o*0x4B0+4) ~= 0 and o > -5 do
-                        o = o-1
-                    end
-                    if ReadInt(slideActive+o*0x4B0+4) == 0x40018 then
-                        for i=0,5 do
-                            if ReadInt(slideActive+(i+o)*0x4B0+4) == 0x40018+(i>1 and i+4 or i) then
-                                WriteLong(slideActive+(i+o)*0x4B0, 0)
-                            end
+                if ReadInt(slideActive+o*0x4B0+4) == 0x40018 then
+                    for i=0,5 do
+                        if ReadInt(slideActive+(i+o)*0x4B0+4) == 0x40018+(i>1 and i+4 or i) then
+                            WriteLong(slideActive+(i+o)*0x4B0, 0)
                         end
                     end
                 end
+                --end
             end
         end
         
@@ -617,20 +617,20 @@ function FlagFixes()
     end
     
     if ReadByte(world) == 0xF then
-        --local embCount = 0
-        --for i=0xBB, 0xBE do
-        --    embCount = embCount + math.min(ReadByte(inventory+i), 1)
-        --    WriteByte(inventory+i, math.min(1, ReadByte(inventory+i)))
-        --end
-        --
-        --local canPlace = embCount == 4 or ReadByte(emblemDoor) > 0
-        --
-        --WriteByte(emblemCount, canPlace and 4 or 0)
-        --if ReadByte(cutsceneFlags+0xB0E) > 0x32 and (ReadByte(room) ~= 4 or ReadByte(blackfade)==0) then
-        --    local doorClose = ReadByte(roomWarpRead) >= 0x10 and ReadByte(roomWarpRead) <= 0x13
-        --    WriteByte(emblemDoor, doorClose and 3 or 4)
-        --    WriteByte(emblemDoor+3, doorClose and 1 or 5)
-        --end
+        local embCount = 0
+        for i=0xBB, 0xBE do
+            embCount = embCount + math.min(ReadByte(inventory+i), 1)
+            --WriteByte(inventory+i, math.min(1, ReadByte(inventory+i)))
+        end
+        
+        local canPlace = embCount == 4 or ReadByte(emblemDoor) > 0
+        
+        WriteByte(emblemCount, canPlace and 4 or 0)
+        if ReadByte(cutsceneFlags+0xB0E) > 0x32 and (ReadByte(room) ~= 4 or ReadByte(blackfade)==0) then
+            local doorClose = ReadByte(roomWarpRead) >= 0x10 and ReadByte(roomWarpRead) <= 0x13
+            WriteByte(emblemDoor, doorClose and 3 or 4)
+            WriteByte(emblemDoor+3, doorClose and 1 or 5)
+        end
         
         --if ReadByte(libraryFlag) == 0 then
         --    WriteByte(libraryFlag, 2)
@@ -672,6 +672,13 @@ function FlagFixes()
         if (neverland_warps % 2) < 1 then
             WriteByte(neverland_warps_address, neverland_warps + 1)
         end
+    end
+    if ReadByte(0x2DE787B - offset) == 0 then --Fix shelves in HB library
+        WriteByte(0x2DE787B - offset, 0xF6)
+    end
+    if ReadByte(0x2DE7884 - offset) == 0 then --Fix books in HB library
+        WriteArray(0x2DE7884 - offset, {0x14,0x14,0x14,0x14,0x14}) --Fix shelves 1
+        WriteArray(0x2DE788A - offset, {0x14,0x14}) --Fix shelves 2, keeping T shelf in place
     end
 end
 

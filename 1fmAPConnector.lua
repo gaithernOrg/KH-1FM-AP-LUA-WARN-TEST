@@ -187,20 +187,20 @@ function define_items()
   { ID = 2641083, Name = "Dream Shield" },
   { ID = 2641084, Name = "Dream Rod" },
   { ID = 2641085, Name = "Wooden Sword" },
-  { ID = 2641086, Name = "Jungle King" },
-  { ID = 2641087, Name = "Three Wishes" },
-  { ID = 2641088, Name = "Fairy Harp" },
-  { ID = 2641089, Name = "Pumpkinhead" },
-  { ID = 2641090, Name = "Crabclaw" },
-  { ID = 2641091, Name = "Divine Rose" },
+  { ID = 2641086, Name = "Jungle King" , Usefulness = item_usefulness.progression },
+  { ID = 2641087, Name = "Three Wishes", Usefulness = item_usefulness.progression },
+  { ID = 2641088, Name = "Fairy Harp", Usefulness = item_usefulness.progression },
+  { ID = 2641089, Name = "Pumpkinhead", Usefulness = item_usefulness.progression },
+  { ID = 2641090, Name = "Crabclaw"},
+  { ID = 2641091, Name = "Divine Rose", Usefulness = item_usefulness.progression },
   { ID = 2641092, Name = "Spellbinder" },
-  { ID = 2641093, Name = "Olympia" },
-  { ID = 2641094, Name = "Lionheart" },
+  { ID = 2641093, Name = "Olympia", Usefulness = item_usefulness.progression },
+  { ID = 2641094, Name = "Lionheart", Usefulness = item_usefulness.progression },
   { ID = 2641095, Name = "Metal Chocobo" },
-  { ID = 2641096, Name = "Oathkeeper" },
-  { ID = 2641097, Name = "Oblivion" },
-  { ID = 2641098, Name = "Lady Luck" },
-  { ID = 2641099, Name = "Wishing Star" },
+  { ID = 2641096, Name = "Oathkeeper"},
+  { ID = 2641097, Name = "Oblivion", Usefulness = item_usefulness.progression },
+  { ID = 2641098, Name = "Lady Luck", Usefulness = item_usefulness.progression },
+  { ID = 2641099, Name = "Wishing Star", Usefulness = item_usefulness.progression },
   { ID = 2641100, Name = "Ultima Weapon" },
   { ID = 2641101, Name = "Diamond Dust" },
   { ID = 2641102, Name = "One-Winged Angel" },
@@ -270,24 +270,24 @@ function define_items()
   { ID = 2641165, Name = "Shiitank Rank" },
   { ID = 2641166, Name = "Matsutake Rank" },
   { ID = 2641167, Name = "Mystery Mold" },
-  { ID = 2641168, Name = "Ansem's Report 1",  Usefulness = item_usefulness.progression },
-  { ID = 2641169, Name = "Ansem's Report 2",  Usefulness = item_usefulness.progression },
-  { ID = 2641170, Name = "Ansem's Report 3",  Usefulness = item_usefulness.progression },
-  { ID = 2641171, Name = "Ansem's Report 4",  Usefulness = item_usefulness.progression },
-  { ID = 2641172, Name = "Ansem's Report 5",  Usefulness = item_usefulness.progression },
-  { ID = 2641173, Name = "Ansem's Report 6",  Usefulness = item_usefulness.progression },
-  { ID = 2641174, Name = "Ansem's Report 7",  Usefulness = item_usefulness.progression },
-  { ID = 2641175, Name = "Ansem's Report 8",  Usefulness = item_usefulness.progression },
-  { ID = 2641176, Name = "Ansem's Report 9",  Usefulness = item_usefulness.progression },
-  { ID = 2641177, Name = "Ansem's Report 10", Usefulness = item_usefulness.progression },
-  { ID = 2641178, Name = "Khama Vol. 8" },
-  { ID = 2641179, Name = "Salegg Vol. 6" },
-  { ID = 2641180, Name = "Azal Vol. 3" },
-  { ID = 2641181, Name = "Mava Vol. 3" },
-  { ID = 2641182, Name = "Mava Vol. 6" },
-  { ID = 2641183, Name = "Theon Vol. 6" ,     Usefulness = item_usefulness.progression },
-  { ID = 2641184, Name = "Nahara Vol. 5" },
-  { ID = 2641185, Name = "Hafet Vol. 4" },
+  { ID = 2641168, Name = "Ansem's Report 1",        Usefulness = item_usefulness.progression },
+  { ID = 2641169, Name = "Ansem's Report 2",        Usefulness = item_usefulness.progression },
+  { ID = 2641170, Name = "Ansem's Report 3",        Usefulness = item_usefulness.progression },
+  { ID = 2641171, Name = "Ansem's Report 4",        Usefulness = item_usefulness.progression },
+  { ID = 2641172, Name = "Ansem's Report 5",        Usefulness = item_usefulness.progression },
+  { ID = 2641173, Name = "Ansem's Report 6",        Usefulness = item_usefulness.progression },
+  { ID = 2641174, Name = "Ansem's Report 7",        Usefulness = item_usefulness.progression },
+  { ID = 2641175, Name = "Ansem's Report 8",        Usefulness = item_usefulness.progression },
+  { ID = 2641176, Name = "Ansem's Report 9",        Usefulness = item_usefulness.progression },
+  { ID = 2641177, Name = "Ansem's Report 10",       Usefulness = item_usefulness.progression },
+  { ID = 2641178, Name = "Khama Vol. 8" ,           Usefulness = item_usefulness.progression },
+  { ID = 2641179, Name = "Salegg Vol. 6" ,          Usefulness = item_usefulness.progression },
+  { ID = 2641180, Name = "Azal Vol. 3" ,            Usefulness = item_usefulness.progression },
+  { ID = 2641181, Name = "Mava Vol. 3" ,            Usefulness = item_usefulness.progression },
+  { ID = 2641182, Name = "Mava Vol. 6" ,            Usefulness = item_usefulness.progression },
+  { ID = 2641183, Name = "Theon Vol. 6" ,           Usefulness = item_usefulness.progression },
+  { ID = 2641184, Name = "Nahara Vol. 5",           Usefulness = item_usefulness.progression },
+  { ID = 2641185, Name = "Hafet Vol. 4",            Usefulness = item_usefulness.progression },
   { ID = 2641186, Name = "Empty Bottle" ,           Usefulness = item_usefulness.progression },
   { ID = 2641187, Name = "Old Book" ,               Usefulness = item_usefulness.progression },
   { ID = 2641188, Name = "Emblem Piece (Flame)",    Usefulness = item_usefulness.progression },
@@ -319,7 +319,7 @@ function define_items()
   { ID = 2641214, Name = "Torn Page" ,      Usefulness = item_usefulness.progression },
   { ID = 2641215, Name = "Torn Page" ,      Usefulness = item_usefulness.progression },
   { ID = 2641216, Name = "Torn Page" ,      Usefulness = item_usefulness.progression },
-  { ID = 2641217, Name = "Slide 1",         Usefulness = item_usefulness.progression },
+  { ID = 2641217, Name = "Slides",          Usefulness = item_usefulness.progression },
   { ID = 2641218, Name = "Slide 2" },
   { ID = 2641219, Name = "Slide 3" },
   { ID = 2641220, Name = "Slide 4" },
@@ -557,7 +557,7 @@ function define_items()
   { ID = 2643062, Name = "Leaf Bracer", Usefulness = item_usefulness.progression },
   { ID = 2643063, Name = "Evolution" },
   { ID = 2643064, Name = "EXP Zero" },
-  { ID = 2643065, Name = "Combo Master" },
+  { ID = 2643065, Name = "Combo Master", Usefulness = item_usefulness.progression },
 
   --Stats Up
   { ID = 2644001, Name = "Max HP Increase" },
@@ -640,20 +640,25 @@ function define_world_progress_location_threshholds()
     
     --Deep Jungle
     world_progress_location_threshholds[2] = {
-        {0x42, 2656021}  --White Fang
+        {0x17, 2656383}  --Protect-G
+       ,{0x42, 2656021}  --White Fang
        ,{0x56, 2656022}  --Cure
+       ,{0x5C, 2656384}  --Navi-G
        ,{0x6e, 2656023}  --Jungle King
        ,{0x6e, 2656024}} --Red Trinity
     
     --Olympus Coliseum
     world_progress_location_threshholds[3] = {
         {0x0D, 2656031}  --Thunder
-       ,{0x25, 2656033}} --Inferno Band
+       ,{0x10, 2656386}  --Entry Pass
+       ,{0x25, 2656033}  --Inferno Band
+       ,{0x28, 2656380}} --Hero's License
     
     --Wonderland
     world_progress_location_threshholds[4] = {
         {0x2E, 2656041}  --Blizzard
-       ,{0x2E, 2656042}} --Ifrit's Horn
+       ,{0x2E, 2656042}  --Ifrit's Horn
+       ,{0x30, 2656385}} --Navi-G Piece
     
     --Agrabah
     world_progress_location_threshholds[5] = {
@@ -671,7 +676,8 @@ function define_world_progress_location_threshholds()
     
     --Atlantica
     world_progress_location_threshholds[7] = {
-        {0x53, 2656071}  --Mermaid Kick
+        {0x32, 2656381}  --Crystal Trident
+       ,{0x53, 2656071}  --Mermaid Kick
        ,{0x5D, 2656072}  --Thunder
        ,{0x64, 2656073}} --Crabclaw
     
@@ -680,7 +686,8 @@ function define_world_progress_location_threshholds()
     
     --Halloween Town
     world_progress_location_threshholds[9] = {
-        {0x62, 2656081}  --Holy Circlet
+        {0x1E, 2656382}  --Forget-Me-Not
+       ,{0x62, 2656081}  --Holy Circlet
        ,{0x6A, 2656082}  --Gravity
        ,{0x6E, 2656083}} --Pumpkinhead
     
@@ -751,17 +758,8 @@ end
 function read_check_number()
     --[[Reads the current check number]]
     gummi_address = 0x2DF1848 - offset
-    ap_item_converted_to_int_address = gummi_address + 0x98
     check_number_item_address = gummi_address + 0x77
-    check_number = 0
-    if ReadByte(ap_item_converted_to_int_address) == 0 then
-        check_array = ReadArray(check_number_item_address, 4)
-        check_number = check_array[1] + check_array[2] + check_array[3] + check_array[4]
-        WriteInt(check_number_item_address, check_number)
-        WriteByte(ap_item_converted_to_int_address, 1)
-    else
-        check_number = ReadInt(check_number_item_address)
-    end
+    check_number = ReadInt(check_number_item_address)
     return check_number
 end
 
@@ -956,14 +954,14 @@ function read_misc_checks()
         ,{0x2DE680E - offset, 2656316, 0, 0x1}
         ,{0x2DE680F - offset, 2656317, 0, 0x1}
         ,{0x2DE6810 - offset, 2656318, 0, 0x1}
-      --,{0x2DE6810 - offset, 2656319, 0, 0x1} Torn Page
+        ,{0x2DE6810 - offset, 2656319, 0, 0x1}
         ,{0x2DE6811 - offset, 2656320, 0, 0x1}
         ,{0x2DE6812 - offset, 2656321, 0, 0x1}
         ,{0x2DE6813 - offset, 2656322, 0, 0x1}
         ,{0x2DE6814 - offset, 2656324, 0, 0x1}
         ,{0x2DE6815 - offset, 2656326, 0, 0x1}
         ,{0x2DE6815 - offset, 2656327, 0, 0x1}
-        ,{0x2DE68D2 - offset, 2656032, 0, 0x1}
+        ,{0x2DE68D2 - offset, 2656032, 0, 0xA}
         ,{0x2DE693A - offset, 2656328, 0, 0x1}
         ,{0x2DE6939 - offset, 2656329, 0, 0x1}
         ,{0x2DE77E3 - offset, 2656330, 0, 0x1}
@@ -986,7 +984,7 @@ function read_misc_checks()
         ,{0x2DE7715 - offset, 2656359, 0, 0x4}
         ,{0x2DE7716 - offset, 2656360, 0, 0x4}
         ,{0x2DE76EF - offset, 2656361, 0, 0x1}
-        ,{0x2DE76ED - offset, 2656361, 0, 0x1} --Alternative, light stove before putting in potion
+        ,{0x2DE76ED - offset, 2656361, 0, 0x1}  --Alternative, light stove before putting in potion
         ,{0x2DE76E9 - offset, 2656362, 0, 0x1}
         ,{0x2DE76F7 - offset, 2656363, 0, 0x1}
         ,{0x2DE6BDD - offset, 2656364, 0, 0x1}
@@ -1004,11 +1002,44 @@ function read_misc_checks()
         ,{0x2DE76B3 - offset, 2656376, 8, 0x0}
         ,{0x2DE7640 - offset, 2656377, 4, 0x0}
         ,{0x2DE6916 - offset, 2659018, 0, 0x1}
-        ,{0x2DE6918 - offset, 2659014, 0, 0x1}}
+        ,{0x2DE6918 - offset, 2659014, 0, 0x1}
+        ,{0x2DE7690 - offset, 2656500, 8, 0x0}  --Item Shop Postcard
+        ,{0x2DE7687 - offset, 2656501, 0, 0x1}  --Safe Postcard
+        ,{0x2DE768E - offset, 2656502, 6, 0x1}  --Gizmo Shop Postcard 1
+        ,{0x2DE768E - offset, 2656503, 7, 0x1}  --Gizmo Shop Postcard 2
+        ,{0x2DE7690 - offset, 2656504, 5, 0x1}  --Item Workshop Postcard
+        ,{0x2DE7690 - offset, 2656505, 7, 0x1}  --3rd District Balcony Postcard
+        ,{0x2DE7690 - offset, 2656506, 4, 0x1}  --Geppetto's House Postcard
+        ,{0x2DE77A0 - offset, 2656508, 1, 0x0}  --Lab Torn Page
+        ,{0x2DE787E - offset, 2656516, 0, 0x2}  --Emblem Piece (Flame)
+        ,{0x2DE787F - offset, 2656517, 0, 0x2}  --Emblem Piece (Chest)
+        ,{0x2DE7880 - offset, 2656518, 0, 0x2}  --Emblem Piece (Statue)
+        ,{0x2DE7881 - offset, 2656519, 0, 0x2}  --Emblem Piece (Fountain)
+        ,{0x2DE7831 - offset, 2656332, 8, 0x0}  --Clock Tower 1:00 Door
+        ,{0x2DE7831 - offset, 2656333, 7, 0x0}  --Clock Tower 2:00 Door
+        ,{0x2DE7831 - offset, 2656334, 6, 0x0}  --Clock Tower 3:00 Door
+        ,{0x2DE7831 - offset, 2656335, 5, 0x0}  --Clock Tower 4:00 Door
+        ,{0x2DE7831 - offset, 2656336, 4, 0x0}  --Clock Tower 5:00 Door
+        ,{0x2DE7831 - offset, 2656337, 3, 0x0}  --Clock Tower 6:00 Door
+        ,{0x2DE7831 - offset, 2656338, 2, 0x0}  --Clock Tower 7:00 Door
+        ,{0x2DE7831 - offset, 2656339, 1, 0x0}  --Clock Tower 8:00 Door
+        ,{0x2DE7832 - offset, 2656340, 8, 0x0}  --Clock Tower 9:00 Door
+        ,{0x2DE7832 - offset, 2656341, 7, 0x0}  --Clock Tower 10:00 Door
+        ,{0x2DE7832 - offset, 2656342, 6, 0x0}  --Clock Tower 11:00 Door
+        ,{0x2DE7832 - offset, 2656343, 5, 0x0}  --Clock Tower 12:00 Door
+        ,{0x2DE66DD - offset, 2656520, 0, 0x1}  --Leon Gift
+        ,{0x2DE66DF - offset, 2656521, 0, 0x1}  --Aerith Gift
+        ,{0x2DE66EA - offset, 2656375, 0, 0x1}  --Cid Comet G
+        ,{0x2DE6ADF - offset, 2656522, 0, 0x1}  --Divine Rose
+        ,{0x2DE6ADE - offset, 2656523, 0, 0x1}} --Cure
     for k,v in pairs(lookup_table) do
         value = ReadByte(v[1])
         if v[3] == 0 and value >= v[4] then
-            table.insert(location_ids, v[2])
+            if v[2] ~= 2656520 then
+                table.insert(location_ids, v[2])
+            elseif ReadByte(0x2DE65D0 - 0x200 + 0xB04 - offset) >= 0x31 then
+                table.insert(location_ids, v[2])
+            end
         elseif v[3] > 0 and (value%(2^v[3]) >= 2^(v[3]-1)) then
             table.insert(location_ids, v[2])
         end
@@ -1191,18 +1222,33 @@ function write_shared_ability(shared_ability_value)
     --[[Writes the player's unlocked shared abilities]]
     shared_abilities_address = 0x2DE5F68 - offset
     can_add_ability = true
-    current_shared_abilities_array = ReadArray(shared_abilities_address+1,4)
+    current_shared_abilities_array = ReadArray(shared_abilities_address+1,8)
+    current_shared_abilities_count = {}
+    max_shared_abilities = {3, 2, 1, 3}
     for current_shared_ability_index, current_shared_ability_value in pairs(current_shared_abilities_array) do
-        if current_shared_ability_value == shared_ability_value or current_shared_ability_value == shared_ability_value + 128 then
+        if current_shared_abilities_count[current_shared_ability_value%128] == nil then
+            current_shared_abilities_count[current_shared_ability_value%128] = 1
+        else
+            current_shared_abilities_count[current_shared_ability_value%128] = current_shared_abilities_count[current_shared_ability_value%128] + 1
+        end
+    end
+    if current_shared_abilities_count[shared_ability_value] ~= nil then
+        if shared_ability_value == 3 and current_shared_abilities_count[shared_ability_value] == 1 then --Handle Progressive Glide
+            shared_ability_value = 4
+            if current_shared_abilities_count[shared_ability_value] == nil then
+                current_shared_abilities_count[shared_ability_value] = 0
+            end
+        end
+        if current_shared_abilities_count[shared_ability_value] >= max_shared_abilities[shared_ability_value] then
             can_add_ability = false
         end
     end
     if can_add_ability then
         local i = 1
-        while ReadByte(shared_abilities_address + i) ~= 0 do
+        while ReadByte(shared_abilities_address + i) ~= 0 and i <= 10 do
             i = i + 1
         end
-        if i <= 4 then
+        if i <= 9 then
             WriteByte(shared_abilities_address + i, shared_ability_value + 128)
         end
     end
@@ -1419,6 +1465,18 @@ function write_geppetto_conditions()
     end
 end
 
+function write_slides()
+    write_item(217)
+    write_item(218)
+    write_item(219)
+    write_item(220)
+    write_item(221)
+    write_item(222)
+    slides_picked_up_array = {1,1,1,1,1,1}
+    slides_picked_up_array_address = 0x2DE6BD7 - offset
+    WriteArray(slides_picked_up_array_address, slides_picked_up_array)
+end
+
 function final_ansem_defeated()
     --[[Checks if the player is on the results screen, meaning that they defeated Final Ansem]]
     world = 0x233CADC - offset
@@ -1489,7 +1547,11 @@ function receive_items()
         if received_item_id == 2640000 then
             write_victory_item()
         elseif received_item_id >= 2641000 and received_item_id < 2642000 then
-            write_item(received_item_id % 2641000)
+            if received_item_id % 2641000 == 217 then
+                write_slides()
+            else
+                write_item(received_item_id % 2641000)
+            end
         elseif received_item_id >= 2642000 and received_item_id < 2642100 then
             write_shared_ability(received_item_id % 2642000)
         elseif received_item_id >= 2642100 and received_item_id < 2643000 then
