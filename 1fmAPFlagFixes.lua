@@ -620,7 +620,7 @@ function FlagFixes()
         local embCount = 0
         for i=0xBB, 0xBE do
             embCount = embCount + math.min(ReadByte(inventory+i), 1)
-            WriteByte(inventory+i, math.min(1, ReadByte(inventory+i)))
+            --WriteByte(inventory+i, math.min(1, ReadByte(inventory+i)))
         end
         
         local canPlace = embCount == 4 or ReadByte(emblemDoor) > 0
