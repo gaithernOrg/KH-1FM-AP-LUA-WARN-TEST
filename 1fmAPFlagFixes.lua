@@ -654,7 +654,13 @@ function FlagFixes()
     --end
     
     --BEGIN SONIC AND GICU BLOCK---
-    
+
+    if ReadByte(world) == 0x03 and ReadByte(room) > 0x00 and ReadByte(cutsceneFlags+0xB04) == 0x01 then --Prevent Start of TT1 Softlock
+        WriteByte(room, 0x00)
+        WriteByte(warpType1, 5)
+        WriteByte(warpType2, 12)
+        WriteByte(warpTrigger, 0x02)
+    end
     if ReadByte(cutsceneFlags+0xB0A) < 0x21 then --Prevent Atlantica Sunken Ship Softlock
         WriteByte(worldFlagBase+0x7B, 0x0E)
     elseif ReadByte(cutsceneFlags+0xB0A) == 0x21 then
@@ -673,12 +679,26 @@ function FlagFixes()
             WriteByte(neverland_warps_address, neverland_warps + 1)
         end
     end
+    if ReadByte(world) == 0x0F and ReadByte(room) == 0x04 then --Prevent HB Entrance Hall Early
+        if ReadByte(unlockedWarps+0x0142) > 0x10 and ReadByte(cutsceneFlags+0xB0E) < 0x28 then
+            WriteByte(room, 0x06)
+            WriteByte(warpType1, 5)
+            WriteByte(warpType2, 12)
+            WriteByte(warpTrigger, 0x02)
+        end
+    end
     if ReadByte(0x2DE787B - offset) == 0 then --Fix shelves in HB library
         WriteByte(0x2DE787B - offset, 0xF6)
     end
     if ReadByte(0x2DE7884 - offset) == 0 then --Fix books in HB library
         WriteArray(0x2DE7884 - offset, {0x14,0x14,0x14,0x14,0x14}) --Fix shelves 1
         WriteArray(0x2DE788A - offset, {0x14,0x14}) --Fix shelves 2, keeping T shelf in place
+    end
+    if ReadByte(cutsceneFlags+0xB0E) == 0xA0 and ReadByte(worldFlagBase+0xB6) == 0x0A then --Post HB1 Flags -> HB2 Flags
+        WriteInt(worldFlagBase+0xB3, 0x0E0E0E0E)
+        WriteShort(worldFlagBase+0xB8, 0x0E0E)
+        WriteShort(worldFlagBase+0xBB, 0x0E0E)
+        WriteShort(worldFlagBase+0xC0, 0x000E)
     end
 end
 
