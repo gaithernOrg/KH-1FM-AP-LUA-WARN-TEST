@@ -961,7 +961,7 @@ function read_misc_checks()
         ,{0x2DE6814 - offset, 2656324, 0, 0x1}
         ,{0x2DE6815 - offset, 2656326, 0, 0x1}
         ,{0x2DE6815 - offset, 2656327, 0, 0x1}
-        ,{0x2DE68D2 - offset, 2656032, 0, 0x1}
+        ,{0x2DE68D2 - offset, 2656032, 0, 0xA}
         ,{0x2DE693A - offset, 2656328, 0, 0x1}
         ,{0x2DE6939 - offset, 2656329, 0, 0x1}
         ,{0x2DE77E3 - offset, 2656330, 0, 0x1}
