@@ -197,7 +197,7 @@ function define_items()
   { ID = 2641093, Name = "Olympia", Usefulness = item_usefulness.progression },
   { ID = 2641094, Name = "Lionheart", Usefulness = item_usefulness.progression },
   { ID = 2641095, Name = "Metal Chocobo" },
-  { ID = 2641096, Name = "Oathkeeper"},
+  { ID = 2641096, Name = "Oathkeeper", Usefulness = item_usefulness.progression },
   { ID = 2641097, Name = "Oblivion", Usefulness = item_usefulness.progression },
   { ID = 2641098, Name = "Lady Luck", Usefulness = item_usefulness.progression },
   { ID = 2641099, Name = "Wishing Star", Usefulness = item_usefulness.progression },
