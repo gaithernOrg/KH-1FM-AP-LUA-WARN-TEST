@@ -701,6 +701,7 @@ function FlagFixes()
     end
     if ReadByte(0x2DE764C - offset) == 0x00 then --Fix HB Library Green Trinity
         WriteByte(0x2DE764C - offset, 0x40)
+        WriteByte(0x2DE7639 - offset, 0x01)
     end
 end
 
