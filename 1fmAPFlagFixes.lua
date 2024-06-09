@@ -699,6 +699,9 @@ function FlagFixes()
         WriteShort(worldFlagBase+0xBB, 0x0E0E)
         WriteShort(worldFlagBase+0xC0, 0x000E)
     end
+    if ReadByte(0x2DE764C - offset) == 0x00 then --Fix HB Library Green Trinity
+        WriteByte(0x2DE764C - offset, 0x40)
+    end
 end
 
 function OpenGummi()
