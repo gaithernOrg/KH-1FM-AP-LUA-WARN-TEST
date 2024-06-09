@@ -691,8 +691,7 @@ function FlagFixes()
         WriteByte(0x2DE787B - offset, 0xF6)
     end
     if ReadByte(0x2DE7884 - offset) == 0 then --Fix books in HB library
-        WriteArray(0x2DE7884 - offset, {0x14,0x14,0x14,0x14,0x14}) --Fix shelves 1
-        WriteArray(0x2DE788A - offset, {0x14,0x14}) --Fix shelves 2, keeping T shelf in place
+        WriteArray(0x2DE7884 - offset, {0x14,0x14,0x14,0x14,0x14,0x0A,0x14,0x14})
     end
     if ReadByte(cutsceneFlags+0xB0E) == 0xA0 and ReadByte(worldFlagBase+0xB6) == 0x0A then --Post HB1 Flags -> HB2 Flags
         WriteInt(worldFlagBase+0xB3, 0x0E0E0E0E)
