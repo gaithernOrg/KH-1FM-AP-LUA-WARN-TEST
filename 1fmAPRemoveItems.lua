@@ -50,7 +50,8 @@ function find_items_to_remove()
         ,{0x2DE7881 - offset, 0x0, 0x02, 0xBF, 0x0}  --Emblem Piece Fountain
         ,{0x2DE7690 - offset, 0x4, 0x01, 0xD3, 0x0}  --Geppetto's House Postcard
         ,{0x2DE6EDA - offset, 0x0, 0x32, 0xD2, 0x0}  --Crystal Trident
-        ,{0x2DE6ED6 - offset, 0x0, 0x10, 0xE5, 0x0}} --Entry Pass
+        ,{0x2DE6ED6 - offset, 0x0, 0x10, 0xE5, 0x0}  --Entry Pass
+        ,{0x2DE6EDC - offset, 0x0, 0x21, 0xE3, 0x0}} --Forget-Me-Not
     for item_table_index, item_data in pairs(item_data_table) do
         need_to_delete = false
         byte_offset = math.floor((item_table_index-1) / 8)

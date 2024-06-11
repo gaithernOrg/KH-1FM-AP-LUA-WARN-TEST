@@ -725,6 +725,13 @@ function FlagFixes()
             WriteByte(worldFlagBase+0x82, 0)
         end
     end
+    if ReadByte(cutsceneFlags+0xB0C) == 0x21 then --Require Forget-Me-Not
+        if ReadByte(inventory+0xE2) > 0 then
+            WriteByte(0x2DE7ACC - offset, 2)
+        else
+            WriteByte(0x2DE7ACC - offset, 3)
+        end
+    end
     if ReadByte(world) == 0x09 and ReadByte(room) == 0x10 and ReadByte(cutsceneFlags+0xB04+0x6) < 0x53 then --Prevent Ursula II Early
         WriteByte(room, 0x02)
         WriteByte(warpType1, 5)
