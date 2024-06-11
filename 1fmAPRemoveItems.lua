@@ -83,7 +83,7 @@ function find_items_to_remove()
             end
         end
     end
-    WriteArray(stock_address + 100, {0,0,0,0,0,0}) --Remove Navi Gummis
+    WriteArray(stock_address + 200, {0,0,0,0,0,0}) --Remove Navi Gummis
 end
 
 function _OnInit()
