@@ -628,60 +628,63 @@ function FlagFixes()
         WriteByte(emblemCount, canPlace and 4 or 0)
         --Save Emblem Piece Event Progress & Keep Emblem Door Opened if All Emblem Piece Events are done
         if ReadByte(cutsceneFlags+0xB0E) > 0x32 and (ReadByte(room) ~= 4 or ReadByte(blackfade)==0) then
-            if ReadByte(emblemCount+1) > 1 and ReadByte(emblemCount+2) > 1 and ReadByte(emblemCount+3) > 1 and ReadByte(emblemCount+4) > 1 then
-                WriteByte(emblemDoor, 4)
-            elseif ReadByte(emblemDoor+3) == 0x05 then
-                WriteByte(emblemDoor, 3)
-                WriteByte(emblemDoor+3, 0x01)
-            elseif ReadByte(emblemDoor+3) == 0x15 then
-                WriteByte(emblemDoor, 3)
-                WriteByte(emblemDoor+3, 0x11)
-            elseif ReadByte(emblemDoor+3) == 0x25 then
-                WriteByte(emblemDoor, 3)
-                WriteByte(emblemDoor+3, 0x21)
-            elseif ReadByte(emblemDoor+3) == 0x35 then
-                WriteByte(emblemDoor, 3)
-                WriteByte(emblemDoor+3, 0x31)
-            elseif ReadByte(emblemDoor+3) == 0x45 then
-                WriteByte(emblemDoor, 3)
-                WriteByte(emblemDoor+3, 0x41)
-            elseif ReadByte(emblemDoor+3) == 0x45 then
-                WriteByte(emblemDoor, 3)
-                WriteByte(emblemDoor+3, 0x41)
-            elseif ReadByte(emblemDoor+3) == 0x55 then
-                WriteByte(emblemDoor, 3)
-                WriteByte(emblemDoor+3, 0x51)
-            elseif ReadByte(emblemDoor+3) == 0x65 then
-                WriteByte(emblemDoor, 3)
-                WriteByte(emblemDoor+3, 0x61)
-            elseif ReadByte(emblemDoor+3) == 0x75 then
-                WriteByte(emblemDoor, 3)
-                WriteByte(emblemDoor+3, 0x71)
-            elseif ReadByte(emblemDoor+3) == 0x85 then
-                WriteByte(emblemDoor, 3)
-                WriteByte(emblemDoor+3, 0x81)
-            elseif ReadByte(emblemDoor+3) == 0x95 then
-                WriteByte(emblemDoor, 3)
-                WriteByte(emblemDoor+3, 0x91)
-            elseif ReadByte(emblemDoor+3) == 0xA5 then
-                WriteByte(emblemDoor, 3)
-                WriteByte(emblemDoor+3, 0xA1)
-            elseif ReadByte(emblemDoor+3) == 0xB5 then
-                WriteByte(emblemDoor, 3)
-                WriteByte(emblemDoor+3, 0xB1)
-            elseif ReadByte(emblemDoor+3) == 0xC5 then
-                WriteByte(emblemDoor, 3)
-                WriteByte(emblemDoor+3, 0xC1)
-            elseif ReadByte(emblemDoor+3) == 0xD5 then
-                WriteByte(emblemDoor, 3)
-                WriteByte(emblemDoor+3, 0xD1)
-            elseif ReadByte(emblemDoor+3) == 0xE5 then
-                WriteByte(emblemDoor, 3)
-                WriteByte(emblemDoor+3, 0xE1)
-            elseif ReadByte(emblemDoor+3) == 0xF5 then
-                WriteByte(emblemDoor, 3)
-                WriteByte(emblemDoor+3, 0xF1)
-            end
+            local doorClose = ReadByte(roomWarpRead) >= 0x10 and ReadByte(roomWarpRead) <= 0x13
+            WriteByte(emblemDoor, doorClose and 3 or 4)
+            WriteByte(emblemDoor+3, doorClose and 1 or 5)
+            --if ReadByte(emblemCount+1) > 1 and ReadByte(emblemCount+2) > 1 and ReadByte(emblemCount+3) > 1 and ReadByte(emblemCount+4) > 1 then
+            --    WriteByte(emblemDoor, 4)
+            --elseif ReadByte(emblemDoor+3) == 0x05 then
+            --    WriteByte(emblemDoor, 3)
+            --    WriteByte(emblemDoor+3, 0x01)
+            --elseif ReadByte(emblemDoor+3) == 0x15 then
+            --    WriteByte(emblemDoor, 3)
+            --    WriteByte(emblemDoor+3, 0x11)
+            --elseif ReadByte(emblemDoor+3) == 0x25 then
+            --    WriteByte(emblemDoor, 3)
+            --    WriteByte(emblemDoor+3, 0x21)
+            --elseif ReadByte(emblemDoor+3) == 0x35 then
+            --    WriteByte(emblemDoor, 3)
+            --    WriteByte(emblemDoor+3, 0x31)
+            --elseif ReadByte(emblemDoor+3) == 0x45 then
+            --    WriteByte(emblemDoor, 3)
+            --    WriteByte(emblemDoor+3, 0x41)
+            --elseif ReadByte(emblemDoor+3) == 0x45 then
+            --    WriteByte(emblemDoor, 3)
+            --    WriteByte(emblemDoor+3, 0x41)
+            --elseif ReadByte(emblemDoor+3) == 0x55 then
+            --    WriteByte(emblemDoor, 3)
+            --    WriteByte(emblemDoor+3, 0x51)
+            --elseif ReadByte(emblemDoor+3) == 0x65 then
+            --    WriteByte(emblemDoor, 3)
+            --    WriteByte(emblemDoor+3, 0x61)
+            --elseif ReadByte(emblemDoor+3) == 0x75 then
+            --    WriteByte(emblemDoor, 3)
+            --    WriteByte(emblemDoor+3, 0x71)
+            --elseif ReadByte(emblemDoor+3) == 0x85 then
+            --    WriteByte(emblemDoor, 3)
+            --    WriteByte(emblemDoor+3, 0x81)
+            --elseif ReadByte(emblemDoor+3) == 0x95 then
+            --    WriteByte(emblemDoor, 3)
+            --    WriteByte(emblemDoor+3, 0x91)
+            --elseif ReadByte(emblemDoor+3) == 0xA5 then
+            --    WriteByte(emblemDoor, 3)
+            --    WriteByte(emblemDoor+3, 0xA1)
+            --elseif ReadByte(emblemDoor+3) == 0xB5 then
+            --    WriteByte(emblemDoor, 3)
+            --    WriteByte(emblemDoor+3, 0xB1)
+            --elseif ReadByte(emblemDoor+3) == 0xC5 then
+            --    WriteByte(emblemDoor, 3)
+            --    WriteByte(emblemDoor+3, 0xC1)
+            --elseif ReadByte(emblemDoor+3) == 0xD5 then
+            --    WriteByte(emblemDoor, 3)
+            --    WriteByte(emblemDoor+3, 0xD1)
+            --elseif ReadByte(emblemDoor+3) == 0xE5 then
+            --    WriteByte(emblemDoor, 3)
+            --    WriteByte(emblemDoor+3, 0xE1)
+            --elseif ReadByte(emblemDoor+3) == 0xF5 then
+            --    WriteByte(emblemDoor, 3)
+            --    WriteByte(emblemDoor+3, 0xF1)
+            --end
         end
         
         --if ReadByte(libraryFlag) == 0 then
