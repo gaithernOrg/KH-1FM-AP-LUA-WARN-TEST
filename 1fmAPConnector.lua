@@ -312,7 +312,7 @@ function define_items()
   { ID = 2641207, Name = "Naturespark" ,    Usefulness = item_usefulness.progression },
   { ID = 2641208, Name = "Fireglow",        Usefulness = item_usefulness.progression },
   { ID = 2641209, Name = "Earthshine" },
-  { ID = 2641210, Name = "Crystal Trident" },
+  { ID = 2641210, Name = "Crystal Trident", Usefulness = item_usefulness.progression },
   { ID = 2641211, Name = "Postcard",        Usefulness = item_usefulness.progression },
   { ID = 2641212, Name = "Torn Page" ,      Usefulness = item_usefulness.progression },
   { ID = 2641213, Name = "Torn Page" ,      Usefulness = item_usefulness.progression },
@@ -329,9 +329,9 @@ function define_items()
   { ID = 2641224, Name = "Claw Marks" },
   { ID = 2641225, Name = "Stench" },
   { ID = 2641226, Name = "Antenna" },
-  { ID = 2641227, Name = "Forget-Me-Not" },
+  { ID = 2641227, Name = "Forget-Me-Not",   Usefulness = item_usefulness.progression },
   { ID = 2641228, Name = "Jack-In-The-Box", Usefulness = item_usefulness.progression },
-  { ID = 2641229, Name = "Entry Pass" },
+  { ID = 2641229, Name = "Entry Pass",      Usefulness = item_usefulness.progression },
   { ID = 2641230, Name = "Hero License" },
   { ID = 2641231, Name = "Pretty Stone" },
   { ID = 2641232, Name = "N41" },
@@ -984,7 +984,7 @@ function read_misc_checks()
         ,{0x2DE7715 - offset, 2656359, 0, 0x4}
         ,{0x2DE7716 - offset, 2656360, 0, 0x4}
         ,{0x2DE76EF - offset, 2656361, 0, 0x1}
-        ,{0x2DE76ED - offset, 2656361, 0, 0x1}  --Alternative, light stove before putting in potion
+        ,{0x2DE76EE - offset, 2656361, 0, 0x1}  --Alternative, light stove before putting in potion
         ,{0x2DE76E9 - offset, 2656362, 0, 0x1}
         ,{0x2DE76F7 - offset, 2656363, 0, 0x1}
         ,{0x2DE6BDD - offset, 2656364, 0, 0x1}
