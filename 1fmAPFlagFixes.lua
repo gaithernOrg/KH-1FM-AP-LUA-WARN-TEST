@@ -713,6 +713,9 @@ function FlagFixes()
         WriteByte(warpType2, 12)
         WriteByte(warpTrigger, 0x02)
     end
+    if (ReadByte(world) ~= 0x03 or ReadByte(room) ~= 0x16) and (ReadByte(cutsceneFlags+0xB04) >= 0x31 and ReadByte(cutsceneFlags+0xB04) < 0x3E) and ReadByte(cutsceneFlags+0x312) == 1 then --Prevent Missing Earthshine after talking to Leon only once in Secret Waterway
+        WriteByte(cutsceneFlags+0x312,0)
+    end
     if ReadByte(cutsceneFlags+0xB0A) < 0x21 then --Prevent Atlantica Sunken Ship Softlock
         WriteByte(worldFlagBase+0x7B, 0x0E)
     elseif ReadByte(cutsceneFlags+0xB0A) == 0x21 then
