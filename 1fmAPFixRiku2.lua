@@ -7,7 +7,6 @@ LUAGUI_NAME = "kh1fmAP"
 LUAGUI_AUTH = "Gicu"
 LUAGUI_DESC = "Kingdom Hearts 1FM AP Integration"
 
-local offset = 0x3A0606
 local canExecute = false
 frame_count = 0
 corrected = false
@@ -18,7 +17,7 @@ function read_world_progress_array()
     each world.  The order of worlds are as follows:
     Traverse Town, Deep Jungle, Olympus Coliseum, Wonderland, Agrabah, Monstro,
     Atlantica, Unused, Halloween Town, Neverland, Hollow Bastion, End of the World]]
-    world_progress_address = 0x2DE65D0 - 0x200 + 0xB04 - offset
+    world_progress_address = 0x2DEA8E0 - 0x200 + 0xB04
     world_progress_array = ReadArray(world_progress_address, 12)
     extra_traverse_town_progress_address = world_progress_address + 0xE
     world_progress_array[13] = ReadByte(extra_traverse_town_progress_address)
@@ -26,7 +25,7 @@ function read_world_progress_array()
 end
 
 function write_world_progress_byte(world_index, progress_byte)
-    world_progress_address = 0x2DE65D0 - 0x200 + 0xB04 - offset
+    world_progress_address = 0x2DEA8E0 - 0x200 + 0xB04
     WriteByte(world_progress_address + (world_index-1), progress_byte)
 end
 
@@ -125,22 +124,22 @@ end
 world_progress_reset_array = define_world_progress_reset_array()
 
 function correct_world_flags(world_offset, corrected_world_flag_array)
-    world_flags_address = 0x2DE79D0 + 0x6C - offset
+    world_flags_address = 0x2DEBCE0 + 0x6C
     WriteArray(world_flags_address + world_offset, corrected_world_flag_array)
 end
 
 function read_world_flags(world_offset)
-    world_flags_address = 0x2DE79D0 + 0x6C - offset
+    world_flags_address = 0x2DEBCE0 + 0x6C
     return ReadArray(world_flags_address + world_offset, 16)
 end
 
 function turn_on_kurt_zisa()
-    carpet_takes_you_to_kurt_zisa_address = 0x2DE6ED0 - offset
+    carpet_takes_you_to_kurt_zisa_address = 0x2DEB1E0
     WriteByte(carpet_takes_you_to_kurt_zisa_address, 0xF0)
 end
 
 function fix_library()
-    world_flag_base_address = 0x2DE79D0 + 0x6C - offset
+    world_flag_base_address = 0x2DEBCE0 + 0x6C
     hollow_bastion_world_flag_base_address = world_flag_base_address + 0xB0
     library_address = hollow_bastion_world_flag_base_address + 0x7
     if ReadByte(library_address) ~= 0x02 then

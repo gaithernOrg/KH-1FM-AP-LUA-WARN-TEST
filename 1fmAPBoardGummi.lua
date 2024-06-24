@@ -3,10 +3,9 @@ LUAGUI_AUTH = "denhonator with slight edits from Gicu"
 LUAGUI_DESC = "Read readme for button combinations.  Modified for AP by Gicu"
 
 local extraSafety = false
-local offset = 0x3A0606
 local addgummi = 0
-local deathCheck = 0x2978E0 - offset
-local safetyMeasure = 0x297746 - offset
+local deathCheck = 0x299BE0
+local safetyMeasure = 0x299A46
 
 local canExecute = false
 local lastsavemenuopen = 0
@@ -32,18 +31,18 @@ function _OnFrame()
         goto done
     end
 
-    local savemenuopen = ReadByte(0x232A604-offset)
+    local savemenuopen = ReadByte(0x232E904)
     
     if savemenuopen == 4 and lastsavemenuopen ~= 4 then
         addgummi = 5
     end
     if savemenuopen == 4 and addgummi==1 then
-        WriteByte(0x2E1CC28-offset, 3) --Unlock gummi
-        WriteByte(0x2E1CB9C-offset, 5) --Set 5 buttons to save menu
-        WriteByte(0x2E8F450-offset, 5) --Set 5 buttons to save menu
-        WriteByte(0x2E8F452-offset, 5) --Set 5 buttons to save menu
+        WriteByte(0x2E20F28, 3) --Unlock gummi
+        WriteByte(0x2E20E9C, 5) --Set 5 buttons to save menu
+        WriteByte(0x2E93750, 5) --Set 5 buttons to save menu
+        WriteByte(0x2E93752, 5) --Set 5 buttons to save menu
         for i=0,4 do
-            WriteByte(0x2E1CBA0+i*4-offset, i) --Set button types
+            WriteByte(0x2E20EA0+i*4, i) --Set button types
         end
     end
     

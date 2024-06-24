@@ -2,8 +2,7 @@ LUAGUI_NAME = "kh1fmAP_flag_fixes"
 LUAGUI_AUTH = "denhonator with edits from Gicu"
 LUAGUI_DESC = "Kingdom Hearts 1FM AP Flag Fixes"
 
-local offset = 0x3A0606
-local btltbl = 0x2D1F3C0 - offset
+local btltbl = 0x2D236C0
 local itemTable = btltbl+0x1A58
 local weaponTable = btltbl+0x94F8
 local soraStatTable = btltbl+0x3AC0
@@ -15,120 +14,120 @@ local soraAbilityTable3 = soraAbilityTable-0x68
 local donaldAbilityTable = soraAbilityTable+0x328
 local goofyAbilityTable = donaldAbilityTable+0x198
 local rewardTable = btltbl+0xC6A8
-local chestTable = 0x5259E0 - offset
-local shopTableBase = 0x4FB374 - offset
-local synthRequirements = 0x544320 - offset
+local chestTable = 0x529A60
+local shopTableBase = 0x4FF3C4
+local synthRequirements = 0x5483A0
 local synthItems = synthRequirements + 0x1E0
 
-local chestsOpened = 0x2DE5E00 - offset
-local summonsReturned = 0x2DE66FC - offset
-local summons = 0x2DE61A0 - offset
-local inventory = 0x2DE5E6A - offset
-local tornPageCount = 0x2DE6DD0 - offset
-local poohProgress = 0x2DE7718 - offset
-local poohProgress2 = 0x2DE6DF0 - offset
-local emblemCount = 0x2DE787D - offset
-local slides = 0x2DE6BD7 - offset
-local slideActive = 0x2D3CA70 - offset
-local evidence = 0x2DE67D8 - offset
-local evidenceActiveForest = 0x2D39B90 - offset
-local evidenceActiveBizarre = 0x2D39230 - offset
-local khamaActive = 0x2D34730 - offset
-local theonActive = 0x2D35EA0 - offset
-local emblemDoor = 0x2DE788C - offset
-local minigameStatus = 0x2DE73A5 - offset
-local gummiInventory = 0x2DF1848 - offset
-local reports = 0x2DE7390 - offset
+local chestsOpened = 0x2DEA110
+local summonsReturned = 0x2DEAA0C
+local summons = 0x2DEA4B0
+local inventory = 0x2DEA17A
+local tornPageCount = 0x2DEB0E0
+local poohProgress = 0x2DEBA28
+local poohProgress2 = 0x2DEB100
+local emblemCount = 0x2DEBB8D
+local slides = 0x2DEAEE7
+local slideActive = 0x2D40D70
+local evidence = 0x2DEAAE8
+local evidenceActiveForest = 0x2D3DE90
+local evidenceActiveBizarre = 0x2D3D530
+local khamaActive = 0x2D38A30
+local theonActive = 0x2D3A1A0
+local emblemDoor = 0x2DEBB9C
+local minigameStatus = 0x2DEB6B5
+local gummiInventory = 0x2DF5B58
+local reports = 0x2DEB6A0
 
 --local TTWarp = 0x5229B0+0x9B570C+6
-local worldWarps = 0x50B940 - offset
-local worldFlagBase = 0x2DE79D0+0x6C - offset
-local gummiFlagBase = 0x2DE78C0 - offset
-local worldMapLines = 0x2DE78E2 - offset
-local gummiselect = 0x503CEC - offset
-local inGummi = 0x504218 - offset
-local battleLevel = 0x2DE7394 - offset
-local unlockedWarps = 0x2DE78D6 - offset
-local warpCount = 0x50BA30 - offset
-local cutsceneFlags = 0x2DE65D0-0x200 - offset
-local libraryFlag = 0x2DE7AF3 - offset
-local scriptPointer = 0x23944B8 - offset
-local OCCupUnlock = 0x2DE77D0 - offset
-local OCCupDialog = 0x23966B0 - offset
-local ardoffset = 0x2394BB0 - offset
-local ardoffsetClock = 0x2394F10 - offset
-local textBox = 0x23D09E4 - offset
-local cupCurrentSeed = 0x2389480 - offset
-local waterwayGate = 0x2DE763D - offset
-local waterwayTrinity = 0x2DE7681 - offset
-local currentTerminus = 0x2392964 - offset
-local terminusTeleUsable = 0x23928A4 - offset --On: 0000111A Off: FFFFD8F0
-local terminusTeleVisible = 0x2674AC8 - offset --On: 4588D000 Off: C61C4000
-local speedup = 0x233C24C - offset
-local sliderProgress = 0x2DE7709 - offset
-local savedFruits = 0x2DE770E - offset
-local minigameTimer = 0x232A684 - offset
+local worldWarps = 0x50F9D0
+local worldFlagBase = 0x2DEBCE0+0x6C
+local gummiFlagBase = 0x2DEBBD0
+local worldMapLines = 0x2DEBBF2
+local gummiselect = 0x507D7C
+local inGummi = 0x5082A8
+local battleLevel = 0x2DEB6A4
+local unlockedWarps = 0x2DEBBE6
+local warpCount = 0x50FAC0
+local cutsceneFlags = 0x2DEA8E0-0x200
+local libraryFlag = 0x2DEBE03
+local scriptPointer = 0x23987B8
+local OCCupUnlock = 0x2DEBAE0
+local OCCupDialog = 0x239A9B0
+local ardoffset = 0x2398EB0
+local ardoffsetClock = 0x2399210
+local textBox = 0x23D4CE4
+local cupCurrentSeed = 0x238D780
+local waterwayGate = 0x2DEB94D
+local waterwayTrinity = 0x2DEB991
+local currentTerminus = 0x2396C64
+local terminusTeleUsable = 0x2396BA4 --On: 0000111A Off: FFFFD8F0
+local terminusTeleVisible = 0x2678DC8 --On: 4588D000 Off: C61C4000
+local speedup = 0x234054C
+local sliderProgress = 0x2DEBA19
+local savedFruits = 0x2DEBA1E
+local minigameTimer = 0x232E984
 local collectedFruits = minigameTimer + 4
-local unequipBlacklist = 0x541FA0 - offset
-local tutorialFlag = 0x2DE7394 - offset
-local oppositeState = 0x2DE7688 - offset
-local oppositeTrigger = 0x2DE66ED - offset
+local unequipBlacklist = 0x546020
+local tutorialFlag = 0x2DEB6A4
+local oppositeState = 0x2DEB998
+local oppositeTrigger = 0x2DEA9FD
 
-local chronicles = 0x2DE7367 - offset
-local journalCharacters = 0x2DE70B3 - offset
+local chronicles = 0x2DEB667
+local journalCharacters = 0x2DEB3C3
 
-local infoBoxNotVisible = 0x23D0890 - offset
-local preventMenu = 0x232A60C - offset
-local blackfade = 0x4D93B8 - offset
-local enableRC = 0x2DE6244 - offset
-local lockMenu = 0x232A60C - offset
-local party1 = 0x2DE5E5F - offset
-local party2 = 0x2E1CBE5 - offset
-local soraHUD = 0x280EB1C - offset
-local stateFlag = 0x2863958 - offset
-local magicUnlock = 0x2DE5A44 - offset
+local infoBoxNotVisible = 0x23D4B90 --Unused
+local preventMenu = 0x232E90C
+local blackFade = 0x4DD3F8
+local enableRC = 0x2DEA554
+local lockMenu = 0x232E90C
+local party1 = 0x2DEA16F
+local party2 = 0x2E20EE5
+local soraHUD = 0x2812E1C
+local stateFlag = 0x2867C58
+local magicUnlock = 0x2DE9D54
 local magicLevels = magicUnlock + 0x41E
-local magicFlags = 0x2DE75EE - offset
-local shortcuts = 0x2DE6214 - offset
+local magicFlags = 0x2DEB8FE
+local shortcuts = 0x2DEA524
 local trinityUnlock = magicUnlock + 0x1BA7
-local world = 0x233CADC - offset
+local world = 0x2340DDC
 local room = world + 0x68
-local soraCurAbilities = 0x2DE5A14 - offset
-local sharedAbilities = 0x2DE5F69 - offset
-local soraPointer = 0x2534680 - offset
-local soraJumpHeight = 0x2D592A0 - offset
-local jumpHeights = 0x2D1F46C - offset
-local mermaidKickSpeed = 0x3ED5FC - offset
-local soraHP = 0x2D592CC - offset
-local superglideSpeedHack = 0x2AE2B4 - offset
+local soraCurAbilities = 0x2DE9D24
+local sharedAbilities = 0x2DEA279
+local soraPointer = 0x2538990
+local soraJumpHeight = 0x2D5D5A0
+local jumpHeights = 0x2D2376C
+--local mermaidKickSpeed = 0x3ED5FC (Value "should" be 41900000, but unknown address?)
+local soraHP = 0x2D5D5CC
+--local superglideSpeedHack = 0x2AE2B4 (Value "should" be 0017F35C, but unknown address?)
 
-local soraStats = 0x2DE59D0 - offset
+local soraStats = 0x2DE9CE0
 local donaldStats = soraStats + 0x74
 local goofyStats = donaldStats + 0x74
-local experienceMult = 0x2D59180 - offset
+local experienceMult = 0x2D5D480
 
-local gotoWorldMap = 0x2E1CC24 - offset
-local startGameWarpHack = 0x38C315 - offset
-local worldMapTriggerFlag = 0x2DE6ED0 - offset
-local openMenu = 0x2350CD4 - offset
-local closeMenu = 0x2E90820 - offset
-local menuCheck = 0x2E8EE98 - offset
-local input = 0x233D034 - offset
-local menuState = 0x2E8F268 - offset
-local report1 = 0x1D03584 - offset
-local language = 0x2E17BAB - offset
-local worldWarp = 0x233CB70 - offset
+local gotoWorldMap = 0x2E20F24
+--local startGameWarpHack = 0x38C315 (This is unused and can't find the address on EGS 1.0.0.9)
+local worldMapTriggerFlag = 0x2DEB1E0
+local openMenu = 0x23551D4
+local closeMenu = 0x2E94B20
+local menuCheck = 0x2E93198
+local input = 0x2341334
+local menuState = 0x2E93568
+local report1 = 0x1D07804
+local language = 0x2E1BEBB
+local worldWarp = 0x2340E70
 local roomWarp = worldWarp + 4
-local roomWarpRead = 0x232A588 - offset
-local warpTrigger = 0x22E86DC - offset
-local warpType1 = 0x233C240 - offset
-local warpType2 = 0x22E86E0 - offset
-local warpDefinitions = 0x232A580 - offset
-local RCName = 0x2863390 - offset
+local roomWarpRead = 0x232E888
+local warpTrigger = 0x22EC9DC
+local warpType1 = 0x2340540
+local warpType2 = 0x22EC9E0
+local warpDefinitions = 0x232E880
+local RCName = 0x2867690
 
-local itemDropID = 0x2849FC8 - offset
-local textsBase = 0x2EE03B0 - offset
-local textPointerBase = 0x2B98900 - offset
+local itemDropID = 0x284E2C8
+local textsBase = 0x2EE46B0
+local textPointerBase = 0x2B9CC00
 local textPos = 0
 local idFind = 0
 local idReplace = 0
@@ -210,7 +209,7 @@ function FlagFixes()
         WriteByte(warpType1, 7)
         WriteByte(warpType2, 6)
         WriteByte(warpTrigger, 2)
-        WriteLong(0x25346D0-offset, 0) -- Fixes InstantGummi
+        WriteLong(0x25389D0, 0) -- Fixes InstantGummi
     end
 
     if ReadByte(world) == 1 and ReadFloat(soraHUD) > 0 and ReadInt(inGummi) == 0 then
@@ -733,9 +732,9 @@ function FlagFixes()
     end
     if ReadByte(cutsceneFlags+0xB0C) == 0x21 then --Require Forget-Me-Not
         if ReadByte(inventory+0xE2) > 0 then
-            WriteByte(0x2DE7ACC - offset, 2)
+            WriteByte(0x2DEBDDC, 2)
         else
-            WriteByte(0x2DE7ACC - offset, 3)
+            WriteByte(0x2DEBDDC, 3)
         end
     end
     if ReadByte(world) == 0x09 and ReadByte(room) == 0x10 and ReadByte(cutsceneFlags+0xB04+0x6) < 0x53 then --Prevent Ursula II Early
@@ -745,7 +744,7 @@ function FlagFixes()
         WriteByte(warpTrigger, 0x02)
     end
     if ReadByte(cutsceneFlags+0xB04+0x9) > 0x00 then --Prevent Neverland Ship: Cabin from being missable
-        neverland_warps_address = 0x2DE78D6 - offset
+        neverland_warps_address = 0x2DEBBE6
         neverland_warps = ReadByte(neverland_warps_address)
         if (neverland_warps % 2) < 1 then
             WriteByte(neverland_warps_address, neverland_warps + 1)
@@ -759,11 +758,11 @@ function FlagFixes()
             WriteByte(warpTrigger, 0x02)
         end
     end
-    if ReadByte(0x2DE787B - offset) == 0 then --Fix shelves in HB library
-        WriteByte(0x2DE787B - offset, 0xF6)
+    if ReadByte(0x2DEBB8B) == 0 then --Fix shelves in HB library
+        WriteByte(0x2DEBB8B, 0xF6)
     end
-    if ReadByte(0x2DE7884 - offset) == 0 then --Fix books in HB library
-        WriteArray(0x2DE7884 - offset, {0x14,0x14,0x14,0x14,0x14,0x0A,0x14,0x14})
+    if ReadByte(0x2DEBB94) == 0 then --Fix books in HB library
+        WriteArray(0x2DEBB94, {0x14,0x14,0x14,0x14,0x14,0x0A,0x14,0x14})
     end
     if ReadByte(cutsceneFlags+0xB0E) == 0xA0 and ReadByte(worldFlagBase+0xB6) == 0x0A then --Post HB1 Flags -> HB2 Flags
         WriteInt(worldFlagBase+0xB3, 0x0E0E0E0E)
@@ -771,9 +770,9 @@ function FlagFixes()
         WriteShort(worldFlagBase+0xBB, 0x0E0E)
         WriteShort(worldFlagBase+0xC0, 0x000E)
     end
-    if ReadByte(0x2DE764C - offset) == 0x00 then --Fix HB Library Green Trinity
-        WriteByte(0x2DE764C - offset, 0x40)
-        WriteByte(0x2DE7639 - offset, 0x01)
+    if ReadByte(0x2DEB95C) == 0x00 then --Fix HB Library Green Trinity
+        WriteByte(0x2DEB95C, 0x40)
+        WriteByte(0x2DEB949, 0x01)
     end
 end
 

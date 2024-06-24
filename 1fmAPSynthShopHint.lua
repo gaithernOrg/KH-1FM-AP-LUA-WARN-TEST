@@ -12,10 +12,10 @@ else
     end
 end
 
-local offset = 0x3A0606
 local canExecute = false
-local world = 0x233CADC - offset
+local world = 0x2340DDC
 local room = world + 0x68
+local spawn = 0x2DEBD28
 
 function file_exists(name)
    local f=io.open(name,"r")
@@ -33,7 +33,7 @@ end
     
 function _OnFrame()
     if canExecute then
-        if ReadByte(world) == 0x03 and ReadByte(room) == 0x0B then --In accessory shop
+        if ReadByte(world) == 0x03 and ReadByte(room) == 0x0B and ReadByte(spawn) == 0x36 then --In Item Workshop
             if not file_exists(client_communication_path .. "insynthshop") then
                 file = io.open(client_communication_path .. "insynthshop", "w")
                 io.output(file)

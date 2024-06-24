@@ -7,11 +7,10 @@ LUAGUI_NAME = "kh1fmAP"
 LUAGUI_AUTH = "Sonicshadowsilver2 with edits from Gicu"
 LUAGUI_DESC = "Kingdom Hearts 1FM AP Integration"
 
-offset = 0x3A0606
-Now = 0x233CADC - offset
-RoomFlags = 0x2DE7AAE - offset
-CutsceneFlags = 0x2DE63D0 - offset
-eotw_world_terminus_hb_chest_address = 0x2DE5DFF - offset + 0x379
+Now = 0x2340DDC
+RoomFlags = 0x2DEBDBE
+CutsceneFlags = 0x2DEA6E0
+eotw_world_terminus_hb_chest_address = 0x2DEA10F + 0x379
 canExecute = false
 
 function _OnInit()

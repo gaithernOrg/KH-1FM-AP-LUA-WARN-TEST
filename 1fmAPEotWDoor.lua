@@ -10,7 +10,6 @@ LUAGUI_DESC = "Kingdom Hearts 1FM AP Integration"
 canExecute = false
 required_reports_door = 14
 door_goal = "reports"
-offset = 0x3A0606
 frame_count = 0
 
 if os.getenv('LOCALAPPDATA') ~= nil then
@@ -53,21 +52,21 @@ function read_door_goal()
 end
 
 function all_postcards_mailed()
-    postcards_mailed_address = 0x2DE78C0 - 0x231 - offset
+    postcards_mailed_address = 0x2DEBBD0 - 0x231
     postcards_mailed = ReadByte(postcards_mailed_address)
     return postcards_mailed >= 10
 end
 
 function all_puppies_returned()
-    all_puppies_returned_address = 0x2DE6815 - offset
+    all_puppies_returned_address = 0x2DEAB25
     all_puppies_returned_byte = ReadByte(all_puppies_returned_address)
     return all_puppies_returned_byte > 0
 end
 
 function all_super_bosses_defeated()
-    sephiroth_address             = 0x2DE693A - offset
-    unknown_and_kurt_zisa_address = 0x2DE7391 - offset
-    phantom_address               = 0x2DE6EDD - offset
+    sephiroth_address             = 0x2DEAC4A
+    unknown_and_kurt_zisa_address = 0x2DEB6A1
+    phantom_address               = 0x2DEB1ED
     
     sephiroth_complete             = ReadByte(sephiroth_address) > 0
     unknown_complete               = (ReadByte(unknown_and_kurt_zisa_address) % 16) >= 8
@@ -78,7 +77,7 @@ function all_super_bosses_defeated()
 end
 
 function read_report_qty()
-    inventory_address = 0x2DE5E69 - offset
+    inventory_address = 0x2DEA179
     reports_1 = ReadArray(inventory_address + 149, 3)
     reports_2 = ReadArray(inventory_address + 168, 10)
     reports_acquired = 0
@@ -96,7 +95,7 @@ function read_report_qty()
 end
 
 function write_ansem_door(ansem_door_on)
-    final_rest = 0x2DE7B1C - offset
+    final_rest = 0x2DEBE2C
     if ansem_door_on then
         WriteByte(final_rest, 0)
     else

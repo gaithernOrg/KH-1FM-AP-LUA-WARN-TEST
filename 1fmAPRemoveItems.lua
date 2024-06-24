@@ -27,31 +27,30 @@ function file_exists(name)
 end
 
 canExecute = false
-offset = 0x3A0606
 
 function find_items_to_remove()
-    removed_bits_address = 0x2DF1848 - offset + 0x98
-    stock_address = 0x2DE5E69 - offset
+    removed_bits_address = 0x2DF5B58 + 0x98
+    stock_address = 0x2DEA179
     --Item Data Table Values
     --Address, Bit Number (0 if Byte Value), Compare Value, Item Offset, Special Function
     item_data_table = {
-         {0x2DE77A0 - offset, 0x1, 0x01, 0xD7, 0x1}  --Dr. Finkelstein Torn Page
-        ,{0x2DE6098 - offset, 0x4, 0x01, 0xD4, 0x1}  --Ariels Grotto Torn Page
-        ,{0x2DE7690 - offset, 0x8, 0x01, 0xD3, 0x0}  --Item Shop Postcard
-        ,{0x2DE7690 - offset, 0x5, 0x01, 0xD3, 0x0}  --Item Workshop Postcard
-        ,{0x2DE7690 - offset, 0x7, 0x01, 0xD3, 0x0}  --3rd District Balcony Postcard
-        ,{0x2DE768E - offset, 0x6, 0x01, 0xD3, 0x0}  --Gizmo Shop Postcard 1
-        ,{0x2DE768E - offset, 0x7, 0x01, 0xD3, 0x0}  --Gizmo Shop Postcard 2
-        ,{0x2DE6810 - offset, 0x0, 0x01, 0xD8, 0x1}  --50 Puppies Returned Torn Page
-        ,{0x2DE7687 - offset, 0x0, 0x01, 0xD3, 0x0}  --1st District Blue Safe Postcard
-        ,{0x2DE787E - offset, 0x0, 0x02, 0xBC, 0x0}  --Emblem Piece Flame
-        ,{0x2DE787F - offset, 0x0, 0x02, 0xBD, 0x0}  --Emblem Piece Chest
-        ,{0x2DE7880 - offset, 0x0, 0x02, 0xBE, 0x0}  --Emblem Piece Statue
-        ,{0x2DE7881 - offset, 0x0, 0x02, 0xBF, 0x0}  --Emblem Piece Fountain
-        ,{0x2DE7690 - offset, 0x4, 0x01, 0xD3, 0x0}  --Geppetto's House Postcard
-        ,{0x2DE6EDA - offset, 0x0, 0x32, 0xD2, 0x0}  --Crystal Trident
-        ,{0x2DE6ED6 - offset, 0x0, 0x10, 0xE5, 0x0}  --Entry Pass
-        ,{0x2DE6EDC - offset, 0x0, 0x21, 0xE3, 0x0}} --Forget-Me-Not
+         {0x2DEBAB0, 0x1, 0x01, 0xD7, 0x1}  --Dr. Finkelstein Torn Page
+        ,{0x2DEA3A8, 0x4, 0x01, 0xD4, 0x1}  --Ariels Grotto Torn Page
+        ,{0x2DEB9A0, 0x8, 0x01, 0xD3, 0x0}  --Item Shop Postcard
+        ,{0x2DEB9A0, 0x5, 0x01, 0xD3, 0x0}  --Item Workshop Postcard
+        ,{0x2DEB9A0, 0x7, 0x01, 0xD3, 0x0}  --3rd District Balcony Postcard
+        ,{0x2DEB99E, 0x6, 0x01, 0xD3, 0x0}  --Gizmo Shop Postcard 1
+        ,{0x2DEB99E, 0x7, 0x01, 0xD3, 0x0}  --Gizmo Shop Postcard 2
+        ,{0x2DEAB20, 0x0, 0x01, 0xD8, 0x1}  --50 Puppies Returned Torn Page
+        ,{0x2DEB997, 0x0, 0x01, 0xD3, 0x0}  --1st District Blue Safe Postcard
+        ,{0x2DEBB8E, 0x0, 0x02, 0xBC, 0x0}  --Emblem Piece Flame
+        ,{0x2DEBB8F, 0x0, 0x02, 0xBD, 0x0}  --Emblem Piece Chest
+        ,{0x2DEBB90, 0x0, 0x02, 0xBE, 0x0}  --Emblem Piece Statue
+        ,{0x2DEBB91, 0x0, 0x02, 0xBF, 0x0}  --Emblem Piece Fountain
+        ,{0x2DEB9A0, 0x4, 0x01, 0xD3, 0x0}  --Geppetto's House Postcard
+        ,{0x2DEB1EA, 0x0, 0x32, 0xD2, 0x0}  --Crystal Trident
+        ,{0x2DEB1E6, 0x0, 0x10, 0xE5, 0x0}  --Entry Pass
+        ,{0x2DEB1EC, 0x0, 0x21, 0xE3, 0x0}} --Forget-Me-Not
     for item_table_index, item_data in pairs(item_data_table) do
         need_to_delete = false
         byte_offset = math.floor((item_table_index-1) / 8)
@@ -74,7 +73,7 @@ function find_items_to_remove()
                 if item_qty > 0 then
                     WriteByte(stock_address + item_data[4], math.max(item_qty-1, 0))
                     if item_data[5] == 0x1 then --Remove Torn Page
-                        torn_pages_available_for_turn_in_address = 0x2DE6DD0 - offset
+                        torn_pages_available_for_turn_in_address = 0x2DEB0E0
                         WriteByte(torn_pages_available_for_turn_in_address, math.max(ReadByte(torn_pages_available_for_turn_in_address)-1,0))
                     end
                     removed_bits_value = removed_bits_value + 2^((item_table_index-1)%8)

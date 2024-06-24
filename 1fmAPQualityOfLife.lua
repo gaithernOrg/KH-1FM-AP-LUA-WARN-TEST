@@ -2,16 +2,15 @@ LUAGUI_NAME = "kh1fmAP"
 LUAGUI_AUTH = "Gicu & Sonicshadowsilver2"
 LUAGUI_DESC = "Kingdom Hearts 1FM AP Integration"
 
-local offset = 0x3A0606
 local canExecute = false
 
-Now = 0x233CADC - offset
-Items = 0x2DE5E6A - offset
-ChestFlags = 0x2DE60CC - offset
-EventFlags = 0x2DE67D8 - offset
-RoomFlags = 0x2DE7AAE - offset
-CutsceneFlags = 0x2DE63D0 - offset
-KeybladeExplanation = 0x2DE66DE - offset
+Now = 0x2340DDC
+Items = 0x2DEA17A
+ChestFlags = 0x2DEA3DC
+EventFlags = 0x2DEAAE8
+RoomFlags = 0x2DEBDBE
+CutsceneFlags = 0x2DEA6E0
+KeybladeExplanation = 0x2DEA9EE
 
 function BitOr(Address,Bit,Abs)
     WriteByte(Address,ReadByte(Address)|Bit,Abs and OnPC)
