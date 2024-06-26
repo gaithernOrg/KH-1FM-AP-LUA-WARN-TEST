@@ -31,8 +31,8 @@ function StackAbilities()
     soraHUD             = 0x2812E1C
     cutsceneFlags       = 0x2DEA8E0-0x200
     sharedAbilities     = 0x2DEA279
-    --superglideSpeedHack = 0x2AE2B4 - offset (can't seem to find it?)
-    --mermaidKickSpeed    = 0x3ED5FC - offset (can't seem to find it?)
+    superglideSpeedHack = 0x2B05B4
+    mermaidKickSpeed    = 0x3F081C
     stateFlag           = 0x2867C58
     local countedAbilities = CountSharedAbilities()
     local jumpHeight = math.max(290, 190+(countedAbilities[1]*100))
@@ -57,11 +57,11 @@ function StackAbilities()
             end
         end
         
-        --[[if ReadShort(superglideSpeedHack+1) == 0x17F3 then
-            WriteInt(superglideSpeedHack, 0x17F35C + math.max(countedAbilities[3]-2, 0)*4)
-        end]]
+        if ReadShort(superglideSpeedHack+1) == 0x1802 then
+            WriteInt(superglideSpeedHack, 0x18027C + math.max(countedAbilities[3]-2, 0)*4)
+        end
         
-        --WriteFloat(mermaidKickSpeed, 10+(8*countedAbilities[2]))
+        WriteFloat(mermaidKickSpeed, 10+(8*countedAbilities[2]))
         
         -- Allow early flight in Neverland if glide equipped
         if countedAbilities[3] > 0 and ReadByte(world) == 0xD then
