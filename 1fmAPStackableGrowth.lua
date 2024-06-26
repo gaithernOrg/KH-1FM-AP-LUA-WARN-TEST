@@ -7,12 +7,11 @@ LUAGUI_NAME = "kh1fmAP"
 LUAGUI_AUTH = "Denhonator with edits by Gicu"
 LUAGUI_DESC = "Kingdom Hearts 1FM AP Integration"
 
-offset = 0x3A0606
 canExecute = false
 dodgeDataAddr = 0
 
 function CountSharedAbilities()
-    sharedAbilities = 0x2DE5F69 - offset
+    sharedAbilities = 0x2DEA279
     local shared = {0,0,0}
     for i=0,9 do
         local ab = ReadByte(sharedAbilities+i)
@@ -26,15 +25,15 @@ function CountSharedAbilities()
 end
 
 function StackAbilities()
-    jumpHeights         = 0x2D1F46C - offset
-    world               = 0x233CADC - offset
+    jumpHeights         = 0x2D2376C
+    world               = 0x2340DDC
     room                = world + 0x68
-    soraHUD             = 0x280EB1C - offset
-    cutsceneFlags       = 0x2DE65D0-0x200 - offset
-    sharedAbilities     = 0x2DE5F69 - offset
-    superglideSpeedHack = 0x2AE2B4 - offset
-    mermaidKickSpeed    = 0x3ED5FC - offset
-    stateFlag           = 0x2863958 - offset
+    soraHUD             = 0x2812E1C
+    cutsceneFlags       = 0x2DEA8E0-0x200
+    sharedAbilities     = 0x2DEA279
+    superglideSpeedHack = 0x2B05B4
+    mermaidKickSpeed    = 0x3F081C
+    stateFlag           = 0x2867C58
     local countedAbilities = CountSharedAbilities()
     local jumpHeight = math.max(290, 190+(countedAbilities[1]*100))
     stackAbilities = 2
@@ -58,8 +57,8 @@ function StackAbilities()
             end
         end
         
-        if ReadShort(superglideSpeedHack+1) == 0x17F3 then
-            WriteInt(superglideSpeedHack, 0x17F35C + math.max(countedAbilities[3]-2, 0)*4)
+        if ReadShort(superglideSpeedHack+1) == 0x1802 then
+            WriteInt(superglideSpeedHack, 0x18027C + math.max(countedAbilities[3]-2, 0)*4)
         end
         
         WriteFloat(mermaidKickSpeed, 10+(8*countedAbilities[2]))

@@ -7,9 +7,7 @@ LUAGUI_NAME = "kh1fmAP"
 LUAGUI_AUTH = "Gicu"
 LUAGUI_DESC = "Kingdom Hearts 1FM AP Integration"
 
-local offset = 0x3A0606
-
-local keyblade_stats_base_address = 0x2D288B8 - offset
+local keyblade_stats_base_address = 0x2D2CBB8
 
 local canExecute = false
 local finished = false
@@ -73,7 +71,7 @@ function write_keyblade_stats(keyblade_stats)
 end
 
 function give_dream_weapons()
-    inventory_address = 0x2DE5E69 - offset
+    inventory_address = 0x2DEA179
     WriteArray(inventory_address + 82, {1,1,1})
 end
 

@@ -7,7 +7,6 @@ LUAGUI_NAME = "kh1fmAP"
 LUAGUI_AUTH = "KSX and Gicu"
 LUAGUI_DESC = "Kingdom Hearts 1FM AP Integration"
 
-offset = 0x3A0606
 chestslocked = true
 interactinbattle = false
 interactset = false
@@ -45,8 +44,8 @@ function read_settings()
 end
 
 function has_correct_keyblade()
-    stock_address = 0x2DE5E69 - offset
-    world_address = 0x233CADC - offset
+    stock_address = 0x2DEA179
+    world_address = 0x2340DDC
     keyblade_offsets = {nil, nil, 94, 98, 86, 96, nil, 87, 90, 89, 93, 99, 88, nil, 91, 97}
     current_world = ReadByte(world_address)
     if keyblade_offsets[current_world] ~= nil then
@@ -60,10 +59,10 @@ end
 
 function get_dg_count()
     dg = 0
-    if ReadByte(0x2DE5E5F - offset) == 1 or ReadByte(0x2DE5E5F - offset) == 2 then
+    if ReadByte(0x2DEA16F) == 1 or ReadByte(0x2DEA16F) == 2 then
         dg = dg + 1
     end
-    if ReadByte(0x2DE5E60 - offset) == 1 or ReadByte(0x2DE5E60 - offset) == 2 then
+    if ReadByte(0x2DEA170) == 1 or ReadByte(0x2DEA170) == 2 then
         dg = dg + 1
     end
     return dg
@@ -81,7 +80,7 @@ end
 function _OnFrame()
     if canExecute then
         read_settings()
-        chests_address = 0x2B12C4 - offset
+        chests_address = 0x2B35C4
         chests = ReadByte(chests_address)
         if (chestslocked and has_correct_keyblade() and chests == 0x72) or not chestslocked then
             if interactinbattle then
@@ -94,13 +93,13 @@ function _OnFrame()
         end
         if interactinbattle then
             if not interactset then
-                Examine = 0x2903B9 - offset
-                Talk = 0x2903F9 - offset
+                Examine = 0x2926B9
+                Talk = 0x2926F9
                 WriteByte(Examine, 0x70)
                 WriteByte(Talk, 0x70)
                 interactset = true
             end
-            Trinity = 0x1A06CF - offset
+            Trinity = 0x1A2A6F
             if get_dg_count() >= 2 then
                 WriteByte(Trinity, 0x71) -- Forced
             else

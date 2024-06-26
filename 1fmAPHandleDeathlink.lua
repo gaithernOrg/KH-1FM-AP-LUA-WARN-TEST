@@ -13,34 +13,32 @@ else
 end
 
 local extraSafety = false
-local offset = 0x3A0606
 local addgummi = 0
 local lastInput = 0
 local prevHUD = 0
 local revertCode = false
 local removeWhite = 0
 local lastDeathPointer = 0
-local soraHUD = 0x280EB1C - offset
-local soraHP = 0x2D592CC - offset
-local stateFlag = 0x2863958 - offset
-local deathCheck = 0x2978E0 - offset
-local safetyMeasure = 0x297746 - offset
-local whiteFade = 0x233C49C - offset
-local blackFade = 0x4D93B8 - offset
-local closeMenu = 0x2E90820 - offset
-local deathPointer = 0x23944B8 - offset
-local closeMenu = 0x2E90820 - offset
-local warpTrigger = 0x22E86DC - offset
-local warpType1 = 0x233C240 - offset
-local warpType2 = 0x22E86E0 - offset
-local title = 0x233CAB8 - offset
-local continue = 0x2DFC5D0 - offset
-local config = 0x2DFBDD0 - offset
-local cam = 0x503A18 - offset
+local soraHUD = 0x2812E1C
+local soraHP = 0x2D5D5CC
+local stateFlag = 0x2867C58
+local deathCheck = 0x299BE0
+local safetyMeasure = 0x299A46
+local whiteFade = 0x234079C
+local blackFade = 0x4DD3F8
+local closeMenu = 0x2E94B20
+local deathPointer = 0x23987B8
+local warpTrigger = 0x22EC9DC
+local warpType1 = 0x2340540
+local warpType2 = 0x22EC9E0
+local title = 0x2340DB8
+local continue = 0x2E008D0
+local config = 0x2E000D0
+local cam = 0x507AA8
 
 local canExecute = false
 last_death_time = 0
-soras_hp_address = 0x2DE59D0 - offset + 0x5
+soras_hp_address = 0x2DE9CE0 - offset + 0x5
 donalds_hp_address = soras_hp_address + 0x74
 goofys_hp_address = donalds_hp_address + 0x74
 soras_last_hp = 100
@@ -83,7 +81,7 @@ function _OnFrame()
         goto done
     end
 
-    local savemenuopen = ReadByte(0x232A604-offset)
+    local savemenuopen = ReadByte(0x232E904)
     -- Remove white screen on death (it bugs out this way normally)
     if removeWhite > 0 then
         removeWhite = removeWhite - 1

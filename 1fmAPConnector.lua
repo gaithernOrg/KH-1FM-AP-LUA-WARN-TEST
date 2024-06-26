@@ -87,10 +87,6 @@ item_usefulness = {
 
 colourOffsetIterator = -8
 
---- Addresses ---
-offset = 0x3A0606
-
-
 --- Definitions ---
 
 function define_items()
@@ -230,7 +226,7 @@ function define_items()
   { ID = 2641126, Name = "Gigas Fist" },
   { ID = 2641127, Name = "Genji Shield" },
   { ID = 2641128, Name = "Herc's Shield" },
-  { ID = 2641129, Name = "Dream Shield" },
+  { ID = 2641129, Name = "Dream Shield (Goofy)" },
   { ID = 2641130, Name = "Save the King" },
   { ID = 2641131, Name = "Defender" },
   { ID = 2641132, Name = "Mighty Shield" },
@@ -362,7 +358,7 @@ function define_items()
   -- Abilities
   { ID = 2642001, Name = "High Jump",     Usefulness = item_usefulness.progression },
   { ID = 2642002, Name = "Mermaid Kick",  Usefulness = item_usefulness.progression },
-  { ID = 2642003, Name = "Glide",         Usefulness = item_usefulness.progression },
+  { ID = 2642003, Name = "Progressive Glide", Usefulness = item_usefulness.progression },
   { ID = 2642004, Name = "Superglide",    Usefulness = item_usefulness.progression },
   { ID = 2642101, Name = "Puppy 01",      Usefulness = item_usefulness.progression },
   { ID = 2642102, Name = "Puppy 02",      Usefulness = item_usefulness.progression },
@@ -725,20 +721,20 @@ world_progress_location_threshholds = define_world_progress_location_threshholds
 
 function read_chests_opened_array()
     --Reads an array of bits which represent which chests have been opened by the player
-    chests_opened_address = 0x2DE5F9C - offset
+    chests_opened_address = 0x2DEA2AC
     chest_array = ReadArray(chests_opened_address, 509)
     return chest_array
 end
 
 function read_soras_level()
     --[[Reads Sora's Current Level]]
-    soras_level_address = 0x2DE5A08 - offset
+    soras_level_address = 0x2DE9D18
     return ReadShort(soras_level_address)
 end
 
 function read_soras_stats_array()
     --[[Reads an array of Sora's stats]]
-    soras_stats_address         = 0x2DE59D6 - offset
+    soras_stats_address         = 0x2DE9CE6
     sora_hp_offset              = 0x0
     sora_mp_offset              = 0x2
     sora_ap_offset              = 0x3
@@ -757,7 +753,7 @@ end
 
 function read_check_number()
     --[[Reads the current check number]]
-    gummi_address = 0x2DF1848 - offset
+    gummi_address = 0x2DF5B58
     check_number_item_address = gummi_address + 0x77
     check_number = ReadInt(check_number_item_address)
     return check_number
@@ -765,14 +761,14 @@ end
 
 function read_world()
     --[[Gets the numeric value of the currently occupied world]]
-    world_address = 0x233CADC - offset
+    world_address = 0x2340DDC
     return ReadByte(world_address)
 end
 
 function read_ansems_secret_reports()
     --[[Reads an array of the bytes who's bits correspond to which Secret Reports have 
     been unlocked in Jiminy's Journal]]
-    ansems_secret_reports = 0x2DE7390 - offset
+    ansems_secret_reports = 0x2DEB6A0
     ansems_secret_reports_array = ReadArray(ansems_secret_reports, 2)
     return ansems_secret_reports_array
 end
@@ -780,7 +776,7 @@ end
 function read_olympus_cups_array()
     --[[Reads an array of the bytes which correspond to which Olympus Coliseum
     cups have been unlocked.]]
-    olympus_cups_address = 0x2DE77D0 - offset
+    olympus_cups_address = 0x2DEBAE0
     return ReadArray(olympus_cups_address, 4)
 end
 
@@ -789,7 +785,7 @@ function read_world_progress_array()
     each world.  The order of worlds are as follows:
     Traverse Town, Deep Jungle, Olympus Coliseum, Wonderland, Agrabah, Monstro,
     Atlantica, Halloween Town, Neverland, Hollow Bastion, End of the World]]
-    world_progress_address = 0x2DE65D0 - 0x200 + 0xB04 - offset
+    world_progress_address = 0x2DEA8E0 - 0x200 + 0xB04
     world_progress_array = ReadArray(world_progress_address, 12)
     extra_traverse_town_progress_address = world_progress_address + 0xE
     world_progress_array[13] = ReadByte(extra_traverse_town_progress_address)
@@ -798,15 +794,15 @@ end
 
 function read_postcards_mailed()
     --[[Reads a byte that tracks how many postcards have been mailed]]
-    postcards_mailed_address = 0x2DE78C0 - 0x231 - offset
+    postcards_mailed_address = 0x2DEBBD0 - 0x231
     postcards_mailed = ReadByte(postcards_mailed_address)
     return postcards_mailed
 end
 
 function read_cup_locations_checked_array(ansems_secret_reports_array)
     cup_locations_checked = {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0}
-    cup_complete_address = 0x2DE78BF + 0x15C47 - offset
-    cup_rewards_address = 0x2DFD517 - offset
+    cup_complete_address = 0x2DEBBCF + 0x15C47
+    cup_rewards_address = 0x2E01827
     cup_complete_array = ReadArray(cup_complete_address, 4)
     for i=1,#cup_complete_array do
         for j=1,cup_complete_array[i] do
@@ -831,7 +827,7 @@ end
 
 function read_atlantica_clams()
     atlantica_clams_bits_array = {}
-    atlantica_clams_address = 0x2DE738F + 0x3EA - offset
+    atlantica_clams_address = 0x2DEB69F + 0x3EA
     atlantica_clams_bytes_array = ReadArray(atlantica_clams_address, 2)
     atlantica_byte_1_bits = toBits(atlantica_clams_bytes_array[1])
     atlantica_byte_2_bits = toBits(atlantica_clams_bytes_array[2])
@@ -853,14 +849,14 @@ function read_atlantica_clams()
 end
 
 function read_magic_items()
-    gummi_address = 0x2DF1848 - offset
+    gummi_address = 0x2DF5B58
     magic_item_address = gummi_address + 0x90
     magic_items_array = ReadArray(magic_item_address, 7)
     return magic_items_array
 end
 
 function read_world_items()
-    gummi_address = 0x2DF1848 - offset
+    gummi_address = 0x2DF5B58
     world_item_address = gummi_address + 0x7B
     world_items_array = ReadArray(world_item_address, 2)
     return world_items_array
@@ -868,7 +864,7 @@ end
 
 function read_summon_item()
     summon_bits = {0,0,0,0,0,0}
-    gummi_address = 0x2DF1848 - offset
+    gummi_address = 0x2DF5B58
     summon_item_address = gummi_address + 0x7E
     summon_item_value = ReadByte(summon_item_address)
     summon_item_bits = toBits(summon_item_value)
@@ -879,27 +875,27 @@ function read_summon_item()
 end
 
 function read_trinity_item()
-    gummi_address = 0x2DF1848 - offset
+    gummi_address = 0x2DF5B58
     trinity_item_address = gummi_address + 0x7D
     trinity_item_value = ReadByte(trinity_item_address)
     return toBits(trinity_item_value)
 end
 
 function read_olympus_cups_item()
-    gummi_address = 0x2DF1848 - offset
+    gummi_address = 0x2DF5B58
     cup_item_address = gummi_address + 0x97
     olympus_cups_item_value = ReadByte(cup_item_address)
     return toBits(olympus_cups_item_value)
 end
 
 function read_victory_item()
-    gummi_address = 0x2DF1848 - offset
+    gummi_address = 0x2DF5B58
     victory_item_address = gummi_address + 0x7F
     return ReadByte(victory_item_address)
 end
 
 function read_report_qty()
-    inventory_address = 0x2DE5E69 - offset
+    inventory_address = 0x2DEA179
     reports_1 = ReadArray(inventory_address + 149, 3)
     reports_2 = ReadArray(inventory_address + 168, 10)
     reports_acquired = 0
@@ -935,109 +931,109 @@ function read_misc_checks()
     --[[Reads checks that are scattered throughout memory]]
     location_ids = {}
     lookup_table = {
-         {0x2DE66F8 - offset, 2656300, 0, 0x1}
-        ,{0x2DE66F9 - offset, 2656301, 0, 0x1}
-        ,{0x2DE66FA - offset, 2656302, 0, 0x1}
-        ,{0x2DE66FF - offset, 2656303, 0, 0x1}
-        ,{0x2DE6700 - offset, 2656304, 0, 0x1}
-        ,{0x2DE6701 - offset, 2656305, 0, 0x1}
-        ,{0x2DE6702 - offset, 2656306, 0, 0x1}
-        ,{0x2DE6703 - offset, 2656307, 0, 0x1}
-        ,{0x2DE6704 - offset, 2656308, 0, 0x1}
-        ,{0x2DE6706 - offset, 2656309, 0, 0x1}
-        ,{0x2DE6705 - offset, 2656310, 0, 0x1}
-        ,{0x2DE6708 - offset, 2656311, 0, 0x1}
-        ,{0x2DE6709 - offset, 2656312, 0, 0x1}
-        ,{0x2DE670A - offset, 2656313, 0, 0x1}
-        ,{0x2DE680C - offset, 2656314, 0, 0x1}
-        ,{0x2DE680D - offset, 2656315, 0, 0x1}
-        ,{0x2DE680E - offset, 2656316, 0, 0x1}
-        ,{0x2DE680F - offset, 2656317, 0, 0x1}
-        ,{0x2DE6810 - offset, 2656318, 0, 0x1}
-        ,{0x2DE6810 - offset, 2656319, 0, 0x1}
-        ,{0x2DE6811 - offset, 2656320, 0, 0x1}
-        ,{0x2DE6812 - offset, 2656321, 0, 0x1}
-        ,{0x2DE6813 - offset, 2656322, 0, 0x1}
-        ,{0x2DE6814 - offset, 2656324, 0, 0x1}
-        ,{0x2DE6815 - offset, 2656326, 0, 0x1}
-        ,{0x2DE6815 - offset, 2656327, 0, 0x1}
-        ,{0x2DE68D2 - offset, 2656032, 0, 0xA}
-        ,{0x2DE693A - offset, 2656328, 0, 0x1}
-        ,{0x2DE6939 - offset, 2656329, 0, 0x1}
-        ,{0x2DE77E3 - offset, 2656330, 0, 0x1}
-        ,{0x2DE77A0 - offset, 2656331, 2, 0x0}
-        ,{0x2DE7832 - offset, 2656344, 2, 0x0}
-        ,{0x2DE6DD2 - offset, 2656345, 0, 0x2}
-        ,{0x2DE6DD3 - offset, 2656346, 0, 0x2}
-        ,{0x2DE6DD4 - offset, 2656347, 0, 0x2}
-        ,{0x2DE6DD5 - offset, 2656348, 0, 0x2}
-        ,{0x2DE6DD6 - offset, 2656349, 0, 0x2}
-        ,{0x2DE6DDF - offset, 2656350, 0, 0x1}
-        ,{0x2DE6DE0 - offset, 2656351, 0, 0x1}
-        ,{0x2DE6DE1 - offset, 2656352, 0, 0x1}
-        ,{0x2DE6DE2 - offset, 2656353, 0, 0x1}
-        ,{0x2DE6DE3 - offset, 2656354, 0, 0x1}
-        ,{0x2DE6DE4 - offset, 2656355, 0, 0x1}
-        ,{0x2DE6DF6 - offset, 2656356, 0, 0x4}
-        ,{0x2DE7713 - offset, 2656357, 0, 0x4}
-        ,{0x2DE7714 - offset, 2656358, 0, 0x4}
-        ,{0x2DE7715 - offset, 2656359, 0, 0x4}
-        ,{0x2DE7716 - offset, 2656360, 0, 0x4}
-        ,{0x2DE76EF - offset, 2656361, 0, 0x1}
-        ,{0x2DE76EE - offset, 2656361, 0, 0x1}  --Alternative, light stove before putting in potion
-        ,{0x2DE76E9 - offset, 2656362, 0, 0x1}
-        ,{0x2DE76F7 - offset, 2656363, 0, 0x1}
-        ,{0x2DE6BDD - offset, 2656364, 0, 0x1}
-        ,{0x2DE6BDE - offset, 2656365, 0, 0x1}
-        ,{0x2DE6BDF - offset, 2656366, 0, 0x1}
-        ,{0x2DE6BE0 - offset, 2656367, 0, 0x1}
-        ,{0x2DE6BE1 - offset, 2656368, 0, 0x1}
-        ,{0x2DE68F9 - offset, 2656369, 2, 0x0}
-        ,{0x2DE7709 - offset, 2656370, 0, 0x1}
-        ,{0x2DE770A - offset, 2656371, 0, 0x1}
-        ,{0x2DE770B - offset, 2656372, 0, 0x1}
-        ,{0x2DE770C - offset, 2656373, 0, 0x1}
-        ,{0x2DE7705 - offset, 2656374, 0, 0x1}
-        ,{0x2DE66EA - offset, 2656375, 0, 0x1}
-        ,{0x2DE76B3 - offset, 2656376, 8, 0x0}
-        ,{0x2DE7640 - offset, 2656377, 4, 0x0}
-        ,{0x2DE6916 - offset, 2659018, 0, 0x1}
-        ,{0x2DE6918 - offset, 2659014, 0, 0x1}
-        ,{0x2DE7690 - offset, 2656500, 8, 0x0}  --Item Shop Postcard
-        ,{0x2DE7687 - offset, 2656501, 0, 0x1}  --Safe Postcard
-        ,{0x2DE768E - offset, 2656502, 6, 0x1}  --Gizmo Shop Postcard 1
-        ,{0x2DE768E - offset, 2656503, 7, 0x1}  --Gizmo Shop Postcard 2
-        ,{0x2DE7690 - offset, 2656504, 5, 0x1}  --Item Workshop Postcard
-        ,{0x2DE7690 - offset, 2656505, 7, 0x1}  --3rd District Balcony Postcard
-        ,{0x2DE7690 - offset, 2656506, 4, 0x1}  --Geppetto's House Postcard
-        ,{0x2DE77A0 - offset, 2656508, 1, 0x0}  --Lab Torn Page
-        ,{0x2DE787E - offset, 2656516, 0, 0x2}  --Emblem Piece (Flame)
-        ,{0x2DE787F - offset, 2656517, 0, 0x2}  --Emblem Piece (Chest)
-        ,{0x2DE7880 - offset, 2656518, 0, 0x2}  --Emblem Piece (Statue)
-        ,{0x2DE7881 - offset, 2656519, 0, 0x2}  --Emblem Piece (Fountain)
-        ,{0x2DE7831 - offset, 2656332, 8, 0x0}  --Clock Tower 1:00 Door
-        ,{0x2DE7831 - offset, 2656333, 7, 0x0}  --Clock Tower 2:00 Door
-        ,{0x2DE7831 - offset, 2656334, 6, 0x0}  --Clock Tower 3:00 Door
-        ,{0x2DE7831 - offset, 2656335, 5, 0x0}  --Clock Tower 4:00 Door
-        ,{0x2DE7831 - offset, 2656336, 4, 0x0}  --Clock Tower 5:00 Door
-        ,{0x2DE7831 - offset, 2656337, 3, 0x0}  --Clock Tower 6:00 Door
-        ,{0x2DE7831 - offset, 2656338, 2, 0x0}  --Clock Tower 7:00 Door
-        ,{0x2DE7831 - offset, 2656339, 1, 0x0}  --Clock Tower 8:00 Door
-        ,{0x2DE7832 - offset, 2656340, 8, 0x0}  --Clock Tower 9:00 Door
-        ,{0x2DE7832 - offset, 2656341, 7, 0x0}  --Clock Tower 10:00 Door
-        ,{0x2DE7832 - offset, 2656342, 6, 0x0}  --Clock Tower 11:00 Door
-        ,{0x2DE7832 - offset, 2656343, 5, 0x0}  --Clock Tower 12:00 Door
-        ,{0x2DE66DD - offset, 2656520, 0, 0x1}  --Leon Gift
-        ,{0x2DE66DF - offset, 2656521, 0, 0x1}  --Aerith Gift
-        ,{0x2DE66EA - offset, 2656375, 0, 0x1}  --Cid Comet G
-        ,{0x2DE6ADF - offset, 2656522, 0, 0x1}  --Divine Rose
-        ,{0x2DE6ADE - offset, 2656523, 0, 0x1}} --Cure
+         {0x2DEAA08, 2656300, 0, 0x1}
+        ,{0x2DEAA09, 2656301, 0, 0x1}
+        ,{0x2DEAA0A, 2656302, 0, 0x1}
+        ,{0x2DEAA0F, 2656303, 0, 0x1}
+        ,{0x2DEAA10, 2656304, 0, 0x1}
+        ,{0x2DEAA11, 2656305, 0, 0x1}
+        ,{0x2DEAA12, 2656306, 0, 0x1}
+        ,{0x2DEAA13, 2656307, 0, 0x1}
+        ,{0x2DEAA14, 2656308, 0, 0x1}
+        ,{0x2DEAA16, 2656309, 0, 0x1}
+        ,{0x2DEAA15, 2656310, 0, 0x1}
+        ,{0x2DEAA18, 2656311, 0, 0x1}
+        ,{0x2DEAA19, 2656312, 0, 0x1}
+        ,{0x2DEAA1A, 2656313, 0, 0x1}
+        ,{0x2DEAB1C, 2656314, 0, 0x1}
+        ,{0x2DEAB1D, 2656315, 0, 0x1}
+        ,{0x2DEAB1E, 2656316, 0, 0x1}
+        ,{0x2DEAB1F, 2656317, 0, 0x1}
+        ,{0x2DEAB20, 2656318, 0, 0x1}
+        ,{0x2DEAB20, 2656319, 0, 0x1}
+        ,{0x2DEAB21, 2656320, 0, 0x1}
+        ,{0x2DEAB22, 2656321, 0, 0x1}
+        ,{0x2DEAB23, 2656322, 0, 0x1}
+        ,{0x2DEAB24, 2656324, 0, 0x1}
+        ,{0x2DEAB25, 2656326, 0, 0x1}
+        ,{0x2DEAB25, 2656327, 0, 0x1}
+        ,{0x2DEABE2, 2656032, 0, 0xA}
+        ,{0x2DEAC4A, 2656328, 0, 0x1}
+        ,{0x2DEAC49, 2656329, 0, 0x1}
+        ,{0x2DEBAF3, 2656330, 0, 0x1}
+        ,{0x2DEBAB0, 2656331, 2, 0x0}
+        ,{0x2DEBB42, 2656344, 2, 0x0}
+        ,{0x2DEB0E2, 2656345, 0, 0x2}
+        ,{0x2DEB0E3, 2656346, 0, 0x2}
+        ,{0x2DEB0E4, 2656347, 0, 0x2}
+        ,{0x2DEB0E5, 2656348, 0, 0x2}
+        ,{0x2DEB0E6, 2656349, 0, 0x2}
+        ,{0x2DEB0EF, 2656350, 0, 0x1}
+        ,{0x2DEB0F0, 2656351, 0, 0x1}
+        ,{0x2DEB0F1, 2656352, 0, 0x1}
+        ,{0x2DEB0F2, 2656353, 0, 0x1}
+        ,{0x2DEB0F3, 2656354, 0, 0x1}
+        ,{0x2DEB0F4, 2656355, 0, 0x1}
+        ,{0x2DEB106, 2656356, 0, 0x4}
+        ,{0x2DEBA23, 2656357, 0, 0x4}
+        ,{0x2DEBA24, 2656358, 0, 0x4}
+        ,{0x2DEBA25, 2656359, 0, 0x4}
+        ,{0x2DEBA26, 2656360, 0, 0x4}
+        ,{0x2DEB9FF, 2656361, 0, 0x1}
+        ,{0x2DEB9FE, 2656361, 0, 0x1}  --Alternative, light stove before putting in potion
+        ,{0x2DEB9F9, 2656362, 0, 0x1}
+        ,{0x2DEBA07, 2656363, 0, 0x1}
+        ,{0x2DEAEED, 2656364, 0, 0x1}
+        ,{0x2DEAEEE, 2656365, 0, 0x1}
+        ,{0x2DEAEEF, 2656366, 0, 0x1}
+        ,{0x2DEAEF0, 2656367, 0, 0x1}
+        ,{0x2DEAEF1, 2656368, 0, 0x1}
+        ,{0x2DEAC09, 2656369, 2, 0x0}
+        ,{0x2DEBA19, 2656370, 0, 0x1}
+        ,{0x2DEBA1A, 2656371, 0, 0x1}
+        ,{0x2DEBA1B, 2656372, 0, 0x1}
+        ,{0x2DEBA1C, 2656373, 0, 0x1}
+        ,{0x2DEBA15, 2656374, 0, 0x1}
+        ,{0x2DEA9FA, 2656375, 0, 0x1}
+        ,{0x2DEB9C3, 2656376, 8, 0x0}
+        ,{0x2DEB950, 2656377, 4, 0x0}
+        ,{0x2DEAC26, 2659018, 0, 0x1}
+        ,{0x2DEAC28, 2659014, 0, 0x1}
+        ,{0x2DEB9A0, 2656500, 8, 0x0}  --Item Shop Postcard
+        ,{0x2DEB997, 2656501, 0, 0x1}  --Safe Postcard
+        ,{0x2DEB99E, 2656502, 6, 0x1}  --Gizmo Shop Postcard 1
+        ,{0x2DEB99E, 2656503, 7, 0x1}  --Gizmo Shop Postcard 2
+        ,{0x2DEB9A0, 2656504, 5, 0x1}  --Item Workshop Postcard
+        ,{0x2DEB9A0, 2656505, 7, 0x1}  --3rd District Balcony Postcard
+        ,{0x2DEB9A0, 2656506, 4, 0x1}  --Geppetto's House Postcard
+        ,{0x2DEBAB0, 2656508, 1, 0x0}  --Lab Torn Page
+        ,{0x2DEBB8E, 2656516, 0, 0x2}  --Emblem Piece (Flame)
+        ,{0x2DEBB8F, 2656517, 0, 0x2}  --Emblem Piece (Chest)
+        ,{0x2DEBB90, 2656518, 0, 0x2}  --Emblem Piece (Statue)
+        ,{0x2DEBB91, 2656519, 0, 0x2}  --Emblem Piece (Fountain)
+        ,{0x2DEBB41, 2656332, 8, 0x0}  --Clock Tower 1:00 Door
+        ,{0x2DEBB41, 2656333, 7, 0x0}  --Clock Tower 2:00 Door
+        ,{0x2DEBB41, 2656334, 6, 0x0}  --Clock Tower 3:00 Door
+        ,{0x2DEBB41, 2656335, 5, 0x0}  --Clock Tower 4:00 Door
+        ,{0x2DEBB41, 2656336, 4, 0x0}  --Clock Tower 5:00 Door
+        ,{0x2DEBB41, 2656337, 3, 0x0}  --Clock Tower 6:00 Door
+        ,{0x2DEBB41, 2656338, 2, 0x0}  --Clock Tower 7:00 Door
+        ,{0x2DEBB41, 2656339, 1, 0x0}  --Clock Tower 8:00 Door
+        ,{0x2DEBB42, 2656340, 8, 0x0}  --Clock Tower 9:00 Door
+        ,{0x2DEBB42, 2656341, 7, 0x0}  --Clock Tower 10:00 Door
+        ,{0x2DEBB42, 2656342, 6, 0x0}  --Clock Tower 11:00 Door
+        ,{0x2DEBB42, 2656343, 5, 0x0}  --Clock Tower 12:00 Door
+        ,{0x2DEA9ED, 2656520, 0, 0x1}  --Leon Gift
+        ,{0x2DEA9EF, 2656521, 0, 0x1}  --Aerith Gift
+        ,{0x2DEA9FA, 2656375, 0, 0x1}  --Cid Comet G
+        ,{0x2DEADEF, 2656522, 0, 0x1}  --Divine Rose
+        ,{0x2DEADEE, 2656523, 0, 0x1}} --Cure
     for k,v in pairs(lookup_table) do
         value = ReadByte(v[1])
         if v[3] == 0 and value >= v[4] then
             if v[2] ~= 2656520 then
                 table.insert(location_ids, v[2])
-            elseif ReadByte(0x2DE65D0 - 0x200 + 0xB04 - offset) >= 0x31 then
+            elseif ReadByte(0x2DEA8E0 - 0x200 + 0xB04) >= 0x31 then
                 table.insert(location_ids, v[2])
             end
         elseif v[3] > 0 and (value%(2^v[3]) >= 2^(v[3]-1)) then
@@ -1049,8 +1045,8 @@ end
 
 function read_synth()
     location_ids = {}
-    stock_address = 0x2DE5E69 + 0xC0 - offset
-    material_address = 0x2DE5E69 + 0xBA - offset
+    stock_address = 0x2DEA179 + 0xC0
+    material_address = 0x2DEA179 + 0xBA
     synth_array = ReadArray(stock_address, 6)
     refund = 0
     for k,v in pairs(synth_array) do
@@ -1073,13 +1069,13 @@ end
 
 function write_world_lines()
     --[[Opens all world connections on the world map]]
-    world_map_lines_address = 0x2DE78E2 - offset
+    world_map_lines_address = 0x2DEBBF2
     WriteArray(world_map_lines_address, {0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF})
 end
 
 function write_rewards()
     --[[Removes all obtained items from rewards]]
-    battle_table_address = 0x2D1F3C0 - offset
+    battle_table_address = 0x2D236C0
     rewards_offset = 0xC6A8
     reward_array = {}
     local i = 1
@@ -1092,7 +1088,7 @@ end
 
 function write_chests()
     --[[Removes all obtained items from chests]]
-    chest_table_address = 0x5259E0 - offset
+    chest_table_address = 0x529A60
     chest_array = {}
     local i = 1
     while i <= 511 * 2 do
@@ -1110,7 +1106,7 @@ function write_unlocked_worlds(unlocked_worlds_array, monstro_unlocked)
     02 is selectable/unvisited
     03 is incomplete
     04 is complete]]
-    world_status_address = 0x2DE78C0 - offset
+    world_status_address = 0x2DEBBD0
     monstro_status_addresss = world_status_address + 0xA
     WriteArray(world_status_address, unlocked_worlds_array)
     WriteByte(monstro_status_addresss, monstro_unlocked)
@@ -1119,8 +1115,8 @@ end
 function write_synth_requirements()
     --[[Writes to the synth requirements array, making the first 20 items require
     an unobtainable material, preventing the player from synthing.]]
-    synth_requirements_address = 0x544320 - offset
-    synth_items_address =  0x544320 + 0x1E0 - offset
+    synth_requirements_address = 0x5483A0
+    synth_items_address =  0x5483A0 + 0x1E0
     synth_items_array = {}
     synth_array = {}
     local i = 0
@@ -1171,7 +1167,7 @@ end
 
 function write_soras_stats(soras_stats_array)
     --[[Writes Sora's calculated stats back to memory]]
-    soras_stats_address         = 0x2DE59D6 - offset
+    soras_stats_address         = 0x2DE9CE6
     sora_hp_offset              = 0x00
     sora_mp_offset              = 0x02
     sora_ap_offset              = 0x03
@@ -1190,17 +1186,17 @@ end
 
 function write_check_number(check_number)
     --[[Writes the correct number of "check" unused gummi items. Used for syncing game with server]]
-    gummi_address = 0x2DF1848 - offset
+    gummi_address = 0x2DF5B58
     check_number_item_address = gummi_address + 0x77
     WriteInt(check_number_item_address, check_number)
 end
 
 function write_item(item_offset)
     --[[Grants the players a specific item defined by the offset]]
-    inventory_address = 0x2DE5E69 - offset
+    inventory_address = 0x2DEA179
     WriteByte(inventory_address + item_offset, math.min(ReadByte(inventory_address + item_offset) + 1, 99))
     if item_offset >= 212 and item_offset <= 216 then --Handles properly setting flags when receiving a torn page
-        torn_pages_available_address = 0x2DE6DD0 - offset
+        torn_pages_available_address = 0x2DEB0E0
         num_of_torn_pages = ReadByte(torn_pages_available_address)
         WriteByte(torn_pages_available_address, num_of_torn_pages+1)
     end
@@ -1208,7 +1204,7 @@ end
 
 function write_sora_ability(ability_value)
     --[[Grants the player a specific ability defined by the ability value]]
-    abilities_address = 0x2DE5A13 - offset
+    abilities_address = 0x2DE9D23
     local i = 1
     while ReadByte(abilities_address + i) ~= 0 do
         i = i + 1
@@ -1220,7 +1216,7 @@ end
 
 function write_shared_ability(shared_ability_value)
     --[[Writes the player's unlocked shared abilities]]
-    shared_abilities_address = 0x2DE5F68 - offset
+    shared_abilities_address = 0x2DEA278
     can_add_ability = true
     current_shared_abilities_array = ReadArray(shared_abilities_address+1,8)
     current_shared_abilities_count = {}
@@ -1256,13 +1252,13 @@ end
 
 function write_summons_array(summons_array)
     --[[Writes the player's unlocked summons]]
-    summons_address = 0x2DE61A0 - offset
+    summons_address = 0x2DEA4B0
     WriteArray(summons_address, summons_array)
 end
 
 function write_magic(magic_unlocked_bits, magic_levels_array)
     --[[Writes the players unlocked magic]]
-    magic_unlocked_address = 0x2DE5A44 - offset
+    magic_unlocked_address = 0x2DE9D54
     magic_levels_offset = 0x41E
     WriteByte(magic_unlocked_address,
         (1 * magic_unlocked_bits[1]) + (2 * magic_unlocked_bits[2]) + (4 * magic_unlocked_bits[3]) + (8 * magic_unlocked_bits[4])
@@ -1272,13 +1268,13 @@ end
 
 function write_trinities(trinity_bits)
     --[[Writes the players unlocked trinities]]
-    trinities_unlocked_address = 0x2DE75EB - offset
+    trinities_unlocked_address = 0x2DEB8FB
     WriteByte(trinities_unlocked_address, (1 * trinity_bits[1]) + (2 * trinity_bits[2]) + (4 * trinity_bits[3]) + (8 * trinity_bits[4]) + (16 * trinity_bits[5]))
 end
 
 function write_olympus_cups(olympus_cups_array)
     --[[Writes the player's unlocked Olympus Coliseum cups]]
-    olympus_cups_address = 0x2DE77D0 - offset
+    olympus_cups_address = 0x2DEBAE0
     current_olympus_cups_array = read_olympus_cups_array()
     for k,v in pairs(current_olympus_cups_array) do
         if v == 1 then
@@ -1290,7 +1286,7 @@ end
 
 function write_level_up_rewards()
     --[[Removes level up rewards from the game, as they will be handled by the server]]
-    battle_table_address = 0x2D1F3C0 - offset
+    battle_table_address = 0x2D236C0
     level_up_rewards_offset = 0x3AC0
     abilities_1_table_offset = 0x3BF8
     abilities_2_table_offset = 0x3BF8 - 0xD0
@@ -1311,14 +1307,14 @@ end
 function write_e()
     --[[Chests in the game grant the player "e", which is item value 0.
     We clear this out, as the player can't hold more than 99]]
-    inventory_address = 0x2DE5E69 - offset
+    inventory_address = 0x2DEA179
     WriteByte(inventory_address, 0)
 end
 
 function write_summon_item(summon_bit_number)
     --[[Writes a gummi item who's bits represent a summon being unlocked]]
     summon_bits = {0,0,0,0,0,0}
-    gummi_address = 0x2DF1848 - offset
+    gummi_address = 0x2DF5B58
     summon_item_address = gummi_address + 0x7E
     summon_item_value = ReadByte(summon_item_address)
     summon_item_bits = toBits(summon_item_value)
@@ -1332,7 +1328,7 @@ end
 
 function write_magic_item(magic_item_number)
     --[[Writes a gummi item who's value represent a spell's level (0 being locked)]]
-    gummi_address = 0x2DF1848 - offset
+    gummi_address = 0x2DF5B58
     magic_item_address = gummi_address + 0x8F + magic_item_number
     magic_item_value = ReadByte(magic_item_address)
     if magic_item_value < 3 then
@@ -1343,7 +1339,7 @@ end
 function write_world_item(world_bit_number)
     --[[Writes a gummi item who's bits represent a world being unlocked]]
     world_bits = {0,0,0,0,0,0,0,0}
-    gummi_address = 0x2DF1848 - offset
+    gummi_address = 0x2DF5B58
     world_item_address = gummi_address + 0x7B
     if world_bit_number > 8 then
         world_item_address = world_item_address + 1
@@ -1362,7 +1358,7 @@ end
 function write_trinity_item(trinity_bit_number)
     --[[Writes a gummi item who's bits represent a trinity being unlocked]]
     trinity_bits = {0,0,0,0,0}
-    gummi_address = 0x2DF1848 - offset
+    gummi_address = 0x2DF5B58
     trinity_item_address = gummi_address + 0x7D
     trinity_item_value = ReadByte(trinity_item_address)
     trinity_item_bits = toBits(trinity_item_value)
@@ -1377,7 +1373,7 @@ end
 function write_olympus_cups_item(cup_bit_number)
     --[[Writes a gummi item who's bits represent a Olympus Coliseum cup being unlocked]]
     cup_bits = {0,0,0}
-    gummi_address = 0x2DF1848 - offset
+    gummi_address = 0x2DF5B58
     cup_item_address = gummi_address + 0x97
     cup_item_value = ReadByte(cup_item_address)
     cup_item_bits = toBits(cup_item_value)
@@ -1391,14 +1387,14 @@ end
 
 function write_victory_item()
     --[[Writes a gummi item who's value represents the player having completed their goal]]
-    gummi_address = 0x2DF1848 - offset
+    gummi_address = 0x2DF5B58
     victory_item_address = gummi_address + 0x7F
     WriteByte(victory_item_address, 1)
 end
 
 function write_material()
     material_byte_array = {0x37, 0x45, 0x58, 0x49, 0x56, 0x4D, 0x45, 0x50, 0x00}
-    material_name_pointer_address = 0x4D3650 - offset
+    material_name_pointer_address = 0x4D7690
     material_name_pointer_offsets = {0x8,0x8,0x60,0x904}
     current_address = GetPointer(material_name_pointer_address, 0x108)
     for k,ptr_offset in pairs(material_name_pointer_offsets) do
@@ -1409,7 +1405,7 @@ end
 
 function write_puppy(puppy_id)
     --[[Handles writing one or more puppies to the acquired puppy list, tracked in the journal]]
-    puppy_array_address = 0x2DE70D3 - offset
+    puppy_array_address = 0x2DEB3E3
     byte_bases = {0x80, 0x40, 0x20, 0x10, 0x08, 0x04, 0x02, 0x01}
     puppies_to_write = {}
     if puppy_id <= 99 then
@@ -1441,10 +1437,10 @@ function write_puppy(puppy_id)
 end
 
 function write_geppetto_conditions()
-    darkball_defeated_address =             0x2DE61DE - offset
-    all_summons_address =                   0x2DE66FF - offset
-    times_entered_geppettos_house_address = 0x2DE6707 - offset
-    obtained_cid_address =                  0x2DE6700 - offset
+    darkball_defeated_address =             0x2DEA4EE
+    all_summons_address =                   0x2DEAA0F
+    times_entered_geppettos_house_address = 0x2DEAA17
+    obtained_cid_address =                  0x2DEAA10
     
     if ReadByte(times_entered_geppettos_house_address) > 0 then
         WriteByte(times_entered_geppettos_house_address, 30)
@@ -1452,7 +1448,7 @@ function write_geppetto_conditions()
         WriteByte(obtained_cid_address, 1)
     end
     
-    summons_address = 0x2DE61A0 - offset
+    summons_address = 0x2DEA4B0
     summons_array = ReadArray(summons_address, 6)
     number_of_summons_obtained = 0
     for k,v in pairs(summons_array) do
@@ -1473,15 +1469,15 @@ function write_slides()
     write_item(221)
     write_item(222)
     slides_picked_up_array = {1,1,1,1,1,1}
-    slides_picked_up_array_address = 0x2DE6BD7 - offset
+    slides_picked_up_array_address = 0x2DEAEE7
     WriteArray(slides_picked_up_array_address, slides_picked_up_array)
 end
 
 function final_ansem_defeated()
     --[[Checks if the player is on the results screen, meaning that they defeated Final Ansem]]
-    world = 0x233CADC - offset
+    world = 0x2340DDC
     room = world + 0x68
-    cutscene_flags_address = 0x2DE65D0 - 0x200 + 0xB04 - offset
+    cutscene_flags_address = 0x2DEA8E0 - 0x200 + 0xB04
     return (ReadByte(world) == 0x10 and ReadByte(room) == 0x20 and ReadByte(cutscene_flags_address + 0xB) == 0x9B)
 end
 
@@ -1515,7 +1511,7 @@ function fix_shortcuts()
         end
     end
     
-    shortcuts_address = 0x2DE6214 - offset
+    shortcuts_address = 0x2DEA524
     shortcuts = ReadArray(shortcuts_address, 3)
     shortcuts_changed = false
     local i = 1
@@ -2031,10 +2027,10 @@ function show_prompt(input_title, input_party, duration, colour)
     if colour == nil then
         colour = prompt_colours.red_sora
     end
-    local _boxMemory = 0x249740A
-    local _textMemory = 0x2A1379A;
+    local _boxMemory = 0x283BD10
+    local _textMemory = 0x2DC2FE8
 
-    local _partyOffset = 0x3A20;
+    local _partyOffset = 0x3A20
 
     for i = 1, #input_title do
         if input_title[i] then
@@ -2045,15 +2041,15 @@ function show_prompt(input_title, input_party, duration, colour)
     for z = 1, 3 do
         local _boxArray = input_party[z];
 
-        local _colorBox  = 0x018408A + colour
-        local _colorText = 0x01840CA + colour
+        local _colorBox  = 0x528710 + colour
+        local _colorText = 0x528750 + colour
 
         if _boxArray then
             local _textAddress = (_textMemory + 0x70) + (0x140 * (z - 1)) + (0x40 * 0)
             local _boxAddress = _boxMemory + (_partyOffset * (z - 1)) + (0xBA0 * 0)
 
             -- Write the box count.
-            WriteInt(0x24973FA + 0x04 * (z - 1), 1)
+            WriteInt(0x283BD00 + 0x04 * (z - 1), 1)
 
             -- Write the Title Pointer.
             WriteLong(_boxAddress + 0x30, BASE_ADDR  + _textMemory + 0x20 * (z - 1))
@@ -2121,9 +2117,10 @@ function handle_messages()
             usefulness = item_usefulness.progression
         elseif info.usefulness == 2 then
             usefulness = item_usefulness.normal
-        elseif info.usefulness == 4 then
+        elseif info.usefulness == 3 then
             usefulness = item_usefulness.trap
         end
+        ConsolePrint('use multiwork ' .. info.usefulness)
         local colour = usefulness_to_colour(usefulness)
         show_prompt({ "Multiworld" }, { { item_msg } }, null, colour)
     end

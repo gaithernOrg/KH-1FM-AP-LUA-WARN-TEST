@@ -7,13 +7,10 @@ LUAGUI_NAME = "kh1fmAP"
 LUAGUI_AUTH = "denhonator with edits from Gicu"
 LUAGUI_DESC = "Kingdom Hearts 1FM AP Integration"
 
-
-local offset = 0x3A0606
-
-local btltbl = 0x2D1F3C0 - offset
+local btltbl = 0x2D236C0
 local itemTable = btltbl+0x1A58
-local soraStats = 0x2DE59D0 - offset
-local experienceMult = 0x2D59180 - offset
+local soraStats = 0x2DE9CE0
+local experienceMult = 0x2D5D480
 
 local canExecute = false
 frame_count = 0
