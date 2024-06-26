@@ -99,7 +99,7 @@ function _OnFrame()
                 WriteByte(Talk, 0x70)
                 interactset = true
             end
-            Trinity = 0x1A2A6F - offset
+            Trinity = 0x1A2A6F
             if get_dg_count() >= 2 then
                 WriteByte(Trinity, 0x71) -- Forced
             else
