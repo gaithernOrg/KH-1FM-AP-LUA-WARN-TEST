@@ -2027,10 +2027,10 @@ function show_prompt(input_title, input_party, duration, colour)
     if colour == nil then
         colour = prompt_colours.red_sora
     end
-    local _boxMemory = 0x249B70A --all zeroes
-    local _textMemory = 0x2A17A9A; --05 43 00 00 80 3F
+    local _boxMemory = 0x283BD10
+    local _textMemory = 0x2DC2FE8
 
-    local _partyOffset = 0x3A20;
+    local _partyOffset = 0x3A20
 
     for i = 1, #input_title do
         if input_title[i] then
@@ -2041,15 +2041,15 @@ function show_prompt(input_title, input_party, duration, colour)
     for z = 1, 3 do
         local _boxArray = input_party[z];
 
-        local _colorBox  = 0x018811A + colour
-        local _colorText = 0x018815A + colour
+        local _colorBox  = 0x528710 + colour
+        local _colorText = 0x528750 + colour
 
         if _boxArray then
             local _textAddress = (_textMemory + 0x70) + (0x140 * (z - 1)) + (0x40 * 0)
             local _boxAddress = _boxMemory + (_partyOffset * (z - 1)) + (0xBA0 * 0)
 
             -- Write the box count.
-            WriteInt(0x249B6FA + 0x04 * (z - 1), 1)
+            WriteInt(0x283BD00 + 0x04 * (z - 1), 1)
 
             -- Write the Title Pointer.
             WriteLong(_boxAddress + 0x30, BASE_ADDR  + _textMemory + 0x20 * (z - 1))
