@@ -3,6 +3,7 @@ LUAGUI_AUTH = "denhonator with edits from Gicu"
 LUAGUI_DESC = "Kingdom Hearts 1FM AP Flag Fixes"
 
 game_version = 1 --1 for ESG 1.0.0.9, 2 for Steam 1.0.0.9
+debug_on = false
 
 local chestsOpened = {0x2DEA110, 0x2DE9790}
 local summonsReturned = {0x2DEAA0C, 0x2DEA08C}
@@ -34,7 +35,7 @@ local ardoffset = {0x2398EB0, 0x23854E0}
 local ardoffsetClock = {0x2399210, 0x2385840}
 local cupCurrentSeed = {0x238D780, 0x238BBF0}
 local waterwayGate = {0x2DEB94D, 0x2DEAFCD}
-local waterwayTrinity = {0x2DEB991, 0x2DEB991}
+local waterwayTrinity = {0x2DEB991, 0x2DEB011}
 local sliderProgress = {0x2DEBA19, 0x2DEB099}
 local savedFruits = {0x2DEBA1E, 0x2DEB09E}
 local minigameTimer = {0x232E984, 0x232E000}
@@ -46,7 +47,7 @@ local oppositeTrigger = {0x2DEA9FD,0x2DEA07D}
 
 local blackFade = {0x4DD3F8, 0x4DC718}
 local enableRC = {0x2DEA554, 0x2DE9BD4}
-local lockMenu = 0x232E90C
+local lockMenu = {0x232E90C, 0x232DF9C}
 local party1 = {0x2DEA16F, 0x2DE97EF}
 local party2 = {0x2E20EE5, 0x2E20565}
 local soraHUD = {0x2812E1C, 0x281249C}
@@ -67,8 +68,15 @@ local prevTTFlag = 0
 
 local canExecute = false
 
+function debugPrint(input)
+    if debug_on then
+        ConsolePrint(input)
+    end
+end
+
 function FlagFixes()
     if ReadByte(world[game_version]) == 0 and ReadByte(room[game_version]) == 0 and ReadByte(cutsceneFlags[game_version]+0xB01) == 0xA then
+        debugPrint("Section 1")
         WriteByte(cutsceneFlags[game_version]+0xB01, 0xD)
         WriteByte(warpType1[game_version], 7)
         WriteByte(warpType2[game_version], 6)
@@ -78,24 +86,28 @@ function FlagFixes()
     end
 
     if ReadByte(world[game_version]) == 1 and ReadFloat(soraHUD[game_version]) > 0 and ReadInt(inGummi[game_version]) == 0 then
+        debugPrint("Section 2")
         WriteByte(party1[game_version], 0xFF)
         WriteByte(party1[game_version]+1, 0xFF)
     end
-
+    
     -- Reset TT to avoid softlocks
     if ReadByte(cutsceneFlags[game_version]+0xB04) < 0x14 and ReadByte(world[game_version]) > 3 then
+        debugPrint("Section 3")
         WriteByte(cutsceneFlags[game_version]+0xB04, 0)
         WriteByte(worldFlagBase[game_version]+0x1C, 2)
     end
-
+    
     -- Secret waterway Leon unmissable
     if ReadByte(cutsceneFlags[game_version]+0x312) == 0 and ReadByte(cutsceneFlags[game_version]+0xB04) >= 0x31 then
+        debugPrint("Section 4")
         WriteByte(cutsceneFlags[game_version]+0xB04, 0x31)
         WriteByte(worldFlagBase[game_version]+0x32, 2)
     end
     
     -- Skip TT2
     if ReadByte(cutsceneFlags[game_version]+0xB04) == 0x3E then
+        debugPrint("Section 5")
         WriteByte(cutsceneFlags[game_version]+0xB04, 0x4E)
         WriteByte(worldFlagBase[game_version]+0x1C, 5)
     end
@@ -103,23 +115,27 @@ function FlagFixes()
     -- Revert HB1 effect on TT story
     if (ReadByte(cutsceneFlags[game_version]+0xB04) == 0x6E and ReadByte(worldFlagBase[game_version]+0x1C) ~= 5)
                                             or ReadByte(cutsceneFlags[game_version]+0xB04) == 0x96 then
+        debugPrint("Section 6")
         WriteByte(cutsceneFlags[game_version]+0xB04, prevTTFlag)
     end
     
     if ReadByte(cutsceneFlags[game_version]+0xB0E) >= 0xA0 and ReadByte(worldFlagBase[game_version]+0x1C) == 5
                                             and ReadByte(cutsceneFlags[game_version]+0xB04) < 0x6E then
+        debugPrint("Section 7")
         WriteByte(cutsceneFlags[game_version]+0xB04, 0x6E)
         WriteByte(cutsceneFlags[game_version]+0xB00, math.max(0xBE, ReadByte(cutsceneFlags[game_version]+0xB00)))
-        --ConsolePrint("Post HB TT")
+        --debugPrint("Post HB TT")
     end
-
+    
     prevTTFlag = ReadByte(cutsceneFlags[game_version]+0xB04)
     
     if ReadByte(oppositeState[game_version]) >= 5 then
+        debugPrint("Section 8")
         WriteByte(oppositeTrigger[game_version], 0)
     end
     
     if ReadByte(world[game_version]) == 3 and ReadByte(room[game_version]) == 0x13 then
+        debugPrint("Section 9")
         local simbaAddr = ReadLong(scriptPointer[game_version]) + 0x131C8
         local earthshine = -0x423B
         if ReadInt(simbaAddr, true) == 0x53090000 then
@@ -146,7 +162,7 @@ function FlagFixes()
             local c = ReadByte(inventory[game_version]+0xD0) > 0
             local genie = ReadByte(inventory[game_version]+0x88) > 0
             local tbell = ReadByte(inventory[game_version]+0x8B) > 0
-
+    
             -- Nullify normal simba acqusition
             WriteInt(simbaAddr+4, c and 0x18000238 or 0x18000004, true)
             WriteInt(simbaAddr+12, c and 0x18000233 or 0x18000004, true)
@@ -159,23 +175,28 @@ function FlagFixes()
     end
     
     if ReadByte(world[game_version]) == 8 and ReadByte(room[game_version]) == 0x12 and ReadShort(ardoffset[game_version]) == 0x7F then
+        debugPrint("Section 9.2")
         WriteShort(ardoffset[game_version], 0xD1)
     end
     
     if ReadByte(world[game_version]) == 0xD and ReadByte(room[game_version]) == 9 and ReadShort(ardoffsetClock[game_version]) == 0x5F2 then
+        debugPrint("Section 10")
         WriteShort(ardoffsetClock[game_version], 0x628)
     end
-
+    
     if ReadByte(cutsceneFlags[game_version]+0xB04) >= 0x31 then
+        debugPrint("Section 11")
         WriteByte(worldFlagBase[game_version]+0x26, 2) -- Cid in accessory shop
         WriteByte(worldFlagBase[game_version]+0x1D, 3)
     end
     if ReadByte(cutsceneFlags[game_version]+0xB09) < 0x14 then -- Fix monstro DI cutscene softlock
+        debugPrint("Section 12")
         WriteByte(cutsceneFlags[game_version]+0xB09, 0x14)
     end
-
+    
     -- Shorten solo and time trial
     if ReadByte(world[game_version]) == 0xB then
+        debugPrint("Section 13")
         if (ReadShort(cupCurrentSeed[game_version]) == 0x0101 or ReadShort(cupCurrentSeed[game_version]) == 0x0B0B)
         and ReadFloat(soraHUD[game_version]) > 0 and (ReadByte(party1[game_version]) == 0xFF or ReadInt(minigameTimer[game_version]) > 0) then
             WriteShort(cupCurrentSeed[game_version], ReadShort(cupCurrentSeed[game_version]) == 0x0101 and 0x0909 or 0x1212)
@@ -188,16 +209,19 @@ function FlagFixes()
             WriteByte(worldFlagBase[game_version]+0x94, ReadByte(inventory[game_version]+0xE4) > 0 and 3 or 2)
         end
     end
-
+    
     if (ReadByte(waterwayGate[game_version]) // 0x80) % 2 == 0 then
+        debugPrint("Section 14")
         WriteByte(waterwayGate[game_version], ReadByte(waterwayGate[game_version])+0x80)
     end
     
     if (ReadByte(waterwayTrinity[game_version]) // 0x20) % 2 == 0 then
+        debugPrint("Section 15")
         WriteByte(waterwayTrinity[game_version], ReadByte(waterwayTrinity[game_version])+0x20)
     end
     
     if ReadByte(worldFlagBase[game_version]+0x36) >= 0 then
+        debugPrint("Section 16")
         if (ReadByte(chestsOpened[game_version]+0x1F8)//2) % 2 == 0 then
             WriteByte(worldFlagBase[game_version]+0x36, 0xD)
         elseif (ReadByte(chestsOpened[game_version]+0x1F8)//4) % 2 == 0 then
@@ -208,14 +232,16 @@ function FlagFixes()
     end
     
     if ReadByte(world[game_version]) == 3 and ReadByte(room[game_version]) == 2 and ReadByte(cutsceneFlags[game_version]+0xB04) == 0x23 then
+        debugPrint("Section 17")
         WriteByte(unequipBlacklist[game_version], ReadByte(soraStats[game_version]+0x36))
     else
         for i=0,3 do
             WriteByte(unequipBlacklist[game_version] + (i*4), 0)
         end
     end
-
-    if ReadInt(inGummi) > 0 then
+    
+    if ReadInt(inGummi[game_version]) > 0 then
+        debugPrint("Section 18")
         if ReadByte(gummiselect[game_version]) == 3 and ReadByte(cutsceneFlags[game_version]+0xB04) < 0x31 then
             WriteByte(party1[game_version], 0xFF)
             WriteByte(party1[game_version]+1, 0xFF)
@@ -231,11 +257,11 @@ function FlagFixes()
                 WriteByte(party2[game_version]+i, i+1)
             end
         end
-
-        --if ReadByte(lockMenu[game_version]) > 0 then
-        --    WriteByte(lockMenu[game_version], 0) -- Unlock menu
-        --end
-
+    
+        if ReadByte(lockMenu[game_version]) > 0 then
+            WriteByte(lockMenu[game_version], 0) -- Unlock menu
+        end
+    
         if ReadByte(enableRC[game_version]) ~= 0x0 then
             WriteByte(enableRC[game_version], 0x0)
         end
@@ -250,6 +276,7 @@ function FlagFixes()
     end
     
     if ReadByte(world[game_version]) == 1 and ReadByte(blackfade[game_version])>0 and ReadByte(worldFlagBase[game_version]+0xA) == 2 then -- DI Day2 Warp to EotW
+        debugPrint("Section 19")
         RoomWarp(0x10, 0x42)
         WriteByte(party1[game_version], 1)
         WriteByte(party1[game_version]+1, 2)
@@ -260,11 +287,13 @@ function FlagFixes()
     end
     
     if ReadByte(cutsceneFlags[game_version]+0xB0D) == 0x64 then
+        debugPrint("Section 20")
         RoomWarp(0xD, 0x27)
         WriteByte(cutsceneFlags[game_version]+0xB0D, 0x6A)
     end
     
     if ReadByte(cutsceneFlags[game_version]+0xB07) < 0x11 and ReadByte(world[game_version]) == 4 then
+        debugPrint("Section 21")
         if ReadByte(room[game_version]) == 4 then
             local o = 0
             while ReadInt(evidenceActiveForest[game_version]+4+o*0x4B0) ~= 0x40013 and ReadInt(evidenceActiveForest[game_version]+4+o*0x4B0) ~= 0 and o > -5 do
@@ -287,6 +316,7 @@ function FlagFixes()
     end
     
     if ReadByte(world[game_version]) == 5 then
+        debugPrint("Section 22")
         if ReadByte(room[game_version]) == 8 and ReadByte(sliderProgress[game_version]) == 1 then
             WriteByte(collectedFruits[game_version], 0)
             WriteByte(savedFruits[game_version], 0)
@@ -322,6 +352,7 @@ function FlagFixes()
     end
     
     if ReadByte(world[game_version]) == 6 then
+        debugPrint("Section 23")
         if ReadInt(poohProgress[game_version]) == 0 then
             WriteInt(poohProgress[game_version], 1) --Intro cutscene
             WriteInt(poohProgress2[game_version], 0x00020002) --1st and 2nd area
@@ -333,6 +364,7 @@ function FlagFixes()
         end
     end
     if ReadInt(inGummi[game_version]) > 0 and ReadByte(unlockedWarps[game_version]+2) < 3 and true then
+        debugPrint("Section 24")
         WriteByte(unlockedWarps[game_version]+2, 3)
         WriteByte(cutsceneFlags[game_version]+0xB0F, math.max(ReadByte(cutsceneFlags[game_version]+0xB0F), 8))
         WriteByte(worldFlagBase[game_version]+0xDC, 0xD)
@@ -340,15 +372,18 @@ function FlagFixes()
     end
     
     if ReadByte(battleLevel[game_version]) % 2 == 1 and ReadByte(cutsceneFlags[game_version]+0xB0E) < 0x8C then
+        debugPrint("Section 25")
         WriteByte(battleLevel[game_version], ReadByte(battleLevel[game_version])-1)
     end
     
-    -- Prevent issues in early HB exploration
+     Prevent issues in early HB exploration
     if ReadByte(cutsceneFlags[game_version]+0xB0E) <= 1 then
+        debugPrint("Section 26")
         WriteByte(cutsceneFlags[game_version]+0xB0E, 0xA)
     end
     
     if ReadByte(world[game_version]) == 0xF then
+        debugPrint("Section 27")
         local embCount = 0
         for i=0xBB, 0xBE do
             embCount = embCount + math.min(ReadByte(inventory[game_version]+i), 1)
@@ -422,28 +457,34 @@ function FlagFixes()
             WriteLong(theonActive[game_version], 0)
         end
     end
-
+    
     if ReadByte(cutsceneFlags[game_version]+0xB00) == 0xDC then
+        debugPrint("Section 28")
         WriteByte(gummiFlagBase[game_version]+11, 3)
     end
     
     --BEGIN SONIC AND GICU BLOCK---
-
+    
     if ReadByte(world[game_version]) == 0x03 and ReadByte(room[game_version]) > 0x00 and ReadByte(cutsceneFlags[game_version]+0xB04) == 0x01 then --Prevent Start of TT1 Softlock
+        debugPrint("Section 29")
         WriteByte(room[game_version], 0x00)
         WriteByte(warpType1[game_version], 5)
         WriteByte(warpType2[game_version], 12)
         WriteByte(warpTrigger[game_version], 0x02)
     end
     if (ReadByte(world[game_version]) ~= 0x03 or ReadByte(room[game_version]) ~= 0x16) and (ReadByte(cutsceneFlags[game_version]+0xB04) >= 0x31 and ReadByte(cutsceneFlags[game_version]+0xB04) < 0x3E) and ReadByte(cutsceneFlags[game_version]+0x312) == 1 then --Prevent Missing Earthshine after talking to Leon only once in Secret Waterway
+        debugPrint("Section 30")
         WriteByte(cutsceneFlags[game_version]+0x312,0)
     end
     if ReadByte(cutsceneFlags[game_version]+0xB0A) < 0x21 then --Prevent Atlantica Sunken Ship Softlock
+        debugPrint("Section 31")
         WriteByte(worldFlagBase[game_version]+0x7B, 0x0E)
     elseif ReadByte(cutsceneFlags[game_version]+0xB0A) == 0x21 then
+        debugPrint("Section 32")
         WriteByte(worldFlagBase[game_version]+0x7B, 0x00)
     end
     if ReadByte(cutsceneFlags[game_version]+0xB0A) == 0x32 then --Require Crystal Trident
+        debugPrint("Section 33")
         if ReadByte(inventory[game_version]+0xD1) > 0 then
             WriteByte(worldFlagBase[game_version]+0x82, 2)
         else
@@ -451,6 +492,7 @@ function FlagFixes()
         end
     end
     if ReadByte(cutsceneFlags[game_version]+0xB0C) == 0x21 then --Require Forget-Me-Not
+        debugPrint("Section 34")
         lab_room_address = {0x2DEBDDC, 0x2DEB45C}
         if ReadByte(inventory[game_version]+0xE2) > 0 then
             WriteByte(lab_room_address[game_version], 2)
@@ -459,12 +501,14 @@ function FlagFixes()
         end
     end
     if ReadByte(world[game_version]) == 0x09 and ReadByte(room[game_version]) == 0x10 and ReadByte(cutsceneFlags[game_version]+0xB04+0x6) < 0x53 then --Prevent Ursula II Early
+        debugPrint("Section 35")
         WriteByte(room[game_version], 0x02)
         WriteByte(warpType1[game_version], 5)
         WriteByte(warpType2[game_version], 12)
         WriteByte(warpTrigger[game_version], 0x02)
     end
     if ReadByte(cutsceneFlags[game_version]+0xB04+0x9) > 0x00 then --Prevent Neverland Ship: Cabin from being missable
+        debugPrint("Section 36")
         neverland_warps_address = {0x2DEBBE6, 0x2DEB266}
         neverland_warps = ReadByte(neverland_warps_address[game_version])
         if (neverland_warps % 2) < 1 then
@@ -472,6 +516,7 @@ function FlagFixes()
         end
     end
     if ReadByte(world[game_version]) == 0x0F and ReadByte(room[game_version]) == 0x04 then --Prevent HB Entrance Hall Early
+        debugPrint("Section 37")
         if ReadByte(unlockedWarps[game_version]+0x0142) > 0x10 and ReadByte(cutsceneFlags[game_version]+0xB0E) < 0x28 then
             WriteByte(room[game_version], 0x06)
             WriteByte(warpType1[game_version], 5)
@@ -481,13 +526,16 @@ function FlagFixes()
     end
     hb_library_shelves_address = {0x2DEBB8B, 0x2DEB20B}
     if ReadByte(hb_library_shelves_address[game_version]) == 0 then --Fix shelves in HB library
+        debugPrint("Section 38")
         WriteByte(hb_library_shelves_address[game_version], 0xF6)
     end
     hb_library_book_address = {0x2DEBB94, 0x2DEB214}
     if ReadByte(hb_library_book_address[game_version]) == 0 then --Fix books in HB library
+        debugPrint("Section 39")
         WriteArray(hb_library_book_address[game_version], {0x14,0x14,0x14,0x14,0x14,0x0A,0x14,0x14})
     end
     if ReadByte(cutsceneFlags[game_version]+0xB0E) == 0xA0 and ReadByte(worldFlagBase+0xB6) == 0x0A then --Post HB1 Flags -> HB2 Flags
+        debugPrint("Section 40")
         WriteInt(worldFlagBase[game_version]+0xB3, 0x0E0E0E0E)
         WriteShort(worldFlagBase[game_version]+0xB8, 0x0E0E)
         WriteShort(worldFlagBase[game_version]+0xBB, 0x0E0E)
@@ -496,16 +544,9 @@ function FlagFixes()
     hb_library_green_trinity_address   = {0x2DEB95C, 0x2DEAFDC}
     hb_library_green_trinity_address_2 = {0x2DEB949, 0x2DEAFC9}
     if ReadByte(hb_library_green_trinity_address[game_version]) == 0x00 then --Fix HB Library Green Trinity
+        debugPrint("Section 41")
         WriteByte(hb_library_green_trinity_address[game_version], 0x40)
         WriteByte(hb_library_green_trinity_address_2[game_version], 0x01)
-    end
-end
-
-function OpenGummi()
-    for i=0,14 do
-        if i~=11 then
-            WriteByte(gummiFlagBase[game_version]+i, 3)
-        end
     end
 end
 
@@ -535,6 +576,7 @@ end
 
 function _OnFrame()
     if canExecute then
+        --debugPrint(game_version)
         FlagFixes()
     end
 end
