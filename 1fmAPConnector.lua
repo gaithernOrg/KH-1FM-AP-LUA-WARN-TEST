@@ -829,7 +829,7 @@ end
 function read_atlantica_clams()
     atlantica_clams_bits_array = {}
     atlantica_clams_address = {0x2DEBA89, 0x2DEB109}
-    atlantica_clams_bytes_array = ReadArray(atlantica_clams_address, 2)
+    atlantica_clams_bytes_array = ReadArray(atlantica_clams_address[game_version], 2)
     atlantica_byte_1_bits = toBits(atlantica_clams_bytes_array[1])
     atlantica_byte_2_bits = toBits(atlantica_clams_bytes_array[2])
     for i=1,8 do
@@ -1469,7 +1469,7 @@ function final_ansem_defeated()
     room_offset = {0x68, 0x8}
     room = world[game_version] + room_offset[game_version]
     cutscene_flags_address = {0x2DEB1E4, 0x2DEA864}
-    return (ReadByte(world) == 0x10 and ReadByte(room) == 0x20 and ReadByte(cutscene_flags_address + 0xB) == 0x9B)
+    return (ReadByte(world[game_version]) == 0x10 and ReadByte(room[game_version]) == 0x20 and ReadByte(cutscene_flags_address[game_version] + 0xB) == 0x9B)
 end
 
 function parse_world_progress_array(world_progress_array)
@@ -1514,7 +1514,7 @@ function fix_shortcuts()
         i = i + 1
     end
     if shortcuts_changed then
-        WriteArray(shortcuts_address, shortcuts)
+        WriteArray(shortcuts_address[game_version], shortcuts)
     end
 end
 

@@ -40,7 +40,6 @@ function file_exists(name)
    if f~=nil then io.close(f) return true else return false end
 end
 
-
 function _OnInit()
     IsEpicGLVersion  = 0x3A2B86
     IsSteamGLVersion = 0x3A29A6
@@ -52,23 +51,6 @@ function _OnInit()
         if ReadByte(IsSteamGLVersion) == 0xFF then
             ConsolePrint("Steam Version Detected")
             game_version = 2
-        end
-        canExecute = true
-    end
-end
-function _OnInit()
-    IsEpicGLVersion  = 0x3A2B86
-    IsSteamGLVersion = 0x3A29A6
-    if GAME_ID == 0xAF71841E and ENGINE_TYPE == "BACKEND" then
-        if ReadShort(deathCheck[game_version]) == 0x2E74 then
-            if ReadByte(IsEpicGLVersion) == 0xFF then
-                ConsolePrint("Epic Version Detected")
-                game_version = 1
-            end
-            if ReadByte(IsSteamGLVersion) == 0xFF then
-                ConsolePrint("Steam Version Detected")
-                game_version = 2
-            end
         end
         canExecute = true
     else

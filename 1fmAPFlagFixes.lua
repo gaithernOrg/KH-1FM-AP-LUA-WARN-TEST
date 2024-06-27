@@ -90,7 +90,7 @@ function FlagFixes()
 
     -- Secret waterway Leon unmissable
     if ReadByte(cutsceneFlags[game_version]+0x312) == 0 and ReadByte(cutsceneFlags[game_version]+0xB04) >= 0x31 then
-        WriteByte(cutsceneFlag[game_version]s+0xB04, 0x31)
+        WriteByte(cutsceneFlags[game_version]+0xB04, 0x31)
         WriteByte(worldFlagBase[game_version]+0x32, 2)
     end
     
@@ -102,7 +102,7 @@ function FlagFixes()
     
     -- Revert HB1 effect on TT story
     if (ReadByte(cutsceneFlags[game_version]+0xB04) == 0x6E and ReadByte(worldFlagBase[game_version]+0x1C) ~= 5)
-                                            or ReadByte(cutsceneFlag[game_version]s+0xB04) == 0x96 then
+                                            or ReadByte(cutsceneFlags[game_version]+0xB04) == 0x96 then
         WriteByte(cutsceneFlags[game_version]+0xB04, prevTTFlag)
     end
     
