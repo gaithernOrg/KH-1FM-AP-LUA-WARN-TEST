@@ -3,7 +3,7 @@
 ------         by Gicu        -----
 -----------------------------------
 
-LUAGUI_NAME = "kh1fmAP"
+LUAGUI_NAME = "1fmAPConnector"
 LUAGUI_AUTH = "Gicu and Krujo"
 LUAGUI_DESC = "Kingdom Hearts 1FM AP Integration"
 
@@ -722,20 +722,20 @@ world_progress_location_threshholds = define_world_progress_location_threshholds
 
 function read_chests_opened_array()
     --Reads an array of bits which represent which chests have been opened by the player
-    chests_opened_address = {0x2DEA2AC, 0x2DE978F}
+    chests_opened_address = {0x2DEA2AC, 0x2DE992C}
     chest_array = ReadArray(chests_opened_address[game_version], 509)
     return chest_array
 end
 
 function read_soras_level()
     --[[Reads Sora's Current Level]]
-    soras_level_address = {0x2DE9D18, 0x2DE9364}
-    return ReadShort(soras_level_address)
+    soras_level_address = {0x2DE9D18, 0x2DE9398}
+    return ReadShort(soras_level_address[game_version])
 end
 
 function read_soras_stats_array()
     --[[Reads an array of Sora's stats]]
-    soras_stats_address         = {0x2DE9CE6, 0x233193A}
+    soras_stats_address         = {0x2DE9CE6, 0x2DE9366}
     sora_hp_offset              = 0x0
     sora_mp_offset              = 0x2
     sora_ap_offset              = 0x3
@@ -2144,7 +2144,7 @@ function main()
 end
 
 function test()
-    ConsolePrint(read_chests_opened_array()[33])
+    ConsolePrint(read_soras_level())
 end
 
 function _OnInit()
@@ -2164,14 +2164,17 @@ function _OnInit()
 end
 
 function _OnFrame()
-    --if frame_count % 120 == 0 and canExecute then
-    --    main()
-    --end
+    if frame_count == 0 and canExecute then
+        main()
+    end
+    frame_count = (frame_count + 1) % 120
+    
+    --Few things that need to happen every frame rather than every 2 seconds.
+    write_unlocked_worlds(worlds_unlocked_array, monstro_unlocked)
+    fix_shortcuts()
+    write_trinities(trinity_bits)
     --frame_count = frame_count + 1
-    --
-    ----Few things that need to happen every frame rather than every 2 seconds.
-    --write_unlocked_worlds(worlds_unlocked_array, monstro_unlocked)
-    --fix_shortcuts()
-    --write_trinities(trinity_bits)
-    test()
+    --if frame_count % 120 == 0 then
+    --    test()
+    --end
 end

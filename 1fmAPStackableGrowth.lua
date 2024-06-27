@@ -3,18 +3,20 @@
 ------         by Gicu        -----
 -----------------------------------
 
-LUAGUI_NAME = "kh1fmAP"
+LUAGUI_NAME = "1fmAPStackableGrowth"
 LUAGUI_AUTH = "Denhonator with edits by Gicu"
 LUAGUI_DESC = "Kingdom Hearts 1FM AP Integration"
+
+game_version = 1 --1 for ESG 1.0.0.9, 2 for Steam 1.0.0.9
 
 canExecute = false
 dodgeDataAddr = 0
 
 function CountSharedAbilities()
-    sharedAbilities = 0x2DEA279
+    sharedAbilities = {0x2DEA279, 0x2DE98F9}
     local shared = {0,0,0}
     for i=0,9 do
-        local ab = ReadByte(sharedAbilities+i)
+        local ab = ReadByte(sharedAbilities[game_version]+i)
         if ab == 3 or ab == 4 then
             shared[3] = shared[3]+1
         elseif ab > 0 and ab <= 4 then
@@ -25,48 +27,53 @@ function CountSharedAbilities()
 end
 
 function StackAbilities()
-    jumpHeights         = 0x2D2376C
-    world               = 0x2340DDC
-    room                = world + 0x68
-    soraHUD             = 0x2812E1C
-    cutsceneFlags       = 0x2DEA8E0-0x200
-    sharedAbilities     = 0x2DEA279
-    superglideSpeedHack = 0x2B05B4
-    mermaidKickSpeed    = 0x3F081C
-    stateFlag           = 0x2867C58
+    jumpHeights         = {0x2D2376C, 0x2D22DEC}
+    world               = {0x2340DDC, 0x233FE84}
+    room                = {0x2340DDC + 0x68, 0x233FE84 + 0x4}
+    soraHUD             = {0x2812E1C, 0x281249C}
+    cutsceneFlags       = {0x2DEA6E0, 0x2DE9D60}
+    sharedAbilities     = {0x2DEA279, 0x2DE98F9}
+    superglideSpeedHack = {0x2B05B4, 0x2B2744}
+    mermaidKickSpeed    = {0x3F081C, 0x3EF9DC}
+    stateFlag           = {0x2867C58, 0x28672C8}
     local countedAbilities = CountSharedAbilities()
     local jumpHeight = math.max(290, 190+(countedAbilities[1]*100))
     stackAbilities = 2
 
-    WriteShort(jumpHeights+2, jumpHeight)
-    if ReadByte(world) == 0x10 and countedAbilities[3] == 0 and stackAbilities == 3 and (ReadByte(room) == 0x21 or 
-            (ReadByte(cutsceneFlags+0xB0F) >= 0x6E) and ReadFloat(soraHUD) > 0) then
-        WriteShort(jumpHeights, 390)
-        WriteShort(jumpHeights+2, math.max(390, jumpHeight))
+    WriteShort(jumpHeights[game_version]+2, jumpHeight)
+    if ReadByte(world[game_version]) == 0x10 and countedAbilities[3] == 0 and stackAbilities == 3 and (ReadByte(room[game_version]) == 0x21 or 
+            (ReadByte(cutsceneFlags[game_version]+0xB0F) >= 0x6E) and ReadFloat(soraHUD[game_version]) > 0) then
+        WriteShort(jumpHeights[game_version], 390)
+        WriteShort(jumpHeights[game_version]+2, math.max(390, jumpHeight))
     end
 
     if stackAbilities > 1 then
         local glides = false
         for i=0,9 do
-            local ab = ReadByte(sharedAbilities+i)
+            local ab = ReadByte(sharedAbilities[game_version]+i)
             if ab % 0x80 >= 3 and not glides then
-                WriteByte(sharedAbilities+i, (ab % 0x80 == 4) and ab-1 or ab)
+                WriteByte(sharedAbilities[game_version]+i, (ab % 0x80 == 4) and ab-1 or ab)
                 glides = true
             elseif ab % 0x80 == 3 and glides then
-                WriteByte(sharedAbilities+i, ab+1)
+                WriteByte(sharedAbilities[game_version]+i, ab+1)
+            end
+        end
+        if game_version == 1 then
+            if ReadShort(superglideSpeedHack[game_version]+1) == 0x1802 then
+                WriteInt(superglideSpeedHack[game_version], 0x18027C + math.max(countedAbilities[3]-2, 0)*4)
+            end
+        elseif game_version == 2 then
+            if ReadShort(superglideSpeedHack[game_version]+1) == 0x17D1 then
+                WriteInt(superglideSpeedHack[game_version], 0x17D1BC + math.max(countedAbilities[3]-2, 0)*4)
             end
         end
         
-        if ReadShort(superglideSpeedHack+1) == 0x1802 then
-            WriteInt(superglideSpeedHack, 0x18027C + math.max(countedAbilities[3]-2, 0)*4)
-        end
-        
-        WriteFloat(mermaidKickSpeed, 10+(8*countedAbilities[2]))
+        WriteFloat(mermaidKickSpeed[game_version], 10+(8*countedAbilities[2]))
         
         -- Allow early flight in Neverland if glide equipped
-        if countedAbilities[3] > 0 and ReadByte(world) == 0xD then
-            if (ReadByte(stateFlag) // 0x20) % 2 == 0 then
-                WriteByte(stateFlag, ReadByte(stateFlag) + 0x20)
+        if countedAbilities[3] > 0 and ReadByte(world[game_version]) == 0xD then
+            if (ReadByte(stateFlag[game_version]) // 0x20) % 2 == 0 then
+                WriteByte(stateFlag[game_version], ReadByte(stateFlag[game_version]) + 0x20)
             end
         end
     end

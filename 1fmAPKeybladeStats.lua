@@ -3,11 +3,13 @@
 ------         by Gicu        -----
 -----------------------------------
 
-LUAGUI_NAME = "kh1fmAP"
+LUAGUI_NAME = "1fmAPKeybladeStats"
 LUAGUI_AUTH = "Gicu"
 LUAGUI_DESC = "Kingdom Hearts 1FM AP Integration"
 
-local keyblade_stats_base_address = 0x2D2CBB8
+game_version = 1 --1 for ESG 1.0.0.9, 2 for Steam 1.0.0.9
+
+local keyblade_stats_base_address = {0x2D2CBB8, 0x2D2C238}
 
 local canExecute = false
 local finished = false
@@ -63,16 +65,16 @@ function write_keyblade_stats(keyblade_stats)
     while i <= #keyblade_stats do
         str = tonumber(keyblade_stats[i])
         mp  = tonumber(keyblade_stats[i+1])
-        WriteByte(keyblade_stats_base_address + (0x58 * j) + 0x30, str)
-        WriteByte(keyblade_stats_base_address + (0x58 * j) + 0x38, mp)
+        WriteByte(keyblade_stats_base_address[game_version] + (0x58 * j) + 0x30, str)
+        WriteByte(keyblade_stats_base_address[game_version] + (0x58 * j) + 0x38, mp)
         i = i + 2
         j = j + 1
     end
 end
 
 function give_dream_weapons()
-    inventory_address = 0x2DEA179
-    WriteArray(inventory_address + 82, {1,1,1})
+    inventory_address = {0x2DEA179, 0x2DE97F9}
+    WriteArray(inventory_address[game_version] + 82, {1,1,1})
 end
 
 function main()
@@ -85,11 +87,18 @@ function main()
 end
 
 function _OnInit()
+    IsEpicGLVersion  = 0x3A2B86
+    IsSteamGLVersion = 0x3A29A6
     if GAME_ID == 0xAF71841E and ENGINE_TYPE == "BACKEND" then
+        if ReadByte(IsEpicGLVersion) == 0xFF then
+            ConsolePrint("Epic Version Detected")
+            game_version = 1
+        end
+        if ReadByte(IsSteamGLVersion) == 0xFF then
+            ConsolePrint("Steam Version Detected")
+            game_version = 2
+        end
         canExecute = true
-        ConsolePrint("KH1 detected, running script")
-    else
-        ConsolePrint("KH1 not detected, not running script")
     end
 end
 

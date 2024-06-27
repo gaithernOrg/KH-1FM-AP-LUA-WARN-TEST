@@ -1,4 +1,4 @@
-LUAGUI_NAME = "kh1fmAP"
+LUAGUI_NAME = "1fmAPSynthShopHint"
 LUAGUI_AUTH = "Gicu"
 LUAGUI_DESC = "Kingdom Hearts 1FM AP Integration"
 
@@ -13,9 +13,9 @@ else
 end
 
 local canExecute = false
-local world = 0x2340DDC
-local room = world + 0x68
-local spawn = 0x2DEBD28
+local world = {0x2340DDC, 0x233FE84}
+local room  = {0x2340DDC + 0x68, 0x233FE84 + 0x4}
+local spawn = {0x2DEBD28, 0x2DEB3A8}
 
 function file_exists(name)
    local f=io.open(name,"r")
