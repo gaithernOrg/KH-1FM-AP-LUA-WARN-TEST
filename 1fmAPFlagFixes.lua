@@ -3,7 +3,7 @@ LUAGUI_AUTH = "denhonator with edits from Gicu"
 LUAGUI_DESC = "Kingdom Hearts 1FM AP Flag Fixes"
 
 game_version = 1 --1 for ESG 1.0.0.9, 2 for Steam 1.0.0.9
-debug_on = false
+debug_on = true
 
 local chestsOpened = {0x2DEA110, 0x2DE9790}
 local summonsReturned = {0x2DEAA0C, 0x2DEA08C}
@@ -68,9 +68,20 @@ local prevTTFlag = 0
 
 local canExecute = false
 
+debug_statements = {}
+
 function debugPrint(input)
+    print_str = true
     if debug_on then
-        ConsolePrint(input)
+        for k,v in pairs(debug_statements) do
+            if tostring(input) == v
+                print_str == false
+            end
+        end
+        if print_str then
+            ConsolePrint(input)
+            debug_statements[#debug_statements+1] = tostring(input)
+        end
     end
 end
 
