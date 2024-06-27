@@ -2,27 +2,26 @@ LUAGUI_NAME = "1fmAPBoardGummi"
 LUAGUI_AUTH = "denhonator with slight edits from Gicu"
 LUAGUI_DESC = "Read readme for button combinations.  Modified for AP by Gicu"
 
-local extraSafety = false
+game_version = 1 --1 for ESG 1.0.0.9, 2 for Steam 1.0.0.9
+
 local addgummi = 0
-local deathCheck = 0x299BE0
-local safetyMeasure = 0x299A46
 
 local canExecute = false
 local lastsavemenuopen = 0
 
 function _OnInit()
+    IsEpicGLVersion  = 0x3A2B86
+    IsSteamGLVersion = 0x3A29A6
     if GAME_ID == 0xAF71841E and ENGINE_TYPE == "BACKEND" then
-        if ReadShort(deathCheck) == 0x2E74 then
-            ConsolePrint("Global version detected")    
-        elseif ReadShort(deathCheck-0x1C0) == 0x2E74 then
-            deathCheck = deathCheck-0x1C0
-            safetyMeasure = safetyMeasure-0x1C0
-            extraSafety = false
-            ConsolePrint("JP detected")
+        if ReadByte(IsEpicGLVersion) == 0xFF then
+            ConsolePrint("Epic Version Detected")
+            game_version = 1
+        end
+        if ReadByte(IsSteamGLVersion) == 0xFF then
+            ConsolePrint("Steam Version Detected")
+            game_version = 2
         end
         canExecute = true
-    else
-        ConsolePrint("KH1 not detected, not running script")
     end
 end
 
@@ -30,19 +29,24 @@ function _OnFrame()
     if not canExecute then
         goto done
     end
-
-    local savemenuopen = ReadByte(0x232E904)
+    save_menu_open_address = {0x232E904, 0x232DFA4}
+    local savemenuopen = ReadByte(save_menu_open_address[game_version])
     
     if savemenuopen == 4 and lastsavemenuopen ~= 4 then
         addgummi = 5
     end
     if savemenuopen == 4 and addgummi==1 then
-        WriteByte(0x2E20F28, 3) --Unlock gummi
-        WriteByte(0x2E20E9C, 5) --Set 5 buttons to save menu
-        WriteByte(0x2E93750, 5) --Set 5 buttons to save menu
-        WriteByte(0x2E93752, 5) --Set 5 buttons to save menu
+        unlock_gummi_address        = {0x2E20F28, 0x2E204F8}
+        save_menu_buttons_1_address = {0x2E20E9C, 0x2E2055C}
+        save_menu_buttons_2_address = {0x2E93750, 0x2E92DF0}
+        save_menu_buttons_3_address = {0x2E93752, 0x2E92DF2}
+        button_types_address        = {0x2E20EA0, 0x2E20548}
+        WriteByte(unlock_gummi_address[game_version], 3) --Unlock gummi
+        WriteByte(save_menu_buttons_1_address[game_version], 5) --Set 5 buttons to save menu
+        WriteByte(save_menu_buttons_2_address[game_version], 5) --Set 5 buttons to save menu
+        WriteByte(save_menu_buttons_3_address[game_version], 5) --Set 5 buttons to save menu
         for i=0,4 do
-            WriteByte(0x2E20EA0+i*4, i) --Set button types
+            WriteByte(button_types_address[game_version]+i*4, i) --Set button types
         end
     end
     

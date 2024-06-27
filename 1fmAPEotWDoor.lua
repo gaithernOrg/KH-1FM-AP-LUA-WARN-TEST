@@ -7,6 +7,7 @@ LUAGUI_NAME = "kh1fmAP"
 LUAGUI_AUTH = "Gicu and Sonicshadowsilver2"
 LUAGUI_DESC = "Kingdom Hearts 1FM AP Integration"
 
+game_version = 1 --1 for ESG 1.0.0.9, 2 for Steam 1.0.0.9
 canExecute = false
 required_reports_door = 14
 door_goal = "reports"
@@ -52,34 +53,34 @@ function read_door_goal()
 end
 
 function all_postcards_mailed()
-    postcards_mailed_address = 0x2DEBBD0 - 0x231
-    postcards_mailed = ReadByte(postcards_mailed_address)
+    postcards_mailed_address = {0x2DEB99F, 0x2DEB01F}
+    postcards_mailed = ReadByte(postcards_mailed_address[game_version])
     return postcards_mailed >= 10
 end
 
 function all_puppies_returned()
-    all_puppies_returned_address = 0x2DEAB25
+    all_puppies_returned_address = {0x2DEAB25, 0x2DEA1A5}
     all_puppies_returned_byte = ReadByte(all_puppies_returned_address)
     return all_puppies_returned_byte > 0
 end
 
 function all_super_bosses_defeated()
-    sephiroth_address             = 0x2DEAC4A
-    unknown_and_kurt_zisa_address = 0x2DEB6A1
-    phantom_address               = 0x2DEB1ED
+    sephiroth_address             = {0x2DEAC4A, 0x2DEA2CA}
+    unknown_and_kurt_zisa_address = {0x2DEB6A1, 0x2DEAD21}
+    phantom_address               = {0x2DEB1ED, 0x2DEA86D}
     
-    sephiroth_complete             = ReadByte(sephiroth_address) > 0
-    unknown_complete               = (ReadByte(unknown_and_kurt_zisa_address) % 16) >= 8
-    kurt_zisa_complete             = (ReadByte(unknown_and_kurt_zisa_address) % 64) >= 32
-    phantom_complete               = ReadByte(phantom_address) >= 0x96
+    sephiroth_complete             = ReadByte(sephiroth_address[game_version]) > 0
+    unknown_complete               = (ReadByte(unknown_and_kurt_zisa_address[game_version]) % 16) >= 8
+    kurt_zisa_complete             = (ReadByte(unknown_and_kurt_zisa_address[game_version]) % 64) >= 32
+    phantom_complete               = ReadByte(phantom_address[game_version]) >= 0x96
     
     return sephiroth_complete and unknown_complete and kurt_zisa_complete and phantom_complete
 end
 
 function read_report_qty()
-    inventory_address = 0x2DEA179
-    reports_1 = ReadArray(inventory_address + 149, 3)
-    reports_2 = ReadArray(inventory_address + 168, 10)
+    inventory_address = {0x2DEA179, 0x2DE97F9}
+    reports_1 = ReadArray(inventory_address[game_version] + 149, 3)
+    reports_2 = ReadArray(inventory_address[game_version] + 168, 10)
     reports_acquired = 0
     for k,v in pairs(reports_1) do
         if v > 0 then
@@ -95,11 +96,11 @@ function read_report_qty()
 end
 
 function write_ansem_door(ansem_door_on)
-    final_rest = 0x2DEBE2C
+    final_rest = {0x2DEBE2C, 0x2DEB4AC}
     if ansem_door_on then
-        WriteByte(final_rest, 0)
+        WriteByte(final_rest[game_version], 0)
     else
-        WriteByte(final_rest, 1)
+        WriteByte(final_rest[game_version], 1)
     end
 end
 
@@ -118,11 +119,18 @@ function main()
 end
 
 function _OnInit()
+    IsEpicGLVersion  = 0x3A2B86
+    IsSteamGLVersion = 0x3A29A6
     if GAME_ID == 0xAF71841E and ENGINE_TYPE == "BACKEND" then
+        if ReadByte(IsEpicGLVersion) == 0xFF then
+            ConsolePrint("Epic Version Detected")
+            game_version = 1
+        end
+        if ReadByte(IsSteamGLVersion) == 0xFF then
+            ConsolePrint("Steam Version Detected")
+            game_version = 2
+        end
         canExecute = true
-        ConsolePrint("KH1 detected, running script")
-    else
-        ConsolePrint("KH1 not detected, not running script")
     end
 end
 
