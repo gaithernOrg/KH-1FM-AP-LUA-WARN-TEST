@@ -47,7 +47,7 @@ local oppositeTrigger = {0x2DEA9FD,0x2DEA07D}
 
 local blackFade = {0x4DD3F8, 0x4DC718}
 local enableRC = {0x2DEA554, 0x2DE9BD4}
-local lockMenu = {0x232E90C, 0x232DF9C}
+local lockMenu = {0x232E90C, 0x232DF80}
 local party1 = {0x2DEA16F, 0x2DE97EF}
 local party2 = {0x2E20EE5, 0x2E20565}
 local soraHUD = {0x2812E1C, 0x281249C}
