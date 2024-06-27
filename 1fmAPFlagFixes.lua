@@ -74,8 +74,8 @@ function debugPrint(input)
     print_str = true
     if debug_on then
         for k,v in pairs(debug_statements) do
-            if tostring(input) == v
-                print_str == false
+            if tostring(input) == v then
+                print_str = false
             end
         end
         if print_str then
@@ -402,7 +402,7 @@ function FlagFixes()
         
         local canPlace = embCount == 4 or ReadByte(emblemDoor[game_version]) > 0
         
-        WriteByte(emblemCount, canPlace and 4 or 0)
+        WriteByte(emblemCount[game_version], canPlace and 4 or 0)
         --Save Emblem Piece Event Progress & Keep Emblem Door Opened if All Emblem Piece Events are done
         if ReadByte(cutsceneFlags[game_version]+0xB0E) > 0x32 and (ReadByte(room[game_version]) ~= 4 or ReadByte(blackfade[game_version])==0) then
             local doorClose = ReadByte(roomWarpRead[game_version]) >= 0x10 and ReadByte(roomWarpRead[game_version]) <= 0x13
