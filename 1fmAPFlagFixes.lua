@@ -376,7 +376,7 @@ function FlagFixes()
         WriteByte(battleLevel[game_version], ReadByte(battleLevel[game_version])-1)
     end
     
-     Prevent issues in early HB exploration
+    --Prevent issues in early HB exploration
     if ReadByte(cutsceneFlags[game_version]+0xB0E) <= 1 then
         debugPrint("Section 26")
         WriteByte(cutsceneFlags[game_version]+0xB0E, 0xA)
