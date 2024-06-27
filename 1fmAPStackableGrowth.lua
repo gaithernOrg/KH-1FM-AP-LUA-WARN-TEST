@@ -29,7 +29,7 @@ end
 function StackAbilities()
     jumpHeights         = {0x2D2376C, 0x2D22DEC}
     world               = {0x2340DDC, 0x233FE84}
-    room                = {0x2340DDC + 0x68, 0x233FE84 + 0x4}
+    room                = {0x2340DDC + 0x68, 0x233FE84 + 0x8}
     soraHUD             = {0x2812E1C, 0x281249C}
     cutsceneFlags       = {0x2DEA6E0, 0x2DE9D60}
     sharedAbilities     = {0x2DEA279, 0x2DE98F9}

@@ -16,7 +16,7 @@ end
 
 local canExecute = false
 local world = {0x2340DDC, 0x233FE84}
-local room  = {0x2340DDC + 0x68, 0x233FE84 + 0x4}
+local room  = {0x2340DDC + 0x68, 0x233FE84 + 0x8}
 local spawn = {0x2DEBD28, 0x2DEB3A8}
 
 function file_exists(name)
