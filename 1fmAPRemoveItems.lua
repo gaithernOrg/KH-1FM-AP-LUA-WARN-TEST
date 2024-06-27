@@ -31,8 +31,8 @@ end
 canExecute = false
 
 function find_items_to_remove()
-    removed_bits_address = 0x2DF5B58 + 0x98
-    stock_address = 0x2DEA179
+    removed_bits_address = {0x2DF5BF0, 0x2DF5270}
+    stock_address = {0x2DEA179, 0x2DE97F9}
     --Item Data Table Values
     --Address, Bit Number (0 if Byte Value), Compare Value, Item Offset, Special Function
     item_data_table = {
@@ -56,7 +56,7 @@ function find_items_to_remove()
     for item_table_index, item_data in pairs(item_data_table) do
         need_to_delete = false
         byte_offset = math.floor((item_table_index-1) / 8)
-        removed_bits_value = ReadByte(removed_bits_address + byte_offset)
+        removed_bits_value = ReadByte(removed_bits_address[game_version] + byte_offset)
         deleted_bit = toBits(removed_bits_value)[((item_table_index-1)%8)+1]
         if deleted_bit == 0 then
             if item_data[2] > 0 then --Need to read a specific bit
@@ -71,20 +71,20 @@ function find_items_to_remove()
                 end
             end
             if need_to_delete then
-                item_qty = ReadByte(stock_address + item_data[4])
+                item_qty = ReadByte(stock_address[game_version] + item_data[4])
                 if item_qty > 0 then
-                    WriteByte(stock_address + item_data[4], math.max(item_qty-1, 0))
+                    WriteByte(stock_address[game_version] + item_data[4], math.max(item_qty-1, 0))
                     if item_data[5] == 0x1 then --Remove Torn Page
                         torn_pages_available_for_turn_in_address = 0x2DEB0E0
                         WriteByte(torn_pages_available_for_turn_in_address, math.max(ReadByte(torn_pages_available_for_turn_in_address)-1,0))
                     end
                     removed_bits_value = removed_bits_value + 2^((item_table_index-1)%8)
-                    WriteByte(removed_bits_address + byte_offset, removed_bits_value)
+                    WriteByte(removed_bits_address[game_version] + byte_offset, removed_bits_value)
                 end
             end
         end
     end
-    WriteArray(stock_address + 200, {0,0,0,0,0,0}) --Remove Navi Gummis
+    WriteArray(stock_address[game_version] + 200, {0,0,0,0,0,0}) --Remove Navi Gummis
 end
 
 function _OnInit()
