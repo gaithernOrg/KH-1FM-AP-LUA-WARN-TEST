@@ -26,7 +26,7 @@ function read_world_progress_array()
 end
 
 function write_world_progress_byte(world_index, progress_byte)
-    world_progress_address[game_version] = 0x2DEA8E0 - 0x200 + 0xB04
+    world_progress_address = {0x2DEB1E4, 0x2DEA864}
     WriteByte(world_progress_address[game_version] + (world_index-1), progress_byte)
 end
 
