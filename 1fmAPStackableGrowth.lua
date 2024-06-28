@@ -35,7 +35,7 @@ function StackAbilities()
     sharedAbilities     = {0x2DEA279, 0x2DE98F9}
     superglideSpeedHack = {0x2B05B4, 0x2B2744}
     mermaidKickSpeed    = {0x3F081C, 0x3EF9DC}
-    stateFlag           = {0x2867C58, 0x28672C8}
+    stateFlag           = {0x2867C58, 0x2867364}
     local countedAbilities = CountSharedAbilities()
     local jumpHeight = math.max(290, 190+(countedAbilities[1]*100))
     stackAbilities = 2
