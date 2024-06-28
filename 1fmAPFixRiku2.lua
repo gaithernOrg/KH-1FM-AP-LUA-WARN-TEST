@@ -3,10 +3,11 @@
 ------         by Gicu        -----
 -----------------------------------
 
-LUAGUI_NAME = "kh1fmAP"
+LUAGUI_NAME = "1fmAPFixRiku2"
 LUAGUI_AUTH = "Gicu"
 LUAGUI_DESC = "Kingdom Hearts 1FM AP Integration"
 
+game_version = 1 --1 for ESG 1.0.0.9, 2 for Steam 1.0.0.9
 local canExecute = false
 frame_count = 0
 corrected = false
@@ -17,16 +18,16 @@ function read_world_progress_array()
     each world.  The order of worlds are as follows:
     Traverse Town, Deep Jungle, Olympus Coliseum, Wonderland, Agrabah, Monstro,
     Atlantica, Unused, Halloween Town, Neverland, Hollow Bastion, End of the World]]
-    world_progress_address = 0x2DEA8E0 - 0x200 + 0xB04
-    world_progress_array = ReadArray(world_progress_address, 12)
-    extra_traverse_town_progress_address = world_progress_address + 0xE
+    world_progress_address = {0x2DEB1E4, 0x2DEA864}
+    world_progress_array = ReadArray(world_progress_address[game_version], 12)
+    extra_traverse_town_progress_address = world_progress_address[game_version] + 0xE
     world_progress_array[13] = ReadByte(extra_traverse_town_progress_address)
     return world_progress_array
 end
 
 function write_world_progress_byte(world_index, progress_byte)
-    world_progress_address = 0x2DEA8E0 - 0x200 + 0xB04
-    WriteByte(world_progress_address + (world_index-1), progress_byte)
+    world_progress_address = {0x2DEB1E4, 0x2DEA864}
+    WriteByte(world_progress_address[game_version] + (world_index-1), progress_byte)
 end
 
 function define_world_progress_reset_array()
@@ -42,7 +43,7 @@ function define_world_progress_reset_array()
        ,{0x2B, {0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x0D, 0x00, 0x02, 0x02, 0x0E, 0x00, 0x0E, 0x0E, 0x0F, 0x0E}}
        ,{0x2E, {0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x0D, 0x00, 0x02, 0x02, 0x0E, 0x00, 0x0E, 0x0E, 0x0F, 0x0E}}
        ,{0x30, {0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x0D, 0x02, 0x02, 0x02, 0x00, 0x00, 0x00, 0x00, 0x00, 0x0E}}
-     --,{0x32, {0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x0D, 0x0E, 0x02, 0x02, 0x0E, 0x00, 0x0F, 0x0F, 0x0F, 0x0E}}
+     --,{0x32, {0x02, 0x00, 0x00, 0x00, 0x00, 0x00, 0x10, 0x0E, 0x02, 0x02, 0x0E, 0x00, 0x0F, 0x0F, 0x0F, 0x0E}
        ,{0x32, {0x02, 0x00, 0x00, 0x00, 0x11, 0x04, 0x0D, 0x10, 0x02, 0x02, 0x10, 0x00, 0x10, 0x10, 0x10, 0x10}}
     }
     --Deep Jungle
@@ -124,23 +125,23 @@ end
 world_progress_reset_array = define_world_progress_reset_array()
 
 function correct_world_flags(world_offset, corrected_world_flag_array)
-    world_flags_address = 0x2DEBCE0 + 0x6C
-    WriteArray(world_flags_address + world_offset, corrected_world_flag_array)
+    world_flags_address = {0x2DEBD4C, 0x2DEB3CC}
+    WriteArray(world_flags_address[game_version] + world_offset, corrected_world_flag_array)
 end
 
 function read_world_flags(world_offset)
-    world_flags_address = 0x2DEBCE0 + 0x6C
-    return ReadArray(world_flags_address + world_offset, 16)
+    world_flags_address = {0x2DEBD4C, 0x2DEB3CC}
+    return ReadArray(world_flags_address[game_version] + world_offset, 16)
 end
 
 function turn_on_kurt_zisa()
-    carpet_takes_you_to_kurt_zisa_address = 0x2DEB1E0
-    WriteByte(carpet_takes_you_to_kurt_zisa_address, 0xF0)
+    carpet_takes_you_to_kurt_zisa_address = {0x2DEB1E0, 0x2DEA860}
+    WriteByte(carpet_takes_you_to_kurt_zisa_address[game_version], 0xF0)
 end
 
 function fix_library()
-    world_flag_base_address = 0x2DEBCE0 + 0x6C
-    hollow_bastion_world_flag_base_address = world_flag_base_address + 0xB0
+    world_flag_base_address = {0x2DEBD4C, 0x2DEB3CC}
+    hollow_bastion_world_flag_base_address = world_flag_base_address[game_version] + 0xB0
     library_address = hollow_bastion_world_flag_base_address + 0x7
     if ReadByte(library_address) ~= 0x02 then
         WriteByte(library_address, 0x02)
@@ -190,11 +191,18 @@ function main()
 end
 
 function _OnInit()
+    IsEpicGLVersion  = 0x3A2B86
+    IsSteamGLVersion = 0x3A29A6
     if GAME_ID == 0xAF71841E and ENGINE_TYPE == "BACKEND" then
+        if ReadByte(IsEpicGLVersion) == 0xFF then
+            ConsolePrint("Epic Version Detected")
+            game_version = 1
+        end
+        if ReadByte(IsSteamGLVersion) == 0xFF then
+            ConsolePrint("Steam Version Detected")
+            game_version = 2
+        end
         canExecute = true
-        ConsolePrint("KH1 detected, running script")
-    else
-        ConsolePrint("KH1 not detected, not running script")
     end
 end
 

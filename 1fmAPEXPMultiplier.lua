@@ -3,14 +3,15 @@
 ------         by Gicu        -----
 -----------------------------------
 
-LUAGUI_NAME = "kh1fmAP"
+LUAGUI_NAME = "1fmAPEXPMultiplier"
 LUAGUI_AUTH = "denhonator with edits from Gicu"
 LUAGUI_DESC = "Kingdom Hearts 1FM AP Integration"
 
-local btltbl = 0x2D236C0
-local itemTable = btltbl+0x1A58
-local soraStats = 0x2DE9CE0
-local experienceMult = 0x2D5D480
+game_version = 1 --1 for ESG 1.0.0.9, 2 for Steam 1.0.0.9
+local btltbl = {0x2D236C0, 0x2D22D40}
+local itemTable = btltbl[game_version]+0x1A58
+local soraStats = {0x2DE9CE0, 0x2DE9360}
+local experienceMult = {0x2D5D480, 0x2D5CB00}
 
 local canExecute = false
 frame_count = 0
@@ -52,7 +53,7 @@ function main()
     for p=0,2 do
         local accOff = (p*0x74) + 0x1D
         for i=0,3 do
-            local eqID = ReadByte(soraStats + accOff+i)
+            local eqID = ReadByte(soraStats[game_version] + accOff+i)
             local eqName = ReadByte(itemTable+((eqID-1)*20))
             if eqName == 0x56 or eqName == 0x58 then
                 xp_mult = xp_mult + 0.2
@@ -61,15 +62,22 @@ function main()
             end
         end
     end
-    WriteFloat(experienceMult, xp_mult)
+    WriteFloat(experienceMult[game_version], xp_mult)
 end
 
 function _OnInit()
+    IsEpicGLVersion  = 0x3A2B86
+    IsSteamGLVersion = 0x3A29A6
     if GAME_ID == 0xAF71841E and ENGINE_TYPE == "BACKEND" then
+        if ReadByte(IsEpicGLVersion) == 0xFF then
+            ConsolePrint("Epic Version Detected")
+            game_version = 1
+        end
+        if ReadByte(IsSteamGLVersion) == 0xFF then
+            ConsolePrint("Steam Version Detected")
+            game_version = 2
+        end
         canExecute = true
-        ConsolePrint("KH1 detected, running script")
-    else
-        ConsolePrint("KH1 not detected, not running script")
     end
 end
 

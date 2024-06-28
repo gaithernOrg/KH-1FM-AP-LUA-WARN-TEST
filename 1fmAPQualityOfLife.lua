@@ -1,16 +1,18 @@
-LUAGUI_NAME = "kh1fmAP"
+LUAGUI_NAME = "1fmAPQualityOfLife"
 LUAGUI_AUTH = "Gicu & Sonicshadowsilver2"
 LUAGUI_DESC = "Kingdom Hearts 1FM AP Integration"
 
+game_version = 1 --1 for ESG 1.0.0.9, 2 for Steam 1.0.0.9
+
 local canExecute = false
 
-Now = 0x2340DDC
-Items = 0x2DEA17A
-ChestFlags = 0x2DEA3DC
-EventFlags = 0x2DEAAE8
-RoomFlags = 0x2DEBDBE
-CutsceneFlags = 0x2DEA6E0
-KeybladeExplanation = 0x2DEA9EE
+Now = {0x2340DDC, 0x233FE84}
+Items = {0x2DEA17A, 0x2DE97FA}
+ChestFlags = {0x2DEA3DC, 0x2DE9A5C}
+EventFlags = {0x2DEAAE8, 0x2DEA168}
+RoomFlags = {0x2DEBDBE, 0x2DEB43E}
+CutsceneFlags = {0x2DEA6E0, 0x2DE9D60}
+KeybladeExplanation = {0x2DEA9EE, 0x2DEA06E}
 
 function BitOr(Address,Bit,Abs)
     WriteByte(Address,ReadByte(Address)|Bit,Abs and OnPC)
@@ -21,53 +23,60 @@ function BitNot(Address,Bit,Abs)
 end
 
 function _OnInit()
+    IsEpicGLVersion  = 0x3A2B86
+    IsSteamGLVersion = 0x3A29A6
     if GAME_ID == 0xAF71841E and ENGINE_TYPE == "BACKEND" then
+        if ReadByte(IsEpicGLVersion) == 0xFF then
+            ConsolePrint("Epic Version Detected")
+            game_version = 1
+        end
+        if ReadByte(IsSteamGLVersion) == 0xFF then
+            ConsolePrint("Steam Version Detected")
+            game_version = 2
+        end
         canExecute = true
-        ConsolePrint("KH1 detected, running script")
-    else
-        ConsolePrint("KH1 not detected, not running script")
     end
 end
     
 function _OnFrame()
     if canExecute then
-       if ReadByte(EventFlags+0x0E60) == 0x00 then --No Red Trinities Activated
-           WriteByte(EventFlags+0x0E60, 0x01) --Activated 1 Red Trinity because Secret Waterway Entrance
+       if ReadByte(EventFlags[game_version]+0x0E60) == 0x00 then --No Red Trinities Activated
+           WriteByte(EventFlags[game_version]+0x0E60, 0x01) --Activated 1 Red Trinity because Secret Waterway Entrance
        end
-       if ReadByte(EventFlags+0x0EB5) == 0x01 then --Stepped on All 3 Switches in Gizmo Shop
-           WriteByte(EventFlags+0x0EB5, 0x03) --No Wait Time for the 2 Postcards
+       if ReadByte(EventFlags[game_version]+0x0EB5) == 0x01 then --Stepped on All 3 Switches in Gizmo Shop
+           WriteByte(EventFlags[game_version]+0x0EB5, 0x03) --No Wait Time for the 2 Postcards
        end
-       if ReadByte(Now+0x00) == 0x04 and ReadByte(EventFlags+0x0F06) == 0x00 then
-           WriteByte(EventFlags+0x0F06, 0xFF) --All Evidence Boxes Opened
+       if ReadByte(Now[game_version]+0x00) == 0x04 and ReadByte(EventFlags[game_version]+0x0F06) == 0x00 then
+           WriteByte(EventFlags[game_version]+0x0F06, 0xFF) --All Evidence Boxes Opened
        end
-       if ReadByte(Items+0xDE) == 0x01 and ReadByte(EventFlags+0x00) == 0x00 then
-           WriteByte(EventFlags+0x00, 0x01) --Found Footprints
+       if ReadByte(Items[game_version]+0xDE) == 0x01 and ReadByte(EventFlags[game_version]+0x00) == 0x00 then
+           WriteByte(EventFlags[game_version]+0x00, 0x01) --Found Footprints
        end
-       if ReadShort(EventFlags+0x1001) == 0x0100 then --Only Shiva Belt Chest spawned
-           WriteByte(EventFlags+0x100A, 0x02)
+       if ReadShort(EventFlags[game_version]+0x1001) == 0x0100 then --Only Shiva Belt Chest spawned
+           WriteByte(EventFlags[game_version]+0x100A, 0x02)
        end
-       if ReadByte(CutsceneFlags+0x0B06) < 0x32 and ReadByte(EventFlags+0x1008) == 0x00 and ReadByte(EventFlags+0x0125) == 0x00 then
-           WriteByte(EventFlags+0x1008, 0x01) --Remove Olympus Coliseum Yellow Trinity before End of 1st Visit
-       elseif ReadByte(CutsceneFlags+0x0B06) >= 0x32 and ReadByte (EventFlags+0x1008) == 0x01 and ReadByte(EventFlags+0x0125) == 0x00 then
-           WriteByte(EventFlags+0x1008, 0x00) --Restore Olympus Coliseum Yellow Trinity after End of 1st Visit
+       if ReadByte(CutsceneFlags[game_version]+0x0B06) < 0x32 and ReadByte(EventFlags[game_version]+0x1008) == 0x00 and ReadByte(EventFlags[game_version]+0x0125) == 0x00 then
+           WriteByte(EventFlags[game_version]+0x1008, 0x01) --Remove Olympus Coliseum Yellow Trinity before End of 1st Visit
+       elseif ReadByte(CutsceneFlags[game_version]+0x0B06) >= 0x32 and ReadByte(EventFlags[game_version]+0x1008) == 0x01 and ReadByte(EventFlags[game_version]+0x0125) == 0x00 then
+           WriteByte(EventFlags[game_version]+0x1008, 0x00) --Restore Olympus Coliseum Yellow Trinity after End of 1st Visit
        end
-       if ReadByte(Now+0x00) == 0x05 and ReadByte(Now+0x68) == 0x09 and ReadByte(CutsceneFlags+0x0B05) == 0x53 then
-           WriteByte(CutsceneFlags+0x0B05, 0x50) --Deep Jungle Clayton Softlock Fix
-           WriteInt(EventFlags+0x0F24, 0x00010101)
+       if ReadByte(Now[game_version]+0x00) == 0x05 and ReadByte(Now[game_version]+0x68) == 0x09 and ReadByte(CutsceneFlags[game_version]+0x0B05) == 0x53 then
+           WriteByte(CutsceneFlags[game_version]+0x0B05, 0x50) --Deep Jungle Clayton Softlock Fix
+           WriteInt(EventFlags[game_version]+0x0F24, 0x00010101)
        end
-       if ReadByte(Now+0x00) ~= 0x0C or ReadByte(Now+0x00) == 0x0C and ReadByte(Now+0x68) ~= 0x0A then --Not in Monstro: Chamber 6
-           if ReadByte(ChestFlags+0xCC) == 0x00 and ReadByte(EventFlags+0x0E6E) > 0x7F then --Activated White Trinity, Didn't Open Chest
-               WriteByte(EventFlags+0x0E63,ReadByte(EventFlags+0x0E63)-1) --Subtract Activated White Trinities by 1
-               BitNot(EventFlags+0x0E6E, 0x80) --Respawn White Trinity in Monstro: Chamber 6
+       if ReadByte(Now[game_version]+0x00) ~= 0x0C or ReadByte(Now[game_version]+0x00) == 0x0C and ReadByte(Now[game_version]+0x68) ~= 0x0A then --Not in Monstro: Chamber 6
+           if ReadByte(ChestFlags[game_version]+0xCC) == 0x00 and ReadByte(EventFlags[game_version]+0x0E6E) > 0x7F then --Activated White Trinity, Didn't Open Chest
+               WriteByte(EventFlags[game_version]+0x0E63,ReadByte(EventFlags[game_version]+0x0E63)-1) --Subtract Activated White Trinities by 1
+               BitNot(EventFlags[game_version]+0x0E6E, 0x80) --Respawn White Trinity in Monstro: Chamber 6
            end
        end
-       if ReadByte(Items+0xE3) > 0x00 and ReadByte(CutsceneFlags+0x0B0C) == 0x2B and ReadByte(ChestFlags+0x00) == 0x02 then
-           WriteByte(CutsceneFlags+0x0B0C, 0x32) --HT Story Progression after finding Jack-in-the-Box
-           WriteByte(RoomFlags+0x19, 0x05) --Boneyard Room Flag
-           WriteByte(RoomFlags+0x1E, 0x03) --Research Lab Room Flag
+       if ReadByte(Items[game_version]+0xE3) > 0x00 and ReadByte(CutsceneFlags[game_version]+0x0B0C) == 0x2B and ReadByte(ChestFlags[game_version]+0x00) == 0x02 then
+           WriteByte(CutsceneFlags[game_version]+0x0B0C, 0x32) --HT Story Progression after finding Jack-in-the-Box
+           WriteByte(RoomFlags[game_version]+0x19, 0x05) --Boneyard Room Flag
+           WriteByte(RoomFlags[game_version]+0x1E, 0x03) --Research Lab Room Flag
        end
-       if ReadByte(KeybladeExplanation) ~= 0x01 then
-           WriteByte(KeybladeExplanation, 0x01)
+       if ReadByte(KeybladeExplanation[game_version]) ~= 0x01 then
+           WriteByte(KeybladeExplanation[game_version], 0x01)
        end
     end
 end
