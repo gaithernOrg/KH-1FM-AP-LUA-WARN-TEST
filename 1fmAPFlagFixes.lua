@@ -45,7 +45,7 @@ local tutorialFlag = {0x2DEB6A4, 0x2DEAD24}
 local oppositeState = {0x2DEB998, 0x2DEB018}
 local oppositeTrigger = {0x2DEA9FD,0x2DEA07D}
 
-local blackFade = {0x4DD3F8, 0x4DC718}
+local blackfade = {0x4DD3F8, 0x4DC718}
 local enableRC = {0x2DEA554, 0x2DE9BD4}
 local lockMenu = {0x232E90C, 0x232DF80}
 local party1 = {0x2DEA16F, 0x2DE97EF}
