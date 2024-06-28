@@ -61,8 +61,8 @@ end
 
 function get_dg_count()
     dg = 0
-    party_slot_1_address = {0x2DEA16F, 0x2DEA16F}
-    party_slot_2_address = {0x2DEA170, 0x2DEA170}
+    party_slot_1_address = {0x2DEA16F, 0x2DE97EF}
+    party_slot_2_address = {0x2DEA170, 0x2DE97F0}
     if ReadByte(party_slot_1_address[game_version]) == 1 or ReadByte(party_slot_1_address[game_version]) == 2 then
         dg = dg + 1
     end

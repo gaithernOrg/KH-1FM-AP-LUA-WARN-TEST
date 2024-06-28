@@ -161,8 +161,8 @@ function FlagFixes()
             local hasSummons = {}
             local hasAll = true
             for i=0,5 do
-                hasSummons[ReadByte(summons+i)] = true
-                hasAll = hasAll and ReadByte(summons+i) < 0xFF
+                hasSummons[ReadByte(summons[game_version]+i)] = true
+                hasAll = hasAll and ReadByte(summons[game_version]+i) < 0xFF
             end
             
             WriteByte(summonsReturned[game_version], hasSummons[1] and 1 or 0)
