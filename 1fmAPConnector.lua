@@ -1469,7 +1469,7 @@ function final_ansem_defeated()
     room_offset = {0x68, 0x8}
     room = world[game_version] + room_offset[game_version]
     cutscene_flags_address = {0x2DEB1E4, 0x2DEA864}
-    return (ReadByte(world[game_version]) == 0x10 and ReadByte(room[game_version]) == 0x20 and ReadByte(cutscene_flags_address[game_version] + 0xB) == 0x9B)
+    return (ReadByte(world[game_version]) == 0x10 and ReadByte(room) == 0x20 and ReadByte(cutscene_flags_address[game_version] + 0xB) == 0x9B)
 end
 
 function parse_world_progress_array(world_progress_array)
