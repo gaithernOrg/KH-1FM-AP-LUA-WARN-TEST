@@ -42,7 +42,7 @@ end
     
 function _OnFrame()
     if canExecute then
-        if ReadByte(world) == 0x03 and ReadByte(room) == 0x0B and ReadByte(spawn) == 0x36 then --In Item Workshop
+        if ReadByte(world[game_version]) == 0x03 and ReadByte(room[game_version]) == 0x0B and ReadByte(spawn[game_version]) == 0x36 then --In Item Workshop
             if not file_exists(client_communication_path .. "insynthshop") then
                 file = io.open(client_communication_path .. "insynthshop", "w")
                 io.output(file)
