@@ -545,7 +545,7 @@ function FlagFixes()
         debugPrint("Section 39")
         WriteArray(hb_library_book_address[game_version], {0x14,0x14,0x14,0x14,0x14,0x0A,0x14,0x14})
     end
-    if ReadByte(cutsceneFlags[game_version]+0xB0E) == 0xA0 and ReadByte(worldFlagBase+0xB6) == 0x0A then --Post HB1 Flags -> HB2 Flags
+    if ReadByte(cutsceneFlags[game_version]+0xB0E) == 0xA0 and ReadByte(worldFlagBase[game_version]+0xB6) == 0x0A then --Post HB1 Flags -> HB2 Flags
         debugPrint("Section 40")
         WriteInt(worldFlagBase[game_version]+0xB3, 0x0E0E0E0E)
         WriteShort(worldFlagBase[game_version]+0xB8, 0x0E0E)
