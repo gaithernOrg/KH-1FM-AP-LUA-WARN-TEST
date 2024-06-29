@@ -1031,10 +1031,11 @@ function read_misc_checks()
         ,{{0x2DEADEE, 0x2DEA46E}, 2656523, 0, 0x1}} --Cure
     for k,v in pairs(lookup_table) do
         value = ReadByte(v[1][game_version])
+        traverse_town_progress_address = {0x2DEB1E4, 0x2DEA864}
         if v[3] == 0 and value >= v[4] then
             if v[2] ~= 2656520 then
                 table.insert(location_ids, v[2])
-            elseif ReadByte(0x2DEA8E0 - 0x200 + 0xB04) >= 0x31 then
+            elseif ReadByte(traverse_town_progress_address[game_version]) >= 0x31 then
                 table.insert(location_ids, v[2])
             end
         elseif v[3] > 0 and (value%(2^v[3]) >= 2^(v[3]-1)) then
