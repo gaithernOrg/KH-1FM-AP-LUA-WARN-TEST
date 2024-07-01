@@ -8594,22 +8594,6 @@ assets:
   method: copy
   source:
   - name: remastered/title/title.img/-168231.dds
-- name: remastered/menu/uk/sysfont.bin/UK_sysfont_bin0.dds
-  method: copy
-  source:
-  - name: remastered/menu/uk/sysfont.bin/UK_sysfont_bin0.dds
-- name: remastered/menu/sysfont.bin/UK_sysfont_bin0.dds
-  method: copy
-  source:
-  - name: remastered/menu/sysfont.bin/UK_sysfont_bin0.dds
-- name: remastered/menu/us/sysfont.bin/US_sysfont_bin0.dds
-  method: copy
-  source:
-  - name: remastered/menu/us/sysfont.bin/US_sysfont_bin0.dds
-- name: remastered/menu/sysfont.bin/US_sysfont_bin0.dds
-  method: copy
-  source:
-  - name: remastered/menu/sysfont.bin/US_sysfont_bin0.dds
 - name: remastered/exchange/UK_kanji.knj/UK_kanji_knj1.dds
   method: copy
   source:
