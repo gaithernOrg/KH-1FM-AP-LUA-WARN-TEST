@@ -1,6 +1,6 @@
 title: KH1FM Archipelago Companion
 originalAuthor: Gicu
-description: Necessary files for the KH1FM Archipelago
+description: Necessary files for KH1FM Archipelago.
 assets:
 #Lua Script
 - name: scripts/1fmAPConnector.lua
