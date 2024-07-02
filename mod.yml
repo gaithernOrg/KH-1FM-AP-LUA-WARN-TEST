@@ -8582,10 +8582,10 @@ assets:
   method: copy
   source:
   - name: remastered/tz20.ard/AP_tz20_ard401.binl
-#- name: remastered/title/title.img/-1501b1.dds
-#  method: copy
-#  source:
-#  - name: remastered/title/title.img/-1501b1.dds
+- name: remastered/title/title.img/-1501b1.dds
+  method: copy
+  source:
+  - name: remastered/title/title.img/-1501b1.dds
 - name: remastered/title/title.img/-131.dds
   method: copy
   source:
