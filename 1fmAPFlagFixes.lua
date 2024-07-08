@@ -314,7 +314,7 @@ function FlagFixes()
                 WriteLong(evidenceActiveForest[game_version]+o*0x4B0, 0)
                 WriteLong(evidenceActiveForest[game_version]+(o+1)*0x4B0, 0)
             end
-        elseif ReadByte(room) == 1 then
+        elseif ReadByte(room[game_version]) == 1 then
             local o = 0
             while ReadInt(evidenceActiveBizarre[game_version]+4+o*0x4B0) ~= 0x40013 and ReadInt(evidenceActiveBizarre[game_version]+4+o*0x4B0) ~= 0 and o > -5 do
                 o = o-1
