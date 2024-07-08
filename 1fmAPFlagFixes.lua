@@ -316,7 +316,7 @@ function FlagFixes()
             end
         elseif ReadByte(room) == 1 then
             local o = 0
-            while ReadInt(evidenceActiveBizarre[game_version]+4+o*0x4B0) ~= 0x40013 and ReadInt(evidenceActiveBizarre+4+o*0x4B0) ~= 0 and o > -5 do
+            while ReadInt(evidenceActiveBizarre[game_version]+4+o*0x4B0) ~= 0x40013 and ReadInt(evidenceActiveBizarre[game_version]+4+o*0x4B0) ~= 0 and o > -5 do
                 o = o-1
             end
             if ReadLong(evidenceActiveBizarre[game_version]+o*0x4B0) == 0x0004001300008003 then
