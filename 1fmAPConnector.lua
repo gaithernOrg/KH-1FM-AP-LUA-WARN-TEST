@@ -1448,7 +1448,7 @@ function write_geppetto_conditions()
         end
     end
     if number_of_summons_obtained == 6 then
-        WriteByte(all_summons_address, 1)
+        WriteByte(all_summons_address[game_version], 1)
     end
 end
 
