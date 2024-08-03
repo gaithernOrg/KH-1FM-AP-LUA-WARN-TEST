@@ -60,7 +60,7 @@ end
 
 function all_puppies_returned()
     all_puppies_returned_address = {0x2DEAB25, 0x2DEA1A5}
-    all_puppies_returned_byte = ReadByte(all_puppies_returned_address)
+    all_puppies_returned_byte = ReadByte(all_puppies_returned_address[game_version])
     return all_puppies_returned_byte > 0
 end
 
