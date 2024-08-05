@@ -75,7 +75,7 @@ function find_items_to_remove()
                 if item_qty > 0 then
                     WriteByte(stock_address[game_version] + item_data[4], math.max(item_qty-1, 0))
                     if item_data[5] == 0x1 then --Remove Torn Page
-                        torn_pages_available_for_turn_in_address = [0x2DEB0E0, 0x2DEA760]
+                        torn_pages_available_for_turn_in_address = {0x2DEB0E0, 0x2DEA760}
                         WriteByte(torn_pages_available_for_turn_in_address, math.max(ReadByte(torn_pages_available_for_turn_in_address[game_version])-1,0))
                     end
                     removed_bits_value = removed_bits_value + 2^((item_table_index-1)%8)
