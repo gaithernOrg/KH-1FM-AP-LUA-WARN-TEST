@@ -7,7 +7,7 @@ LUAGUI_NAME = "1fmAPKeybladeLock"
 LUAGUI_AUTH = "KSX and Gicu"
 LUAGUI_DESC = "Kingdom Hearts 1FM AP Integration"
 
-game_version = 1 --1 for ESG 1.0.0.9, 2 for Steam 1.0.0.9
+game_version = 1 --1 for ESG 1.0.0.9, 2 for Steam 1.0.0.10
 
 chestslocked = true
 interactinbattle = false
@@ -91,7 +91,7 @@ end
 function _OnFrame()
     if canExecute then
         read_settings()
-        chests_address = {0x2B35C4, 0x2B5764}
+        chests_address = {0x2B35C4, 0x2B5AA4} --changed steam 1.0.0.10
         chests = ReadByte(chests_address[game_version])
         if (chestslocked and has_correct_keyblade() and chests == 0x72) or not chestslocked then
             if interactinbattle then
@@ -104,13 +104,13 @@ function _OnFrame()
         end
         if interactinbattle then
             if not interactset then
-                Examine = {0x2926B9, 0x294849}
-                Talk = {0x2926F9, 0x294889}
+                Examine = {0x2926B9, 0x294B89} --changed steam 1.0.0.10
+                Talk = {0x2926F9, 0x294BC9} --changed steam 1.0.0.10
                 WriteByte(Examine[game_version], 0x70)
                 WriteByte(Talk[game_version], 0x70)
                 interactset = true
             end
-            Trinity = {0x1A2A6F, 0x1A4BBF}
+            Trinity = {0x1A2A6F, 0x1A4EFF} --changed steam 1.0.0.10
             if get_dg_count() >= 2 then
                 WriteByte(Trinity[game_version], 0x71) -- Forced
             else

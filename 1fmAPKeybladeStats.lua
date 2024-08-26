@@ -7,7 +7,7 @@ LUAGUI_NAME = "1fmAPKeybladeStats"
 LUAGUI_AUTH = "Gicu"
 LUAGUI_DESC = "Kingdom Hearts 1FM AP Integration"
 
-game_version = 1 --1 for ESG 1.0.0.9, 2 for Steam 1.0.0.9
+game_version = 1 --1 for ESG 1.0.0.9, 2 for Steam 1.0.0.10
 
 local keyblade_stats_base_address = {0x2D2CBB8, 0x2D2C238}
 

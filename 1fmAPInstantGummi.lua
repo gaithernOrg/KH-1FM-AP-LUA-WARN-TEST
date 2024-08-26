@@ -2,7 +2,7 @@ LUAGUI_NAME = "1fmAPInstantGummi"
 LUAGUI_AUTH = "denhonator with edits from Gicu"
 LUAGUI_DESC = "Instantly arrive at gummi destination"
 
-game_version = 1 --1 for ESG 1.0.0.9, 2 for Steam 1.0.0.9
+game_version = 1 --1 for ESG 1.0.0.9, 2 for Steam 1.0.0.10
 local worldWarpBase = {0x50F9D0, 0x50AB90}
 local cutsceneFlagBase = {0x2DEA6E0, 0x2DE9D60}
 

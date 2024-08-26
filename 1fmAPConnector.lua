@@ -34,7 +34,7 @@ function file_exists(name)
 end
 
 --- Global Variables ---
-game_version = 1 --1 for ESG 1.0.0.9, 2 for Steam 1.0.0.9
+game_version = 1 --1 for ESG 1.0.0.9, 2 for Steam 1.0.0.10
 frame_count = 0
 canExecute = false
 worlds_unlocked_array = {3, 0, 0, 0, 0, 0, 0, 0, 0, 0}

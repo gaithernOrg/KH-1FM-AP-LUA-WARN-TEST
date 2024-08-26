@@ -7,7 +7,7 @@ LUAGUI_NAME = "1fmAPEotWFlagFixes"
 LUAGUI_AUTH = "Sonicshadowsilver2 with edits from Gicu"
 LUAGUI_DESC = "Kingdom Hearts 1FM AP Integration"
 
-game_version = 1 --1 for ESG 1.0.0.9, 2 for Steam 1.0.0.9
+game_version = 1 --1 for ESG 1.0.0.9, 2 for Steam 1.0.0.10
 RoomFlags = {0x2DEBDBE, 0x2DEB43E}
 CutsceneFlags = {0x2DEA6E0, 0x2DE9D60}
 canExecute = false

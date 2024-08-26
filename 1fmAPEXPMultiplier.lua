@@ -7,7 +7,7 @@ LUAGUI_NAME = "1fmAPEXPMultiplier"
 LUAGUI_AUTH = "denhonator with edits from Gicu"
 LUAGUI_DESC = "Kingdom Hearts 1FM AP Integration"
 
-game_version = 1 --1 for ESG 1.0.0.9, 2 for Steam 1.0.0.9
+game_version = 1 --1 for ESG 1.0.0.9, 2 for Steam 1.0.0.10
 local btltbl = {0x2D236C0, 0x2D22D40}
 local itemTable = btltbl[game_version]+0x1A58
 local soraStats = {0x2DE9CE0, 0x2DE9360}

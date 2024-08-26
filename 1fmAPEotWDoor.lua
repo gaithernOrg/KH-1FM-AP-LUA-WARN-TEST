@@ -7,7 +7,7 @@ LUAGUI_NAME = "1fmAPEotWDoor"
 LUAGUI_AUTH = "Gicu and Sonicshadowsilver2"
 LUAGUI_DESC = "Kingdom Hearts 1FM AP Integration"
 
-game_version = 1 --1 for ESG 1.0.0.9, 2 for Steam 1.0.0.9
+game_version = 1 --1 for ESG 1.0.0.9, 2 for Steam 1.0.0.10
 canExecute = false
 required_reports_door = 14
 door_goal = "reports"

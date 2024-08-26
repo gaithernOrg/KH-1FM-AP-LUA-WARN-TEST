@@ -2,7 +2,7 @@ LUAGUI_NAME = "1fmAPHandleDeathlink"
 LUAGUI_AUTH = "denhonator with edits from Gicu"
 LUAGUI_DESC = "Handles sending and receiving Death Links. Credits to Denho."
 
-game_version = 1 --1 for ESG 1.0.0.9, 2 for Steam 1.0.0.9
+game_version = 1 --1 for ESG 1.0.0.9, 2 for Steam 1.0.0.10
 
 if os.getenv('LOCALAPPDATA') ~= nil then
     client_communication_path = os.getenv('LOCALAPPDATA') .. "\\KH1FM\\"
@@ -20,9 +20,9 @@ local removeWhite = 0
 local lastDeathPointer = 0
 local soraHUD = {0x2812E1C, 0x281249C}
 local soraHP = {0x2D5D5CC, 0x2D5CC4C}
-local stateFlag = {0x2867C58, 0x28672C8}
-local deathCheck = {0x299BE0, 0x29BD70}
-local safetyMeasure = {0x299A46, 0x29BBD6}
+local stateFlag = {0x2867C58, 0x28672C8} --may need to look into
+local deathCheck = {0x299BE0, 0x29C0B0} --changed steam 1.0.0.10
+local safetyMeasure = {0x299A46, 0x29BF16} --changed steam 1.0.0.10
 local whiteFade = {0x234079C, 0x233FECC}
 local blackFade = {0x4DD3F8, 0x4DC718}
 local deathPointer = {0x23987B8, 0x2382568}
@@ -73,8 +73,6 @@ function _OnFrame()
     if not canExecute then
         goto done
     end
-    save_menu_open_address = {0x232E904, 0x232DFA4}
-    local savemenuopen = ReadByte(save_menu_open_address[game_version])
     -- Remove white screen on death (it bugs out this way normally)
     if removeWhite > 0 then
         removeWhite = removeWhite - 1

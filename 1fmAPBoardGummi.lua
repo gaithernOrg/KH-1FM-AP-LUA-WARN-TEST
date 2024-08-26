@@ -2,7 +2,7 @@ LUAGUI_NAME = "1fmAPBoardGummi"
 LUAGUI_AUTH = "denhonator with slight edits from Gicu"
 LUAGUI_DESC = "Read readme for button combinations.  Modified for AP by Gicu"
 
-game_version = 1 --1 for ESG 1.0.0.9, 2 for Steam 1.0.0.9
+game_version = 1 --1 for ESG 1.0.0.9, 2 for Steam 1.0.0.10
 
 local addgummi = 0
 
