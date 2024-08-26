@@ -577,7 +577,7 @@ function _OnInit()
             ConsolePrint("Epic Version Detected")
             game_version = 1
         end
-        if ReadByte(IsSteamGLVersion) == 0xFF then
+        if ReadByte(IsSteamGLVersion) == 0xF0 then
             ConsolePrint("Steam Version Detected")
             game_version = 2
         end

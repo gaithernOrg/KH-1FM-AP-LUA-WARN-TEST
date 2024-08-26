@@ -2156,7 +2156,7 @@ function _OnInit()
             ConsolePrint("Epic Version Detected")
             game_version = 1
         end
-        if ReadByte(IsSteamGLVersion) == 0xFF then
+        if ReadByte(IsSteamGLVersion) == 0xF0 then
             ConsolePrint("Steam Version Detected")
             game_version = 2
         end
@@ -2170,10 +2170,12 @@ function _OnFrame()
     end
     frame_count = (frame_count + 1) % 120
     
-    --Few things that need to happen every frame rather than every 2 seconds.
-    write_unlocked_worlds(worlds_unlocked_array, monstro_unlocked)
-    fix_shortcuts()
-    write_trinities(trinity_bits)
+    if canExecute then
+        --Few things that need to happen every frame rather than every 2 seconds.
+        write_unlocked_worlds(worlds_unlocked_array, monstro_unlocked)
+        fix_shortcuts()
+        write_trinities(trinity_bits)
+    end
     --frame_count = frame_count + 1
     --if frame_count % 120 == 0 then
     --    test()
