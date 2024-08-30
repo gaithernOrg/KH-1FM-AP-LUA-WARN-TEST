@@ -7,13 +7,13 @@ LUAGUI_NAME = "1fmAPStackableGrowth"
 LUAGUI_AUTH = "Denhonator with edits by Gicu"
 LUAGUI_DESC = "Kingdom Hearts 1FM AP Integration"
 
-game_version = 1 --1 for ESG 1.0.0.9, 2 for Steam 1.0.0.10
+game_version = 1 --1 for EGS 1.0.0.10, 2 for Steam 1.0.0.10
 
 canExecute = false
 dodgeDataAddr = 0
 
 function CountSharedAbilities()
-    sharedAbilities = {0x2DEA279, 0x2DE98F9}
+    sharedAbilities = {0x2DEA2F9, 0x2DE98F9} --changed for EGS 1.0.0.10
     local shared = {0,0,0}
     for i=0,9 do
         local ab = ReadByte(sharedAbilities[game_version]+i)
@@ -27,15 +27,15 @@ function CountSharedAbilities()
 end
 
 function StackAbilities()
-    jumpHeights         = {0x2D2376C, 0x2D22DEC}
-    world               = {0x2340DDC, 0x233FE84}
-    room                = {0x2340DDC + 0x68, 0x233FE84 + 0x8}
-    soraHUD             = {0x2812E1C, 0x281249C}
-    cutsceneFlags       = {0x2DEA6E0, 0x2DE9D60}
-    sharedAbilities     = {0x2DEA279, 0x2DE98F9}
-    superglideSpeedHack = {0x2B05B4, 0x2B2A84} --changed steam 1.0.0.10
-    mermaidKickSpeed    = {0x3F081C, 0x3EFA4C} --changed steam 1.0.0.10
-    stateFlag           = {0x2867C58, 0x2867364}
+    jumpHeights         = {0x2D237EC, 0x2D22DEC} --changed for EGS 1.0.0.10
+    world               = {0x2340E5C, 0x233FE84} --changed for EGS 1.0.0.10
+    room                = {0x2340E5C + 0x68, 0x233FE84 + 0x8} --changed for EGS 1.0.0.10
+    soraHUD             = {0x2812E9C, 0x281249C} --changed for EGS 1.0.0.10
+    cutsceneFlags       = {0x2DEA760, 0x2DE9D60} --changed for EGS 1.0.0.10
+    sharedAbilities     = {0x2DEA2F9, 0x2DE98F9} --changed for EGS 1.0.0.10
+    superglideSpeedHack = {0x2B08F4, 0x2B2A84} --changed BOTH 1.0.0.10
+    mermaidKickSpeed    = {0x3F088C, 0x3EFA4C} --changed BOTH 1.0.0.10
+    stateFlag           = {0x2867CD8, 0x2867364} --changed for EGS 1.0.0.10
     local countedAbilities = CountSharedAbilities()
     local jumpHeight = math.max(290, 190+(countedAbilities[1]*100))
     stackAbilities = 2

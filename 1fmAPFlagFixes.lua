@@ -2,67 +2,65 @@ LUAGUI_NAME = "1fmAPFlagFixes"
 LUAGUI_AUTH = "denhonator with edits from Gicu"
 LUAGUI_DESC = "Kingdom Hearts 1FM AP Flag Fixes"
 
-game_version = 1 --1 for ESG 1.0.0.9, 2 for Steam 1.0.0.10
+game_version = 1 --1 for EGS 1.0.0.10, 2 for Steam 1.0.0.10
 debug_on = true
 
-local chestsOpened = {0x2DEA110, 0x2DE9790}
-local summonsReturned = {0x2DEAA0C, 0x2DEA08C}
-local summons = {0x2DEA4B0, 0x2DE9B30}
-local inventory = {0x2DEA17A, 0x2DE97FA}
-local tornPageCount = {0x2DEB0E0, 0x2DEA760}
-local poohProgress = {0x2DEBA28, 0x2DEB0A8}
-local poohProgress2 = {0x2DEB100, 0x2DEA780}
-local emblemCount = {0x2DEBB8D, 0x2DEB20D}
-local slides = {0x2DEAEE7, 0x2DEA567}
-local slideActive = {0x2D40D70, 0x2D403F0}
-local evidence = {0x2DEAAE8, 0x2DEA168}
-local evidenceActiveForest = {0x2D3DE90, 0x2D3D510}
-local evidenceActiveBizarre = {0x2D3D530, 0x2D3CBB0}
-local theonActive = {0x2D3A1A0, 0x2D39820}
-local emblemDoor = {0x2DEBB9C, 0x2DEB21C}
-local reports = {0x2DEB6A0, 0x2DEAD20}
+local chestsOpened = {0x2DEA190, 0x2DE9790} --changed for EGS 1.0.0.10
+local summonsReturned = {0x2DEAA0C, 0x2DEA08C} --changed for EGS 1.0.0.10
+local summons = {0x2DEA530, 0x2DE9B30} --changed for EGS 1.0.0.10
+local inventory = {0x2DEA1FA, 0x2DE97FA} --changed for EGS 1.0.0.10
+local tornPageCount = {0x2DEB160, 0x2DEA760} --changed for EGS 1.0.0.10
+local poohProgress = {0x2DEBAA8, 0x2DEB0A8} --changed for EGS 1.0.0.10
+local poohProgress2 = {0x2DEB180, 0x2DEA780} --changed for EGS 1.0.0.10
+local emblemCount = {0x2DEBC0D, 0x2DEB20D} --changed for EGS 1.0.0.10
+local slides = {0x2DEAF67, 0x2DEA567} --changed for EGS 1.0.0.10
+local slideActive = {0x2D40DF0, 0x2D403F0} --changed for EGS 1.0.0.10
+local evidence = {0x2DEAB68, 0x2DEA168} --changed for EGS 1.0.0.10
+local evidenceActiveForest = {0x2D3DF10, 0x2D3D510} --changed for EGS 1.0.0.10
+local evidenceActiveBizarre = {0x2D3D5B0, 0x2D3CBB0} --changed for EGS 1.0.0.10
+local theonActive = {0x2D3A220, 0x2D39820} --changed for EGS 1.0.0.10
+local emblemDoor = {0x2DEBC1C, 0x2DEB21C} --changed for EGS 1.0.0.10
+local reports = {0x2DEB720, 0x2DEAD20} --changed for EGS 1.0.0.10
 
-local worldFlagBase = {0x2DEBD4C, 0x2DEB3CC}
-local gummiFlagBase = {0x2DEBBD0, 0x2DEB250}
+local worldFlagBase = {0x2DEBDCC, 0x2DEB3CC} --changed for EGS 1.0.0.10
+local gummiFlagBase = {0x2DEBC50, 0x2DEB250} --changed for EGS 1.0.0.10
 local gummiselect = {0x507D7C, 0x50707C}
 local inGummi = {0x5082A8, 0x5075A8} --may need to revist
-local battleLevel = {0x2DEB6A4, 0x2DEAD24}
-local unlockedWarps = {0x2DEBBE6, 0x2DEB266}
-local cutsceneFlags = {0x2DEA6E0, 0x2DE9D60}
-local libraryFlag = {0x2DEBE03, 0x2DEB483}
-local scriptPointer = {0x23987B8, 0x2382568}
-local ardoffset = {0x2398EB0, 0x2382C60} --changed steam 1.0.0.10
-local ardoffsetClock = {0x2399210, 0x2382FC0} --changed steam 1.0.0.10
-local cupCurrentSeed = {0x238D780, 0x23BBBF0}
-local waterwayGate = {0x2DEB94D, 0x2DEAFCD}
-local waterwayTrinity = {0x2DEB991, 0x2DEB011}
-local sliderProgress = {0x2DEBA19, 0x2DEB099}
-local savedFruits = {0x2DEBA1E, 0x2DEB09E}
-local minigameTimer = {0x232E984, 0x232E014} --changed steam 1.0.0.10
-local collectedFruits = {0x232E984 + 4, 0x232E014 + 4} --changed steam 1.0.0.10
+local battleLevel = {0x2DEB724, 0x2DEAD24} --changed for EGS 1.0.0.10
+local unlockedWarps = {0x2DEBC66, 0x2DEB266} --changed for EGS 1.0.0.10
+local cutsceneFlags = {0x2DEA760, 0x2DE9D60} --changed for EGS 1.0.0.10
+local libraryFlag = {0x2DEBE83, 0x2DEB483} --changed for EGS 1.0.0.10
+local scriptPointer = {0x2398838, 0x2382568} --changed for EGS 1.0.0.10
+local cupCurrentSeed = {0x238D800, 0x23BBBF0} --changed for EGS 1.0.0.10
+local waterwayGate = {0x2DEB94D, 0x2DEAFCD} --changed for EGS 1.0.0.10
+local waterwayTrinity = {0x2DEBA11, 0x2DEB011} --changed for EGS 1.0.0.10
+local sliderProgress = {0x2DEBA99, 0x2DEB099} --changed for EGS 1.0.0.10
+local savedFruits = {0x2DEBA9E, 0x2DEB09E} --changed for EGS 1.0.0.10
+local minigameTimer = {0x232E9F0, 0x232E014} --changed BOTH 1.0.0.10
+local collectedFruits = {0x232E9F0 + 4, 0x232E014 + 4} --changed BOTH 1.0.0.10
 local unequipBlacklist = {0x546020, 0x545330}
-local tutorialFlag = {0x2DEB6A4, 0x2DEAD24}
-local oppositeState = {0x2DEB998, 0x2DEB018}
-local oppositeTrigger = {0x2DEA9FD,0x2DEA07D}
+local tutorialFlag = {0x2DEB724, 0x2DEAD24} --changed for EGS 1.0.0.10
+local oppositeState = {0x2DEBA18, 0x2DEB018} --changed for EGS 1.0.0.10
+local oppositeTrigger = {0x2DEAA7D,0x2DEA07D} --changed for EGS 1.0.0.10
 
 local blackfade = {0x4DD3F8, 0x4DC718}
-local enableRC = {0x2DEA554, 0x2DE9BD4}
-local lockMenu = {0x232E90C, 0x232DF80} --changed steam 1.0.0.10
-local party1 = {0x2DEA16F, 0x2DE97EF}
-local party2 = {0x2E20EE5, 0x2E20565} --may need to revisit
-local soraHUD = {0x2812E1C, 0x281249C}
-local world = {0x2340DDC, 0x233FE84}
-local room = {0x2340DDC + 0x68, 0x233FE84 + 0x8}
+local enableRC = {0x2DEA5D4, 0x2DE9BD4} --changed for EGS 1.0.0.10
+local lockMenu = {0x232E98C, 0x232DF80} --changed for EGS 1.0.0.10
+local party1 = {0x2DEA1EF, 0x2DE97EF} --changed for EGS 1.0.0.10
+local party2 = {0x2E20F45, 0x2E20565} --changed for EGS 1.0.0.10 (+0x60 for EGS?)
+local soraHUD = {0x2812E9C, 0x281249C} --changed for EGS 1.0.0.10
+local world = {0x2340E5C, 0x233FE84} --changed for EGS 1.0.0.10
+local room = {0x2340E5C + 0x68, 0x233FE84 + 0x8} --changed for EGS 1.0.0.10
 
-local soraStats = {0x2DE9CE0, 0x2DE9360}
+local soraStats = {0x2DE9D60, 0x2DE9360} --changed for EGS 1.0.0.10
 
-local worldWarp = {0x2340E70, 0x233FEB8}
-local roomWarp = {0x2340E70 + 4, 0x233FEB8 + 4}
-local roomWarpRead = {0x232E888, 0x232DF18}
-local warpTrigger = {0x22EC9DC, 0x22EC0AC} --changed steam 1.0.0.10
-local warpType1 = {0x2340540, 0x233FBC0}
-local warpType2 = {0x22EC9E0, 0x22EC0B0} --changed steam 1.0.0.10
-local warpDefinitions = {0x232E880, 0x232DF10}
+local worldWarp = {0x2340808, 0x233FEB8} --MAYBE? changed for EGS 1.0.0.10
+local roomWarp = {0x2340808 + 4, 0x233FEB8 + 4} --MAYBE? changed for EGS 1.0.0.10
+local roomWarpRead = {0x232E908, 0x232DF18} --changed for EGS 1.0.0.10
+local warpTrigger = {0x22ECA80, 0x22EC0AC} --changed BOTH 1.0.0.10
+local warpType1 = {0x23405C0, 0x233FBC0} --changed for EGS 1.0.0.10
+local warpType2 = {0x22ECA90, 0x22EC0B0} --changed BOTH 1.0.0.10
+local warpDefinitions = {0x232E900, 0x232DF10} --changed for EGS 1.0.0.10
 
 local prevTTFlag = 0
 
@@ -92,7 +90,7 @@ function FlagFixes()
         WriteByte(warpType1[game_version], 7)
         WriteByte(warpType2[game_version], 6)
         WriteByte(warpTrigger[game_version], 2)
-        instant_gummi_fix_address = {0x25389D0, 0x2538060}
+        instant_gummi_fix_address = {0x2538A50, 0x2538060} --changed for EGS 1.0.0.10
         WriteLong(instant_gummi_fix_address[game_version], 0) -- Fixes InstantGummi
     end
 
@@ -183,16 +181,6 @@ function FlagFixes()
             WriteByte(simbaAddr+0x164B, c and 5 or 1, true)
             WriteByte(simbaAddr+0x164B+8, c and 5 or 1, true)
         end
-    end
-    
-    if ReadByte(world[game_version]) == 8 and ReadByte(room[game_version]) == 0x12 and ReadShort(ardoffset[game_version]) == 0x7F then
-        debugPrint("Section 9.2")
-        WriteShort(ardoffset[game_version], 0xD1)
-    end
-    
-    if ReadByte(world[game_version]) == 0xD and ReadByte(room[game_version]) == 9 and ReadShort(ardoffsetClock[game_version]) == 0x5F2 then
-        debugPrint("Section 10")
-        WriteShort(ardoffsetClock[game_version], 0x628)
     end
     
     if ReadByte(cutsceneFlags[game_version]+0xB04) >= 0x31 then
@@ -520,7 +508,7 @@ function FlagFixes()
     end
     if ReadByte(cutsceneFlags[game_version]+0xB04+0x9) > 0x00 then --Prevent Neverland Ship: Cabin from being missable
         debugPrint("Section 36")
-        neverland_warps_address = {0x2DEBBE6, 0x2DEB266}
+        neverland_warps_address = {0x2DEBC66, 0x2DEB266} --changed for EGS 1.0.0.10
         neverland_warps = ReadByte(neverland_warps_address[game_version])
         if (neverland_warps % 2) < 1 then
             WriteByte(neverland_warps_address[game_version], neverland_warps + 1)
@@ -535,12 +523,12 @@ function FlagFixes()
             WriteByte(warpTrigger[game_version], 0x02)
         end
     end
-    hb_library_shelves_address = {0x2DEBB8B, 0x2DEB20B}
+    hb_library_shelves_address = {0x2DEBC0B, 0x2DEB20B} --changed for EGS 1.0.0.10
     if ReadByte(hb_library_shelves_address[game_version]) == 0 then --Fix shelves in HB library
         debugPrint("Section 38")
         WriteByte(hb_library_shelves_address[game_version], 0xF6)
     end
-    hb_library_book_address = {0x2DEBB94, 0x2DEB214}
+    hb_library_book_address = {0x2DEBC14, 0x2DEB214} --changed for EGS 1.0.0.10
     if ReadByte(hb_library_book_address[game_version]) == 0 then --Fix books in HB library
         debugPrint("Section 39")
         WriteArray(hb_library_book_address[game_version], {0x14,0x14,0x14,0x14,0x14,0x0A,0x14,0x14})
@@ -552,8 +540,8 @@ function FlagFixes()
         WriteShort(worldFlagBase[game_version]+0xBB, 0x0E0E)
         WriteShort(worldFlagBase[game_version]+0xC0, 0x000E)
     end
-    hb_library_green_trinity_address   = {0x2DEB95C, 0x2DEAFDC}
-    hb_library_green_trinity_address_2 = {0x2DEB949, 0x2DEAFC9}
+    hb_library_green_trinity_address   = {0x2DEB9DC, 0x2DEAFDC} --changed for EGS 1.0.0.10
+    hb_library_green_trinity_address_2 = {0x2DEB9C9, 0x2DEAFC9} --changed for EGS 1.0.0.10
     if ReadByte(hb_library_green_trinity_address[game_version]) == 0x00 then --Fix HB Library Green Trinity
         debugPrint("Section 41")
         WriteByte(hb_library_green_trinity_address[game_version], 0x40)

@@ -7,7 +7,7 @@ LUAGUI_NAME = "1fmAPKeybladeLock"
 LUAGUI_AUTH = "KSX and Gicu"
 LUAGUI_DESC = "Kingdom Hearts 1FM AP Integration"
 
-game_version = 1 --1 for ESG 1.0.0.9, 2 for Steam 1.0.0.10
+game_version = 1 --1 for EGS 1.0.0.10, 2 for Steam 1.0.0.10
 
 chestslocked = true
 interactinbattle = false
@@ -46,8 +46,8 @@ function read_settings()
 end
 
 function has_correct_keyblade()
-    stock_address = {0x2DEA179, 0x2DE97F9}
-    world_address = {0x2340DDC, 0x233FE84}
+    stock_address = {0x2DEA1F9, 0x2DE97F9} --changed for EGS 1.0.0.10
+    world_address = {0x2340E5C, 0x233FE84}
     keyblade_offsets = {nil, nil, 94, 98, 86, 96, nil, 87, 90, 89, 93, 99, 88, nil, 91, 97}
     current_world = ReadByte(world_address[game_version])
     if keyblade_offsets[current_world] ~= nil then
@@ -61,8 +61,8 @@ end
 
 function get_dg_count()
     dg = 0
-    party_slot_1_address = {0x2DEA16F, 0x2DE97EF}
-    party_slot_2_address = {0x2DEA170, 0x2DE97F0}
+    party_slot_1_address = {0x2DEA1EF, 0x2DE97EF} --changed for EGS 1.0.0.10
+    party_slot_2_address = {0x2DEA1F0, 0x2DE97F0} --changed for EGS 1.0.0.10
     if ReadByte(party_slot_1_address[game_version]) == 1 or ReadByte(party_slot_1_address[game_version]) == 2 then
         dg = dg + 1
     end
@@ -91,7 +91,7 @@ end
 function _OnFrame()
     if canExecute then
         read_settings()
-        chests_address = {0x2B35C4, 0x2B5AA4} --changed steam 1.0.0.10
+        chests_address = {0x2B3904, 0x2B5AA4} --changed BOTH 1.0.0.10
         chests = ReadByte(chests_address[game_version])
         if (chestslocked and has_correct_keyblade() and chests == 0x72) or not chestslocked then
             if interactinbattle then
@@ -104,13 +104,13 @@ function _OnFrame()
         end
         if interactinbattle then
             if not interactset then
-                Examine = {0x2926B9, 0x294B89} --changed steam 1.0.0.10
-                Talk = {0x2926F9, 0x294BC9} --changed steam 1.0.0.10
+                Examine = {0x2929F9, 0x294B89} --changed BOTH 1.0.0.10
+                Talk = {0x292A39, 0x294BC9} --changed BOTH 1.0.0.10
                 WriteByte(Examine[game_version], 0x70)
                 WriteByte(Talk[game_version], 0x70)
                 interactset = true
             end
-            Trinity = {0x1A2A6F, 0x1A4EFF} --changed steam 1.0.0.10
+            Trinity = {0x1A2DAF, 0x1A4EFF} --changed BOTH 1.0.0.10
             if get_dg_count() >= 2 then
                 WriteByte(Trinity[game_version], 0x71) -- Forced
             else

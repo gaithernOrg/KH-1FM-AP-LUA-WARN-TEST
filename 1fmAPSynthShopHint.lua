@@ -2,7 +2,7 @@ LUAGUI_NAME = "1fmAPSynthShopHint"
 LUAGUI_AUTH = "Gicu"
 LUAGUI_DESC = "Kingdom Hearts 1FM AP Integration"
 
-game_version = 1 --1 for ESG 1.0.0.9, 2 for Steam 1.0.0.10
+game_version = 1 --1 for EGS 1.0.0.10, 2 for Steam 1.0.0.10
 
 if os.getenv('LOCALAPPDATA') ~= nil then
     client_communication_path = os.getenv('LOCALAPPDATA') .. "\\KH1FM\\"
@@ -15,9 +15,9 @@ else
 end
 
 local canExecute = false
-local world = {0x2340DDC, 0x233FE84}
-local room  = {0x2340DDC + 0x68, 0x233FE84 + 0x8}
-local spawn = {0x2DEBD28, 0x2DEB3A8}
+local world = {0x2340E5C, 0x233FE84} --changed for EGS 1.0.0.10
+local room  = {0x2340E5C + 0x68, 0x233FE84 + 0x8} --changed for EGS 1.0.0.10
+local spawn = {0x2DEBDA8, 0x2DEB3A8} --changed for EGS 1.0.0.10
 
 function file_exists(name)
    local f=io.open(name,"r")

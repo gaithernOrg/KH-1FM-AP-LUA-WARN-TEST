@@ -2,9 +2,9 @@ LUAGUI_NAME = "1fmAPInstantGummi"
 LUAGUI_AUTH = "denhonator with edits from Gicu"
 LUAGUI_DESC = "Instantly arrive at gummi destination"
 
-game_version = 1 --1 for ESG 1.0.0.9, 2 for Steam 1.0.0.10
+game_version = 1 --1 for EGS 1.0.0.10, 2 for Steam 1.0.0.10
 local worldWarpBase = {0x50F9D0, 0x50AB90}
-local cutsceneFlagBase = {0x2DEA6E0, 0x2DE9D60}
+local cutsceneFlagBase = {0x2DEA760, 0x2DE9D60} --changed for EGS 1.0.0.10
 
 local canExecute = false
 
@@ -60,7 +60,7 @@ function _OnFrame()
         WriteInt(current_destination_address[game_version], selection)
         selection_address_other = {0x507C90, 0x506F90}
         WriteInt(selection_address_other[game_version], selection)
-        other_address = {0x268A1EC, 0x268986C}
+        other_address = {0x268A26C, 0x268986C} --changed for EGS 1.0.0.10 (may need to look again for Steam)
         WriteInt(other_address[game_version], 0)
     else
         selection_address_other = {0x507C90, 0x506F90}
