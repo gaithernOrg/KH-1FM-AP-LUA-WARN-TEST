@@ -63,8 +63,8 @@ function StackAbilities()
                 WriteInt(superglideSpeedHack[game_version], 0x18027C + math.max(countedAbilities[3]-2, 0)*4)
             end
         elseif game_version == 2 then
-            if ReadShort(superglideSpeedHack[game_version]+1) == 0x17D1 then
-                WriteInt(superglideSpeedHack[game_version], 0x17D1BC + math.max(countedAbilities[3]-2, 0)*4)
+            if ReadShort(superglideSpeedHack[game_version]+1) == 0x17CE then
+                WriteInt(superglideSpeedHack[game_version], 0x17CEDC + math.max(countedAbilities[3]-2, 0)*4)
             end
         end
         
