@@ -55,7 +55,7 @@ local soraStats = {0x2DE9D60, 0x2DE9360} --changed for EGS 1.0.0.10
 local worldWarp = {0x2340808, 0x233FEB8} --MAYBE? changed for EGS 1.0.0.10
 local roomWarp = {0x2340808 + 4, 0x233FEB8 + 4} --MAYBE? changed for EGS 1.0.0.10
 local roomWarpRead = {0x232E908, 0x232DF18} --changed for EGS 1.0.0.10
-local warpTrigger = {0x22ECA80, 0x22EC0AC} --changed BOTH 1.0.0.10
+local warpTrigger = {0x22ECA8C, 0x22EC0AC} --changed BOTH 1.0.0.10
 local warpType1 = {0x23405C0, 0x233FBC0} --changed for EGS 1.0.0.10
 local warpType2 = {0x22ECA90, 0x22EC0B0} --changed BOTH 1.0.0.10
 local warpDefinitions = {0x232E900, 0x232DF10} --changed for EGS 1.0.0.10
@@ -559,7 +559,7 @@ function _OnInit()
     IsEpicGLVersion  = 0x3A2B86
     IsSteamGLVersion = 0x3A29A6
     if GAME_ID == 0xAF71841E and ENGINE_TYPE == "BACKEND" then
-        if ReadByte(IsEpicGLVersion) == 0xFF then
+        if ReadByte(IsEpicGLVersion) == 0xF0 then
             ConsolePrint("Epic Version Detected")
             game_version = 1
         end

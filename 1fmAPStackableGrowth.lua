@@ -59,8 +59,8 @@ function StackAbilities()
             end
         end
         if game_version == 1 then
-            if ReadShort(superglideSpeedHack[game_version]+1) == 0x1802 then
-                WriteInt(superglideSpeedHack[game_version], 0x18027C + math.max(countedAbilities[3]-2, 0)*4)
+            if ReadShort(superglideSpeedHack[game_version]+1) == 0x17FF then
+                WriteInt(superglideSpeedHack[game_version], 0x17FFBC + math.max(countedAbilities[3]-2, 0)*4)
             end
         elseif game_version == 2 then
             if ReadShort(superglideSpeedHack[game_version]+1) == 0x17CE then
@@ -83,7 +83,7 @@ function _OnInit()
     IsEpicGLVersion  = 0x3A2B86
     IsSteamGLVersion = 0x3A29A6
     if GAME_ID == 0xAF71841E and ENGINE_TYPE == "BACKEND" then
-        if ReadByte(IsEpicGLVersion) == 0xFF then
+        if ReadByte(IsEpicGLVersion) == 0xF0 then
             ConsolePrint("Epic Version Detected")
             game_version = 1
         end

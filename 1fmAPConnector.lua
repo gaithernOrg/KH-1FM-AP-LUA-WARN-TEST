@@ -2153,7 +2153,7 @@ function _OnInit()
     IsEpicGLVersion  = 0x3A2B86
     IsSteamGLVersion = 0x3A29A6
     if GAME_ID == 0xAF71841E and ENGINE_TYPE == "BACKEND" then
-        if ReadByte(IsEpicGLVersion) == 0xFF then
+        if ReadByte(IsEpicGLVersion) == 0xF0 then
             ConsolePrint("Epic Version Detected")
             game_version = 1
         end
