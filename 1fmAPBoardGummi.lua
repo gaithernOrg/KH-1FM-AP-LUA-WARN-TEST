@@ -29,7 +29,7 @@ function _OnFrame()
     if not canExecute then
         goto done
     end
-    save_menu_open_address = {0x232E904, 0x232DFA4}
+    save_menu_open_address = {0x232E984, 0x232DFA4}
     local savemenuopen = ReadByte(save_menu_open_address[game_version])
     
     if savemenuopen == 4 and lastsavemenuopen ~= 4 then
