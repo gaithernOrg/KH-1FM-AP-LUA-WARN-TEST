@@ -52,8 +52,8 @@ local room = {0x2340E5C + 0x68, 0x233FE84 + 0x8} --changed for EGS 1.0.0.10
 
 local soraStats = {0x2DE9D60, 0x2DE9360} --changed for EGS 1.0.0.10
 
-local worldWarp = {0x2340808, 0x233FEB8} --MAYBE? changed for EGS 1.0.0.10
-local roomWarp = {0x2340808 + 4, 0x233FEB8 + 4} --MAYBE? changed for EGS 1.0.0.10
+local worldWarp = {0x2340EF0, 0x233FEB8} --MAYBE? changed for EGS 1.0.0.10
+local roomWarp = {0x2340EF0 + 4, 0x233FEB8 + 4} --MAYBE? changed for EGS 1.0.0.10
 local roomWarpRead = {0x232E908, 0x232DF18} --changed for EGS 1.0.0.10
 local warpTrigger = {0x22ECA8C, 0x22EC0AC} --changed BOTH 1.0.0.10
 local warpType1 = {0x23405C0, 0x233FBC0} --changed for EGS 1.0.0.10
