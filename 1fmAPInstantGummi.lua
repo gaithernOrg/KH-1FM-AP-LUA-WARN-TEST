@@ -3,8 +3,9 @@ LUAGUI_AUTH = "denhonator with edits from Gicu"
 LUAGUI_DESC = "Instantly arrive at gummi destination"
 
 game_version = 1 --1 for EGS 1.0.0.10, 2 for Steam 1.0.0.10
-local worldWarpBase = {0x50F9D0, 0x50AB90}
-local cutsceneFlagBase = {0x2DEA760, 0x2DE9D60} --changed for EGS 1.0.0.10
+local worldWarpBase = {0x50FA7A, 0x50ABBA}
+local worldWarpBase2 = {0x50FAEA, 0x50AC2A}
+local cutsceneFlagBase = {0x2DEB265, 0x2DEA865} --changed for EGS 1.0.0.10
 
 local canExecute = false
 
@@ -33,13 +34,13 @@ function _OnFrame()
     local selection = ReadInt(selection_address[game_version])
     local realSelection = selection
     
-    local neverlandState = ReadByte(cutsceneFlagBase[game_version]+0xB0D) < 0x14
-    local deepJungleState = ReadByte(cutsceneFlagBase[game_version]+0xB05) < 0x10
+    local deepJungleState = ReadByte(cutsceneFlagBase[game_version]) < 16
+    local neverlandState = ReadByte(cutsceneFlagBase[game_version] + 8) < 20
 
-    WriteByte(worldWarpBase[game_version]+0x2A, deepJungleState and 0 or 0xE)
-    WriteByte(worldWarpBase[game_version]+0x2C, deepJungleState and 0 or 0x2D)
-    WriteByte(worldWarpBase[game_version]+0x9A, neverlandState and 6 or 0x7)
-    WriteByte(worldWarpBase[game_version]+0x9C, neverlandState and 0x18 or 0x25)
+    WriteByte(worldWarpBase[game_version], deepJungleState and 0 or 0xE)
+    WriteByte(worldWarpBase[game_version]+2, deepJungleState and 0 or 0x2D)
+    WriteByte(worldWarpBase2[game_version], neverlandState and 6 or 0x7)
+    WriteByte(worldWarpBase2[game_version]+2, neverlandState and 0x18 or 0x25)
 
     -- Change warp to Hollow Bastion
     if selection == 25 then 

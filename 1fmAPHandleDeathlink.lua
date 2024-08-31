@@ -20,10 +20,9 @@ local removeWhite = 0
 local lastDeathPointer = 0
 local soraHUD = {0x2812E9C, 0x281249C} --changed for EGS 1.0.0.10
 local soraHP = {0x2D5D64C, 0x2D5CC4C} --changed for EGS 1.0.0.10
-local stateFlag = {0x2867C58, 0x28672C8} --changed for EGS 1.0.0.10 (may need to look into steam)
+local stateFlag = {0x2867CD8, 0x2867364} --changed for EGS 1.0.0.10 (may need to look into steam)
 local deathCheck = {0x299F20, 0x29C0B0} --changed BOTH 1.0.0.10
-local safetyMeasure = {0x299D86, 0x29BF16} --changed BOTH 1.0.0.10
-local whiteFade = {0x234081C, 0x233FECC} --changed for EGS 1.0.0.10
+local whiteFade = {0x234081C, 0x233FE1C} --changed for EGS 1.0.0.10
 local blackFade = {0x4DD3F8, 0x4DC718}
 local deathPointer = {0x2398838, 0x2382568} --changed for EGS 1.0.0.10
 
@@ -84,9 +83,6 @@ function _OnFrame()
     -- Reverts disabling death condition check (or it crashes)
     if revertCode and ReadLong(deathPointer[game_version]) ~= lastDeathPointer then
         WriteShort(deathCheck[game_version], 0x2E74)
-        if extraSafety then
-            WriteLong(safetyMeasure[game_version], 0x8902AB8973058948)
-        end
         removeWhite = 1000
         revertCode = false
     end
@@ -98,9 +94,6 @@ function _OnFrame()
             WriteByte(soras_hp_address[game_version], 0)
             WriteByte(stateFlag[game_version], 1)
             WriteShort(deathCheck[game_version], 0x9090)
-            if extraSafety then
-                WriteLong(safetyMeasure[game_version], 0x89020B958735894C)
-            end
             revertCode = true
         end
     end
@@ -111,9 +104,6 @@ function _OnFrame()
             WriteByte(soras_hp_address[game_version], 0)
             WriteByte(stateFlag[game_version], 1)
             WriteShort(deathCheck[game_version], 0x9090)
-            if extraSafety then
-                WriteLong(safetyMeasure[game_version], 0x89020B958735894C)
-            end
             revertCode = true
         end
     end
@@ -128,9 +118,6 @@ function _OnFrame()
                 WriteByte(soraHP[game_version], 0)
                 WriteByte(stateFlag[game_version], 1)
                 WriteShort(deathCheck[game_version], 0x9090)
-                if extraSafety then
-                    WriteLong(safetyMeasure[game_version], 0x89020B958735894C)
-                end
                 revertCode = true
                 last_death_time = death_time
                 soras_last_hp = 0
