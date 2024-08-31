@@ -36,11 +36,11 @@ function _OnFrame()
         addgummi = 5
     end
     if savemenuopen == 4 and addgummi==1 then
-        unlock_gummi_address        = {0x2E20F28, 0x2E204F8}
-        save_menu_buttons_1_address = {0x2E20E9C, 0x2E2055C}
-        save_menu_buttons_2_address = {0x2E93750, 0x2E92DF0}
-        save_menu_buttons_3_address = {0x2E93752, 0x2E92DF2}
-        button_types_address        = {0x2E20EA0, 0x2E20548}
+        unlock_gummi_address        = {0x2E20FA8, 0x2E204F8}
+        save_menu_buttons_1_address = {0x2E20F1C, 0x2E2055C}
+        save_menu_buttons_2_address = {0x2E937D0, 0x2E92DF0}
+        save_menu_buttons_3_address = {0x2E937D2, 0x2E92DF2}
+        button_types_address        = {0x2E20F20, 0x2E20548}
         WriteByte(unlock_gummi_address[game_version], 3) --Unlock gummi
         WriteByte(save_menu_buttons_1_address[game_version], 5) --Set 5 buttons to save menu
         WriteByte(save_menu_buttons_2_address[game_version], 5) --Set 5 buttons to save menu
