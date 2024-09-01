@@ -33,6 +33,7 @@ canExecute = false
 function find_items_to_remove()
     removed_bits_address = {0x2DF5C70, 0x2DF5270} --changed for EGS 1.0.0.10
     stock_address = {0x2DEA1F9, 0x2DE97F9} --changed for EGS 1.0.0.10
+    torn_pages_available_for_turn_in_address = {0x2DEB160, 0x2DEA760} --changed for EGS 1.0.0.10
     --Item Data Table Values
     --Address, Bit Number (0 if Byte Value), Compare Value, Item Offset, Special Function
     item_data_table = {
@@ -73,10 +74,9 @@ function find_items_to_remove()
             end
             if need_to_delete then
                 item_qty = ReadByte(stock_address[game_version] + item_data[4])
-                if item_qty > 0 then
+                if item_qty > 0 and ((item_data[5] == 0x1 and ReadByte(torn_pages_available_for_turn_in_address[game_version]) > 0) or (item_data[5] ~= 0x1)) then
                     WriteByte(stock_address[game_version] + item_data[4], math.max(item_qty-1, 0))
                     if item_data[5] == 0x1 then --Remove Torn Page
-                        torn_pages_available_for_turn_in_address = {0x2DEB160, 0x2DEA760} --changed for EGS 1.0.0.10
                         WriteByte(torn_pages_available_for_turn_in_address[game_version], math.max(ReadByte(torn_pages_available_for_turn_in_address[game_version])-1,0))
                     end
                     removed_bits_value = removed_bits_value + 2^((item_table_index-1)%8)
