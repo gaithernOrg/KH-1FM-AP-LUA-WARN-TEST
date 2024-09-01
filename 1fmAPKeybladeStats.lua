@@ -7,9 +7,9 @@ LUAGUI_NAME = "1fmAPKeybladeStats"
 LUAGUI_AUTH = "Gicu"
 LUAGUI_DESC = "Kingdom Hearts 1FM AP Integration"
 
-game_version = 1 --1 for ESG 1.0.0.9, 2 for Steam 1.0.0.9
+game_version = 1 --1 for EGS 1.0.0.10, 2 for Steam 1.0.0.10
 
-local keyblade_stats_base_address = {0x2D2CBB8, 0x2D2C238}
+local keyblade_stats_base_address = {0x2D2CC38, 0x2D2C238} --changed for EGS 1.0.0.10
 
 local canExecute = false
 local finished = false
@@ -73,7 +73,7 @@ function write_keyblade_stats(keyblade_stats)
 end
 
 function give_dream_weapons()
-    inventory_address = {0x2DEA179, 0x2DE97F9}
+    inventory_address = {0x2DEA1F9, 0x2DE97F9} --changed for EGS 1.0.0.10
     WriteArray(inventory_address[game_version] + 82, {1,1,1})
 end
 
@@ -90,11 +90,11 @@ function _OnInit()
     IsEpicGLVersion  = 0x3A2B86
     IsSteamGLVersion = 0x3A29A6
     if GAME_ID == 0xAF71841E and ENGINE_TYPE == "BACKEND" then
-        if ReadByte(IsEpicGLVersion) == 0xFF then
+        if ReadByte(IsEpicGLVersion) == 0xF0 then
             ConsolePrint("Epic Version Detected")
             game_version = 1
         end
-        if ReadByte(IsSteamGLVersion) == 0xFF then
+        if ReadByte(IsSteamGLVersion) == 0xF0 then
             ConsolePrint("Steam Version Detected")
             game_version = 2
         end

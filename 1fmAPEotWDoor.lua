@@ -7,7 +7,7 @@ LUAGUI_NAME = "1fmAPEotWDoor"
 LUAGUI_AUTH = "Gicu and Sonicshadowsilver2"
 LUAGUI_DESC = "Kingdom Hearts 1FM AP Integration"
 
-game_version = 1 --1 for ESG 1.0.0.9, 2 for Steam 1.0.0.9
+game_version = 1 --1 for EGS 1.0.0.10, 2 for Steam 1.0.0.10
 canExecute = false
 required_reports_door = 14
 door_goal = "reports"
@@ -53,21 +53,21 @@ function read_door_goal()
 end
 
 function all_postcards_mailed()
-    postcards_mailed_address = {0x2DEB99F, 0x2DEB01F}
+    postcards_mailed_address = {0x2DEBA1F, 0x2DEB01F} --changed for EGS 1.0.0.10
     postcards_mailed = ReadByte(postcards_mailed_address[game_version])
     return postcards_mailed >= 10
 end
 
 function all_puppies_returned()
-    all_puppies_returned_address = {0x2DEAB25, 0x2DEA1A5}
+    all_puppies_returned_address = {0x2DEABA5, 0x2DEA1A5} --changed for EGS 1.0.0.10
     all_puppies_returned_byte = ReadByte(all_puppies_returned_address[game_version])
     return all_puppies_returned_byte > 0
 end
 
 function all_super_bosses_defeated()
-    sephiroth_address             = {0x2DEAC4A, 0x2DEA2CA}
-    unknown_and_kurt_zisa_address = {0x2DEB6A1, 0x2DEAD21}
-    phantom_address               = {0x2DEB1ED, 0x2DEA86D}
+    sephiroth_address             = {0x2DEACCA, 0x2DEA2CA} --changed for EGS 1.0.0.10
+    unknown_and_kurt_zisa_address = {0x2DEB721, 0x2DEAD21} --changed for EGS 1.0.0.10
+    phantom_address               = {0x2DEB26D, 0x2DEA86D} --changed for EGS 1.0.0.10
     
     sephiroth_complete             = ReadByte(sephiroth_address[game_version]) > 0
     unknown_complete               = (ReadByte(unknown_and_kurt_zisa_address[game_version]) % 16) >= 8
@@ -78,7 +78,7 @@ function all_super_bosses_defeated()
 end
 
 function read_report_qty()
-    inventory_address = {0x2DEA179, 0x2DE97F9}
+    inventory_address = {0x2DEA1F9, 0x2DE97F9} --changed for EGS 1.0.0.10
     reports_1 = ReadArray(inventory_address[game_version] + 149, 3)
     reports_2 = ReadArray(inventory_address[game_version] + 168, 10)
     reports_acquired = 0
@@ -96,7 +96,7 @@ function read_report_qty()
 end
 
 function write_ansem_door(ansem_door_on)
-    final_rest = {0x2DEBE2C, 0x2DEB4AC}
+    final_rest = {0x2DEBEAC, 0x2DEB4AC} --changed for EGS 1.0.0.10
     if ansem_door_on then
         WriteByte(final_rest[game_version], 0)
     else
@@ -122,11 +122,11 @@ function _OnInit()
     IsEpicGLVersion  = 0x3A2B86
     IsSteamGLVersion = 0x3A29A6
     if GAME_ID == 0xAF71841E and ENGINE_TYPE == "BACKEND" then
-        if ReadByte(IsEpicGLVersion) == 0xFF then
+        if ReadByte(IsEpicGLVersion) == 0xF0 then
             ConsolePrint("Epic Version Detected")
             game_version = 1
         end
-        if ReadByte(IsSteamGLVersion) == 0xFF then
+        if ReadByte(IsSteamGLVersion) == 0xF0 then
             ConsolePrint("Steam Version Detected")
             game_version = 2
         end

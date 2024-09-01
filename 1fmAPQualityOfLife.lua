@@ -2,17 +2,17 @@ LUAGUI_NAME = "1fmAPQualityOfLife"
 LUAGUI_AUTH = "Gicu & Sonicshadowsilver2"
 LUAGUI_DESC = "Kingdom Hearts 1FM AP Integration"
 
-game_version = 1 --1 for ESG 1.0.0.9, 2 for Steam 1.0.0.9
+game_version = 1 --1 for EGS 1.0.0.10, 2 for Steam 1.0.0.10
 
 local canExecute = false
 
-Now = {0x2340DDC, 0x233FE84}
-Items = {0x2DEA17A, 0x2DE97FA}
-ChestFlags = {0x2DEA3DC, 0x2DE9A5C}
-EventFlags = {0x2DEAAE8, 0x2DEA168}
-RoomFlags = {0x2DEBDBE, 0x2DEB43E}
-CutsceneFlags = {0x2DEA6E0, 0x2DE9D60}
-KeybladeExplanation = {0x2DEA9EE, 0x2DEA06E}
+Now = {0x2340E5C, 0x233FE84} --changed for EGS 1.0.0.10
+Items = {0x2DEA1FA, 0x2DE97FA} --changed for EGS 1.0.0.10
+ChestFlags = {0x2DEA45C, 0x2DE9A5C} --changed for EGS 1.0.0.10
+EventFlags = {0x2DEAB68, 0x2DEA168} --changed for EGS 1.0.0.10
+RoomFlags = {0x2DEBE3E, 0x2DEB43E} --changed for EGS 1.0.0.10
+CutsceneFlags = {0x2DEA760, 0x2DE9D60} --changed for EGS 1.0.0.10
+KeybladeExplanation = {0x2DEAA6E, 0x2DEA06E} --changed for EGS 1.0.0.10
 
 function BitOr(Address,Bit,Abs)
     WriteByte(Address,ReadByte(Address)|Bit,Abs and OnPC)
@@ -26,11 +26,11 @@ function _OnInit()
     IsEpicGLVersion  = 0x3A2B86
     IsSteamGLVersion = 0x3A29A6
     if GAME_ID == 0xAF71841E and ENGINE_TYPE == "BACKEND" then
-        if ReadByte(IsEpicGLVersion) == 0xFF then
+        if ReadByte(IsEpicGLVersion) == 0xF0 then
             ConsolePrint("Epic Version Detected")
             game_version = 1
         end
-        if ReadByte(IsSteamGLVersion) == 0xFF then
+        if ReadByte(IsSteamGLVersion) == 0xF0 then
             ConsolePrint("Steam Version Detected")
             game_version = 2
         end

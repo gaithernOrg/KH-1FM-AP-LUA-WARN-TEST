@@ -2,7 +2,7 @@ LUAGUI_NAME = "1fmAPHandleDeathlink"
 LUAGUI_AUTH = "denhonator with edits from Gicu"
 LUAGUI_DESC = "Handles sending and receiving Death Links. Credits to Denho."
 
-game_version = 1 --1 for ESG 1.0.0.9, 2 for Steam 1.0.0.9
+game_version = 1 --1 for EGS 1.0.0.10, 2 for Steam 1.0.0.10
 
 if os.getenv('LOCALAPPDATA') ~= nil then
     client_communication_path = os.getenv('LOCALAPPDATA') .. "\\KH1FM\\"
@@ -18,21 +18,20 @@ local extraSafety = false
 local revertCode = false
 local removeWhite = 0
 local lastDeathPointer = 0
-local soraHUD = {0x2812E1C, 0x281249C}
-local soraHP = {0x2D5D5CC, 0x2D5CC4C}
-local stateFlag = {0x2867C58, 0x28672C8}
-local deathCheck = {0x299BE0, 0x29BD70}
-local safetyMeasure = {0x299A46, 0x29BBD6}
-local whiteFade = {0x234079C, 0x233FECC}
+local soraHUD = {0x2812E9C, 0x281249C} --changed for EGS 1.0.0.10
+local soraHP = {0x2D5D64C, 0x2D5CC4C} --changed for EGS 1.0.0.10
+local stateFlag = {0x2867CD8, 0x2867364} --changed for EGS 1.0.0.10 (may need to look into steam)
+local deathCheck = {0x299F20, 0x29C0B0} --changed BOTH 1.0.0.10
+local whiteFade = {0x234081C, 0x233FE1C} --changed for EGS 1.0.0.10
 local blackFade = {0x4DD3F8, 0x4DC718}
-local deathPointer = {0x23987B8, 0x2382568}
+local deathPointer = {0x2398838, 0x2382568} --changed for EGS 1.0.0.10
 
 local canExecute = false
 last_death_time = 0
-sora_hp_address_base = {0x2DE9CE0, 0x2DE9360}
-soras_hp_address = {0x2DE9CE0 + 0x5, 0x2DE9360 + 0x5}
-donalds_hp_address = {0x2DE9CE0 + 0x5 + 0x74, 0x2DE9360 + 0x5 + 0x74}
-goofys_hp_address = {0x2DE9CE0 + 0x5 + 0x74 + 0x74, 0x2DE9360 + 0x5 + 0x74 + 0x74}
+sora_hp_address_base = {0x2DE9D60, 0x2DE9360} --changed for EGS 1.0.0.10
+soras_hp_address = {0x2DE9D60 + 0x5, 0x2DE9360 + 0x5} --changed for EGS 1.0.0.10
+donalds_hp_address = {0x2DE9D60 + 0x5 + 0x74, 0x2DE9360 + 0x5 + 0x74} --changed for EGS 1.0.0.10
+goofys_hp_address = {0x2DE9D60 + 0x5 + 0x74 + 0x74, 0x2DE9360 + 0x5 + 0x74 + 0x74} --changed for EGS 1.0.0.10
 soras_last_hp = 100
 
 function file_exists(name)
@@ -44,11 +43,11 @@ function _OnInit()
     IsEpicGLVersion  = 0x3A2B86
     IsSteamGLVersion = 0x3A29A6
     if GAME_ID == 0xAF71841E and ENGINE_TYPE == "BACKEND" then
-        if ReadByte(IsEpicGLVersion) == 0xFF then
+        if ReadByte(IsEpicGLVersion) == 0xF0 then
             ConsolePrint("Epic Version Detected")
             game_version = 1
         end
-        if ReadByte(IsSteamGLVersion) == 0xFF then
+        if ReadByte(IsSteamGLVersion) == 0xF0 then
             ConsolePrint("Steam Version Detected")
             game_version = 2
         end
@@ -73,8 +72,6 @@ function _OnFrame()
     if not canExecute then
         goto done
     end
-    save_menu_open_address = {0x232E904, 0x232DFA4}
-    local savemenuopen = ReadByte(save_menu_open_address[game_version])
     -- Remove white screen on death (it bugs out this way normally)
     if removeWhite > 0 then
         removeWhite = removeWhite - 1
@@ -86,9 +83,6 @@ function _OnFrame()
     -- Reverts disabling death condition check (or it crashes)
     if revertCode and ReadLong(deathPointer[game_version]) ~= lastDeathPointer then
         WriteShort(deathCheck[game_version], 0x2E74)
-        if extraSafety then
-            WriteLong(safetyMeasure[game_version], 0x8902AB8973058948)
-        end
         removeWhite = 1000
         revertCode = false
     end
@@ -100,9 +94,6 @@ function _OnFrame()
             WriteByte(soras_hp_address[game_version], 0)
             WriteByte(stateFlag[game_version], 1)
             WriteShort(deathCheck[game_version], 0x9090)
-            if extraSafety then
-                WriteLong(safetyMeasure[game_version], 0x89020B958735894C)
-            end
             revertCode = true
         end
     end
@@ -113,9 +104,6 @@ function _OnFrame()
             WriteByte(soras_hp_address[game_version], 0)
             WriteByte(stateFlag[game_version], 1)
             WriteShort(deathCheck[game_version], 0x9090)
-            if extraSafety then
-                WriteLong(safetyMeasure[game_version], 0x89020B958735894C)
-            end
             revertCode = true
         end
     end
@@ -130,9 +118,6 @@ function _OnFrame()
                 WriteByte(soraHP[game_version], 0)
                 WriteByte(stateFlag[game_version], 1)
                 WriteShort(deathCheck[game_version], 0x9090)
-                if extraSafety then
-                    WriteLong(safetyMeasure[game_version], 0x89020B958735894C)
-                end
                 revertCode = true
                 last_death_time = death_time
                 soras_last_hp = 0

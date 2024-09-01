@@ -7,20 +7,20 @@ LUAGUI_NAME = "1fmAPEotWFlagFixes"
 LUAGUI_AUTH = "Sonicshadowsilver2 with edits from Gicu"
 LUAGUI_DESC = "Kingdom Hearts 1FM AP Integration"
 
-game_version = 1 --1 for ESG 1.0.0.9, 2 for Steam 1.0.0.9
-RoomFlags = {0x2DEBDBE, 0x2DEB43E}
-CutsceneFlags = {0x2DEA6E0, 0x2DE9D60}
+game_version = 1 --1 for EGS 1.0.0.10, 2 for Steam 1.0.0.10
+RoomFlags = {0x2DEBE3E, 0x2DEB43E} --changed for EGS 1.0.0.10
+CutsceneFlags = {0x2DEA760, 0x2DE9D60} --changed for EGS 1.0.0.10
 canExecute = false
 
 function _OnInit()
     IsEpicGLVersion  = 0x3A2B86
     IsSteamGLVersion = 0x3A29A6
     if GAME_ID == 0xAF71841E and ENGINE_TYPE == "BACKEND" then
-        if ReadByte(IsEpicGLVersion) == 0xFF then
+        if ReadByte(IsEpicGLVersion) == 0xF0 then
             ConsolePrint("Epic Version Detected")
             game_version = 1
         end
-        if ReadByte(IsSteamGLVersion) == 0xFF then
+        if ReadByte(IsSteamGLVersion) == 0xF0 then
             ConsolePrint("Steam Version Detected")
             game_version = 2
         end
