@@ -490,7 +490,7 @@ function FlagFixes()
     end
     if ReadByte(cutsceneFlags[game_version]+0xB0C) == 0x21 then --Require Forget-Me-Not
         debugPrint("Section 34")
-        lab_room_address = {0x2DEBDDC, 0x2DEB45C}
+        lab_room_address = {0x2DEBE5C, 0x2DEB45C} --changed for EGS 1.0.0.10
         if ReadByte(inventory[game_version]+0xE2) > 0 then
             WriteByte(lab_room_address[game_version], 2)
         else
