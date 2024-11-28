@@ -52,12 +52,13 @@ function main()
     read_mult()
     for p=0,2 do
         local accOff = (p*0x74) + 0x1D
-        for i=0,3 do
+        for i=0,7 do
             local eqID = ReadByte(soraStats[game_version] + accOff+i)
             local eqName = ReadByte(itemTable+((eqID-1)*20))
-            if eqName == 0x56 or eqName == 0x58 then
+            ConsolePrint(eqName)
+            if eqName == 0xD6 or eqName == 0xD8 then
                 xp_mult = xp_mult + 0.2
-            elseif eqName == 0x59 or eqName == 0x5A then
+            elseif eqName == 0xD9 or eqName == 0xDA then
                 xp_mult = xp_mult + 0.3
             end
         end
