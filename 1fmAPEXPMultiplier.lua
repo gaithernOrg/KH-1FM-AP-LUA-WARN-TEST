@@ -55,7 +55,6 @@ function main()
         for i=0,7 do
             local eqID = ReadByte(soraStats[game_version] + accOff+i)
             local eqName = ReadByte(itemTable+((eqID-1)*20))
-            ConsolePrint(eqName)
             if eqName == 0xD6 or eqName == 0xD8 then
                 xp_mult = xp_mult + 0.2
             elseif eqName == 0xD9 or eqName == 0xDA then
