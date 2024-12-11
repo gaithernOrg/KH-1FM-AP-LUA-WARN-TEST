@@ -136,7 +136,9 @@ end
 
 function turn_on_kurt_zisa()
     carpet_takes_you_to_kurt_zisa_address = {0x2DEB260, 0x2DEA860} --changed for EGS 1.0.0.10
-    WriteByte(carpet_takes_you_to_kurt_zisa_address[game_version], 0xF0)
+    if ReadByte(carpet_takes_you_to_kurt_zisa_address[game_version]) < 0xF0 then
+        WriteByte(carpet_takes_you_to_kurt_zisa_address[game_version], 0xF0)
+    end
 end
 
 function fix_library()
@@ -181,11 +183,11 @@ function main()
                     write_world_progress_byte(world_progress_indexes[i], final_bytes[i])
                     correct_world_flags(world_offset[i], world_progress_reset_array[i][#world_progress_reset_array[i]][2])
                     second_visit[i] = true
-                    if i == 3 then --Agrabah
-                        turn_on_kurt_zisa()
-                    end
                 end
             end
+        end
+        if specific_worlds_progress_array[3] >= 0x82 then
+            turn_on_kurt_zisa()
         end
     end
 end
