@@ -68,7 +68,6 @@ assets:
   source:
   - name: 1fmAPFixWarps.lua
 #Files
-#Files
 - name: exchange/UK_treasure.ev
   method: copy
   source:
