@@ -63,6 +63,10 @@ assets:
   method: copy
   source:
   - name: 1fmAPRemoveItems.lua
+- name: scripts/1fmAPFixWarps.lua
+  method: copy
+  source:
+  - name: 1fmAPFixWarps.lua
 #Files
 #Files
 - name: exchange/UK_treasure.ev
